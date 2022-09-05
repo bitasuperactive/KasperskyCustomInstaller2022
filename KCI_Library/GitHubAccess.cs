@@ -13,7 +13,7 @@ namespace KCI_Library
         /// <summary>
         /// Enlace web a este repositorio en GitHub.
         /// </summary>
-        private static string GitHubUrl { get; } = "https://github.com/bitasuperactive/KasperskyCustomInstaller";
+        private static string GitHubUrl { get; } = "https://github.com/bitasuperactive/KasperskyCustomInstaller2022";
 
         /// <summary>
         /// Abre el enlace web a este repositorio en GitHub.
