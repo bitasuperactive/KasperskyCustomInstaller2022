@@ -1,0 +1,470 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="githubButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="githubButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="githubButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="restartAsAdminButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="restartAsAdminButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="restartAsAdminButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="restartAsAdminButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 32</value>
+  </data>
+  <data name="kavRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="kavRadioButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="kavRadioButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="kavRadioButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="kavRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="kavRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 61</value>
+  </data>
+  <data name="kavRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 93</value>
+  </data>
+  <data name="kavRadioButton.Text" xml:space="preserve">
+    <value>    Kaspersky Antivirus</value>
+  </data>
+  <data name="kavRadioButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="kavRadioButton.ToolTip" xml:space="preserve">
+    <value>Selecciona la edición deseada a instalar</value>
+  </data>
+  <data name="kisRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="kisRadioButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="kisRadioButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        dL46iRGE/wHuQtnZwYGbkQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="kisRadioButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="kisRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="kisRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 160</value>
+  </data>
+  <data name="kisRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 93</value>
+  </data>
+  <data name="kisRadioButton.Text" xml:space="preserve">
+    <value>    Kaspersky Internet Security</value>
+  </data>
+  <data name="kisRadioButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="kisRadioButton.ToolTip" xml:space="preserve">
+    <value>Selecciona la edición deseada a instalar</value>
+  </data>
+  <data name="ktsRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="ktsRadioButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ktsRadioButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ktsRadioButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="ktsRadioButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ktsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 259</value>
+  </data>
+  <data name="ktsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>362, 93</value>
+  </data>
+  <data name="ktsRadioButton.Text" xml:space="preserve">
+    <value>    Kaspersky Total Security</value>
+  </data>
+  <data name="ktsRadioButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="usualInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 61</value>
+  </data>
+  <data name="usualInstallButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 80</value>
+  </data>
+  <data name="usualInstallButton.Text" xml:space="preserve">
+    <value>Instalación habitual</value>
+  </data>
+  <data name="autoInstallButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="autoInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 147</value>
+  </data>
+  <data name="autoInstallButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 80</value>
+  </data>
+  <data name="autoInstallButton.Text" xml:space="preserve">
+    <value>Instalación automática</value>
+  </data>
+  <data name="installationConfigListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 144</value>
+  </data>
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowOnly</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>776, 437</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAYAEBAQAAEABAAoAQAAZgAAABAQAAABAAgAaAUAAI4BAAAQEAAAAQAgAGgEAAD2BgAAICAQAAEA
+        BADoAgAAXgsAACAgAAABAAgAqAgAAEYOAAAgIAAAAQAgAKgQAADuFgAAKAAAABAAAAAgAAAAAQAEAAAA
+        AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAACAgACAAAAAgACAAICAAACAgIAAwMDAAAAA
+        /wAA/wAAAP//AP8AAAD/AP8A//8AAP///wAAAA/wAAAAAAAA938AAAAAAAD3d/AAAAAA/w938AAAAA93
+        8P////8A93d/93h3d4/3d3f3d4d3fw93d/h3h3d/APd/94h3d38AD/D3d3d3fwAAAPd3d3d/AAAA93d3
+        d38AAAD3////fwAAAPf///9/AAAA+Hd3d48AAAAA////APn/AADw/wAA8H8AAMh/AACEAwAAAAAAAAAA
+        AACAAAAAwAAAAOQAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAP8DAAAoAAAAEAAAACAAAAABAAgAAAAAAAAB
+        AAAAAAAAAAAAAAABAAAAAQAAAAAAAEJCQgBNTU0AY2JjAHp6egCEg4MAhoaGAI+OjgCamZkAs7OzAL6+
+        vgDU1NQA6+vrAPHv8AD29vYA+fn5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAADg4AAAAAAAAAAAAAAAAADgYGDgAAAAAAAAAAAAAAAA4G
+        AQYOAAAAAAAAAAAADg4ADgYGDgAAAAAAAAAADgYGDgAODg4ODg4ODgAADgYBAQYODgYGCgEBAQQLDw4G
+        AQEBBg4GAQYJAQEBAg4ADgYBAQYOCQYGCQEBAQEOAAAOBgYODgEJCQEBAQEBDgAAAA4OAA4BAQEBAQEB
+        AQ4AAAAAAAAOAQEBAQEBAQEOAAAAAAAADgEDCAgICAMBDgAAAAAAAAwHDQ0NDQ0NBg4AAAAAAAAMCA0N
+        DQ0NDQcOAAAAAAAADwsICAgICAgLDwAAAAAAAAAADg4ODg4OAAD5/wAA8P8AAPB/AADIfwAAhAMAAAAA
+        AAAAAAAAgAAAAMAAAADkAAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD/AwAAKAAAABAAAAAgAAAAAQAgAAAA
+        AABABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb27/b29u/29vYwAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb274aGhv+Ghob/9vb27/b2
+        9jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb2YPb29u+Ghob/QkJC/4aG
+        hv/29vbv9vb2MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb27/b29u/29vZg9vb274aG
+        hv+Ghob/9vb27/b29jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb274aGhv+Ghob/9vb27/b2
+        9mD29vbv9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2z/b29mAAAAAA9vb274aGhv9CQkL/QkJC/4aG
+        hv/29vbv9vb274aGhv+Ghob/vr6+/0JCQv9CQkL/QkJC/3p6ev/U1NT/9vb2j/b29u+Ghob/QkJC/0JC
+        Qv9CQkL/hoaG//b29v+Ghob/QkJC/4aGhv+zs7P/QkJC/0JCQv9CQkL/TU1N//b29v/29vYw9vb274aG
+        hv9CQkL/QkJC/4aGhv/29vb/s7Oz/4aGhv+Ghob/s7Oz/0JCQv9CQkL/QkJC/0JCQv/29vb/AAAAAPb2
+        9jD29vbvhoaG/4aGhv/29vbv9vb2/0JCQv+zs7P/s7Oz/0JCQv9CQkL/QkJC/0JCQv9CQkL/9vb2/wAA
+        AAAAAAAA9vb2MPb29u/29vbv9vb2MPb29v9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b2
+        9v8AAAAAAAAAAAAAAAD29vYw9vb2MAAAAAD29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2/0JCQv9jYmP/mpmZ/5qZmf+amZn/mpmZ/2Ni
+        Y/9CQkL/9vb2/wAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2EOvr6/+Pjo7/8e/w//Hv8P/x7/D/8e/w//Hv
+        8P/x7/D/hIOD//b29v8AAAAAAAAAAAAAAAAAAAAAAAAAAPb29hDr6+v/mpmZ//Hv8P/x7/D/8e/w//Hv
+        8P/x7/D/8e/w/4+Oj//29vb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2j9TU1P+bm5v/mpmZ/5qZ
+        mf+amZn/mpmZ/5ubm//U1NT/9vb2jwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vZg9vb2z/b2
+        9v/29vb/9vb2//b29v/29vbP9vb2YAAAAADw/wAA4H8AAMA/AACAPwAAAAEAAAAAAAAAAAAAAAAAAIAA
+        AADAAAAA5AAAAPwAAAD4AAAA+AAAAPwAAAD+AQAAKAAAACAAAABAAAAAAQAEAAAAAAAAAgAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAIAAAIAAAACAgACAAAAAgACAAICAAACAgIAAwMDAAAAA/wAA/wAAAP//AP8A
+        AAD/AP8A//8AAP///wAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAD/93//AAAA
+        AAAAAAAAAAAP/3d3//AAAAAAAAAAAAAA//d3d3//AAAAAAAAAAAP///3d3d3//AAAAAAAAAAD////3d3
+        d3//AAAAAAAAAA/3d3d3d3d3//AAAAAAAAAP93d3d3d3d//wAAAAAAAAD/d////3d3////AAAAAP8A/3
+        f////3f/d4//AAAA//8P93//93//93d3f/AAD/////d//3d3/3d3d3f/AP/3f//3f/d3d3/3d3d3/w//
+        d3f/93/3d3d3/3d3d///93d3f/d//3d3d3/3d3f//3d3d3d3d3d3d3d3/3d3//93d3d3d3d3d3d3d/93
+        d///93d3d3f////3d3/3d3f/D/93d3d3f////3f/d3d3/wD/93d3d3f/d3//93d3d/8AD/93d3d3/3d3
+        /3d3d3f/AAD/93d3f/d3d3d3d3d3/wAAD/93d/93d3d3d3d3d/8AAAD/93//d3eP///4d3f/AAAAD///
+        /3eP//////h3/wAAAAD///93j//////4d/8AAAAAD/D/d3eP///4d3f/AAAAAAAAD/d3d3d3d3d/8AAA
+        AAAAAAD/+Hd3d3eP/wAAAAAAAAAAD/////////AAAAAAAAAAAAAP//////AAAP//D////gf///wD///4
+        Af//8AD//4AAf/+AAD//gAAf/4AAH/+AAAf5gAAD8IAAAeAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAA
+        AACAAAAAwAAAAOAAAADwAAAA+AAAAPwAAAD+AAAA/wAAAP+QAAD/+AAB//wAA//+AAf//4AfKAAAACAA
+        AABAAAAAAQAIAAAAAAAABAAAAAAAAAAAAAAAAQAAAAEAAAAAAABCQkIATU1NAGRkZABvb28AhIODAIaG
+        hgCRkZEAnJycAKenpwC6uboA0M/PAODg4ADm5OUA6+vrAPHv8AD29vYA+Pj4AAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAERAQEQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEQEBAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREBAG
+        BhAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERAQBgEBBhAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAABEQ
+        EAYBAQEBBhAQEQAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQBgEBAQEBBhAQEQAAAAAAAAAAAAAAAAAAAAAQ
+        EBAQEBAQBgEBAQEBBhAQEQAAAAAAAAAAAAAAAAAAABAQAQEBAQEBAQEBAQEBBhAQEQAAAAAAAAAAAAAA
+        AAAAEBABAQEBAQEBAQEBAQEGEBAQAAAAAAAAAAAAAAAAAAAQEAEBEBAQEBAQBgEBBhAQEBAQEQAAAAAA
+        AAAAEREAABAQAQEQEBAQEBAQBgYQDgMECQwQEAAAAAAAABEQEBEAEBABARAQEBAGBhAQEA4DAQEBAQgQ
+        EAAAAAAREBAQEBEQEAEBEBAQBgEBBhAQBgEBAQEBAQcQEAAAERAQBgYQEBAQAQEQEAYBAQEBBhAOAwEB
+        AQEBARAQABEQEAYBAQYQEBABARAQBgEBAQEBBhAOAwEBAQEBEBAREBAGAQEBAQYQEAEBEBAQBgEBAQEB
+        BhAOAwEBAQEQEBAQBgEBAQEBAQEBAQEBAQEBAQEBAQEBBhAOAwEBARAQEBAGAQEBAQEBAQEBAQEBAQEB
+        AQEBAQEGEA4DAQEBEBAREBAGAQEBAQEBAQYQEBAQEBAQBgEBBhAOAwEBAQEQEAAREBAGAQEBAQEBAQYQ
+        EBAQEBAQBgYQDgMBAQEBARAQAAAREBAGAQEBAQEBAQYQDgMBAw4QEA4DAQEBAQEBEBAAAAAREBAGAQEB
+        AQEBBhAOAwEBAw4OAwEBAQEBAQEQEAAAAAAREBAGAQEBAQYQDgMBAQEBAwMBAQEBAQEBARAQAAAAAAAR
+        EBAGAQEGEBADAQEBAQEBAQEBAQEBAQEBEBAAAAAAAAAREBAGBhAQEAEBAQYKDA8PDw8MCgYBAQEQEAAA
+        AAAAAAAREBAQEBAOAQILDw8PDw8PDw8PDwsBARAQAAAAAAAAAAAREBAREA4BAgsPDw8PDw8PDw8PCwEB
+        EBAAAAAAAAAAAAAREQAQEAcBAQYKDA8PDw8MCgYBAQcQEAAAAAAAAAAAAAAAAAAQEAgBAQEBAQEBAQEB
+        AQEIEBAAAAAAAAAAAAAAAAAAAAAQEAwJBAEBAQEBAQQJDBAQAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQ
+        EBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAEREQEBAQEBAREQAAAAAA//8P///+B////AP///gB///w
+        AP//gAB//4AAP/+AAB//gAAf/4AAB/mAAAPwgAAB4AAAAMAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAA
+        AADAAAAA4AAAAPAAAAD4AAAA/AAAAP4AAAD/AAAA/5AAAP/4AAH//AAD//4AB///gB8oAAAAIAAAAEAA
+        AAABACAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPb29p/29vb/9vb2//b29p8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vaf9vb2//b29v/29vb/9vb2//b2
+        9p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/hoaG/4aG
+        hv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPb29p/29vb/9vb2/4aG
+        hv9CQkL/QkJC/4aGhv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vaf9vb2//b2
+        9v+Ghob/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPb29v/29vb/9vb2//b2
+        9v/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/9vb2//b29p8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/9vb2//b2
+        9p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD29vb/9vb2/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aG
+        hv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAPb29v/29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/hoaG//b29v/29vb/9vb27/b29jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA9vb2//b29v9CQkL/QkJC//b29v/29vb/9vb2//b29v/29vb/9vb2/4aG
+        hv9CQkL/QkJC/4aGhv/29vb/9vb2//b29v/29vb/9vb2//b29r/29vZAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAPb29p/29vafAAAAAAAAAAD29vb/9vb2/0JCQv9CQkL/9vb2//b29v/29vb/9vb2//b2
+        9v/29vb/9vb2/4aGhv+Ghob/9vb2/+vr6/9kZGT/b29v/6enp//g4OD/9vb2//b29v/29vZgAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD29vaf9vb2//b29v/29vafAAAAAPb29v/29vb/QkJC/0JCQv/29vb/9vb2//b2
+        9v/29vb/hoaG/4aGhv/29vb/9vb2//b29v/r6+v/ZGRk/0JCQv9CQkL/QkJC/0JCQv+cnJz/9vb2//b2
+        9v/29vZQAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/9vb2//b29v/29vaf9vb2//b29v9CQkL/QkJC//b2
+        9v/29vb/9vb2/4aGhv9CQkL/QkJC/4aGhv/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv+RkZH/9vb2//b29t8AAAAAAAAAAPb29p/29vb/9vb2/4aGhv+Ghob/9vb2//b29v/29vb/9vb2/0JC
+        Qv9CQkL/9vb2//b29v+Ghob/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv/29vb/9vb2/wAAAAD29vaf9vb2//b29v+Ghob/QkJC/0JCQv+Ghob/9vb2//b2
+        9v/29vb/QkJC/0JCQv/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/6+vr/2Rk
+        ZP9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v/29vb/9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JC
+        Qv+Ghob/9vb2//b29v9CQkL/QkJC//b29v/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aG
+        hv/29vb/6+vr/2RkZP9CQkL/QkJC/0JCQv9CQkL/9vb2//b29v/29vb/9vb2/4aGhv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/0JCQv/29vb/9vb2//b29v/29vb/hoaG/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/hoaG//b29v/r6+v/ZGRk/0JCQv9CQkL/QkJC//b29v/29vb/9vb2n/b2
+        9v/29vb/hoaG/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv+Ghob/9vb2//b29v/29vb/9vb2//b2
+        9v/29vb/9vb2/4aGhv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/0JCQv9CQkL/9vb2//b2
+        9v8AAAAA9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv+Ghob/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2/4aGhv+Ghob/9vb2/+vr6/9kZGT/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/9vb2/wAAAAAAAAAA9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv+Ghob/9vb2/+vr6/9kZGT/QkJC/2RkZP/r6+v/9vb2//b29v/r6+v/ZGRk/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC//b29v/29vb/AAAAAAAAAAAAAAAA9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/2RkZP/r6+v/6+vr/2RkZP9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/9vb2//b29v8AAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/hoaG/0JC
+        Qv9CQkL/QkJC/0JCQv+Ghob/9vb2/+vr6/9kZGT/QkJC/0JCQv9CQkL/QkJC/2RkZP9kZGT/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/9vb2/wAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b2
+        9v/29vb/hoaG/0JCQv9CQkL/hoaG//b29v/29vb/ZGRk/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v/29vb/AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA9vb2n/b29v/29vb/hoaG/4aGhv/29vb/9vb2//b29v9CQkL/QkJC/0JCQv+Eg4P/urm6/+bk
+        5f/x7/D/8e/w//Hv8P/x7/D/5uTl/7q5uv+Eg4P/QkJC/0JCQv9CQkL/9vb2//b29v8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/9vb2//b29v/29vb/6+vr/0JCQv9NTU3/0M/P//Hv
+        8P/x7/D/8e/w//Hv8P/x7/D/8e/w//Hv8P/x7/D/8e/w//Hv8P/Qz8//QkJC/0JCQv/29vb/9vb2/wAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/9vb2r/b29v/r6+v/QkJC/01N
+        Tf/Qz8//8e/w//Hv8P/x7/D/8e/w//Hv8P/x7/D/8e/w//Hv8P/x7/D/8e/w/9DPz/9CQkL/QkJC//b2
+        9v/29vb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29p8AAAAA9vb23/b2
+        9v+RkZH/QkJC/0JCQv+Eg4P/urm6/+bk5f/x7/D/8e/w//Hv8P/x7/D/5uTl/7q5uv+Eg4P/QkJC/0JC
+        Qv+RkZH/9vb2//b29t8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD29vZQ9vb2//b29v+cnJz/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/nJyc//b29v/29vb/9vb2UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD29vZw9vb2//b29v/g4OD/p6en/29vb/9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9vb2//p6en/+Dg4P/29vb/9vb2//b29nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vZA9vb23/b29v/29vb/9vb2//b29v/29vb/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2//b29t/29vZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2MPb29o/29va/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2v/b29o/29vYwAAAAAAAAAAAAAAAAAAAAAP//D////gf///wD///4
+        Af//8AD//4AAf/+AAD//gAAf/4AAD/+AAAP5gAAB8IAAAOAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAA
+        AACAAAAAwAAAAOAAAADwAAAA+AAAAPwAAAD+AAAA/wAAAP+QAAD/8AAA//gAAf/8AAP//wAP
+</value>
+  </data>
+</root>

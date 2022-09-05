@@ -1,0 +1,794 @@
+﻿<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="radioButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="listBox1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ktsRadioButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayout.Name" xml:space="preserve">
+    <value>topFlowLayout</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Kaspersky Custom Installer</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.Name" xml:space="preserve">
+    <value>fillFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;autoInstallButton.Name" xml:space="preserve">
+    <value>autoInstallButton</value>
+  </data>
+  <data name="&gt;&gt;optionalFeaturesListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 137</value>
+  </data>
+  <data name="flowLayoutPanel1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="optionalFeaturesListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;kisRadioButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="fillFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="leftPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="leftPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 56</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="kavRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="installationConfigListBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="usualInstallButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="radioButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="optionalFeaturesListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 259</value>
+  </data>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ktsRadioButton.Name" xml:space="preserve">
+    <value>ktsRadioButton</value>
+  </data>
+  <data name="&gt;&gt;optionalFeaturesListBox.Name" xml:space="preserve">
+    <value>optionalFeaturesListBox</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayout.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optionalFeaturesListBox.Items1" xml:space="preserve">
+    <value>Asistente de instalación completo (offline)</value>
+  </data>
+  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 129</value>
+  </data>
+  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;githubButton.Name" xml:space="preserve">
+    <value>githubButton</value>
+  </data>
+  <data name="listBox1.Items1" xml:space="preserve">
+    <value>Kaspersky 2</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;autoInstallButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="asAdminButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>818, 12</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAYAEBAQAAEABAAoAQAAZgAAABAQAAABAAgAaAUAAI4BAAAQEAAAAQAgAGgEAAD2BgAAICAQAAEA
+        BADoAgAAXgsAACAgAAABAAgAqAgAAEYOAAAgIAAAAQAgAKgQAADuFgAAKAAAABAAAAAgAAAAAQAEAAAA
+        AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAIAAAACAgACAAAAAgACAAICAAACAgIAAwMDAAAAA
+        /wAA/wAAAP//AP8AAAD/AP8A//8AAP///wAAAA/wAAAAAAAA938AAAAAAAD3d/AAAAAA/w938AAAAA93
+        8P////8A93d/93h3d4/3d3f3d4d3fw93d/h3h3d/APd/94h3d38AD/D3d3d3fwAAAPd3d3d/AAAA93d3
+        d38AAAD3////fwAAAPf///9/AAAA+Hd3d48AAAAA////APn/AADw/wAA8H8AAMh/AACEAwAAAAAAAAAA
+        AACAAAAAwAAAAOQAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAP8DAAAoAAAAEAAAACAAAAABAAgAAAAAAAAB
+        AAAAAAAAAAAAAAABAAAAAQAAAAAAAEJCQgBNTU0AY2JjAHp6egCEg4MAhoaGAI+OjgCamZkAs7OzAL6+
+        vgDU1NQA6+vrAPHv8AD29vYA+fn5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA////AAAAAAAADg4AAAAAAAAAAAAAAAAADgYGDgAAAAAAAAAAAAAAAA4G
+        AQYOAAAAAAAAAAAADg4ADgYGDgAAAAAAAAAADgYGDgAODg4ODg4ODgAADgYBAQYODgYGCgEBAQQLDw4G
+        AQEBBg4GAQYJAQEBAg4ADgYBAQYOCQYGCQEBAQEOAAAOBgYODgEJCQEBAQEBDgAAAA4OAA4BAQEBAQEB
+        AQ4AAAAAAAAOAQEBAQEBAQEOAAAAAAAADgEDCAgICAMBDgAAAAAAAAwHDQ0NDQ0NBg4AAAAAAAAMCA0N
+        DQ0NDQcOAAAAAAAADwsICAgICAgLDwAAAAAAAAAADg4ODg4OAAD5/wAA8P8AAPB/AADIfwAAhAMAAAAA
+        AAAAAAAAgAAAAMAAAADkAAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD/AwAAKAAAABAAAAAgAAAAAQAgAAAA
+        AABABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb27/b29u/29vYwAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb274aGhv+Ghob/9vb27/b2
+        9jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb2YPb29u+Ghob/QkJC/4aG
+        hv/29vbv9vb2MAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb27/b29u/29vZg9vb274aG
+        hv+Ghob/9vb27/b29jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vYw9vb274aGhv+Ghob/9vb27/b2
+        9mD29vbv9vb2//b29v/29vb/9vb2//b29v/29vb/9vb2z/b29mAAAAAA9vb274aGhv9CQkL/QkJC/4aG
+        hv/29vbv9vb274aGhv+Ghob/vr6+/0JCQv9CQkL/QkJC/3p6ev/U1NT/9vb2j/b29u+Ghob/QkJC/0JC
+        Qv9CQkL/hoaG//b29v+Ghob/QkJC/4aGhv+zs7P/QkJC/0JCQv9CQkL/TU1N//b29v/29vYw9vb274aG
+        hv9CQkL/QkJC/4aGhv/29vb/s7Oz/4aGhv+Ghob/s7Oz/0JCQv9CQkL/QkJC/0JCQv/29vb/AAAAAPb2
+        9jD29vbvhoaG/4aGhv/29vbv9vb2/0JCQv+zs7P/s7Oz/0JCQv9CQkL/QkJC/0JCQv9CQkL/9vb2/wAA
+        AAAAAAAA9vb2MPb29u/29vbv9vb2MPb29v9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b2
+        9v8AAAAAAAAAAAAAAAD29vYw9vb2MAAAAAD29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2/0JCQv9jYmP/mpmZ/5qZmf+amZn/mpmZ/2Ni
+        Y/9CQkL/9vb2/wAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2EOvr6/+Pjo7/8e/w//Hv8P/x7/D/8e/w//Hv
+        8P/x7/D/hIOD//b29v8AAAAAAAAAAAAAAAAAAAAAAAAAAPb29hDr6+v/mpmZ//Hv8P/x7/D/8e/w//Hv
+        8P/x7/D/8e/w/4+Oj//29vb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2j9TU1P+bm5v/mpmZ/5qZ
+        mf+amZn/mpmZ/5ubm//U1NT/9vb2jwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vZg9vb2z/b2
+        9v/29vb/9vb2//b29v/29vbP9vb2YAAAAADw/wAA4H8AAMA/AACAPwAAAAEAAAAAAAAAAAAAAAAAAIAA
+        AADAAAAA5AAAAPwAAAD4AAAA+AAAAPwAAAD+AQAAKAAAACAAAABAAAAAAQAEAAAAAAAAAgAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAIAAAIAAAACAgACAAAAAgACAAICAAACAgIAAwMDAAAAA/wAA/wAAAP//AP8A
+        AAD/AP8A//8AAP///wAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAA////AAAAAAAAAAAAAAAAD/93//AAAA
+        AAAAAAAAAAAP/3d3//AAAAAAAAAAAAAA//d3d3//AAAAAAAAAAAP///3d3d3//AAAAAAAAAAD////3d3
+        d3//AAAAAAAAAA/3d3d3d3d3//AAAAAAAAAP93d3d3d3d//wAAAAAAAAD/d////3d3////AAAAAP8A/3
+        f////3f/d4//AAAA//8P93//93//93d3f/AAD/////d//3d3/3d3d3f/AP/3f//3f/d3d3/3d3d3/w//
+        d3f/93/3d3d3/3d3d///93d3f/d//3d3d3/3d3f//3d3d3d3d3d3d3d3/3d3//93d3d3d3d3d3d3d/93
+        d///93d3d3f////3d3/3d3f/D/93d3d3f////3f/d3d3/wD/93d3d3f/d3//93d3d/8AD/93d3d3/3d3
+        /3d3d3f/AAD/93d3f/d3d3d3d3d3/wAAD/93d/93d3d3d3d3d/8AAAD/93//d3eP///4d3f/AAAAD///
+        /3eP//////h3/wAAAAD///93j//////4d/8AAAAAD/D/d3eP///4d3f/AAAAAAAAD/d3d3d3d3d/8AAA
+        AAAAAAD/+Hd3d3eP/wAAAAAAAAAAD/////////AAAAAAAAAAAAAP//////AAAP//D////gf///wD///4
+        Af//8AD//4AAf/+AAD//gAAf/4AAH/+AAAf5gAAD8IAAAeAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAA
+        AACAAAAAwAAAAOAAAADwAAAA+AAAAPwAAAD+AAAA/wAAAP+QAAD/+AAB//wAA//+AAf//4AfKAAAACAA
+        AABAAAAAAQAIAAAAAAAABAAAAAAAAAAAAAAAAQAAAAEAAAAAAABCQkIATU1NAGRkZABvb28AhIODAIaG
+        hgCRkZEAnJycAKenpwC6uboA0M/PAODg4ADm5OUA6+vrAPHv8AD29vYA+Pj4AAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAERAQEQAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEQEBAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAREBAG
+        BhAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERAQBgEBBhAQEQAAAAAAAAAAAAAAAAAAAAAAAAAAABEQ
+        EAYBAQEBBhAQEQAAAAAAAAAAAAAAAAAAAAAAEBAQEBAQBgEBAQEBBhAQEQAAAAAAAAAAAAAAAAAAAAAQ
+        EBAQEBAQBgEBAQEBBhAQEQAAAAAAAAAAAAAAAAAAABAQAQEBAQEBAQEBAQEBBhAQEQAAAAAAAAAAAAAA
+        AAAAEBABAQEBAQEBAQEBAQEGEBAQAAAAAAAAAAAAAAAAAAAQEAEBEBAQEBAQBgEBBhAQEBAQEQAAAAAA
+        AAAAEREAABAQAQEQEBAQEBAQBgYQDgMECQwQEAAAAAAAABEQEBEAEBABARAQEBAGBhAQEA4DAQEBAQgQ
+        EAAAAAAREBAQEBEQEAEBEBAQBgEBBhAQBgEBAQEBAQcQEAAAERAQBgYQEBAQAQEQEAYBAQEBBhAOAwEB
+        AQEBARAQABEQEAYBAQYQEBABARAQBgEBAQEBBhAOAwEBAQEBEBAREBAGAQEBAQYQEAEBEBAQBgEBAQEB
+        BhAOAwEBAQEQEBAQBgEBAQEBAQEBAQEBAQEBAQEBAQEBBhAOAwEBARAQEBAGAQEBAQEBAQEBAQEBAQEB
+        AQEBAQEGEA4DAQEBEBAREBAGAQEBAQEBAQYQEBAQEBAQBgEBBhAOAwEBAQEQEAAREBAGAQEBAQEBAQYQ
+        EBAQEBAQBgYQDgMBAQEBARAQAAAREBAGAQEBAQEBAQYQDgMBAw4QEA4DAQEBAQEBEBAAAAAREBAGAQEB
+        AQEBBhAOAwEBAw4OAwEBAQEBAQEQEAAAAAAREBAGAQEBAQYQDgMBAQEBAwMBAQEBAQEBARAQAAAAAAAR
+        EBAGAQEGEBADAQEBAQEBAQEBAQEBAQEBEBAAAAAAAAAREBAGBhAQEAEBAQYKDA8PDw8MCgYBAQEQEAAA
+        AAAAAAAREBAQEBAOAQILDw8PDw8PDw8PDwsBARAQAAAAAAAAAAAREBAREA4BAgsPDw8PDw8PDw8PCwEB
+        EBAAAAAAAAAAAAAREQAQEAcBAQYKDA8PDw8MCgYBAQcQEAAAAAAAAAAAAAAAAAAQEAgBAQEBAQEBAQEB
+        AQEIEBAAAAAAAAAAAAAAAAAAAAAQEAwJBAEBAQEBAQQJDBAQAAAAAAAAAAAAAAAAAAAAAAAQEBAQEBAQ
+        EBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAEREQEBAQEBAREQAAAAAA//8P///+B////AP///gB///w
+        AP//gAB//4AAP/+AAB//gAAf/4AAB/mAAAPwgAAB4AAAAMAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAIAA
+        AADAAAAA4AAAAPAAAAD4AAAA/AAAAP4AAAD/AAAA/5AAAP/4AAH//AAD//4AB///gB8oAAAAIAAAAEAA
+        AAABACAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPb29p/29vb/9vb2//b29p8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vaf9vb2//b29v/29vb/9vb2//b2
+        9p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/hoaG/4aG
+        hv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPb29p/29vb/9vb2/4aG
+        hv9CQkL/QkJC/4aGhv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vaf9vb2//b2
+        9v+Ghob/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPb29v/29vb/9vb2//b2
+        9v/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/9vb2//b29p8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/9vb2//b2
+        9p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD29vb/9vb2/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aG
+        hv/29vb/9vb2//b29p8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAPb29v/29vb/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/hoaG//b29v/29vb/9vb27/b29jAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA9vb2//b29v9CQkL/QkJC//b29v/29vb/9vb2//b29v/29vb/9vb2/4aG
+        hv9CQkL/QkJC/4aGhv/29vb/9vb2//b29v/29vb/9vb2//b29r/29vZAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAPb29p/29vafAAAAAAAAAAD29vb/9vb2/0JCQv9CQkL/9vb2//b29v/29vb/9vb2//b2
+        9v/29vb/9vb2/4aGhv+Ghob/9vb2/+vr6/9kZGT/b29v/6enp//g4OD/9vb2//b29v/29vZgAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD29vaf9vb2//b29v/29vafAAAAAPb29v/29vb/QkJC/0JCQv/29vb/9vb2//b2
+        9v/29vb/hoaG/4aGhv/29vb/9vb2//b29v/r6+v/ZGRk/0JCQv9CQkL/QkJC/0JCQv+cnJz/9vb2//b2
+        9v/29vZQAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/9vb2//b29v/29vaf9vb2//b29v9CQkL/QkJC//b2
+        9v/29vb/9vb2/4aGhv9CQkL/QkJC/4aGhv/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv+RkZH/9vb2//b29t8AAAAAAAAAAPb29p/29vb/9vb2/4aGhv+Ghob/9vb2//b29v/29vb/9vb2/0JC
+        Qv9CQkL/9vb2//b29v+Ghob/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv/29vb/9vb2/wAAAAD29vaf9vb2//b29v+Ghob/QkJC/0JCQv+Ghob/9vb2//b2
+        9v/29vb/QkJC/0JCQv/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aGhv/29vb/6+vr/2Rk
+        ZP9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v/29vb/9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JC
+        Qv+Ghob/9vb2//b29v9CQkL/QkJC//b29v/29vb/9vb2/4aGhv9CQkL/QkJC/0JCQv9CQkL/QkJC/4aG
+        hv/29vb/6+vr/2RkZP9CQkL/QkJC/0JCQv9CQkL/9vb2//b29v/29vb/9vb2/4aGhv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/0JCQv/29vb/9vb2//b29v/29vb/hoaG/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/hoaG//b29v/r6+v/ZGRk/0JCQv9CQkL/QkJC//b29v/29vb/9vb2n/b2
+        9v/29vb/hoaG/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv+Ghob/9vb2//b29v/29vb/9vb2//b2
+        9v/29vb/9vb2/4aGhv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/0JCQv9CQkL/9vb2//b2
+        9v8AAAAA9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv+Ghob/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2/4aGhv+Ghob/9vb2/+vr6/9kZGT/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv/29vb/9vb2/wAAAAAAAAAA9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv+Ghob/9vb2/+vr6/9kZGT/QkJC/2RkZP/r6+v/9vb2//b29v/r6+v/ZGRk/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC//b29v/29vb/AAAAAAAAAAAAAAAA9vb2n/b29v/29vb/hoaG/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/4aGhv/29vb/6+vr/2RkZP9CQkL/QkJC/2RkZP/r6+v/6+vr/2RkZP9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/9vb2//b29v8AAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/hoaG/0JC
+        Qv9CQkL/QkJC/0JCQv+Ghob/9vb2/+vr6/9kZGT/QkJC/0JCQv9CQkL/QkJC/2RkZP9kZGT/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv/29vb/9vb2/wAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b2
+        9v/29vb/hoaG/0JCQv9CQkL/hoaG//b29v/29vb/ZGRk/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC//b29v/29vb/AAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA9vb2n/b29v/29vb/hoaG/4aGhv/29vb/9vb2//b29v9CQkL/QkJC/0JCQv+Eg4P/urm6/+bk
+        5f/x7/D/8e/w//Hv8P/x7/D/5uTl/7q5uv+Eg4P/QkJC/0JCQv9CQkL/9vb2//b29v8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/9vb2//b29v/29vb/6+vr/0JCQv9NTU3/0M/P//Hv
+        8P/x7/D/8e/w//Hv8P/x7/D/8e/w//Hv8P/x7/D/8e/w//Hv8P/Qz8//QkJC/0JCQv/29vb/9vb2/wAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29v/29vb/9vb2r/b29v/r6+v/QkJC/01N
+        Tf/Qz8//8e/w//Hv8P/x7/D/8e/w//Hv8P/x7/D/8e/w//Hv8P/x7/D/8e/w/9DPz/9CQkL/QkJC//b2
+        9v/29vb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2n/b29p8AAAAA9vb23/b2
+        9v+RkZH/QkJC/0JCQv+Eg4P/urm6/+bk5f/x7/D/8e/w//Hv8P/x7/D/5uTl/7q5uv+Eg4P/QkJC/0JC
+        Qv+RkZH/9vb2//b29t8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAD29vZQ9vb2//b29v+cnJz/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9CQkL/nJyc//b29v/29vb/9vb2UAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAD29vZw9vb2//b29v/g4OD/p6en/29vb/9CQkL/QkJC/0JCQv9CQkL/QkJC/0JC
+        Qv9vb2//p6en/+Dg4P/29vb/9vb2//b29nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD29vZA9vb23/b29v/29vb/9vb2//b29v/29vb/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2//b29t/29vZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9vb2MPb29o/29va/9vb2//b2
+        9v/29vb/9vb2//b29v/29vb/9vb2v/b29o/29vYwAAAAAAAAAAAAAAAAAAAAAP//D////gf///wD///4
+        Af//8AD//4AAf/+AAD//gAAf/4AAD/+AAAP5gAAB8IAAAOAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAA
+        AACAAAAAwAAAAOAAAADwAAAA+AAAAPwAAAD+AAAA/wAAAP+QAAD/8AAA//gAAf/8AAP//wAP
+</value>
+  </data>
+  <data name="&gt;&gt;ktsRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.Name" xml:space="preserve">
+    <value>radioButton2</value>
+  </data>
+  <data name="optionalFeaturesListBox.Items3" xml:space="preserve">
+    <value>Instalar Kaspersky Secure Connection</value>
+  </data>
+  <data name="kisRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="githubButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="usualInstallButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;leftPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optionalFeaturesListBox.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="topFlowLayout.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;githubButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="leftFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 61</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="autoInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 128</value>
+  </data>
+  <data name="&gt;&gt;topPanel.Name" xml:space="preserve">
+    <value>topPanel</value>
+  </data>
+  <data name="ktsRadioButton.ToolTip" xml:space="preserve">
+    <value>Selecciona la edición deseada a instalar</value>
+  </data>
+  <data name="&gt;&gt;usualInstallButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.Name" xml:space="preserve">
+    <value>kavRadioButton</value>
+  </data>
+  <data name="radioButton1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="topPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="kavRadioButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="optionalFeaturesListBox.Items" xml:space="preserve">
+    <value>Mantener configuración de Kaspersky</value>
+  </data>
+  <data name="leftPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;topPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="installationConfigListBox.Items2" xml:space="preserve">
+    <value>Solo renovar la licencia de prueba (30 días)</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;leftPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="listBox1.Items2" xml:space="preserve">
+    <value>Kaspersky 3</value>
+  </data>
+  <data name="autoInstallButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="githubButton.ToolTip" xml:space="preserve">
+    <value>Abrir repositorio en GitHub</value>
+  </data>
+  <data name="&gt;&gt;topPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optionalFeaturesListBox.Items2" xml:space="preserve">
+    <value>Solo renovar la licencia de prueba (30 días)</value>
+  </data>
+  <data name="&gt;&gt;kisRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="fillFlowLayoutPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
+    <value>listBox1</value>
+  </data>
+  <data name="installationConfigListBox.Items3" xml:space="preserve">
+    <value>Instalar Kaspersky Secure Connection</value>
+  </data>
+  <data name="&gt;&gt;installationConfigListBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;asAdminButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="leftFlowLayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 67</value>
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="kavRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 12</value>
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10.8pt</value>
+  </data>
+  <data name="leftFlowLayout.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="topFlowLayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.Name" xml:space="preserve">
+    <value>topFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;installationConfigListBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
+    <value>button2</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
+    <value>radioButton1</value>
+  </data>
+  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="listBox1.Items" xml:space="preserve">
+    <value>Kaspersky 1</value>
+  </data>
+  <data name="&gt;&gt;installationConfigListBox.Name" xml:space="preserve">
+    <value>installationConfigListBox</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 38</value>
+  </data>
+  <data name="&gt;&gt;leftPanel.Name" xml:space="preserve">
+    <value>leftPanel</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayout.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.Name" xml:space="preserve">
+    <value>leftFlowLayout</value>
+  </data>
+  <data name="&gt;&gt;autoInstallButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ktsRadioButton.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;kisRadioButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="topPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="kisRadioButton.ToolTip" xml:space="preserve">
+    <value>Kaspersky Internet Security</value>
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;installationConfigListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 22</value>
+  </data>
+  <data name="&gt;&gt;autoInstallButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="installationConfigListBox.Items1" xml:space="preserve">
+    <value>Asistente de instalación completo (offline)</value>
+  </data>
+  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 79</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="usualInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;kisRadioButton.Name" xml:space="preserve">
+    <value>kisRadioButton</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optionalFeaturesListBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;asAdminButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;topPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="asAdminButton.ToolTip" xml:space="preserve">
+    <value>Re-ejecutar como administrador</value>
+  </data>
+  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="installationConfigListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 259</value>
+  </data>
+  <data name="&gt;&gt;githubButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usualInstallButton.Name" xml:space="preserve">
+    <value>usualInstallButton</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayoutPanel.Name" xml:space="preserve">
+    <value>leftFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>856, 12</value>
+  </data>
+  <data name="button1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="radioButton2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="topFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>900, 495</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;asAdminButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="installationConfigListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="autoInstallButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;asAdminButton.Name" xml:space="preserve">
+    <value>asAdminButton</value>
+  </data>
+  <data name="leftFlowLayoutPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="leftFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;usualInstallButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 179</value>
+  </data>
+  <data name="restartAsAdminButton.ToolTip" xml:space="preserve">
+    <value>Reiniciar como administrador</value>
+  </data>
+  <data name="&gt;&gt;githubButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="topFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="asAdminButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ktsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 274</value>
+  </data>
+  <data name="&gt;&gt;optionalFeaturesListBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="topFlowLayoutPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="kisRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 143</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;usualInstallButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="restartAsAdminButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="leftFlowLayout.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+    <value>toolTip1</value>
+  </data>
+  <data name="button2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.Name" xml:space="preserve">
+    <value>restartAsAdminButton</value>
+  </data>
+  <data name="restartAsAdminButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 12</value>
+  </data>
+  <data name="fillFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 61</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="installationConfigListBox.Items" xml:space="preserve">
+    <value>Mantener configuración de Kaspersky</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="topFlowLayout.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="ktsRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>es</value>
+  </metadata>
+</root>
