@@ -1,6 +1,10 @@
-﻿using Microsoft.Win32;
+﻿using Dapper;
+using Microsoft.Win32;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Principal;
@@ -16,12 +20,11 @@ namespace KCI_Library
     public static class Dependencies
     {
         public static bool KasIsInstalled { get; private set; } = false;
-        public static Dictionary<KasInfoType, string> KasInfo { get; private set; } =
-            new Dictionary<KasInfoType, string>();
-        public static Dictionary<AutoInstallRequirementType, bool> AutoInstallRequirements { get; private set; } =
-            new Dictionary<AutoInstallRequirementType, bool>();
+        public static Dictionary<KasInfoType, string> KasInfo { get; private set; } = new();
+        public static Dictionary<AutoInstallRequirementType, bool> AutoInstallRequirements { get; private set; } = new();
+        public static List<DatabaseTableIds> AvailableLicenses { get; private set; } = new();
 
-        private static RegistryKey? KasLabKey { get; } =
+        private static readonly RegistryKey? KasLabKey =
             RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(@"SOFTWARE\KasperskyLab");
 
         //private static RegistryKey LocalMachine32View { get; } = 
@@ -34,6 +37,7 @@ namespace KCI_Library
             KasIsInstalled = AnyDomesticProductInstalled();
             KasInfo = ObtainKasInfo();
             AutoInstallRequirements = CheckAutoInstallRequirements();
+            AvailableLicenses = GetAvailableLicenses();
         }
 
         /// <summary>
@@ -45,18 +49,36 @@ namespace KCI_Library
             Avp,
             Name,
             Guid,
-            Root
+            Root,
+            LicenseExpired
+        }
+
+        // TODO - (?) Innecesario.
+        public enum DatabaseTableIds
+        {
+            kav,
+            kis,
+            kts
+        }
+
+        public enum DatabaseDataType
+        {
+            OnlineSetupUrl,
+            OfflineSetupUrl,
+            Licenses,
+            LastUpdated
         }
 
         /// <summary>
-        /// 
+        /// Enumera los tipos de requisito necesarios a para realizar 
+        /// una instalación automática.
         /// </summary>
         public enum AutoInstallRequirementType
         {
             Admin,
             MyDatabase,
             PasswordProtection,
-            Active
+            Closed
         }
 
         /// <summary>
@@ -66,7 +88,7 @@ namespace KCI_Library
         /// <param name="kasLabKey">Verdadero si existe alguno, falso en su defecto.</returns>
         private static bool AnyDomesticProductInstalled()
         {
-            return (KasLabKey is null) ? false : KasLabKey.GetSubKeyNames().Any(subkey => subkey.Contains("AVP"));
+            return KasLabKey is null ? false : KasLabKey.GetSubKeyNames().Any(subkey => subkey.Contains("AVP"));
         }
 
         /// <summary>
@@ -80,21 +102,25 @@ namespace KCI_Library
             if (!KasIsInstalled)
                 return new Dictionary<KasInfoType, string>();
 
-            // <kasLabKey> nunca será nulo aquí, si lo fuera el método retornaría con anterioridad.
+            // <KasLabKey> nunca será nulo aquí, si lo fuera el método retornaría con anterioridad.
             string avpKeyName = KasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
             RegistryKey environmentKey = KasLabKey.OpenSubKey($@"{avpKeyName}\environment");
+            RegistryKey wmiHlpKey = KasLabKey.OpenSubKey("WmiHlp");
             string productNameValue = environmentKey.GetValue("ProductName").ToString();
             string productCodeValue = environmentKey.GetValue("ProductCode").ToString();
             string productRootValue = environmentKey.GetValue("ProductRoot").ToString();
+            bool isReportedExpired = wmiHlpKey.GetValueNames().Any(val => val.Equals("IsReportedExpired"));
 
             environmentKey.Close();
+            wmiHlpKey.Close();
 
             Dictionary<KasInfoType, string> keyValuePairs = new()
             {
                 { KasInfoType.Avp, avpKeyName },
                 { KasInfoType.Name, productNameValue },
                 { KasInfoType.Guid, productCodeValue },
-                { KasInfoType.Root, productRootValue }
+                { KasInfoType.Root, productRootValue },
+                { KasInfoType.LicenseExpired, isReportedExpired.ToString() }
             };
 
             return keyValuePairs;
@@ -103,38 +129,98 @@ namespace KCI_Library
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="kasLabKey"></param>
         /// <returns></returns>
         private static Dictionary<AutoInstallRequirementType, bool> CheckAutoInstallRequirements()
         {
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
-            // TODO - Comprobar si la bbdd se encuentra disponible.
-            bool dbIsAccesible = false;
+            bool dbIsAccesible = SqlConnector.GetConnectionState() is ConnectionState.Open;
 
-            // TODO - (!!!) Detección de PasswordProtect no funciona en KTS (demás versiones sin probar).
+            // TODO - (!!!) Detección de PasswordProtect no funciona adecuadamente en KTS (resto de versiones sin probar).
             bool passwordProtection = false;
             if (KasIsInstalled)
             {
                 string avpKeyName = KasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
-                RegistryKey? flushedMsiCriticalSettingsKey = KasLabKey.OpenSubKey($@"{avpKeyName}\Settings");
+                //RegistryKey? settingsKey = KasLabKey.OpenSubKey($@"{avpKeyName}\Settings");
+                RegistryKey? passwordProtectionSettingsKey = 
+                    KasLabKey.OpenSubKey($@"{avpKeyName}\Settings\PasswordProtectionSettings");
 
-                passwordProtection = flushedMsiCriticalSettingsKey.GetValue("EnablePswrdProtect").ToString().Equals('1');
+                //passwordProtection = settingsKey.GetValue("EnablePswrdProtect").ToString().Equals('1');
+                passwordProtection = passwordProtectionSettingsKey.GetValue("OPEP") is not null;
 
-                flushedMsiCriticalSettingsKey.Close();
+                passwordProtectionSettingsKey.Close();
             }
 
-            bool kasIsActive = Process.GetProcessesByName("avp").Length > 0;
+            bool kasIsClosed = Process.GetProcessesByName("avp").Length == 0;
 
             Dictionary<AutoInstallRequirementType, bool> keyValuePairs = new()
             {
                 { AutoInstallRequirementType.Admin, admin },
                 { AutoInstallRequirementType.MyDatabase, dbIsAccesible},
                 { AutoInstallRequirementType.PasswordProtection, passwordProtection},
-                { AutoInstallRequirementType.Active, kasIsActive }
+                { AutoInstallRequirementType.Closed, kasIsClosed }
             };
 
             return keyValuePairs;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private static List<DatabaseTableIds> GetAvailableLicenses()
+        {
+            MySqlConnection connection = SqlConnector.GetConnection();
+            DynamicParameters p = new();
+            p.Add("id", dbType: DbType.String, direction: ParameterDirection.Output);
+
+            connection.Execute("kci.sources_licensenotnull", p, commandType: CommandType.StoredProcedure);
+
+            // Se deben separar los valores de la Query porque puede devolver varias filas agrupadas.
+            string[] strArr = p.Get<string>("id").Split(',');
+
+            List<DatabaseTableIds> keyValuePairs = new();
+
+            foreach (string str in strArr)
+                switch (str)
+                {
+                    case "kav":
+                        keyValuePairs.Add(DatabaseTableIds.kav);
+                        break;
+                    case "kis":
+                        keyValuePairs.Add(DatabaseTableIds.kis);
+                        break;
+                    case "kts":
+                        keyValuePairs.Add(DatabaseTableIds.kts);
+                        break;
+                }
+
+            return keyValuePairs;
+        }
+
+        // TODO - Controlar excepciones.
+        // TODO - (?) Usar enum.
+        // TODO - Ver qué licencias están disponibles en la base de datos.
+        public static Dictionary<DatabaseDataType, string> GetDatabaseData(DatabaseTableIds id)
+        {
+            MySqlConnection connection = SqlConnector.GetConnection();
+
+            DynamicParameters p = new();
+            p.Add("id", id.ToString());
+            p.Add(DatabaseDataType.OnlineSetupUrl.ToString(), dbType: DbType.String, direction: ParameterDirection.Output);
+            p.Add(DatabaseDataType.OfflineSetupUrl.ToString(), dbType: DbType.String, direction: ParameterDirection.Output);
+            p.Add(DatabaseDataType.Licenses.ToString(), dbType: DbType.String, direction: ParameterDirection.Output);
+            p.Add(DatabaseDataType.LastUpdated.ToString(), dbType: DbType.DateTime2, direction: ParameterDirection.Output);
+
+            connection.Execute("kci.sources_select", p, commandType: CommandType.StoredProcedure);
+
+            return new Dictionary<DatabaseDataType, string>
+            {
+                { DatabaseDataType.OnlineSetupUrl, p.Get<string>(DatabaseDataType.OnlineSetupUrl.ToString()) },
+                { DatabaseDataType.OfflineSetupUrl, p.Get<string>(DatabaseDataType.OfflineSetupUrl.ToString()) },
+                { DatabaseDataType.Licenses, p.Get<string>(DatabaseDataType.Licenses.ToString()) },
+                { DatabaseDataType.LastUpdated, Encoding.Default.GetString(p.Get<byte[]>(DatabaseDataType.LastUpdated.ToString())) }
+            };
         }
     }
 }

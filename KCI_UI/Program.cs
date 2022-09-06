@@ -10,6 +10,7 @@ namespace KCI_UI
         [STAThread]
         static void Main()
         {
+            SqlConnector.OpenConnection("kci");
             Dependencies.ObtainDependencies();
 
             // To customize application configuration such as set high DPI settings or default font,

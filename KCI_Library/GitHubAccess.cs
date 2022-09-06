@@ -9,7 +9,6 @@ namespace KCI_Library
 {
     public static class GitHubAccess
     {
-        // TODO - Actualizar enlace al repositorio en GitHub.
         /// <summary>
         /// Enlace web a este repositorio en GitHub.
         /// </summary>

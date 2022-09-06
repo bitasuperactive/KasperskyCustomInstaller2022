@@ -29,7 +29,7 @@ namespace KCI_Library
             }
             catch (System.ComponentModel.Win32Exception)
             {
-                // TODO - Manejar adecuadamente esta excepción.
+                // Acceso denegado.
                 return false;
             }
         }

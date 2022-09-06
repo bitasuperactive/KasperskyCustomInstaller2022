@@ -47,7 +47,8 @@ namespace KCI_UI
         // MÉTODO DE TESTEO.
         private static void TestingMethod()
         {
-            string text = "Installed : " + Dependencies.KasIsInstalled.ToString() + "\n";
+            string text = "";
+            text = "Installed : " + Dependencies.KasIsInstalled.ToString() + "\n";
             foreach (Dependencies.KasInfoType type in Dependencies.KasInfo.Keys)
             {
                 text += type + " : " + Dependencies.KasInfo[type] + "\n";
@@ -60,6 +61,22 @@ namespace KCI_UI
                 text += type + " : " + Dependencies.AutoInstallRequirements[type] + "\n";
             }
             MessageBox.Show(text, "Automatic Installation Requirements");
+
+            text = "";
+            Dictionary<Dependencies.DatabaseDataType, string> dbData = Dependencies.GetDatabaseData(Dependencies.DatabaseTableIds.kav);
+            foreach (Dependencies.DatabaseDataType d in dbData.Keys)
+            {
+                text += d + " : " + dbData[d] + "\n";
+            }
+            MessageBox.Show(text, "Database data");
+
+            text = "";
+            List<Dependencies.DatabaseTableIds> idArr = Dependencies.AvailableLicenses;
+            foreach (Dependencies.DatabaseTableIds id in idArr)
+            {
+                text += id + "\n";
+            }
+            MessageBox.Show(text, "Available licenses");
         }
     }
 }
