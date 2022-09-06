@@ -17,70 +17,21 @@ using System.Threading.Tasks;
 
 namespace KCI_Library
 {
-    public static class Dependencies
+    public class Dependencies
     {
         // TODO - (!!!) Ver cómo almacenar valores genéricos en un diccionario.
-        public static bool KasIsInstalled { get; private set; } = false;
-        public static Dictionary<KasInfoType, string> KasInfo { get; private set; } = new();
-        public static Dictionary<AutoInstallRequirementType, bool> AutoInstallRequirements { get; private set; } = new();
-        public static List<DatabaseTableIds> AvailableLicenses { get; private set; } = new();
+        public KasperskyModel KasInfo { get; private set; }
+        public AutoInstallRequirementsModel AutoInstallRequirements { get; private set; }
+        public List<DatabaseIds> AvailableLicenses { get; private set; }
 
-        private static readonly RegistryKey? KasLabKey =
+        private readonly RegistryKey? KasLabKey =
             RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(@"SOFTWARE\KasperskyLab");
 
-        //private static RegistryKey LocalMachine32View { get; } = 
-        //RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
-        //private static RegistryKey LocalMachine64View { get; } = 
-        //RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
-
-        public static void ObtainDependencies()
+        public Dependencies()
         {
-            KasIsInstalled = AnyDomesticProductInstalled();
-            KasInfo = ObtainKasInfo();
-            AutoInstallRequirements = CheckAutoInstallRequirements();
-            AvailableLicenses = GetAvailableLicenses();
-        }
-
-        /// <summary>
-        /// Enumera los tipos de información necesaria a obtener del producto doméstico 
-        /// de Kaspersky Lab, instalado en el equipo local.
-        /// </summary>
-        public enum KasInfoType
-        {
-            Id,
-            Avp,
-            Name,
-            Guid,
-            Root,
-            LicenseExpired
-        }
-
-        // TODO - (?) Innecesario.
-        public enum DatabaseTableIds
-        {
-            kav,
-            kis,
-            kts
-        }
-
-        public enum DatabaseDataType
-        {
-            OnlineSetupUrl,
-            OfflineSetupUrl,
-            Licenses,
-            LastUpdated
-        }
-
-        /// <summary>
-        /// Enumera los tipos de requisito necesarios a para realizar 
-        /// una instalación automática.
-        /// </summary>
-        public enum AutoInstallRequirementType
-        {
-            Admin,
-            MyDatabase,
-            PasswordProtectionDisabled,
-            Closed
+            KasInfo = CreateKasperskyModel();
+            AutoInstallRequirements = CreateAutoInstallRequirementsModel();
+            AvailableLicenses = new SqlConnector("kci").GetAvailableLicenses(); //<<<<<<<<<<<<<<<<<<<<
         }
 
         /// <summary>
@@ -88,7 +39,7 @@ namespace KCI_Library
         /// mediante una búsqueda de la clave de registro "SOFTWARE\KasperskyLab\*AVP*".
         /// </summary>
         /// <param name="kasLabKey">Verdadero si existe alguno, falso en su defecto.</returns>
-        private static bool AnyDomesticProductInstalled()
+        private bool AnyProductInstalled()
         {
             return KasLabKey is null ? false : KasLabKey.GetSubKeyNames().Any(subkey => subkey.Contains("AVP"));
         }
@@ -99,146 +50,81 @@ namespace KCI_Library
         /// </summary>
         /// <returns>Diccionario que almacena el tipo de información como clave y su valor obtenido, 
         /// si existe algún producto compatible, en cuyo defecto devuelve un diccionario vacío.</returns>
-        private static Dictionary<KasInfoType, string> ObtainKasInfo()
+        private KasperskyModel CreateKasperskyModel()
         {
-            if (!KasIsInstalled)
-                return new Dictionary<KasInfoType, string>();
+            bool anyProductInstalled = AnyProductInstalled();
 
-            // <KasLabKey> nunca será nulo aquí, si lo fuera el método retornaría con anterioridad.
+            if (!anyProductInstalled)
+                return new KasperskyModel();
+
+            // Ni <KasLabKey>, ni ninguna de sus subclaves, serán nulas aquí
+            // si existe algún producto doméstico de KasperskyLab instalado en el equipo.
             string avpKeyName = KasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
             RegistryKey environmentKey = KasLabKey.OpenSubKey($@"{avpKeyName}\environment");
             RegistryKey wmiHlpKey = KasLabKey.OpenSubKey("WmiHlp");
             string productNameValue = environmentKey.GetValue("ProductName").ToString();
-            string productCodeValue = environmentKey.GetValue("ProductCode").ToString();
-            string productRootValue = environmentKey.GetValue("ProductRoot").ToString();
+            Guid productCodeValue = new(environmentKey.GetValue("ProductCode").ToString());
+            DirectoryInfo productRootValue = new(environmentKey.GetValue("ProductRoot").ToString());
             bool isReportedExpired = wmiHlpKey.GetValueNames().Any(val => val.Equals("IsReportedExpired"));
 
             environmentKey.Close();
             wmiHlpKey.Close();
 
-            // TODO - (?) Qué hacer aquí.
-            string productId = string.Empty;
+            DatabaseIds productId = DatabaseIds.none;
             switch (productNameValue)
             {
                 case "Kaspersky Antivirus":
-                    productId = DatabaseTableIds.kav.ToString();
+                    productId = DatabaseIds.kav;
                     break;
                 case "Kaspersky Internet Security":
-                    productId = DatabaseTableIds.kis.ToString();
+                    productId = DatabaseIds.kis;
                     break;
                 case "Kaspersky Total Security":
-                    productId = DatabaseTableIds.kts.ToString();
+                    productId = DatabaseIds.kts;
                     break;
             }
 
-            Dictionary<KasInfoType, string> keyValuePairs = new()
-            {
-                { KasInfoType.Id, productId },
-                { KasInfoType.Name, productNameValue },
-                { KasInfoType.Guid, productCodeValue },
-                { KasInfoType.Root, productRootValue },
-                { KasInfoType.Avp, avpKeyName },
-                { KasInfoType.LicenseExpired, isReportedExpired.ToString() }
-            };
-
-            return keyValuePairs;
+            return new KasperskyModel(
+                anyProductInstalled,
+                productId,
+                productNameValue,
+                productCodeValue,
+                productRootValue,
+                avpKeyName,
+                isReportedExpired);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        private static Dictionary<AutoInstallRequirementType, bool> CheckAutoInstallRequirements()
+        private AutoInstallRequirementsModel CreateAutoInstallRequirementsModel()
         {
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
-            bool dbIsAccesible = SqlConnector.GetConnectionState() is ConnectionState.Open;
+            bool databaseAccesible = SqlConnector.GetConnectionState() is ConnectionState.Open;
 
             // TODO - (!!!) Detección de PasswordProtect no funciona adecuadamente en KTS (resto de versiones sin probar).
             bool passwordProtectionDisabled = false;
-            if (KasIsInstalled)
+            if (KasInfo.Installed)
             {
                 string avpKeyName = KasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
-                //RegistryKey? settingsKey = KasLabKey.OpenSubKey($@"{avpKeyName}\Settings");
                 RegistryKey? passwordProtectionSettingsKey = 
                     KasLabKey.OpenSubKey($@"{avpKeyName}\Settings\PasswordProtectionSettings");
 
-                //passwordProtection = settingsKey.GetValue("EnablePswrdProtect").ToString().Equals('1');
+                //passwordProtectionDisabled = settingsKey.GetValue("EnablePswrdProtect").ToString().Equals('1');
                 passwordProtectionDisabled = passwordProtectionSettingsKey.GetValue("OPEP") is null;
 
                 passwordProtectionSettingsKey.Close();
             }
 
-            bool kasIsClosed = Process.GetProcessesByName("avp").Length == 0;
+            bool kasClosed = Process.GetProcessesByName("avp").Length == 0;
 
-            Dictionary<AutoInstallRequirementType, bool> keyValuePairs = new()
-            {
-                { AutoInstallRequirementType.Admin, admin },
-                { AutoInstallRequirementType.MyDatabase, dbIsAccesible},
-                { AutoInstallRequirementType.PasswordProtectionDisabled, passwordProtectionDisabled},
-                { AutoInstallRequirementType.Closed, kasIsClosed }
-            };
-
-            return keyValuePairs;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        private static List<DatabaseTableIds> GetAvailableLicenses()
-        {
-            MySqlConnection connection = SqlConnector.GetConnection();
-            DynamicParameters p = new();
-            p.Add("id", dbType: DbType.String, direction: ParameterDirection.Output);
-
-            connection.Execute("kci.sources_licensenotnull", p, commandType: CommandType.StoredProcedure);
-
-            // Se deben separar los valores de la Query porque puede devolver varias filas agrupadas.
-            string[] strArr = p.Get<string>("id").Split(',');
-
-            List<DatabaseTableIds> keyValuePairs = new();
-
-            foreach (string str in strArr)
-                switch (str)
-                {
-                    case "kav":
-                        keyValuePairs.Add(DatabaseTableIds.kav);
-                        break;
-                    case "kis":
-                        keyValuePairs.Add(DatabaseTableIds.kis);
-                        break;
-                    case "kts":
-                        keyValuePairs.Add(DatabaseTableIds.kts);
-                        break;
-                }
-
-            return keyValuePairs;
-        }
-
-        // TODO - Controlar excepciones.
-        // TODO - (?) Usar enum.
-        // TODO - Obtener tan solo el string de cada licencia, sin más carácteres.
-        public static Dictionary<DatabaseDataType, string> GetDatabaseData(DatabaseTableIds id)
-        {
-            MySqlConnection connection = SqlConnector.GetConnection();
-
-            DynamicParameters p = new();
-            p.Add("id", id.ToString());
-            p.Add(DatabaseDataType.OnlineSetupUrl.ToString(), dbType: DbType.String, direction: ParameterDirection.Output);
-            p.Add(DatabaseDataType.OfflineSetupUrl.ToString(), dbType: DbType.String, direction: ParameterDirection.Output);
-            p.Add(DatabaseDataType.Licenses.ToString(), dbType: DbType.String, direction: ParameterDirection.Output);
-            p.Add(DatabaseDataType.LastUpdated.ToString(), dbType: DbType.DateTime2, direction: ParameterDirection.Output);
-
-            connection.Execute("kci.sources_select", p, commandType: CommandType.StoredProcedure);
-
-            return new Dictionary<DatabaseDataType, string>
-            {
-                { DatabaseDataType.OnlineSetupUrl, p.Get<string>(DatabaseDataType.OnlineSetupUrl.ToString()) },
-                { DatabaseDataType.OfflineSetupUrl, p.Get<string>(DatabaseDataType.OfflineSetupUrl.ToString()) },
-                { DatabaseDataType.Licenses, p.Get<string>(DatabaseDataType.Licenses.ToString()) },
-                { DatabaseDataType.LastUpdated, Encoding.Default.GetString(p.Get<byte[]>(DatabaseDataType.LastUpdated.ToString())) }
-            };
+            return new AutoInstallRequirementsModel(
+                admin,
+                databaseAccesible,
+                passwordProtectionDisabled,
+                kasClosed);
         }
     }
 }

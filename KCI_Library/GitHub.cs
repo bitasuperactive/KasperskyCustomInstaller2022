@@ -7,21 +7,22 @@ using System.Diagnostics;
 
 namespace KCI_Library
 {
-    public static class GitHubAccess
+    // TODO - Comprobar si hay una nueva versión disponible de la aplicación.
+    public static class GitHub
     {
         /// <summary>
         /// Enlace web a este repositorio en GitHub.
         /// </summary>
-        private static string GitHubUrl { get; } = "https://github.com/bitasuperactive/KasperskyCustomInstaller2022";
+        private static readonly string repositoryUrl = "https://github.com/bitasuperactive/KasperskyCustomInstaller2022";
 
         /// <summary>
         /// Abre el enlace web a este repositorio en GitHub.
         /// </summary>
-        public static void BrowseToThisGitHubRepository()
+        public static void BrowseToThisRepository()
         {
             ProcessStartInfo psi = new()
             {
-                FileName = GitHubUrl,
+                FileName = repositoryUrl,
                 UseShellExecute = true
             };
 

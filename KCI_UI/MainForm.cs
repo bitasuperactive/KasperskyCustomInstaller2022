@@ -20,7 +20,7 @@ namespace KCI_UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (Dependencies.KasIsInstalled)
+            if (Dependencies.KasInfo.Installed)
             {
                 // Preseleccionar la versión de Kas instalada.
                 // Mostrar el estado de la licencia de Kas.
@@ -133,7 +133,7 @@ namespace KCI_UI
             }
         }
 
-        private void githubButton_Click(object sender, EventArgs e) => GitHubAccess.BrowseToThisGitHubRepository();
+        private void githubButton_Click(object sender, EventArgs e) => GitHub.BrowseToThisRepository();
 
         private void restartAsAdminButton_Click(object sender, EventArgs e)
         {
@@ -141,7 +141,7 @@ namespace KCI_UI
             // para obtener el ejecutable de la aplicación.
             string thisAssemblyLocation = new(System.Reflection.Assembly.GetExecutingAssembly().Location.SkipLast(4).ToArray());
 
-            if (ProcessExecutor.RunAsAdmin(thisAssemblyLocation))
+            if (ProcessExecutor.AsAdmin(thisAssemblyLocation))
                 // TODO - (%) Controlar cierre de la aplicación.
                 Application.Exit();
             else

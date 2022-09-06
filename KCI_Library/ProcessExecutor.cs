@@ -14,7 +14,7 @@ namespace KCI_Library
         /// </summary>
         /// <param name="fileName">Ruta completa al archivo deseado a ejecutar.</param>
         /// <returns>Verdadero si la ejecución ha sido satisfactoria, falso en su defecto.</returns>
-        public static bool RunAsAdmin(string fileName)
+        public static bool AsAdmin(string fileName)
         {
             ProcessStartInfo psi = new()
             {
@@ -35,13 +35,13 @@ namespace KCI_Library
         }
 
         /// <summary>
-        /// Ejecuta el archivo especificado y oculta su interfaz gráfica al usuario.
+        /// Ejecuta el archivo especificado y oculta su interfaz gráfica de usuario.
         /// </summary>
         /// <param name="fileName">Ruta completa al archivo deseado a ejecutar.</param>
         /// <param name="args">Argumentos de ejecución.</param>
         /// <param name="waitForExit">Esperar a la salida de la aplicación.</param>
         /// <returns>Verdadero si la ejecución ha sido satisfactoria, falso en su defecto.</returns>
-        public static bool RunHidden(string fileName, string args = "", bool waitForExit = false)
+        public static bool WindowHidden(string fileName, string args = "", bool waitForExit = false)
         {
             ProcessStartInfo psi = new()
             {
