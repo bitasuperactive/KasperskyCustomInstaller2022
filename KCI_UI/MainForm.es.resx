@@ -80,8 +80,15 @@
   <data name="restartAsAdminButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="restartAsAdminButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>732, 12</value>
+  </data>
   <data name="restartAsAdminButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 32</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="restartAsAdminButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="kavRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -195,7 +202,7 @@
     <value>NoControl</value>
   </data>
   <data name="kisRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 160</value>
+    <value>12, 180</value>
   </data>
   <data name="kisRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>362, 93</value>
@@ -253,7 +260,7 @@
     <value>NoControl</value>
   </data>
   <data name="ktsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 259</value>
+    <value>12, 299</value>
   </data>
   <data name="ktsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>362, 93</value>
@@ -285,14 +292,116 @@
   <data name="autoInstallButton.Text" xml:space="preserve">
     <value>Instalación automática</value>
   </data>
+  <data name="installationConfigListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 383</value>
+  </data>
   <data name="installationConfigListBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>354, 144</value>
+    <value>354, 96</value>
+  </data>
+  <data name="licenseStateLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="licenseStateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 466</value>
+  </data>
+  <data name="licenseStateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 22</value>
+  </data>
+  <data name="licenseStateLabel.Text" xml:space="preserve">
+    <value>[licenseStateLabel]</value>
+  </data>
+  <data name="licenseStateLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="licenseStateLabel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="autoInstallRequirementsTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="autoInstallRequirementsTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>354, 146</value>
+  </data>
+  <data name="autoInstallRequirementsTextBox.Text" xml:space="preserve">
+    <value>[autoInstallRequirementsTextBox]</value>
+  </data>
+  <data name="databaseStateLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="databaseStateLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="databaseStateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>303, 9</value>
+  </data>
+  <data name="databaseStateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 22</value>
+  </data>
+  <data name="databaseStateLabel.Text" xml:space="preserve">
+    <value>[databaseStateLabel]</value>
+  </data>
+  <data name="databaseStateLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.Text" xml:space="preserve">
+    <value>Licencias no disponibles</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.ToolTip" xml:space="preserve">
+    <value>Se activará la licencia de prueba por defecto (30 días)</value>
+  </data>
+  <data name="kisAvailableLicensesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="kisAvailableLicensesLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="kisAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="kisAvailableLicensesLabel.Text" xml:space="preserve">
+    <value>Licencias no disponibles</value>
+  </data>
+  <data name="kisAvailableLicensesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="kisAvailableLicensesLabel.ToolTip" xml:space="preserve">
+    <value>Se activará la licencia de prueba por defecto (30 días)</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 22</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.Text" xml:space="preserve">
+    <value>Licencias no disponibles</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.ToolTip" xml:space="preserve">
+    <value>Se activará la licencia de prueba por defecto (30 días)</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowOnly</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>776, 437</value>
+    <value>776, 497</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

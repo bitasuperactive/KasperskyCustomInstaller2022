@@ -19,6 +19,7 @@ namespace KCI_Library
 {
     public static class Dependencies
     {
+        // TODO - (!!!) Ver cómo almacenar valores genéricos en un diccionario.
         public static bool KasIsInstalled { get; private set; } = false;
         public static Dictionary<KasInfoType, string> KasInfo { get; private set; } = new();
         public static Dictionary<AutoInstallRequirementType, bool> AutoInstallRequirements { get; private set; } = new();
@@ -46,6 +47,7 @@ namespace KCI_Library
         /// </summary>
         public enum KasInfoType
         {
+            Id,
             Avp,
             Name,
             Guid,
@@ -77,7 +79,7 @@ namespace KCI_Library
         {
             Admin,
             MyDatabase,
-            PasswordProtection,
+            PasswordProtectionDisabled,
             Closed
         }
 
@@ -114,12 +116,28 @@ namespace KCI_Library
             environmentKey.Close();
             wmiHlpKey.Close();
 
+            // TODO - (?) Qué hacer aquí.
+            string productId = string.Empty;
+            switch (productNameValue)
+            {
+                case "Kaspersky Antivirus":
+                    productId = DatabaseTableIds.kav.ToString();
+                    break;
+                case "Kaspersky Internet Security":
+                    productId = DatabaseTableIds.kis.ToString();
+                    break;
+                case "Kaspersky Total Security":
+                    productId = DatabaseTableIds.kts.ToString();
+                    break;
+            }
+
             Dictionary<KasInfoType, string> keyValuePairs = new()
             {
-                { KasInfoType.Avp, avpKeyName },
+                { KasInfoType.Id, productId },
                 { KasInfoType.Name, productNameValue },
                 { KasInfoType.Guid, productCodeValue },
                 { KasInfoType.Root, productRootValue },
+                { KasInfoType.Avp, avpKeyName },
                 { KasInfoType.LicenseExpired, isReportedExpired.ToString() }
             };
 
@@ -137,7 +155,7 @@ namespace KCI_Library
             bool dbIsAccesible = SqlConnector.GetConnectionState() is ConnectionState.Open;
 
             // TODO - (!!!) Detección de PasswordProtect no funciona adecuadamente en KTS (resto de versiones sin probar).
-            bool passwordProtection = false;
+            bool passwordProtectionDisabled = false;
             if (KasIsInstalled)
             {
                 string avpKeyName = KasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
@@ -146,7 +164,7 @@ namespace KCI_Library
                     KasLabKey.OpenSubKey($@"{avpKeyName}\Settings\PasswordProtectionSettings");
 
                 //passwordProtection = settingsKey.GetValue("EnablePswrdProtect").ToString().Equals('1');
-                passwordProtection = passwordProtectionSettingsKey.GetValue("OPEP") is not null;
+                passwordProtectionDisabled = passwordProtectionSettingsKey.GetValue("OPEP") is null;
 
                 passwordProtectionSettingsKey.Close();
             }
@@ -157,7 +175,7 @@ namespace KCI_Library
             {
                 { AutoInstallRequirementType.Admin, admin },
                 { AutoInstallRequirementType.MyDatabase, dbIsAccesible},
-                { AutoInstallRequirementType.PasswordProtection, passwordProtection},
+                { AutoInstallRequirementType.PasswordProtectionDisabled, passwordProtectionDisabled},
                 { AutoInstallRequirementType.Closed, kasIsClosed }
             };
 
@@ -200,7 +218,7 @@ namespace KCI_Library
 
         // TODO - Controlar excepciones.
         // TODO - (?) Usar enum.
-        // TODO - Ver qué licencias están disponibles en la base de datos.
+        // TODO - Obtener tan solo el string de cada licencia, sin más carácteres.
         public static Dictionary<DatabaseDataType, string> GetDatabaseData(DatabaseTableIds id)
         {
             MySqlConnection connection = SqlConnector.GetConnection();
