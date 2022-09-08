@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KCI_Library
 {
-    public enum DatabaseIds
+    public enum DatabaseId
     {
         none,
         kav,

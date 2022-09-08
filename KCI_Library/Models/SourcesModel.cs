@@ -8,14 +8,14 @@ namespace KCI_Library
 {
     public class SourcesModel
     {
-        public Uri? OnlineSetupUri { get; set; }
-        public Uri? OfflineSetupUri { get; set; }
-        public string? LastUpdated { get; set; }
-        public string[]? Licenses { get; set; }
+        public Uri OnlineSetupUri { get; private set; }
+        public Uri? OfflineSetupUri { get; private set; }
+        public string? LastUpdated { get; private set; }
+        public string[]? Licenses { get; private set; }
 
-        public SourcesModel()
+        public SourcesModel(Uri onlineSetupUrl)
         {
-
+            OnlineSetupUri = onlineSetupUrl;
         }
 
         public SourcesModel(Uri onlineSetupUrl, Uri offlineSetupUrl, string lastUpdated, string[]? licenses = null)

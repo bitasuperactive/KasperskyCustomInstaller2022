@@ -10,8 +10,7 @@ namespace KCI_UI
         [STAThread]
         static void Main()
         {
-            new SqlConnector("kci").OpenConnection();
-            new Dependencies();
+            // TODO - Requerir conexión a internet para ejecutar la aplicación.
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.

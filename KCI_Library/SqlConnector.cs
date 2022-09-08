@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -12,61 +13,51 @@ namespace KCI_Library
 {
     public class SqlConnector
     {
-        public bool DatabaseAccesible { get; set; }
+        public bool Opened { get; set; }
+
         private static MySqlConnection Connection = new();
 
+        // TODO - Manejar adecuadamente la autenticación hacia al servidor en App.config.
         public SqlConnector(string name)
         {
-            // TODO - Manejar adecuadamente la autenticación hacia al servidor en App.config.
             Connection.ConnectionString = ConfigurationManager.ConnectionStrings[name].ConnectionString;
-            DatabaseAccesible = OpenConnection();
+            Opened = OpenConnection();
         }
 
-        public bool OpenConnection()
-        {
-            // TODO - Manejar evento "Connection.State.Changed".
-            //Connection.StateChange += delegate {  };
-
-            try
-            {
-                Connection.Open();
-                return true;
-            }
-            catch (MySqlException)
-            {
-                // TODO - Comprobar si la excepción ha sido lanzada porque no hay conexión a internet.
-                // Acceso denegado.
-                return false;
-            }
-        }
-
+        // TODO - Manejar escepción cuando la conexión no esté abierta.
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<DatabaseIds> GetAvailableLicenses()
+        public Dictionary<DatabaseId, string> GetAvailableLicenses()
         {
+            if (!Opened)
+                return new() { { DatabaseId.none, string.Empty } };
+
             DynamicParameters p = new();
             p.Add("id", dbType: DbType.String, direction: ParameterDirection.Output);
+            p.Add("LastUpdated", dbType: DbType.String, direction: ParameterDirection.Output);
 
-            Connection.Execute("kci.sources_licensenotnull", p, commandType: CommandType.StoredProcedure);
+            Connection.Execute("kci.sources_availableLicenses", p, commandType: CommandType.StoredProcedure);
 
             // Se deben separar los valores de la Query porque puede devolver varias filas agrupadas.
-            string[] strArr = p.Get<string>("id").Split(',');
+            string[] ids = p.Get<string>("id").Split(',');
+            string[] timeStamps = p.Get<string>("LastUpdated").Split(',');
 
-            List<DatabaseIds> keyValuePairs = new();
+            Dictionary<DatabaseId, string> keyValuePairs = new Dictionary<DatabaseId, string>();
 
-            foreach (string str in strArr)
-                switch (str)
+            for (int i = 0; i < ids.Length; i++)
+                switch (ids[i])
                 {
+                    // TODO - Parsear DatabaseId a string.
                     case "kav":
-                        keyValuePairs.Add(DatabaseIds.kav);
+                        keyValuePairs.Add(DatabaseId.kav, timeStamps[i]);
                         break;
                     case "kis":
-                        keyValuePairs.Add(DatabaseIds.kis);
+                        keyValuePairs.Add(DatabaseId.kis, timeStamps[i]);
                         break;
                     case "kts":
-                        keyValuePairs.Add(DatabaseIds.kts);
+                        keyValuePairs.Add(DatabaseId.kts, timeStamps[i]);
                         break;
                 }
 
@@ -76,8 +67,11 @@ namespace KCI_Library
         // TODO - Controlar excepciones.
         // TODO - (?) Usar enum.
         // TODO - Obtener tan solo el string de cada licencia, sin más carácteres.
-        public SourcesModel CreateSourcesModel(DatabaseIds id)
+        public SourcesModel? CreateSourcesModel(DatabaseId id)
         {
+            if (!Opened)
+                return null;
+
             DynamicParameters p = new();
             p.Add("id", id.ToString());
             p.Add("OnlineSetupUrl", dbType: DbType.String, direction: ParameterDirection.Output);
@@ -91,8 +85,16 @@ namespace KCI_Library
             Uri offlineSetupUri = new Uri(p.Get<string>("OfflineSetupUrl"));
             // Separa la cadena de caracteres omitiendo la hora.
             string lastUpdated = Encoding.Default.GetString(p.Get<byte[]>("LastUpdated")).Split(' ').First();
+
             // Separa la cadena de caracteres obteniendo un array de licencias, omitiendo la información adicional no deseada.
-            string[] licenses = p.Get<string>("Licenses").Split("\":\"");
+            string[] licenses = p.Get<string>("Licenses").Split(',');
+            for (int i = 0; i < licenses.Length; i++)
+            {
+                int pFrom = licenses[i].IndexOf("\":\"") + "\":\"".Length;
+                int pTo = licenses[i].LastIndexOf('"');
+
+                licenses[i] = licenses[i].Substring(pFrom, pTo - pFrom);
+            }
 
             return new SourcesModel(
                 onlineSetupUri, 
@@ -101,7 +103,22 @@ namespace KCI_Library
                 licenses);
         }
 
-        public void CloseConnection()
+        // TODO - Manejar evento "Connection.State.Changed".
+        private bool OpenConnection()
+        {
+            try
+            {
+                Connection.Open();
+                return true;
+            }
+            catch (MySqlException)
+            {
+                // Acceso denegado.
+                return false;
+            }
+        }
+
+        private void CloseConnection()
         {
             Connection.Dispose();
             Connection.Close();

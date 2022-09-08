@@ -1,5 +1,7 @@
 ﻿using KCI_Library;
+using KCI_Library.Models;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,57 +22,88 @@ namespace KCI_UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            if (Dependencies.KasInfo.Installed)
+            PreselectKasperskyProduct();
+            ShowLicenseState();
+            ShowDatabaseState();
+            ShowMissingAutoInstallRequiremenets();
+            ShowAvailableLicenses();
+        }
+
+        // Mostrar si hay o no licencias disponibles para cada versión de Kas y 
+        // la fecha de la última actualización de las mismas.
+        private void ShowAvailableLicenses()
+        {
+            foreach (DatabaseId id in GlobalConfig.AvailableLicenses.Keys)
             {
-                // Preseleccionar la versión de Kas instalada.
-                // Mostrar el estado de la licencia de Kas.
-                licenseStateLabel.Visible = true;
-                switch (Dependencies.KasInfo[Dependencies.KasInfoType.Id])
+                string lastUpdated = GlobalConfig.AvailableLicenses[id];
+
+                switch (id)
                 {
-                    case "kav":
-                        kavRadioButton.BackColor = Color.LightGoldenrodYellow;
-                        if (Dependencies.KasInfo[Dependencies.KasInfoType.LicenseExpired].Equals("False"))
-                        {
-                            licenseStateLabel.Text = "Licencia de Kaspersky Antivirus activa";
-                            licenseStateLabel.ForeColor = Color.Green;
-                        }
-                        else
-                        {
-                            licenseStateLabel.Text = "Licencia de Kaspersky Antivirus expirada";
-                            licenseStateLabel.ForeColor = Color.DarkRed;
-                        }
+                    case DatabaseId.kav:
+                        kavAvailableLicensesLabel.Text = "Licencias disponibles";
+                        kavAvailableLicensesLabel.ForeColor = Color.Green;
+                        toolTip.SetToolTip(kavAvailableLicensesLabel, "Actualizadas el " + lastUpdated);
                         break;
-                    case "kis":
-                        kisRadioButton.BackColor = Color.LightGoldenrodYellow;
-                        if (Dependencies.KasInfo[Dependencies.KasInfoType.LicenseExpired].Equals("False"))
-                        {
-                            licenseStateLabel.Text = "Licencia de Kaspersky Internet Security activa";
-                            licenseStateLabel.ForeColor = Color.Green;
-                        }
-                        else
-                        {
-                            licenseStateLabel.Text = "Licencia de Kaspersky Internet Security expirada";
-                            licenseStateLabel.ForeColor = Color.DarkRed;
-                        }
+                    case DatabaseId.kis:
+                        kisAvailableLicensesLabel.Text = "Licencias disponibles";
+                        kisAvailableLicensesLabel.ForeColor = Color.Green;
+                        toolTip.SetToolTip(kisAvailableLicensesLabel, "Actualizadas el " + lastUpdated);
                         break;
-                    case "kts":
-                        ktsRadioButton.BackColor = Color.LightGoldenrodYellow;
-                        if (Dependencies.KasInfo[Dependencies.KasInfoType.LicenseExpired].Equals("False"))
-                        {
-                            licenseStateLabel.Text = "Licencia de Kaspersky Total Security activa";
-                            licenseStateLabel.ForeColor = Color.Green;
-                        }
-                        else
-                        {
-                            licenseStateLabel.Text = "Licencia de Kaspersky Total Security expirada";
-                            licenseStateLabel.ForeColor = Color.DarkRed;
-                        }
+                    case DatabaseId.kts:
+                        ktsAvailableLicensesLabel.Text = "Licencias disponibles";
+                        ktsAvailableLicensesLabel.ForeColor = Color.Green;
+                        toolTip.SetToolTip(ktsAvailableLicensesLabel, "Actualizadas el " + lastUpdated);
                         break;
                 }
             }
+        }
 
-            // Mostrar estado del servidor.
-            if (SqlConnector.GetConnectionState() is ConnectionState.Open)
+        // Preselecciona la versión de Kas instalada.
+        private void PreselectKasperskyProduct()
+        {
+            Color color = Color.Bisque;
+
+            switch (GlobalConfig.Kaspersky.Id)
+            {
+                case DatabaseId.kav:
+                    kavRadioButton.BackColor = color;
+                    break;
+                case DatabaseId.kis:
+                    kisRadioButton.BackColor = color;
+                    break;
+                case DatabaseId.kts:
+                    ktsRadioButton.BackColor = color;
+                    break;
+            }
+        }
+
+        // Muestra el estado de la licencia de Kas.
+        private void ShowLicenseState()
+        {
+            KasperskyModel kaspersky = GlobalConfig.Kaspersky;
+
+            if (!kaspersky.Installed)
+                return;
+
+            switch (kaspersky.LicenseExpired)
+            {
+                case true:
+                    licenseStateLabel.Text = $"Licencia de {GlobalConfig.Kaspersky.FullName} expirada";
+                    licenseStateLabel.ForeColor = Color.DarkRed;
+                    break;
+                case false:
+                    licenseStateLabel.Text = $"Licencia de {GlobalConfig.Kaspersky.FullName} activa";
+                    licenseStateLabel.ForeColor = Color.Green;
+                    break;
+            }
+
+            licenseStateLabel.Visible = true;
+        }
+
+        // Mostrar estado del servidor.
+        private void ShowDatabaseState()
+        {
+            if (GlobalConfig.Connection.Opened)
             {
                 databaseStateLabel.Text = "Base de datos operativa";
                 databaseStateLabel.ForeColor = Color.Green;
@@ -80,57 +113,33 @@ namespace KCI_UI
                 databaseStateLabel.Text = "Base de datos innacesible";
                 databaseStateLabel.ForeColor = Color.DarkRed;
             }
+        }
 
-            // Enumerar los requisitos faltantes para la instalación automática.
-            string text = string.Empty;
-            foreach (Dependencies.AutoInstallRequirementType r in Dependencies.AutoInstallRequirements.Keys)
+        // Enumerar los requisitos faltantes para la instalación automática.
+        private void ShowMissingAutoInstallRequiremenets()
+        {
+            AutoInstallRequirementsModel requirements = GlobalConfig.AutoInstallRequirements;
+
+            if (requirements.AllMet)
+                return;
+
+            string text = "Para poder llevar a cabo una instalación automática, faltan los siguientes requisitos:" + Environment.NewLine;
+
+            autoInstallButton.Enabled = false;
+
+            if (!requirements.Admin)
             {
-                if (!Dependencies.AutoInstallRequirements[r])
-                    switch (r)
-                    {
-                        case Dependencies.AutoInstallRequirementType.Admin:
-                            text += "* Se requieren permisos de administrador." + Environment.NewLine;
-                            restartAsAdminButton.Visible = true;
-                            break;
-                        case Dependencies.AutoInstallRequirementType.PasswordProtectionDisabled:
-                            text += "* Es necesario deshabilitar la protección por contraseña de Kaspersky (?)." + Environment.NewLine;
-                            break;
-                        case Dependencies.AutoInstallRequirementType.MyDatabase:
-                            text += "* La base de datos no se encuentra disponible." + Environment.NewLine;
-                            break;
-                        case Dependencies.AutoInstallRequirementType.Closed:
-                            text += "* Es necesario cerrar Kaspersky." + Environment.NewLine;
-                            break;
-                    }
+                text += "* Se requieren permisos de administrador." + Environment.NewLine;
+                restartAsAdminButton.Visible = true;
             }
+            if (!requirements.PasswordProtectionDisabled)
+                text += "* Es necesario deshabilitar la protección por contraseña de Kaspersky (?)." + Environment.NewLine;
+            if (!requirements.DatabaseAccesible)
+                text += "* La base de datos no se encuentra disponible." + Environment.NewLine;
+            if (!requirements.KasClosed)
+                text += "* Es necesario cerrar Kaspersky." + Environment.NewLine;
+
             autoInstallRequirementsTextBox.Text = text;
-
-            // Mostrar si hay o no licencias disponibles para cada versión de Kas y 
-            // la fecha de la última actualización de las mismas.
-            foreach (Dependencies.DatabaseTableIds id in Dependencies.AvailableLicenses)
-            {
-                switch (id)
-                {
-                    case Dependencies.DatabaseTableIds.kav:
-                        kavAvailableLicensesLabel.Text = "Licencias disponibles";
-                        kavAvailableLicensesLabel.ForeColor = Color.Green;
-                        toolTip.SetToolTip(kavAvailableLicensesLabel, "Actualizadas el " + 
-                            Dependencies.GetDatabaseData(id)[Dependencies.DatabaseDataType.LastUpdated]);
-                        break;
-                    case Dependencies.DatabaseTableIds.kis:
-                        kisAvailableLicensesLabel.Text = "Licencias disponibles";
-                        kisAvailableLicensesLabel.ForeColor = Color.Green;
-                        toolTip.SetToolTip(kisAvailableLicensesLabel, "Actualizadas el " +
-                            Dependencies.GetDatabaseData(id)[Dependencies.DatabaseDataType.LastUpdated]);
-                        break;
-                    case Dependencies.DatabaseTableIds.kts:
-                        ktsAvailableLicensesLabel.Text = "Licencias disponibles";
-                        ktsAvailableLicensesLabel.ForeColor = Color.Green;
-                        toolTip.SetToolTip(ktsAvailableLicensesLabel, "Actualizadas el " +
-                            Dependencies.GetDatabaseData(id)[Dependencies.DatabaseDataType.LastUpdated]);
-                        break;
-                }
-            }
         }
 
         private void githubButton_Click(object sender, EventArgs e) => GitHub.BrowseToThisRepository();
