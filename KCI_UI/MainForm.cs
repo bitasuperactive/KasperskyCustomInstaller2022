@@ -1,4 +1,5 @@
 ﻿using KCI_Library;
+using KCI_Library.DataAccess;
 using KCI_Library.Models;
 using System;
 using System.CodeDom;
@@ -15,27 +16,101 @@ namespace KCI_UI
 {
     public partial class MainForm : Form
     {
+        private KasperskyModel Kaspersky { get; set; }
+
         public MainForm()
         {
             InitializeComponent();
+            Kaspersky = Dependencies.CreateKasperskyModel();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             PreselectKasperskyProduct();
             ShowLicenseState();
-            ShowDatabaseState();
             ShowMissingAutoInstallRequiremenets();
             ShowAvailableLicenses();
+        }
+
+        // Preselecciona la versión de Kas instalada.
+        private void PreselectKasperskyProduct()
+        {
+            Color color = Color.Bisque;
+
+            switch (Kaspersky.Id)
+            {
+                case DatabaseId.kav:
+                    kavRadioButton.BackColor = color;
+                    break;
+                case DatabaseId.kis:
+                    kisRadioButton.BackColor = color;
+                    break;
+                case DatabaseId.kts:
+                    ktsRadioButton.BackColor = color;
+                    break;
+            }
+        }
+
+        // Muestra el estado de la licencia de Kas.
+        private void ShowLicenseState()
+        {
+            if (!Kaspersky.Installed)
+                return;
+
+            switch (Kaspersky.LicenseExpired)
+            {
+                case true:
+                    licenseStateLabel.Text = $"Licencia de {Kaspersky.FullName} expirada";
+                    licenseStateLabel.ForeColor = Color.DarkRed;
+                    break;
+                case false:
+                    licenseStateLabel.Text = $"Licencia de {Kaspersky.FullName} activa";
+                    licenseStateLabel.ForeColor = Color.Green;
+                    break;
+            }
+
+            licenseStateLabel.Visible = true;
+        }
+
+        // Enumerar los requisitos faltantes para la instalación automática.
+        private void ShowMissingAutoInstallRequiremenets()
+        {
+            AutoInstallRequirementsModel requirements = Dependencies.CreateAutoInstallRequirementsModel();
+
+            if (requirements.AllMet)
+                return;
+
+            string text = "Para poder llevar a cabo una instalación automática, faltan los siguientes requisitos:" + Environment.NewLine;
+
+            //autoInstallButton.Enabled = false;
+
+            if (!requirements.DatabaseAccesible)
+                text += "* La base de datos no se encuentra disponible (reintentar)." + Environment.NewLine;
+            else
+            {
+                if (!requirements.Admin)
+                {
+                    text += "* Se requieren permisos de administrador (ejecutar como admin)." + Environment.NewLine;
+                    //restartAsAdminButton.Visible = true;
+                }
+                if (!requirements.PasswordProtectionDisabled)
+                    text += "* Es necesario deshabilitar la protección por contraseña de Kaspersky (?)." + Environment.NewLine;
+                if (!requirements.KasClosed)
+                    text += "* Es necesario cerrar Kaspersky (?)." + Environment.NewLine;
+            }
+
+            //autoInstallRequirementsTextBox.Text = text;
         }
 
         // Mostrar si hay o no licencias disponibles para cada versión de Kas y 
         // la fecha de la última actualización de las mismas.
         private void ShowAvailableLicenses()
         {
-            foreach (DatabaseId id in GlobalConfig.AvailableLicenses.Keys)
+            Dictionary<DatabaseId, string> availableLicenses = SqlConnector.GetAvailableLicenses();
+
+            foreach (DatabaseId id in availableLicenses.Keys)
             {
-                string lastUpdated = GlobalConfig.AvailableLicenses[id];
+                string lastUpdated = availableLicenses[id];
 
                 switch (id)
                 {
@@ -58,92 +133,9 @@ namespace KCI_UI
             }
         }
 
-        // Preselecciona la versión de Kas instalada.
-        private void PreselectKasperskyProduct()
-        {
-            Color color = Color.Bisque;
-
-            switch (GlobalConfig.Kaspersky.Id)
-            {
-                case DatabaseId.kav:
-                    kavRadioButton.BackColor = color;
-                    break;
-                case DatabaseId.kis:
-                    kisRadioButton.BackColor = color;
-                    break;
-                case DatabaseId.kts:
-                    ktsRadioButton.BackColor = color;
-                    break;
-            }
-        }
-
-        // Muestra el estado de la licencia de Kas.
-        private void ShowLicenseState()
-        {
-            KasperskyModel kaspersky = GlobalConfig.Kaspersky;
-
-            if (!kaspersky.Installed)
-                return;
-
-            switch (kaspersky.LicenseExpired)
-            {
-                case true:
-                    licenseStateLabel.Text = $"Licencia de {GlobalConfig.Kaspersky.FullName} expirada";
-                    licenseStateLabel.ForeColor = Color.DarkRed;
-                    break;
-                case false:
-                    licenseStateLabel.Text = $"Licencia de {GlobalConfig.Kaspersky.FullName} activa";
-                    licenseStateLabel.ForeColor = Color.Green;
-                    break;
-            }
-
-            licenseStateLabel.Visible = true;
-        }
-
-        // Mostrar estado del servidor.
-        private void ShowDatabaseState()
-        {
-            /*if (GlobalConfig.Connection.Opened)
-            {
-                databaseStateLabel.Text = "Base de datos operativa";
-                databaseStateLabel.ForeColor = Color.Green;
-            }
-            else
-            {
-                databaseStateLabel.Text = "Base de datos innacesible";
-                databaseStateLabel.ForeColor = Color.DarkRed;
-            }*/
-        }
-
-        // Enumerar los requisitos faltantes para la instalación automática.
-        private void ShowMissingAutoInstallRequiremenets()
-        {
-            AutoInstallRequirementsModel requirements = GlobalConfig.AutoInstallRequirements;
-
-            if (requirements.AllMet)
-                return;
-
-            string text = "Para poder llevar a cabo una instalación automática, faltan los siguientes requisitos:" + Environment.NewLine;
-
-            autoInstallButton.Enabled = false;
-
-            if (!requirements.Admin)
-            {
-                text += "* Se requieren permisos de administrador." + Environment.NewLine;
-                restartAsAdminButton.Visible = true;
-            }
-            if (!requirements.PasswordProtectionDisabled)
-                text += "* Es necesario deshabilitar la protección por contraseña de Kaspersky (?)." + Environment.NewLine;
-            if (!requirements.DatabaseAccesible)
-                text += "* La base de datos no se encuentra disponible." + Environment.NewLine;
-            if (!requirements.KasClosed)
-                text += "* Es necesario cerrar Kaspersky." + Environment.NewLine;
-
-            autoInstallRequirementsTextBox.Text = text;
-        }
-
         private void githubButton_Click(object sender, EventArgs e) => GitHub.BrowseToThisRepository();
 
+        // TODO - Implementar reinicio como admin en TextBox.
         private void restartAsAdminButton_Click(object sender, EventArgs e)
         {
             // Obtiene la ruta completa del ensamblado en ejecución, omitiéndo la extensión ".dll" 
@@ -155,6 +147,13 @@ namespace KCI_UI
                 Application.Exit();
             else
                 MessageBox.Show(this, "Permisos de administrador denegados.", "Kaspersky Custom Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void configButton_Click(object sender, EventArgs e)
+        {
+            Form form = new ConfigurationForm();
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.Show(this);
         }
     }
 }

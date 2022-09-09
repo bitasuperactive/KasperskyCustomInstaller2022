@@ -12,7 +12,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KCI_Library
+namespace KCI_Library.DataAccess
 {
     public static class Dependencies
     {
@@ -71,8 +71,7 @@ namespace KCI_Library
         /// <returns><c>AutoInstallRequirementsModel</c></returns>
         public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel()
         {
-            // TODO - (!!!) Corregir comprobación de accesibilidad a la bbdd.
-            bool databaseAccesible = GlobalConfig.KavSources.OfflineSetupUri is not null;
+            bool databaseAccesible = SqlConnector.CheckDatabaseAccesible();
 
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
@@ -81,7 +80,7 @@ namespace KCI_Library
             if (AnyProductInstalled(out RegistryKey? kasLabKey))
             {
                 string avpKeyName = kasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
-                RegistryKey? passwordProtectionSettingsKey = 
+                RegistryKey? passwordProtectionSettingsKey =
                     kasLabKey.OpenSubKey($@"{avpKeyName}\Settings\PasswordProtectionSettings");
 
                 //passwordProtectionDisabled = settingsKey.GetValue("EnablePswrdProtect").ToString().Equals('1');

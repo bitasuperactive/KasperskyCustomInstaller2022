@@ -10,19 +10,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace KCI_Library
+namespace KCI_Library.DataAccess
 {
     // TODO - Manejar adecuadamente la autenticación hacia al servidor en App.config.
     public class SqlConnector
     {
-        //public static bool DatabaseIsAccesible { get; private set; }
-
         /// <summary>
         /// Cadena de conexión a la base de datos.
         /// </summary>
         private static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["kci"].ConnectionString;
 
-        // TODO - (!!!) Este método no tiene sentido si ya obtenemos los modelos sources.
+        /// <summary>
+        /// Comprueba si la base de datos es accesible.
+        /// </summary>
+        /// <returns>Verdadero si la base de datos es accesible, falso en su defecto.</returns>
+        public static bool CheckDatabaseAccesible()
+        {
+            try
+            {
+                using (MySqlConnection connection = new(ConnectionString))
+                {
+                    connection.Open();
+                    return true;
+                }
+            }
+            catch (MySqlException)
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// Obtiene de la base de datos, el id de los productos que tengan
         /// disponibles licencias junto con la fecha de su última actualización.
@@ -117,7 +134,7 @@ namespace KCI_Library
             }
             catch (MySqlException)
             {
-                // TODO - Manejar enlaces predeterminados para OnlineSetupUri.
+                // Establece el enlace predeterminado para la descarga del instalador del producto elegido.
                 switch (id)
                 {
                     case DatabaseId.kav:

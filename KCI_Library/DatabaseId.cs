@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 namespace KCI_Library
 {
     /// <summary>
-    /// Ids disponibles en la base de datos.
+    /// Enumerador de los ids disponibles en la base de datos.
+    /// <br/>
+    /// <c>kav</c> : Kaspersky Antivirus
+    /// <br/>
+    /// <c>kis</c> : Kaspersky Internet Security
+    /// <br/>
+    /// <c>kts</c> : Kaspersky Total Security
     /// </summary>
     public enum DatabaseId
     {
