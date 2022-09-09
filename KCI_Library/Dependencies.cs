@@ -12,20 +12,14 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
-// TODO - Crear clase para actualizar las bbdd de kas y obtener el estado de la licencia.
-//bool LicenseExpired = kasLabKey.OpenSubKey("WmiHlp").GetValueNames().Any(
-//subkey => subkey.Contains("IsReportedExpired"));
-
 namespace KCI_Library
 {
     public static class Dependencies
     {
         /// <summary>
-        /// Recupera toda la información necesaria sobre el producto doméstico de Kaspersky Lab 
-        /// instalado en el equipo local, si lo hubiera.
+        /// Crea un modelo <c>KasperskyModel</c>.
         /// </summary>
-        /// <returns>Diccionario que almacena el tipo de información como clave y su valor obtenido, 
-        /// si existe algún producto compatible, en cuyo defecto devuelve un diccionario vacío.</returns>
+        /// <returns><c>KasperskyModel</c></returns>
         public static KasperskyModel CreateKasperskyModel()
         {
             bool anyProductInstalled = AnyProductInstalled(out RegistryKey? kasLabKey);
@@ -72,14 +66,17 @@ namespace KCI_Library
         }
 
         /// <summary>
-        /// 
+        /// Crea un modelo <c>AutoInstallRequirementsModel</c>.
         /// </summary>
-        /// <returns></returns>
-        public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel(bool databaseAccesible)
+        /// <returns><c>AutoInstallRequirementsModel</c></returns>
+        public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel()
         {
+            // TODO - (!!!) Corregir comprobación de accesibilidad a la bbdd.
+            bool databaseAccesible = GlobalConfig.KavSources.OfflineSetupUri is not null;
+
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
-            // TODO - (!!!) Detección de PasswordProtect no funciona adecuadamente en KTS (resto de versiones sin probar).
+            // TODO - (!) Detección de PasswordProtect no funciona adecuadamente en KTS (resto de versiones sin probar).
             bool passwordProtectionDisabled = false;
             if (AnyProductInstalled(out RegistryKey? kasLabKey))
             {
@@ -103,6 +100,12 @@ namespace KCI_Library
                 kasClosed);
         }
 
+        /// <summary>
+        /// Comprueba si existe algún producto doméstico de Kaspersky Lab 
+        /// instalado en el equipo local.
+        /// </summary>
+        /// <param name="kasLabKey">Clave de registro principal del producto.</param>
+        /// <returns>Verdadero si existe agún producto, falso en su defecto.</returns>
         private static bool AnyProductInstalled(out RegistryKey? kasLabKey)
         {
             kasLabKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(@"SOFTWARE\KasperskyLab");

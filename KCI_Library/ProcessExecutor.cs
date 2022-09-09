@@ -13,12 +13,14 @@ namespace KCI_Library
         /// Ejecuta el archivo especificado como administrador.
         /// </summary>
         /// <param name="fileName">Ruta completa al archivo deseado a ejecutar.</param>
+        /// <param name="args">Argumentos de ejecución.</param>
         /// <returns>Verdadero si la ejecución ha sido satisfactoria, falso en su defecto.</returns>
-        public static bool AsAdmin(string fileName)
+        public static bool AsAdmin(string fileName, string args = "")
         {
             ProcessStartInfo psi = new()
             {
                 FileName = fileName,
+                Arguments = args,
                 UseShellExecute = true,
                 Verb = "runas"
             };

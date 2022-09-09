@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace KCI_Library
 {
-    // TODO - Comprobar si hay una nueva versión disponible de la aplicación.
+    // TODO - Comprobar en GitHub si hay una nueva versión disponible de la aplicación.
     public static class GitHub
     {
         /// <summary>

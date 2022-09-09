@@ -103,7 +103,7 @@ namespace KCI_UI
         // Mostrar estado del servidor.
         private void ShowDatabaseState()
         {
-            if (GlobalConfig.Connection.Opened)
+            /*if (GlobalConfig.Connection.Opened)
             {
                 databaseStateLabel.Text = "Base de datos operativa";
                 databaseStateLabel.ForeColor = Color.Green;
@@ -112,7 +112,7 @@ namespace KCI_UI
             {
                 databaseStateLabel.Text = "Base de datos innacesible";
                 databaseStateLabel.ForeColor = Color.DarkRed;
-            }
+            }*/
         }
 
         // Enumerar los requisitos faltantes para la instalación automática.
@@ -151,11 +151,10 @@ namespace KCI_UI
             string thisAssemblyLocation = new(System.Reflection.Assembly.GetExecutingAssembly().Location.SkipLast(4).ToArray());
 
             if (ProcessExecutor.AsAdmin(thisAssemblyLocation))
-                // TODO - (%) Controlar cierre de la aplicación.
+                // TODO - (?) Controlar cierre de la aplicación.
                 Application.Exit();
             else
-                // TODO - Crear un mensaje de error en condiciones.
-                MessageBox.Show(this, "Permisos de administrador denegados.", "Kaspersky Custom Installer");
+                MessageBox.Show(this, "Permisos de administrador denegados.", "Kaspersky Custom Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

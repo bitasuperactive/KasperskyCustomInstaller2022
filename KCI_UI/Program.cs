@@ -2,6 +2,7 @@ using KCI_Library;
 
 namespace KCI_UI
 {
+    // TODO - Requerir conexión a internet para ejecutar la aplicación.
     internal static class Program
     {
         /// <summary>
@@ -10,8 +11,6 @@ namespace KCI_UI
         [STAThread]
         static void Main()
         {
-            // TODO - Requerir conexión a internet para ejecutar la aplicación.
-
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
