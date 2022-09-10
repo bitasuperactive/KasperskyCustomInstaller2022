@@ -47,6 +47,7 @@
             this.ktsActivationButton = new System.Windows.Forms.Button();
             this.radioPanel = new System.Windows.Forms.Panel();
             this.buttonsPanel = new System.Windows.Forms.Panel();
+            this.databaseNotAccesibleLabel = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             this.radioPanel.SuspendLayout();
             this.buttonsPanel.SuspendLayout();
@@ -201,10 +202,18 @@
             // buttonsPanel
             // 
             resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
+            this.buttonsPanel.Controls.Add(this.databaseNotAccesibleLabel);
             this.buttonsPanel.Controls.Add(this.defaultInstallButton);
             this.buttonsPanel.Controls.Add(this.autoInstallButton);
             this.buttonsPanel.Name = "buttonsPanel";
             this.toolTip.SetToolTip(this.buttonsPanel, resources.GetString("buttonsPanel.ToolTip"));
+            // 
+            // databaseNotAccesibleLabel
+            // 
+            resources.ApplyResources(this.databaseNotAccesibleLabel, "databaseNotAccesibleLabel");
+            this.databaseNotAccesibleLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.databaseNotAccesibleLabel.Name = "databaseNotAccesibleLabel";
+            this.toolTip.SetToolTip(this.databaseNotAccesibleLabel, resources.GetString("databaseNotAccesibleLabel.ToolTip"));
             // 
             // MainForm
             // 
@@ -248,5 +257,6 @@
         private Button ktsActivationButton;
         private Panel radioPanel;
         private Panel buttonsPanel;
+        private Label databaseNotAccesibleLabel;
     }
 }

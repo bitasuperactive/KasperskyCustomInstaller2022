@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.databaseRequirementPanel = new System.Windows.Forms.Panel();
-            this.reconnectToDatabaseButton = new System.Windows.Forms.Button();
-            this.databaseAccesibleLabel = new System.Windows.Forms.Label();
             this.adminRequirementPanel = new System.Windows.Forms.Panel();
             this.restartAsAdminButton = new System.Windows.Forms.Button();
             this.adminLabel = new System.Windows.Forms.Label();
@@ -45,7 +42,6 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.databaseRequirementPanel.SuspendLayout();
             this.adminRequirementPanel.SuspendLayout();
             this.pwdProtectionRequirementPanel.SuspendLayout();
             this.closeKasRequirementPanel.SuspendLayout();
@@ -53,60 +49,13 @@
             this.titlePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // databaseRequirementPanel
-            // 
-            this.databaseRequirementPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.databaseRequirementPanel.Controls.Add(this.reconnectToDatabaseButton);
-            this.databaseRequirementPanel.Controls.Add(this.databaseAccesibleLabel);
-            this.databaseRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.databaseRequirementPanel.Location = new System.Drawing.Point(0, 99);
-            this.databaseRequirementPanel.Name = "databaseRequirementPanel";
-            this.databaseRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.databaseRequirementPanel.Size = new System.Drawing.Size(424, 79);
-            this.databaseRequirementPanel.TabIndex = 19;
-            this.databaseRequirementPanel.Visible = false;
-            // 
-            // reconnectToDatabaseButton
-            // 
-            this.reconnectToDatabaseButton.AutoSize = true;
-            this.reconnectToDatabaseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.reconnectToDatabaseButton.BackColor = System.Drawing.Color.Transparent;
-            this.reconnectToDatabaseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.reconnectToDatabaseButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.reconnectToDatabaseButton.FlatAppearance.BorderSize = 0;
-            this.reconnectToDatabaseButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.reconnectToDatabaseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.reconnectToDatabaseButton.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.reconnectToDatabaseButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.reconnectToDatabaseButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.reconnectToDatabaseButton.Location = new System.Drawing.Point(10, 35);
-            this.reconnectToDatabaseButton.Name = "reconnectToDatabaseButton";
-            this.reconnectToDatabaseButton.Size = new System.Drawing.Size(404, 31);
-            this.reconnectToDatabaseButton.TabIndex = 1;
-            this.reconnectToDatabaseButton.Text = "Reconectar";
-            this.reconnectToDatabaseButton.UseVisualStyleBackColor = false;
-            this.reconnectToDatabaseButton.Click += new System.EventHandler(this.reconnectToDatabaseButton_Click);
-            // 
-            // databaseAccesibleLabel
-            // 
-            this.databaseAccesibleLabel.BackColor = System.Drawing.Color.Yellow;
-            this.databaseAccesibleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.databaseAccesibleLabel.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.databaseAccesibleLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.databaseAccesibleLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.databaseAccesibleLabel.Location = new System.Drawing.Point(10, 10);
-            this.databaseAccesibleLabel.Name = "databaseAccesibleLabel";
-            this.databaseAccesibleLabel.Size = new System.Drawing.Size(404, 25);
-            this.databaseAccesibleLabel.TabIndex = 0;
-            this.databaseAccesibleLabel.Text = "La base de datos no se encuentra disponible.";
-            // 
             // adminRequirementPanel
             // 
             this.adminRequirementPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.adminRequirementPanel.Controls.Add(this.restartAsAdminButton);
             this.adminRequirementPanel.Controls.Add(this.adminLabel);
             this.adminRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.adminRequirementPanel.Location = new System.Drawing.Point(0, 178);
+            this.adminRequirementPanel.Location = new System.Drawing.Point(0, 99);
             this.adminRequirementPanel.Name = "adminRequirementPanel";
             this.adminRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
             this.adminRequirementPanel.Size = new System.Drawing.Size(424, 79);
@@ -152,7 +101,7 @@
             this.pwdProtectionRequirementPanel.Controls.Add(this.pwdProtectionMoreInfoButton);
             this.pwdProtectionRequirementPanel.Controls.Add(this.pwdProtectionDisabledLabel);
             this.pwdProtectionRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pwdProtectionRequirementPanel.Location = new System.Drawing.Point(0, 257);
+            this.pwdProtectionRequirementPanel.Location = new System.Drawing.Point(0, 178);
             this.pwdProtectionRequirementPanel.Name = "pwdProtectionRequirementPanel";
             this.pwdProtectionRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
             this.pwdProtectionRequirementPanel.Size = new System.Drawing.Size(424, 79);
@@ -198,7 +147,7 @@
             this.closeKasRequirementPanel.Controls.Add(this.kasClosedMoreInfoButton);
             this.closeKasRequirementPanel.Controls.Add(this.kasClosedLabel);
             this.closeKasRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.closeKasRequirementPanel.Location = new System.Drawing.Point(0, 336);
+            this.closeKasRequirementPanel.Location = new System.Drawing.Point(0, 257);
             this.closeKasRequirementPanel.Name = "closeKasRequirementPanel";
             this.closeKasRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
             this.closeKasRequirementPanel.Size = new System.Drawing.Size(424, 79);
@@ -256,7 +205,7 @@
             this.buttonsPanel.Controls.Add(this.refreshButton);
             this.buttonsPanel.Controls.Add(this.closeButton);
             this.buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonsPanel.Location = new System.Drawing.Point(0, 434);
+            this.buttonsPanel.Location = new System.Drawing.Point(0, 381);
             this.buttonsPanel.Name = "buttonsPanel";
             this.buttonsPanel.Padding = new System.Windows.Forms.Padding(10);
             this.buttonsPanel.Size = new System.Drawing.Size(424, 55);
@@ -301,12 +250,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(424, 489);
+            this.ClientSize = new System.Drawing.Size(424, 436);
             this.Controls.Add(this.buttonsPanel);
             this.Controls.Add(this.closeKasRequirementPanel);
             this.Controls.Add(this.pwdProtectionRequirementPanel);
             this.Controls.Add(this.adminRequirementPanel);
-            this.Controls.Add(this.databaseRequirementPanel);
             this.Controls.Add(this.titlePanel);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -318,8 +266,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Instalación automática";
-            this.databaseRequirementPanel.ResumeLayout(false);
-            this.databaseRequirementPanel.PerformLayout();
             this.adminRequirementPanel.ResumeLayout(false);
             this.adminRequirementPanel.PerformLayout();
             this.pwdProtectionRequirementPanel.ResumeLayout(false);
@@ -333,9 +279,6 @@
         }
 
         #endregion
-        private Panel databaseRequirementPanel;
-        private Button reconnectToDatabaseButton;
-        private Label databaseAccesibleLabel;
         private Panel adminRequirementPanel;
         private Button restartAsAdminButton;
         private Label adminLabel;

@@ -35,6 +35,7 @@ namespace KCI_UI
         {
             HighlightKasperskyProduct();
             EnableActivationButton();
+            CheckDatabaseAccesible();
             ShowAvailableLicenses();
         }
 
@@ -87,6 +88,13 @@ namespace KCI_UI
             }
         }
 
+        // Comprueba si la base de datos es accesible.
+        private void CheckDatabaseAccesible()
+        {
+            if (AutoInstallRequirements.DatabaseAccesible)
+                databaseNotAccesibleLabel.Visible = false;
+        }
+
         // Mostrar el botón de activación de la licencia en el producto instalado, y
         // habilitarlo si hubieran licencias disponibles.
         private void EnableActivationButton()
@@ -121,28 +129,37 @@ namespace KCI_UI
 
         private void kavRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (!defaultInstallButton.Enabled || !autoInstallButton.Enabled)
-            {
+            if (!defaultInstallButton.Enabled)
                 defaultInstallButton.Enabled = true;
+
+            if (!autoInstallButton.Enabled && AutoInstallRequirements.DatabaseAccesible)
+            {
                 autoInstallButton.Enabled = true;
+                databaseNotAccesibleLabel.Visible = false;
             }
         }
 
         private void kisRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (!defaultInstallButton.Enabled || !autoInstallButton.Enabled)
-            {
+            if (!defaultInstallButton.Enabled)
                 defaultInstallButton.Enabled = true;
+
+            if (!autoInstallButton.Enabled && AutoInstallRequirements.DatabaseAccesible)
+            {
                 autoInstallButton.Enabled = true;
+                databaseNotAccesibleLabel.Visible = false;
             }
         }
 
         private void ktsRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            if (!defaultInstallButton.Enabled || !autoInstallButton.Enabled)
-            {
+            if (!defaultInstallButton.Enabled)
                 defaultInstallButton.Enabled = true;
+
+            if (!autoInstallButton.Enabled && AutoInstallRequirements.DatabaseAccesible)
+            {
                 autoInstallButton.Enabled = true;
+                databaseNotAccesibleLabel.Visible = false;
             }
         }
 

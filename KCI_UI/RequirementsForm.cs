@@ -44,16 +44,9 @@ namespace KCI_UI
                 return;
             }
 
-            // Si no hay acceso a la base de datos, solo muestra este requisito.
-            if (!requirements.DatabaseAccesible)
-                databaseRequirementPanel.Visible = true;
-            else
-            {
-                databaseRequirementPanel.Visible = false;
-                adminRequirementPanel.Visible = requirements.Admin ? false : true;
-                pwdProtectionRequirementPanel.Visible = requirements.PasswordProtectionDisabled ? false : true;
-                closeKasRequirementPanel.Visible = requirements.KasClosed ? false : true;
-            }
+            adminRequirementPanel.Visible = requirements.Admin ? false : true;
+            pwdProtectionRequirementPanel.Visible = requirements.PasswordProtectionDisabled ? false : true;
+            closeKasRequirementPanel.Visible = requirements.KasClosed ? false : true;
         }
 
         // Actualiza los requisitos incumplidos.
@@ -64,23 +57,6 @@ namespace KCI_UI
         #endregion
 
         #region Eventos
-        // Intenta de nuevo conectar con la base de datos.
-        private void reconnectToDatabaseButton_Click(object sender, EventArgs e)
-        {
-            if (SqlConnector.CheckDatabaseAccesible())
-            {
-                UpdateMissingRequirements();
-                ShowMissingRequirements();
-            }
-            else
-            {
-                // TODO - Mostrar error de reconexión.
-                MessageBox.Show(this, "Error al reconectar a la base de datos. " +
-                    "Sin ella no es posible realizar una instalación automática.",
-                    this.Text);
-            }
-        }
-
         // Reinicia la aplicación como administrador.
         private void restartAsAdminButton_Click(object sender, EventArgs e)
         {

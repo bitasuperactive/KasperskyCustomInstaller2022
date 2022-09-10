@@ -512,6 +512,15 @@
   <data name="radioPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>762, 353</value>
   </data>
+  <data name="databaseNotAccesibleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="databaseNotAccesibleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 22</value>
+  </data>
+  <data name="databaseNotAccesibleLabel.Text" xml:space="preserve">
+    <value>La base de datos está inoperativa</value>
+  </data>
   <data name="buttonsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
