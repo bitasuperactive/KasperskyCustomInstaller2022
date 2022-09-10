@@ -61,74 +61,55 @@
   <data name="githubButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
+  <data name="githubButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
   <data name="githubButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 6</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="githubButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>720, 10</value>
   </data>
   <data name="githubButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 25</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="licenseStateLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="licenseStateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 13</value>
-  </data>
-  <data name="licenseStateLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="licenseStateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 18</value>
-  </data>
-  <data name="licenseStateLabel.Text" xml:space="preserve">
-    <value>[licenseStateLabel]</value>
-  </data>
-  <data name="licenseStateLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleRight</value>
-  </data>
-  <data name="licenseStateLabel.ToolTip" xml:space="preserve">
-    <value>Estado actual de la licencia del producto instalado</value>
-  </data>
-  <data name="licenseStateLabel.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+    <value>32, 34</value>
   </data>
   <data name="kavRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
+  <data name="kavRadioButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="kavRadioButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="kavRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12.8pt</value>
+  </data>
   <data name="kavRadioButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
 </value>
   </data>
   <data name="kavRadioButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -138,13 +119,14 @@
     <value>NoControl</value>
   </data>
   <data name="kavRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 47</value>
+    <value>0, 10</value>
   </data>
-  <data name="kavRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="kavRadioButton.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>50, 0, 0, 0</value>
   </data>
   <data name="kavRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>570, 72</value>
+    <value>762, 104</value>
   </data>
   <data name="kavRadioButton.Text" xml:space="preserve">
     <value>    Kaspersky Antivirus</value>
@@ -158,6 +140,7 @@
   <data name="kavRadioButton.ToolTip" xml:space="preserve">
     <value>Selecciona la edición deseada a instalar</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="kavAvailableLicensesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -165,13 +148,10 @@
     <value>NoControl</value>
   </data>
   <data name="kavAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 93</value>
-  </data>
-  <data name="kavAvailableLicensesLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>137, 75</value>
   </data>
   <data name="kavAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 18</value>
+    <value>184, 22</value>
   </data>
   <data name="kavAvailableLicensesLabel.Text" xml:space="preserve">
     <value>Licencias no disponibles</value>
@@ -185,39 +165,47 @@
   <data name="kisRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
+  <data name="kisRadioButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="kisRadioButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="kisRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12.8pt</value>
+  </data>
   <data name="kisRadioButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
-        +KGDyssAAAAASUVORK5CYII=
+        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
+        chD6D5Es032xDRE0AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="kisRadioButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -227,13 +215,13 @@
     <value>NoControl</value>
   </data>
   <data name="kisRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 123</value>
+    <value>0, 114</value>
   </data>
-  <data name="kisRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="kisRadioButton.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>50, 0, 0, 0</value>
   </data>
   <data name="kisRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>570, 72</value>
+    <value>762, 112</value>
   </data>
   <data name="kisRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -257,13 +245,10 @@
     <value>NoControl</value>
   </data>
   <data name="kisAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 169</value>
-  </data>
-  <data name="kisAvailableLicensesLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>138, 183</value>
   </data>
   <data name="kisAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 18</value>
+    <value>184, 22</value>
   </data>
   <data name="kisAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -280,33 +265,41 @@
   <data name="ktsRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
   </data>
+  <data name="ktsRadioButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="ktsRadioButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
+  <data name="ktsRadioButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12.8pt</value>
+  </data>
   <data name="ktsRadioButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        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
+        SUVORK5CYII=
 </value>
   </data>
   <data name="ktsRadioButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -316,13 +309,13 @@
     <value>NoControl</value>
   </data>
   <data name="ktsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 199</value>
+    <value>0, 226</value>
   </data>
-  <data name="ktsRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="ktsRadioButton.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>50, 0, 0, 0</value>
   </data>
   <data name="ktsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>570, 72</value>
+    <value>762, 112</value>
   </data>
   <data name="ktsRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -343,13 +336,10 @@
     <value>NoControl</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 245</value>
-  </data>
-  <data name="ktsAvailableLicensesLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>139, 295</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 18</value>
+    <value>184, 22</value>
   </data>
   <data name="ktsAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -363,14 +353,20 @@
   <data name="ktsAvailableLicensesLabel.ToolTip" xml:space="preserve">
     <value>Se activará la licencia de prueba por defecto (30 días)</value>
   </data>
+  <data name="configButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
   <data name="configButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="configButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>475, 8</value>
+    <value>10, 10</value>
+  </data>
+  <data name="configButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="configButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 28</value>
+    <value>136, 34</value>
   </data>
   <data name="configButton.Text" xml:space="preserve">
     <value>Configuración</value>
@@ -378,44 +374,161 @@
   <data name="configButton.ToolTip" xml:space="preserve">
     <value>Configuración de la instalación</value>
   </data>
+  <data name="defaultInstallButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="defaultInstallButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="defaultInstallButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="defaultInstallButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12.8pt</value>
+  </data>
+  <data name="defaultInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 10</value>
+  </data>
+  <data name="defaultInstallButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
   <data name="defaultInstallButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 48</value>
+    <value>322, 65</value>
   </data>
   <data name="defaultInstallButton.Text" xml:space="preserve">
-    <value>Instalación habitual</value>
+    <value>👍 Instalación habitual</value>
+  </data>
+  <data name="autoInstallButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="autoInstallButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="autoInstallButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="autoInstallButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12.8pt</value>
   </data>
   <data name="autoInstallButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="autoInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>328, 309</value>
+    <value>420, 10</value>
+  </data>
+  <data name="autoInstallButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="autoInstallButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 48</value>
+    <value>322, 65</value>
   </data>
   <data name="autoInstallButton.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
   </data>
   <data name="autoInstallButton.Text" xml:space="preserve">
-    <value>Instalación automática</value>
+    <value>🦝 Instalación automática</value>
   </data>
   <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
+  <data name="topPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="topPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
   <data name="topPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 42</value>
+    <value>762, 54</value>
   </data>
   <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 17</value>
+  <data name="kavActivationButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="kavActivationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 45</value>
+  </data>
+  <data name="kavActivationButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 36</value>
+  </data>
+  <data name="kavActivationButton.Text" xml:space="preserve">
+    <value>Activar producto</value>
+  </data>
+  <data name="kavActivationButton.ToolTip" xml:space="preserve">
+    <value>Intentar activar el producto con las licencias disponibles</value>
+  </data>
+  <data name="kavActivationButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="kisActivationButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="kisActivationButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="kisActivationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 153</value>
+  </data>
+  <data name="kisActivationButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 36</value>
+  </data>
+  <data name="kisActivationButton.Text" xml:space="preserve">
+    <value>Activar producto</value>
+  </data>
+  <data name="kisActivationButton.ToolTip" xml:space="preserve">
+    <value>Intentar activar el producto con las licencias disponibles</value>
+  </data>
+  <data name="kisActivationButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ktsActivationButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ktsActivationButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ktsActivationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 265</value>
+  </data>
+  <data name="ktsActivationButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 36</value>
+  </data>
+  <data name="ktsActivationButton.Text" xml:space="preserve">
+    <value>Activar producto</value>
+  </data>
+  <data name="ktsActivationButton.ToolTip" xml:space="preserve">
+    <value>Intentar activar el producto con las licencias disponibles</value>
+  </data>
+  <data name="ktsActivationButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="radioPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="radioPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 10, 0, 0</value>
+  </data>
+  <data name="radioPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 353</value>
+  </data>
+  <data name="buttonsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 413</value>
+  </data>
+  <data name="buttonsPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 10, 20, 40</value>
+  </data>
+  <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 115</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowOnly</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>593, 408</value>
+    <value>762, 528</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

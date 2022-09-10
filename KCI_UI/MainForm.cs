@@ -16,26 +16,33 @@ namespace KCI_UI
 {
     public partial class MainForm : Form
     {
-        private KasperskyModel Kaspersky { get; set; }
+        public KasperskyModel Kaspersky { get; private set; }
+        public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
+        public AutoInstallRequirementsModel AutoInstallRequirements { get; set; }
+        public ConfigurationModel Configuration { get; set; }
 
         public MainForm()
         {
-            InitializeComponent();
             Kaspersky = Dependencies.CreateKasperskyModel();
+            AvailableLicenses = SqlConnector.GetAvailableLicenses();
+            AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
+            Configuration = new ConfigurationModel();
+
+            InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            PreselectKasperskyProduct();
-            ShowLicenseState();
-            ShowMissingAutoInstallRequiremenets();
+            HighlightKasperskyProduct();
+            EnableActivationButton();
             ShowAvailableLicenses();
         }
 
-        // Preselecciona la versión de Kas instalada.
-        private void PreselectKasperskyProduct()
+        #region Métodos
+        // Resaltar el producto instalado.
+        private void HighlightKasperskyProduct()
         {
-            Color color = Color.Bisque;
+            Color color = Color.LightGoldenrodYellow;
 
             switch (Kaspersky.Id)
             {
@@ -51,66 +58,13 @@ namespace KCI_UI
             }
         }
 
-        // Muestra el estado de la licencia de Kas.
-        private void ShowLicenseState()
-        {
-            if (!Kaspersky.Installed)
-                return;
-
-            switch (Kaspersky.LicenseExpired)
-            {
-                case true:
-                    licenseStateLabel.Text = $"Licencia de {Kaspersky.FullName} expirada";
-                    licenseStateLabel.ForeColor = Color.DarkRed;
-                    break;
-                case false:
-                    licenseStateLabel.Text = $"Licencia de {Kaspersky.FullName} activa";
-                    licenseStateLabel.ForeColor = Color.Green;
-                    break;
-            }
-
-            licenseStateLabel.Visible = true;
-        }
-
-        // Enumerar los requisitos faltantes para la instalación automática.
-        private void ShowMissingAutoInstallRequiremenets()
-        {
-            AutoInstallRequirementsModel requirements = Dependencies.CreateAutoInstallRequirementsModel();
-
-            if (requirements.AllMet)
-                return;
-
-            string text = "Para poder llevar a cabo una instalación automática, faltan los siguientes requisitos:" + Environment.NewLine;
-
-            //autoInstallButton.Enabled = false;
-
-            if (!requirements.DatabaseAccesible)
-                text += "* La base de datos no se encuentra disponible (reintentar)." + Environment.NewLine;
-            else
-            {
-                if (!requirements.Admin)
-                {
-                    text += "* Se requieren permisos de administrador (ejecutar como admin)." + Environment.NewLine;
-                    //restartAsAdminButton.Visible = true;
-                }
-                if (!requirements.PasswordProtectionDisabled)
-                    text += "* Es necesario deshabilitar la protección por contraseña de Kaspersky (?)." + Environment.NewLine;
-                if (!requirements.KasClosed)
-                    text += "* Es necesario cerrar Kaspersky (?)." + Environment.NewLine;
-            }
-
-            //autoInstallRequirementsTextBox.Text = text;
-        }
-
-        // Mostrar si hay o no licencias disponibles para cada versión de Kas y 
+        // Mostrar si hay licencias disponibles para cada versión de Kaspersky y, 
         // la fecha de la última actualización de las mismas.
         private void ShowAvailableLicenses()
         {
-            Dictionary<DatabaseId, string> availableLicenses = SqlConnector.GetAvailableLicenses();
-
-            foreach (DatabaseId id in availableLicenses.Keys)
+            foreach (DatabaseId id in AvailableLicenses.Keys)
             {
-                string lastUpdated = availableLicenses[id];
+                string lastUpdated = AvailableLicenses[id];
 
                 switch (id)
                 {
@@ -133,27 +87,81 @@ namespace KCI_UI
             }
         }
 
-        private void githubButton_Click(object sender, EventArgs e) => GitHub.BrowseToThisRepository();
-
-        // TODO - Implementar reinicio como admin en TextBox.
-        private void restartAsAdminButton_Click(object sender, EventArgs e)
+        // Mostrar el botón de activación de la licencia en el producto instalado, y
+        // habilitarlo si hubieran licencias disponibles.
+        private void EnableActivationButton()
         {
-            // Obtiene la ruta completa del ensamblado en ejecución, omitiéndo la extensión ".dll" 
-            // para obtener el ejecutable de la aplicación.
-            string thisAssemblyLocation = new(System.Reflection.Assembly.GetExecutingAssembly().Location.SkipLast(4).ToArray());
+            switch (Kaspersky.Id)
+            {
+                case DatabaseId.kav:
+                    kavActivationButton.Visible = true;
+                    if (AvailableLicenses.ContainsKey(DatabaseId.kav))
+                        kavActivationButton.Enabled = true;
+                    break;
+                case DatabaseId.kis:
+                    kisActivationButton.Visible = true;
+                    if (AvailableLicenses.ContainsKey(DatabaseId.kis))
+                        kisActivationButton.Enabled = true;
+                    break;
+                case DatabaseId.kts:
+                    ktsActivationButton.Visible = true;
+                    if (AvailableLicenses.ContainsKey(DatabaseId.kts))
+                        ktsActivationButton.Enabled = true;
+                    break;
+            }
+        }
+        #endregion
 
-            if (ProcessExecutor.AsAdmin(thisAssemblyLocation))
-                // TODO - (?) Controlar cierre de la aplicación.
-                Application.Exit();
+        #region Eventos
+        private void githubButton_Click(object sender, EventArgs e) => 
+            ProcessExecutor.BrowseToUrl("https://github.com/bitasuperactive/KasperskyCustomInstaller2022");
+
+        private void configButton_Click(object sender, EventArgs e) => 
+            new ConfigurationForm(this).ShowDialog(this);
+
+        private void kavRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!defaultInstallButton.Enabled || !autoInstallButton.Enabled)
+            {
+                defaultInstallButton.Enabled = true;
+                autoInstallButton.Enabled = true;
+            }
+        }
+
+        private void kisRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!defaultInstallButton.Enabled || !autoInstallButton.Enabled)
+            {
+                defaultInstallButton.Enabled = true;
+                autoInstallButton.Enabled = true;
+            }
+        }
+
+        private void ktsRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!defaultInstallButton.Enabled || !autoInstallButton.Enabled)
+            {
+                defaultInstallButton.Enabled = true;
+                autoInstallButton.Enabled = true;
+            }
+        }
+
+        private void defaultInstallButton_Click(object sender, EventArgs e)
+        {
+            // TODO - Realizar instalación habitual.
+        }
+
+        private void autoInstallButton_Click(object sender, EventArgs e)
+        {
+            if (AutoInstallRequirements.AllMet)
+            {
+                // TODO - Realizar instalación automática.
+            }
             else
-                MessageBox.Show(this, "Permisos de administrador denegados.", "Kaspersky Custom Installer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            {
+                new RequirementsForm(this).ShowDialog(this);
+            }
         }
-
-        private void configButton_Click(object sender, EventArgs e)
-        {
-            Form form = new ConfigurationForm();
-            form.StartPosition = FormStartPosition.CenterParent;
-            form.Show(this);
-        }
+        #endregion
     }
 }

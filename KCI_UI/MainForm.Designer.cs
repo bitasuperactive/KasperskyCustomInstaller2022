@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.githubButton = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.licenseStateLabel = new System.Windows.Forms.Label();
             this.kavRadioButton = new System.Windows.Forms.RadioButton();
             this.kavAvailableLicensesLabel = new System.Windows.Forms.Label();
             this.kisRadioButton = new System.Windows.Forms.RadioButton();
@@ -43,7 +42,14 @@
             this.defaultInstallButton = new System.Windows.Forms.Button();
             this.autoInstallButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.kavActivationButton = new System.Windows.Forms.Button();
+            this.kisActivationButton = new System.Windows.Forms.Button();
+            this.ktsActivationButton = new System.Windows.Forms.Button();
+            this.radioPanel = new System.Windows.Forms.Panel();
+            this.buttonsPanel = new System.Windows.Forms.Panel();
             this.topPanel.SuspendLayout();
+            this.radioPanel.SuspendLayout();
+            this.buttonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // githubButton
@@ -58,21 +64,16 @@
             this.githubButton.UseVisualStyleBackColor = true;
             this.githubButton.Click += new System.EventHandler(this.githubButton_Click);
             // 
-            // licenseStateLabel
-            // 
-            resources.ApplyResources(this.licenseStateLabel, "licenseStateLabel");
-            this.licenseStateLabel.Name = "licenseStateLabel";
-            this.toolTip.SetToolTip(this.licenseStateLabel, resources.GetString("licenseStateLabel.ToolTip"));
-            // 
             // kavRadioButton
             // 
             resources.ApplyResources(this.kavRadioButton, "kavRadioButton");
             this.kavRadioButton.FlatAppearance.BorderSize = 0;
-            this.kavRadioButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Khaki;
+            this.kavRadioButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(205)))), ((int)(((byte)(72)))));
             this.kavRadioButton.ForeColor = System.Drawing.Color.Black;
             this.kavRadioButton.Name = "kavRadioButton";
             this.toolTip.SetToolTip(this.kavRadioButton, resources.GetString("kavRadioButton.ToolTip"));
             this.kavRadioButton.UseVisualStyleBackColor = true;
+            this.kavRadioButton.CheckedChanged += new System.EventHandler(this.kavRadioButton_CheckedChanged);
             // 
             // kavAvailableLicensesLabel
             // 
@@ -86,11 +87,12 @@
             // 
             resources.ApplyResources(this.kisRadioButton, "kisRadioButton");
             this.kisRadioButton.FlatAppearance.BorderSize = 0;
-            this.kisRadioButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Khaki;
+            this.kisRadioButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(205)))), ((int)(((byte)(72)))));
             this.kisRadioButton.ForeColor = System.Drawing.Color.Black;
             this.kisRadioButton.Name = "kisRadioButton";
             this.toolTip.SetToolTip(this.kisRadioButton, resources.GetString("kisRadioButton.ToolTip"));
             this.kisRadioButton.UseVisualStyleBackColor = true;
+            this.kisRadioButton.CheckedChanged += new System.EventHandler(this.kisRadioButton_CheckedChanged);
             // 
             // kisAvailableLicensesLabel
             // 
@@ -104,11 +106,12 @@
             // 
             resources.ApplyResources(this.ktsRadioButton, "ktsRadioButton");
             this.ktsRadioButton.FlatAppearance.BorderSize = 0;
-            this.ktsRadioButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.Khaki;
+            this.ktsRadioButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(205)))), ((int)(((byte)(72)))));
             this.ktsRadioButton.ForeColor = System.Drawing.Color.Black;
             this.ktsRadioButton.Name = "ktsRadioButton";
             this.toolTip.SetToolTip(this.ktsRadioButton, resources.GetString("ktsRadioButton.ToolTip"));
             this.ktsRadioButton.UseVisualStyleBackColor = true;
+            this.ktsRadioButton.CheckedChanged += new System.EventHandler(this.ktsRadioButton_CheckedChanged);
             // 
             // ktsAvailableLicensesLabel
             // 
@@ -130,49 +133,99 @@
             // defaultInstallButton
             // 
             resources.ApplyResources(this.defaultInstallButton, "defaultInstallButton");
+            this.defaultInstallButton.BackColor = System.Drawing.Color.Transparent;
+            this.defaultInstallButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.defaultInstallButton.Name = "defaultInstallButton";
             this.toolTip.SetToolTip(this.defaultInstallButton, resources.GetString("defaultInstallButton.ToolTip"));
-            this.defaultInstallButton.UseVisualStyleBackColor = true;
+            this.defaultInstallButton.UseVisualStyleBackColor = false;
+            this.defaultInstallButton.Click += new System.EventHandler(this.defaultInstallButton_Click);
             // 
             // autoInstallButton
             // 
             resources.ApplyResources(this.autoInstallButton, "autoInstallButton");
+            this.autoInstallButton.BackColor = System.Drawing.Color.Transparent;
+            this.autoInstallButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.autoInstallButton.Name = "autoInstallButton";
             this.toolTip.SetToolTip(this.autoInstallButton, resources.GetString("autoInstallButton.ToolTip"));
-            this.autoInstallButton.UseVisualStyleBackColor = true;
+            this.autoInstallButton.UseVisualStyleBackColor = false;
+            this.autoInstallButton.Click += new System.EventHandler(this.autoInstallButton_Click);
             // 
             // topPanel
             // 
             resources.ApplyResources(this.topPanel, "topPanel");
-            this.topPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.topPanel.BackColor = System.Drawing.Color.Gainsboro;
             this.topPanel.Controls.Add(this.githubButton);
             this.topPanel.Controls.Add(this.configButton);
-            this.topPanel.Controls.Add(this.licenseStateLabel);
             this.topPanel.Name = "topPanel";
             this.toolTip.SetToolTip(this.topPanel, resources.GetString("topPanel.ToolTip"));
+            // 
+            // kavActivationButton
+            // 
+            resources.ApplyResources(this.kavActivationButton, "kavActivationButton");
+            this.kavActivationButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.kavActivationButton.Name = "kavActivationButton";
+            this.toolTip.SetToolTip(this.kavActivationButton, resources.GetString("kavActivationButton.ToolTip"));
+            this.kavActivationButton.UseVisualStyleBackColor = true;
+            // 
+            // kisActivationButton
+            // 
+            resources.ApplyResources(this.kisActivationButton, "kisActivationButton");
+            this.kisActivationButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.kisActivationButton.Name = "kisActivationButton";
+            this.toolTip.SetToolTip(this.kisActivationButton, resources.GetString("kisActivationButton.ToolTip"));
+            this.kisActivationButton.UseVisualStyleBackColor = true;
+            // 
+            // ktsActivationButton
+            // 
+            resources.ApplyResources(this.ktsActivationButton, "ktsActivationButton");
+            this.ktsActivationButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ktsActivationButton.Name = "ktsActivationButton";
+            this.toolTip.SetToolTip(this.ktsActivationButton, resources.GetString("ktsActivationButton.ToolTip"));
+            this.ktsActivationButton.UseVisualStyleBackColor = true;
+            // 
+            // radioPanel
+            // 
+            resources.ApplyResources(this.radioPanel, "radioPanel");
+            this.radioPanel.Controls.Add(this.ktsActivationButton);
+            this.radioPanel.Controls.Add(this.ktsAvailableLicensesLabel);
+            this.radioPanel.Controls.Add(this.kisAvailableLicensesLabel);
+            this.radioPanel.Controls.Add(this.ktsRadioButton);
+            this.radioPanel.Controls.Add(this.kisActivationButton);
+            this.radioPanel.Controls.Add(this.kavAvailableLicensesLabel);
+            this.radioPanel.Controls.Add(this.kavActivationButton);
+            this.radioPanel.Controls.Add(this.kisRadioButton);
+            this.radioPanel.Controls.Add(this.kavRadioButton);
+            this.radioPanel.Name = "radioPanel";
+            this.toolTip.SetToolTip(this.radioPanel, resources.GetString("radioPanel.ToolTip"));
+            // 
+            // buttonsPanel
+            // 
+            resources.ApplyResources(this.buttonsPanel, "buttonsPanel");
+            this.buttonsPanel.Controls.Add(this.defaultInstallButton);
+            this.buttonsPanel.Controls.Add(this.autoInstallButton);
+            this.buttonsPanel.Name = "buttonsPanel";
+            this.toolTip.SetToolTip(this.buttonsPanel, resources.GetString("buttonsPanel.ToolTip"));
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.buttonsPanel);
+            this.Controls.Add(this.radioPanel);
             this.Controls.Add(this.topPanel);
-            this.Controls.Add(this.autoInstallButton);
-            this.Controls.Add(this.defaultInstallButton);
-            this.Controls.Add(this.ktsAvailableLicensesLabel);
-            this.Controls.Add(this.ktsRadioButton);
-            this.Controls.Add(this.kisAvailableLicensesLabel);
-            this.Controls.Add(this.kisRadioButton);
-            this.Controls.Add(this.kavAvailableLicensesLabel);
-            this.Controls.Add(this.kavRadioButton);
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.toolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.topPanel.ResumeLayout(false);
-            this.topPanel.PerformLayout();
+            this.radioPanel.ResumeLayout(false);
+            this.radioPanel.PerformLayout();
+            this.buttonsPanel.ResumeLayout(false);
+            this.buttonsPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -181,7 +234,6 @@
         private Button githubButton;
         private ToolTip toolTip;
         private RadioButton kavRadioButton;
-        private Label licenseStateLabel;
         private Label kavAvailableLicensesLabel;
         private Label kisAvailableLicensesLabel;
         private RadioButton kisRadioButton;
@@ -191,5 +243,10 @@
         private Button defaultInstallButton;
         private Button autoInstallButton;
         private Panel topPanel;
+        private Button kavActivationButton;
+        private Button kisActivationButton;
+        private Button ktsActivationButton;
+        private Panel radioPanel;
+        private Panel buttonsPanel;
     }
 }

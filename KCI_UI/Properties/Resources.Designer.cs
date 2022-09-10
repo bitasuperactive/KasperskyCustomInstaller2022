@@ -93,6 +93,16 @@ namespace KCI_UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap kpm_icon {
+            get {
+                object obj = ResourceManager.GetObject("kpm_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap kts_icon {
             get {
                 object obj = ResourceManager.GetObject("kts_icon", resourceCulture);

@@ -65,5 +65,21 @@ namespace KCI_Library
 
             return process is not null;
         }
+
+        /// <summary>
+        /// Abre la url especificada en el navegador predeterminado del sistema.
+        /// </summary>
+        /// <param name="url">Dirección url.</param>
+        /// <returns>Verdadero si la ejecución es exitosa, falso en su defecto.</returns>
+        public static bool BrowseToUrl(string url)
+        {
+            ProcessStartInfo info = new()
+            {
+                FileName = url,
+                UseShellExecute = true
+            };
+
+            return Process.Start(info) is null ? false : true;
+        }
     }
 }
