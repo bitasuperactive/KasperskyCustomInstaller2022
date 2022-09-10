@@ -29,12 +29,17 @@ namespace KCI_UI
         {
             ConfigurationModel configuration = Parent.Configuration;
             bool databaseAccesible = Parent.AutoInstallRequirements.DatabaseAccesible;
-            
+
+            // Bloquea aquellas configuracinoes dependientes de la base de datos.
+            offlineSetupCheckBox.Enabled = databaseAccesible;
+            justUseDefaultLicenseCheckBox.Enabled = databaseAccesible;
+
             if (configuration.CompareTo(new ConfigurationModel()) == 1)
             {
-                offlineSetupCheckBox.Enabled = databaseAccesible;
-                justUseDefaultLicenseCheckBox.Enabled = databaseAccesible;
+                keepKasConfigCheckBox.Checked = true;
+                offlineSetupCheckBox.Checked = false;
                 justUseDefaultLicenseCheckBox.Checked = !databaseAccesible;
+                installKscCheckBox.Checked = false;
             }
             else
             {
