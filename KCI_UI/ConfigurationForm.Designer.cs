@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.keepKasConfigCheckBox = new System.Windows.Forms.CheckBox();
+            this.keepKasperskyConfigCheckBox = new System.Windows.Forms.CheckBox();
             this.offlineSetupCheckBox = new System.Windows.Forms.CheckBox();
-            this.justUseDefaultLicenseCheckBox = new System.Windows.Forms.CheckBox();
-            this.installKscCheckBox = new System.Windows.Forms.CheckBox();
+            this.doNotUseDatabaseLicensesCheckBox = new System.Windows.Forms.CheckBox();
+            this.kasperskySecureConnectionCheckBox = new System.Windows.Forms.CheckBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.applyButton = new System.Windows.Forms.Button();
             this.buttonsPanel = new System.Windows.Forms.Panel();
@@ -43,17 +43,17 @@
             this.titlePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // keepKasConfigCheckBox
+            // keepKasperskyConfigCheckBox
             // 
-            this.keepKasConfigCheckBox.Checked = true;
-            this.keepKasConfigCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.keepKasConfigCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.keepKasConfigCheckBox.Location = new System.Drawing.Point(10, 10);
-            this.keepKasConfigCheckBox.Name = "keepKasConfigCheckBox";
-            this.keepKasConfigCheckBox.Size = new System.Drawing.Size(506, 26);
-            this.keepKasConfigCheckBox.TabIndex = 1;
-            this.keepKasConfigCheckBox.Text = "Mantener configuración de Kaspersky";
-            this.keepKasConfigCheckBox.UseVisualStyleBackColor = true;
+            this.keepKasperskyConfigCheckBox.Checked = true;
+            this.keepKasperskyConfigCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.keepKasperskyConfigCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.keepKasperskyConfigCheckBox.Location = new System.Drawing.Point(10, 10);
+            this.keepKasperskyConfigCheckBox.Name = "keepKasperskyConfigCheckBox";
+            this.keepKasperskyConfigCheckBox.Size = new System.Drawing.Size(506, 26);
+            this.keepKasperskyConfigCheckBox.TabIndex = 1;
+            this.keepKasperskyConfigCheckBox.Text = "Mantener configuración de Kaspersky";
+            this.keepKasperskyConfigCheckBox.UseVisualStyleBackColor = true;
             // 
             // offlineSetupCheckBox
             // 
@@ -66,28 +66,28 @@
             this.offlineSetupCheckBox.Text = "Asistente de instalación completo (offline)";
             this.offlineSetupCheckBox.UseVisualStyleBackColor = false;
             // 
-            // justUseDefaultLicenseCheckBox
+            // doNotUseDatabaseLicensesCheckBox
             // 
-            this.justUseDefaultLicenseCheckBox.Checked = true;
-            this.justUseDefaultLicenseCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.justUseDefaultLicenseCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.justUseDefaultLicenseCheckBox.Location = new System.Drawing.Point(10, 62);
-            this.justUseDefaultLicenseCheckBox.Name = "justUseDefaultLicenseCheckBox";
-            this.justUseDefaultLicenseCheckBox.Size = new System.Drawing.Size(506, 26);
-            this.justUseDefaultLicenseCheckBox.TabIndex = 3;
-            this.justUseDefaultLicenseCheckBox.Text = "Solo renovar una menusalidad";
-            this.justUseDefaultLicenseCheckBox.UseVisualStyleBackColor = true;
+            this.doNotUseDatabaseLicensesCheckBox.Checked = true;
+            this.doNotUseDatabaseLicensesCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.doNotUseDatabaseLicensesCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.doNotUseDatabaseLicensesCheckBox.Location = new System.Drawing.Point(10, 62);
+            this.doNotUseDatabaseLicensesCheckBox.Name = "doNotUseDatabaseLicensesCheckBox";
+            this.doNotUseDatabaseLicensesCheckBox.Size = new System.Drawing.Size(506, 26);
+            this.doNotUseDatabaseLicensesCheckBox.TabIndex = 3;
+            this.doNotUseDatabaseLicensesCheckBox.Text = "Solo renovar una menusalidad";
+            this.doNotUseDatabaseLicensesCheckBox.UseVisualStyleBackColor = true;
             // 
-            // installKscCheckBox
+            // kasperskySecureConnectionCheckBox
             // 
-            this.installKscCheckBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.installKscCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.installKscCheckBox.Location = new System.Drawing.Point(10, 88);
-            this.installKscCheckBox.Name = "installKscCheckBox";
-            this.installKscCheckBox.Size = new System.Drawing.Size(506, 26);
-            this.installKscCheckBox.TabIndex = 4;
-            this.installKscCheckBox.Text = "Instalar Kaspersky Secure Connection";
-            this.installKscCheckBox.UseVisualStyleBackColor = false;
+            this.kasperskySecureConnectionCheckBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.kasperskySecureConnectionCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kasperskySecureConnectionCheckBox.Location = new System.Drawing.Point(10, 88);
+            this.kasperskySecureConnectionCheckBox.Name = "kasperskySecureConnectionCheckBox";
+            this.kasperskySecureConnectionCheckBox.Size = new System.Drawing.Size(506, 26);
+            this.kasperskySecureConnectionCheckBox.TabIndex = 4;
+            this.kasperskySecureConnectionCheckBox.Text = "Instalar Kaspersky Secure Connection";
+            this.kasperskySecureConnectionCheckBox.UseVisualStyleBackColor = false;
             // 
             // cancelButton
             // 
@@ -127,10 +127,10 @@
             // 
             // checkBoxesPanel
             // 
-            this.checkBoxesPanel.Controls.Add(this.installKscCheckBox);
-            this.checkBoxesPanel.Controls.Add(this.justUseDefaultLicenseCheckBox);
+            this.checkBoxesPanel.Controls.Add(this.kasperskySecureConnectionCheckBox);
+            this.checkBoxesPanel.Controls.Add(this.doNotUseDatabaseLicensesCheckBox);
             this.checkBoxesPanel.Controls.Add(this.offlineSetupCheckBox);
-            this.checkBoxesPanel.Controls.Add(this.keepKasConfigCheckBox);
+            this.checkBoxesPanel.Controls.Add(this.keepKasperskyConfigCheckBox);
             this.checkBoxesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkBoxesPanel.Location = new System.Drawing.Point(0, 68);
             this.checkBoxesPanel.Name = "checkBoxesPanel";
@@ -180,6 +180,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Kaspersky Custom Installer";
+            this.Load += new System.EventHandler(this.ConfigurationForm_Load);
             this.buttonsPanel.ResumeLayout(false);
             this.checkBoxesPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
@@ -189,10 +190,10 @@
 
         #endregion
 
-        private CheckBox keepKasConfigCheckBox;
+        private CheckBox keepKasperskyConfigCheckBox;
         private CheckBox offlineSetupCheckBox;
-        private CheckBox justUseDefaultLicenseCheckBox;
-        private CheckBox installKscCheckBox;
+        private CheckBox doNotUseDatabaseLicensesCheckBox;
+        private CheckBox kasperskySecureConnectionCheckBox;
         private Button cancelButton;
         private Button applyButton;
         private Panel buttonsPanel;

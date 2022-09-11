@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using KCI_Library.Models;
+﻿using KCI_Library.Models;
 
 namespace KCI_UI
 {
@@ -17,9 +8,12 @@ namespace KCI_UI
 
         public ConfigurationForm(MainForm parent)
         {
-            Parent = parent;
-
             InitializeComponent();
+            Parent = parent;
+        }
+
+        private void ConfigurationForm_Load(object sender, EventArgs e)
+        {
             SetDefaultConfig();
         }
 
@@ -32,26 +26,26 @@ namespace KCI_UI
 
             // Muestra el nombre completo del producto instalado en las configuraciones que lo utilicen.
             if (Parent.Kaspersky.Installed)
-                keepKasConfigCheckBox.Text = $"Mantener configuración de {Parent.Kaspersky.FullName}";
+                keepKasperskyConfigCheckBox.Text = $"Mantener configuración de {Parent.Kaspersky.FullName}";
 
             // Bloquea aquellas configuracinoes dependientes del producto instalado y la base de datos.
-            keepKasConfigCheckBox.Enabled = Parent.Kaspersky.Installed;
+            keepKasperskyConfigCheckBox.Enabled = Parent.Kaspersky.Installed;
             offlineSetupCheckBox.Enabled = databaseAccesible;
-            justUseDefaultLicenseCheckBox.Enabled = databaseAccesible;
+            doNotUseDatabaseLicensesCheckBox.Enabled = databaseAccesible;
 
             if (configuration.CompareTo(new ConfigurationModel()) == 1)
             {
-                keepKasConfigCheckBox.Checked = Parent.Kaspersky.Installed;
+                keepKasperskyConfigCheckBox.Checked = Parent.Kaspersky.Installed;
                 offlineSetupCheckBox.Checked = false;
-                justUseDefaultLicenseCheckBox.Checked = !databaseAccesible;
-                installKscCheckBox.Checked = false;
+                doNotUseDatabaseLicensesCheckBox.Checked = !databaseAccesible;
+                kasperskySecureConnectionCheckBox.Checked = false;
             }
             else
             {
-                keepKasConfigCheckBox.Checked = configuration.KeepKasperskyConfig;
-                offlineSetupCheckBox.Checked = configuration.UseOfflineSetup;
-                justUseDefaultLicenseCheckBox.Checked = configuration.DoNotUseDatabaseLicenses;
-                installKscCheckBox.Checked = configuration.KasperskySecureConnection;
+                keepKasperskyConfigCheckBox.Checked = configuration.KeepKasperskyConfig;
+                offlineSetupCheckBox.Checked = configuration.OfflineSetup;
+                doNotUseDatabaseLicensesCheckBox.Checked = configuration.DoNotUseDatabaseLicenses;
+                kasperskySecureConnectionCheckBox.Checked = configuration.KasperskySecureConnection;
             }
         }
 
@@ -59,10 +53,10 @@ namespace KCI_UI
         private ConfigurationModel CreateConfigModel()
         {
             return new ConfigurationModel(
-                keepKasConfigCheckBox.Checked,
+                keepKasperskyConfigCheckBox.Checked,
                 offlineSetupCheckBox.Checked,
-                justUseDefaultLicenseCheckBox.Checked,
-                installKscCheckBox.Checked);
+                doNotUseDatabaseLicensesCheckBox.Checked,
+                kasperskySecureConnectionCheckBox.Checked);
         }
         #endregion
 

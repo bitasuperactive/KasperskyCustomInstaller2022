@@ -68,11 +68,41 @@
     <value>Flat</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="githubButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10.8pt, style=Underline</value>
+  </data>
+  <data name="githubButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
+        cwAAEnMBjCK5BwAAAiBJREFUSEul1surjVEYx/HlMpHCQBEKEwNFEWGADGRiQCmZKP4BUzKgCCmXMDHB
+        gH9AMaDTSZkqA5cyEhORZICS8P3u3nV69jrr3bf3V5/OPs+71vPs69o7jZh52I4TuIH7DW9b85prOmcF
+        LuMT/g3hGte6Z+zMx2n8QK35IO5xrz1GyjI8R63ZOOxhr4FZiXeoNZiEvexZzUK8RG1jF/a096zcRlx4
+        BRtwDl+a2iCfcQbrcb2pZfbuyw78RVy0FzmLcBJHsBmrG9625rXFyNmH2MvezpjJU8QF8rM1aWxe9nuC
+        XtahfHQ6jknj3rKfM5zVezrKi74eQ9/SA7Ic9ij7Ois9DoW+Cx1TeyDOSu9DIduIrrFH2ddZ6VcoZEvR
+        NfYo+zor/QmFbBW6xh5lX2el76GQ7UTX2KPs66z0OhSys+gaT52y7yukB6GQfcQCTBr3fkDZ11npWChE
+        dzEX48Zv/nuo9XRWWoKfTcG/b5BPnmlsxajZhmeIQzK/mJ3Vyy1Y9HTYgl342tTknbiDNSizFl57i7y+
+        xhkz8Rj7Bi94T/xaOoR4xr7AHJSx5rW8rsbes47Ko8gLHlkgh+Ep/xD7LbTkGuKAkr2ryU+tj+yghRFz
+        HuWQrO+pLOM7zHenCx06hau4iANoS9tAew39veprcgq/ETdfQFvKge61R+01b80m+LHITS6hLXGge9w7
+        cfypcRN7ev/VsxuuGfKzJKX/lolPN6mlxBgAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="githubButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
   <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>720, 10</value>
+    <value>621, 10</value>
   </data>
   <data name="githubButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 34</value>
+    <value>131, 34</value>
+  </data>
+  <data name="githubButton.Text" xml:space="preserve">
+    <value>Repositorio</value>
+  </data>
+  <data name="githubButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="githubButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
   </data>
   <data name="kavRadioButton.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -436,6 +466,18 @@
   </data>
   <data name="autoInstallButton.ToolTip" xml:space="preserve">
     <value>Instala el producto seleccionado sin interfaz gráfica</value>
+  </data>
+  <data name="comparisionButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="comparisionButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10.8pt, style=Underline</value>
+  </data>
+  <data name="comparisionButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 29</value>
+  </data>
+  <data name="comparisionButton.Text" xml:space="preserve">
+    <value>Comparativa de productos</value>
   </data>
   <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>

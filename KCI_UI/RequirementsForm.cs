@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using KCI_Library;
+﻿using KCI_Library;
 using KCI_Library.Models;
 using KCI_Library.DataAccess;
 
@@ -19,13 +10,18 @@ namespace KCI_UI
 
         public RequirementsForm(MainForm parent)
         {
-            Parent = parent;
-
             InitializeComponent();
+            Parent = parent;
+        }
+
+        private void RequirementsForm_Load(object sender, EventArgs e)
+        {
             ShowMissingRequirements();
         }
 
+#pragma warning disable IDE1006 // Estilos de nombres
         private void refreshButton_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Estilos de nombres
         {
             UpdateMissingRequirements();
             ShowMissingRequirements();
@@ -45,9 +41,9 @@ namespace KCI_UI
                 return;
             }
 
-            adminRequirementPanel.Visible = requirements.Admin ? false : true;
-            pwdProtectionRequirementPanel.Visible = requirements.PasswordProtectionDisabled ? false : true;
-            closeKasRequirementPanel.Visible = requirements.KasClosed ? false : true;
+            adminPanel.Visible = !requirements.Admin;
+            passwordProtectionRequirementPanel.Visible = !requirements.PasswordProtectionDisabled;
+            kasClosedRequirementPanel.Visible = !requirements.KasClosed;
         }
 
         // Actualiza los requisitos incumplidos.
@@ -59,7 +55,9 @@ namespace KCI_UI
 
         #region Eventos
         // Reinicia la aplicación como administrador.
+#pragma warning disable IDE1006 // Estilos de nombres
         private void restartAsAdminButton_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Estilos de nombres
         {
             // Obtiene la ruta completa del ensamblado en ejecución, omitiéndo la extensión ".dll" 
             // para obtener el ejecutable de la aplicación.
@@ -78,7 +76,9 @@ namespace KCI_UI
         }
 
         // Abre el enlace de ayuda para deshabilitar Kaspersky Password Protection.
+#pragma warning disable IDE1006 // Estilos de nombres
         private void pwdProtectionMoreInfoButton_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Estilos de nombres
         {
             switch (Parent.Kaspersky.Id)
             {
@@ -95,12 +95,16 @@ namespace KCI_UI
         }
 
         // Abre el enlace de ayuda para cerrar la aplicación del producto.
+#pragma warning disable IDE1006 // Estilos de nombres
         private void kasClosedMoreInfoButton_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Estilos de nombres
         {
             ProcessExecutor.BrowseToUrl("https://imgur.com/a/dsxJbjY");
         }
 
+#pragma warning disable IDE1006 // Estilos de nombres
         private void closeButton_Click(object sender, EventArgs e)
+#pragma warning restore IDE1006 // Estilos de nombres
         {
             this.Close();
         }

@@ -10,7 +10,7 @@
         /// Utilizar el instalador completo (offline) del producto seleccionado a instalar.
         /// </summary>
         // TODO - Obligatorio si la instalación es automática.
-        public bool UseOfflineSetup { get; set; }
+        public bool OfflineSetup { get; set; }
         /// <summary>
         /// No utilizar las licencias disponibles en la base de datos.
         /// </summary>
@@ -29,7 +29,7 @@
         public ConfigurationModel(bool mantainKasConfig, bool useOfflineSetup, bool doNotUseDatabaseLicenses, bool installKasSecureConnection)
         {
             KeepKasperskyConfig = mantainKasConfig;
-            UseOfflineSetup = useOfflineSetup;
+            OfflineSetup = useOfflineSetup;
             DoNotUseDatabaseLicenses = doNotUseDatabaseLicenses;
             KasperskySecureConnection = installKasSecureConnection;
         }
@@ -47,7 +47,7 @@
                 return 0;
 
             if (this.KeepKasperskyConfig.Equals(other.KeepKasperskyConfig) &&
-                this.UseOfflineSetup.Equals(other.UseOfflineSetup) &&
+                this.OfflineSetup.Equals(other.OfflineSetup) &&
                 this.DoNotUseDatabaseLicenses.Equals(other.DoNotUseDatabaseLicenses) &&
                 this.KasperskySecureConnection.Equals(other.KasperskySecureConnection))
                 return 1;

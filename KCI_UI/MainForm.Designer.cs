@@ -42,6 +42,7 @@
             this.defaultInstallButton = new System.Windows.Forms.Button();
             this.autoInstallButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.comparisionButton = new System.Windows.Forms.Button();
             this.kavActivationButton = new System.Windows.Forms.Button();
             this.kisActivationButton = new System.Windows.Forms.Button();
             this.ktsActivationButton = new System.Windows.Forms.Button();
@@ -56,10 +57,9 @@
             // githubButton
             // 
             resources.ApplyResources(this.githubButton, "githubButton");
-            this.githubButton.BackgroundImage = global::KCI_UI.Properties.Resources.github_logo;
             this.githubButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.githubButton.FlatAppearance.BorderSize = 0;
-            this.githubButton.ForeColor = System.Drawing.Color.Transparent;
+            this.githubButton.ForeColor = System.Drawing.Color.Blue;
             this.githubButton.Name = "githubButton";
             this.toolTip.SetToolTip(this.githubButton, resources.GetString("githubButton.ToolTip"));
             this.githubButton.UseVisualStyleBackColor = true;
@@ -155,10 +155,22 @@
             // 
             resources.ApplyResources(this.topPanel, "topPanel");
             this.topPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.topPanel.Controls.Add(this.comparisionButton);
             this.topPanel.Controls.Add(this.githubButton);
             this.topPanel.Controls.Add(this.configButton);
             this.topPanel.Name = "topPanel";
             this.toolTip.SetToolTip(this.topPanel, resources.GetString("topPanel.ToolTip"));
+            // 
+            // comparisionButton
+            // 
+            resources.ApplyResources(this.comparisionButton, "comparisionButton");
+            this.comparisionButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comparisionButton.FlatAppearance.BorderSize = 0;
+            this.comparisionButton.ForeColor = System.Drawing.Color.Blue;
+            this.comparisionButton.Name = "comparisionButton";
+            this.toolTip.SetToolTip(this.comparisionButton, resources.GetString("comparisionButton.ToolTip"));
+            this.comparisionButton.UseVisualStyleBackColor = true;
+            this.comparisionButton.Click += new System.EventHandler(this.comparisionButton_Click);
             // 
             // kavActivationButton
             // 
@@ -259,5 +271,6 @@
         private Panel radioPanel;
         private Panel buttonsPanel;
         private Label databaseNotAccesibleLabel;
+        private Button comparisionButton;
     }
 }

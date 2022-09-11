@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.adminRequirementPanel = new System.Windows.Forms.Panel();
+            this.adminPanel = new System.Windows.Forms.Panel();
             this.restartAsAdminButton = new System.Windows.Forms.Button();
             this.adminLabel = new System.Windows.Forms.Label();
-            this.pwdProtectionRequirementPanel = new System.Windows.Forms.Panel();
-            this.pwdProtectionMoreInfoButton = new System.Windows.Forms.Button();
-            this.pwdProtectionDisabledLabel = new System.Windows.Forms.Label();
-            this.closeKasRequirementPanel = new System.Windows.Forms.Panel();
+            this.passwordProtectionRequirementPanel = new System.Windows.Forms.Panel();
+            this.passwordProtectionMoreInfoButton = new System.Windows.Forms.Button();
+            this.passwordProtectionDisabledLabel = new System.Windows.Forms.Label();
+            this.kasClosedRequirementPanel = new System.Windows.Forms.Panel();
             this.kasClosedMoreInfoButton = new System.Windows.Forms.Button();
             this.kasClosedLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
@@ -42,25 +42,25 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.adminRequirementPanel.SuspendLayout();
-            this.pwdProtectionRequirementPanel.SuspendLayout();
-            this.closeKasRequirementPanel.SuspendLayout();
+            this.adminPanel.SuspendLayout();
+            this.passwordProtectionRequirementPanel.SuspendLayout();
+            this.kasClosedRequirementPanel.SuspendLayout();
             this.buttonsPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // adminRequirementPanel
+            // adminPanel
             // 
-            this.adminRequirementPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.adminRequirementPanel.Controls.Add(this.restartAsAdminButton);
-            this.adminRequirementPanel.Controls.Add(this.adminLabel);
-            this.adminRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.adminRequirementPanel.Location = new System.Drawing.Point(0, 99);
-            this.adminRequirementPanel.Name = "adminRequirementPanel";
-            this.adminRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.adminRequirementPanel.Size = new System.Drawing.Size(424, 79);
-            this.adminRequirementPanel.TabIndex = 20;
-            this.adminRequirementPanel.Visible = false;
+            this.adminPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.adminPanel.Controls.Add(this.restartAsAdminButton);
+            this.adminPanel.Controls.Add(this.adminLabel);
+            this.adminPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.adminPanel.Location = new System.Drawing.Point(0, 99);
+            this.adminPanel.Name = "adminPanel";
+            this.adminPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.adminPanel.Size = new System.Drawing.Size(424, 79);
+            this.adminPanel.TabIndex = 20;
+            this.adminPanel.Visible = false;
             // 
             // restartAsAdminButton
             // 
@@ -95,64 +95,64 @@
             this.adminLabel.TabIndex = 0;
             this.adminLabel.Text = "Permisos de administrador.";
             // 
-            // pwdProtectionRequirementPanel
+            // passwordProtectionRequirementPanel
             // 
-            this.pwdProtectionRequirementPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pwdProtectionRequirementPanel.Controls.Add(this.pwdProtectionMoreInfoButton);
-            this.pwdProtectionRequirementPanel.Controls.Add(this.pwdProtectionDisabledLabel);
-            this.pwdProtectionRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pwdProtectionRequirementPanel.Location = new System.Drawing.Point(0, 178);
-            this.pwdProtectionRequirementPanel.Name = "pwdProtectionRequirementPanel";
-            this.pwdProtectionRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.pwdProtectionRequirementPanel.Size = new System.Drawing.Size(424, 79);
-            this.pwdProtectionRequirementPanel.TabIndex = 21;
-            this.pwdProtectionRequirementPanel.Visible = false;
+            this.passwordProtectionRequirementPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.passwordProtectionRequirementPanel.Controls.Add(this.passwordProtectionMoreInfoButton);
+            this.passwordProtectionRequirementPanel.Controls.Add(this.passwordProtectionDisabledLabel);
+            this.passwordProtectionRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.passwordProtectionRequirementPanel.Location = new System.Drawing.Point(0, 178);
+            this.passwordProtectionRequirementPanel.Name = "passwordProtectionRequirementPanel";
+            this.passwordProtectionRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.passwordProtectionRequirementPanel.Size = new System.Drawing.Size(424, 79);
+            this.passwordProtectionRequirementPanel.TabIndex = 21;
+            this.passwordProtectionRequirementPanel.Visible = false;
             // 
-            // pwdProtectionMoreInfoButton
+            // passwordProtectionMoreInfoButton
             // 
-            this.pwdProtectionMoreInfoButton.AutoSize = true;
-            this.pwdProtectionMoreInfoButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.pwdProtectionMoreInfoButton.BackColor = System.Drawing.Color.White;
-            this.pwdProtectionMoreInfoButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pwdProtectionMoreInfoButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pwdProtectionMoreInfoButton.FlatAppearance.BorderSize = 0;
-            this.pwdProtectionMoreInfoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.pwdProtectionMoreInfoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.pwdProtectionMoreInfoButton.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.pwdProtectionMoreInfoButton.ForeColor = System.Drawing.Color.Blue;
-            this.pwdProtectionMoreInfoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pwdProtectionMoreInfoButton.Location = new System.Drawing.Point(10, 35);
-            this.pwdProtectionMoreInfoButton.Name = "pwdProtectionMoreInfoButton";
-            this.pwdProtectionMoreInfoButton.Size = new System.Drawing.Size(404, 31);
-            this.pwdProtectionMoreInfoButton.TabIndex = 2;
-            this.pwdProtectionMoreInfoButton.Text = "Más información";
-            this.pwdProtectionMoreInfoButton.UseVisualStyleBackColor = false;
-            this.pwdProtectionMoreInfoButton.Click += new System.EventHandler(this.pwdProtectionMoreInfoButton_Click);
+            this.passwordProtectionMoreInfoButton.AutoSize = true;
+            this.passwordProtectionMoreInfoButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.passwordProtectionMoreInfoButton.BackColor = System.Drawing.Color.White;
+            this.passwordProtectionMoreInfoButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.passwordProtectionMoreInfoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.passwordProtectionMoreInfoButton.FlatAppearance.BorderSize = 0;
+            this.passwordProtectionMoreInfoButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.passwordProtectionMoreInfoButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.passwordProtectionMoreInfoButton.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.passwordProtectionMoreInfoButton.ForeColor = System.Drawing.Color.Blue;
+            this.passwordProtectionMoreInfoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.passwordProtectionMoreInfoButton.Location = new System.Drawing.Point(10, 35);
+            this.passwordProtectionMoreInfoButton.Name = "passwordProtectionMoreInfoButton";
+            this.passwordProtectionMoreInfoButton.Size = new System.Drawing.Size(404, 31);
+            this.passwordProtectionMoreInfoButton.TabIndex = 2;
+            this.passwordProtectionMoreInfoButton.Text = "Más información";
+            this.passwordProtectionMoreInfoButton.UseVisualStyleBackColor = false;
+            this.passwordProtectionMoreInfoButton.Click += new System.EventHandler(this.pwdProtectionMoreInfoButton_Click);
             // 
-            // pwdProtectionDisabledLabel
+            // passwordProtectionDisabledLabel
             // 
-            this.pwdProtectionDisabledLabel.BackColor = System.Drawing.Color.Yellow;
-            this.pwdProtectionDisabledLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pwdProtectionDisabledLabel.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.pwdProtectionDisabledLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pwdProtectionDisabledLabel.Location = new System.Drawing.Point(10, 10);
-            this.pwdProtectionDisabledLabel.Name = "pwdProtectionDisabledLabel";
-            this.pwdProtectionDisabledLabel.Size = new System.Drawing.Size(404, 25);
-            this.pwdProtectionDisabledLabel.TabIndex = 0;
-            this.pwdProtectionDisabledLabel.Text = "Deshabilitar Kaspersky Password Protection.";
+            this.passwordProtectionDisabledLabel.BackColor = System.Drawing.Color.Yellow;
+            this.passwordProtectionDisabledLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.passwordProtectionDisabledLabel.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.passwordProtectionDisabledLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.passwordProtectionDisabledLabel.Location = new System.Drawing.Point(10, 10);
+            this.passwordProtectionDisabledLabel.Name = "passwordProtectionDisabledLabel";
+            this.passwordProtectionDisabledLabel.Size = new System.Drawing.Size(404, 25);
+            this.passwordProtectionDisabledLabel.TabIndex = 0;
+            this.passwordProtectionDisabledLabel.Text = "Deshabilitar Kaspersky Password Protection.";
             // 
-            // closeKasRequirementPanel
+            // kasClosedRequirementPanel
             // 
-            this.closeKasRequirementPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.closeKasRequirementPanel.Controls.Add(this.kasClosedMoreInfoButton);
-            this.closeKasRequirementPanel.Controls.Add(this.kasClosedLabel);
-            this.closeKasRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.closeKasRequirementPanel.Location = new System.Drawing.Point(0, 257);
-            this.closeKasRequirementPanel.Name = "closeKasRequirementPanel";
-            this.closeKasRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.closeKasRequirementPanel.Size = new System.Drawing.Size(424, 79);
-            this.closeKasRequirementPanel.TabIndex = 22;
-            this.closeKasRequirementPanel.Visible = false;
+            this.kasClosedRequirementPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.kasClosedRequirementPanel.Controls.Add(this.kasClosedMoreInfoButton);
+            this.kasClosedRequirementPanel.Controls.Add(this.kasClosedLabel);
+            this.kasClosedRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.kasClosedRequirementPanel.Location = new System.Drawing.Point(0, 257);
+            this.kasClosedRequirementPanel.Name = "kasClosedRequirementPanel";
+            this.kasClosedRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.kasClosedRequirementPanel.Size = new System.Drawing.Size(424, 79);
+            this.kasClosedRequirementPanel.TabIndex = 22;
+            this.kasClosedRequirementPanel.Visible = false;
             // 
             // kasClosedMoreInfoButton
             // 
@@ -252,9 +252,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(424, 436);
             this.Controls.Add(this.buttonsPanel);
-            this.Controls.Add(this.closeKasRequirementPanel);
-            this.Controls.Add(this.pwdProtectionRequirementPanel);
-            this.Controls.Add(this.adminRequirementPanel);
+            this.Controls.Add(this.kasClosedRequirementPanel);
+            this.Controls.Add(this.passwordProtectionRequirementPanel);
+            this.Controls.Add(this.adminPanel);
             this.Controls.Add(this.titlePanel);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -266,12 +266,13 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Instalación automática";
-            this.adminRequirementPanel.ResumeLayout(false);
-            this.adminRequirementPanel.PerformLayout();
-            this.pwdProtectionRequirementPanel.ResumeLayout(false);
-            this.pwdProtectionRequirementPanel.PerformLayout();
-            this.closeKasRequirementPanel.ResumeLayout(false);
-            this.closeKasRequirementPanel.PerformLayout();
+            this.Load += new System.EventHandler(this.RequirementsForm_Load);
+            this.adminPanel.ResumeLayout(false);
+            this.adminPanel.PerformLayout();
+            this.passwordProtectionRequirementPanel.ResumeLayout(false);
+            this.passwordProtectionRequirementPanel.PerformLayout();
+            this.kasClosedRequirementPanel.ResumeLayout(false);
+            this.kasClosedRequirementPanel.PerformLayout();
             this.buttonsPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -279,13 +280,13 @@
         }
 
         #endregion
-        private Panel adminRequirementPanel;
+        private Panel adminPanel;
         private Button restartAsAdminButton;
         private Label adminLabel;
-        private Panel pwdProtectionRequirementPanel;
-        private Button pwdProtectionMoreInfoButton;
-        private Label pwdProtectionDisabledLabel;
-        private Panel closeKasRequirementPanel;
+        private Panel passwordProtectionRequirementPanel;
+        private Button passwordProtectionMoreInfoButton;
+        private Label passwordProtectionDisabledLabel;
+        private Panel kasClosedRequirementPanel;
         private Button kasClosedMoreInfoButton;
         private Label kasClosedLabel;
         private Button refreshButton;
