@@ -1,16 +1,7 @@
-﻿using Dapper;
-using KCI_Library.Models;
+﻿using KCI_Library.Models;
 using Microsoft.Win32;
-using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KCI_Library.DataAccess
 {
@@ -19,7 +10,7 @@ namespace KCI_Library.DataAccess
         /// <summary>
         /// Crea un modelo <c>KasperskyModel</c>.
         /// </summary>
-        /// <returns><c>KasperskyModel</c></returns>
+        /// <returns><see cref="KasperskyModel"/></returns>
         public static KasperskyModel CreateKasperskyModel()
         {
             bool anyProductInstalled = AnyProductInstalled(out RegistryKey? kasLabKey);
@@ -27,11 +18,10 @@ namespace KCI_Library.DataAccess
             if (!anyProductInstalled)
                 return new KasperskyModel();
 
-            // Ni <KasLabKey>, ni ninguna de sus subclaves, serán nulas aquí
-            // si existe algún producto doméstico de KasperskyLab instalado en el equipo.
+            // Ni <kasLabKey>, ni ninguna de sus subclaves serán nulas aquí si existe algún producto instalado.
             string avpKeyName = kasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
-            RegistryKey environmentKey = kasLabKey.OpenSubKey($@"{avpKeyName}\environment");
-            RegistryKey wmiHlpKey = kasLabKey.OpenSubKey("WmiHlp");
+            RegistryKey? environmentKey = kasLabKey.OpenSubKey($@"{avpKeyName}\environment");
+            RegistryKey? wmiHlpKey = kasLabKey.OpenSubKey("WmiHlp");
             string productNameValue = environmentKey.GetValue("ProductName").ToString();
             Guid productCodeValue = new(environmentKey.GetValue("ProductCode").ToString());
             DirectoryInfo productRootValue = new(environmentKey.GetValue("ProductRoot").ToString());
@@ -68,10 +58,10 @@ namespace KCI_Library.DataAccess
         /// <summary>
         /// Crea un modelo <c>AutoInstallRequirementsModel</c>.
         /// </summary>
-        /// <returns><c>AutoInstallRequirementsModel</c></returns>
+        /// <returns><see cref="AutoInstallRequirementsModel"/></returns>
         public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel()
         {
-            bool databaseAccesible = SqlConnector.CheckDatabaseAccesible();
+            bool databaseAccesible = SqlConnector.DatabaseAccesible();
 
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
@@ -79,11 +69,11 @@ namespace KCI_Library.DataAccess
             bool passwordProtectionDisabled = false;
             if (AnyProductInstalled(out RegistryKey? kasLabKey))
             {
+                // Ni <kasLabKey>, ni ninguna de sus subclaves serán nulas aquí si existe algún producto instalado.
                 string avpKeyName = kasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
                 RegistryKey? passwordProtectionSettingsKey =
                     kasLabKey.OpenSubKey($@"{avpKeyName}\Settings\PasswordProtectionSettings");
 
-                //passwordProtectionDisabled = settingsKey.GetValue("EnablePswrdProtect").ToString().Equals('1');
                 passwordProtectionDisabled = passwordProtectionSettingsKey.GetValue("OPEP") is null;
 
                 kasLabKey.Close();
@@ -104,7 +94,7 @@ namespace KCI_Library.DataAccess
         /// instalado en el equipo local.
         /// </summary>
         /// <param name="kasLabKey">Clave de registro principal del producto.</param>
-        /// <returns>Verdadero si existe agún producto, falso en su defecto.</returns>
+        /// <returns><c>Verdadero</c> si existe agún producto, <c>Falso</c> en su defecto.</returns>
         private static bool AnyProductInstalled(out RegistryKey? kasLabKey)
         {
             kasLabKey = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32).OpenSubKey(@"SOFTWARE\KasperskyLab");

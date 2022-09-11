@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KCI_Library
+﻿namespace KCI_Library
 {
     /// <summary>
     /// Modelo de la información proporcionada por la base de datos.
@@ -24,7 +18,7 @@ namespace KCI_Library
         /// </summary>
         public string? LastUpdated { get; private set; }
         /// <summary>
-        /// Licencias, si las hubiera, para activar el producto seleccionado.
+        /// Licencias de activación para el producto seleccionado.
         /// </summary>
         public string[]? Licenses { get; private set; }
 

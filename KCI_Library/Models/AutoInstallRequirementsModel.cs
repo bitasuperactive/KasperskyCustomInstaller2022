@@ -1,37 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KCI_Library.Models
+﻿namespace KCI_Library.Models
 {
     /// <summary>
-    /// Modelo de los requisitos necesarios para llevar a cabo una instalación silenciosa.
+    /// Modelo de los requisitos necesarios para llevar a cabo una instalación automática.
     /// </summary>
     public class AutoInstallRequirementsModel
     {
         /// <summary>
-        /// Almacena si ha sido posible generar un modelo <c>SourcesModel</c> completo.
+        /// La base de datos es accesible.
         /// </summary>
         public bool DatabaseAccesible { get; private set; }
         /// <summary>
-        /// Almacena si el usuario posee privilegios de administrador.
+        /// El usuario actual posee privilegios de administrador.
         /// </summary>
         public bool Admin { get; private set; }
         /// <summary>
-        /// Almacena si el producto de Kaspersky, instalado en el equipo, 
-        /// tiene habilitada la protección por contraseña.
+        /// El producto tiene deshabilitada la protección por contraseña.
         /// </summary>
         public bool PasswordProtectionDisabled { get; private set; }
         /// <summary>
-        /// Almacena si el producto de Kaspersky, instalado en el equipo, 
-        /// no se encuentra en ejecución.
+        /// El producto no se encuentra en ejecución.
         /// </summary>
         public bool KasClosed { get; private set; }
         /// <summary>
-        /// Almacena si los requisitos anteriores han sido cumplidos.
+        /// Los requisitos anteriores han sido cumplidos.
         /// </summary>
         public bool AllMet { get; private set; }
 

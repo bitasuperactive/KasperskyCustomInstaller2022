@@ -211,6 +211,7 @@
             // databaseNotAccesibleLabel
             // 
             resources.ApplyResources(this.databaseNotAccesibleLabel, "databaseNotAccesibleLabel");
+            this.databaseNotAccesibleLabel.BackColor = System.Drawing.Color.White;
             this.databaseNotAccesibleLabel.ForeColor = System.Drawing.Color.DarkRed;
             this.databaseNotAccesibleLabel.Name = "databaseNotAccesibleLabel";
             this.toolTip.SetToolTip(this.databaseNotAccesibleLabel, resources.GetString("databaseNotAccesibleLabel.ToolTip"));

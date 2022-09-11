@@ -39,7 +39,8 @@ namespace KCI_UI
 
             if (requirements.AllMet)
             {
-                // TODO - Mostrar mensaje indicando que los requisitos han sido cumplidos.
+                MessageBox.Show(this, "Todos los requisitos han sido satisfechos, ahora puedes realizar una instalación automática.",
+                    this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 return;
             }
@@ -70,7 +71,6 @@ namespace KCI_UI
                     this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (ProcessExecutor.AsAdmin(thisAssemblyLocation))
-                // TODO - (?) Controlar cierre de la aplicación.
                 Application.Exit();
             else
                 MessageBox.Show(this, "Permisos de administrador denegados.", 

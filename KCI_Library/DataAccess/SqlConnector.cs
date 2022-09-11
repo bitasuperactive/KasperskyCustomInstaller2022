@@ -1,19 +1,13 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace KCI_Library.DataAccess
 {
     // TODO - Manejar adecuadamente la autenticación hacia al servidor en App.config.
-    public class SqlConnector
+    public static class SqlConnector
     {
         /// <summary>
         /// Cadena de conexión a la base de datos.
@@ -23,8 +17,8 @@ namespace KCI_Library.DataAccess
         /// <summary>
         /// Comprueba si la base de datos es accesible.
         /// </summary>
-        /// <returns>Verdadero si la base de datos es accesible, falso en su defecto.</returns>
-        public static bool CheckDatabaseAccesible()
+        /// <returns><c>Verdadero</c> si es accesible, <c>Falso</c> en su defecto.</returns>
+        public static bool DatabaseAccesible()
         {
             try
             {
@@ -45,7 +39,7 @@ namespace KCI_Library.DataAccess
         /// disponibles licencias junto con la fecha de su última actualización.
         /// </summary>
         /// <returns>
-        /// Diccionario donde <c>TKey</c> es el <c>DatabaseId</c> del producto 
+        /// <see cref="Dictionary{TKey, TValue}"/> donde <c>TKey</c> es el <see cref="DatabaseId"/> del producto 
         /// y <c>TValue</c> es la fecha de la última actualización.
         /// </returns>
         public static Dictionary<DatabaseId, string> GetAvailableLicenses()
@@ -92,8 +86,8 @@ namespace KCI_Library.DataAccess
         /// <summary>
         /// Crea un modelo <c>SourcesModel</c>.
         /// </summary>
-        /// <param name="id">El <c>DatabaseId</c> del producto a obtener.</param>
-        /// <returns></returns>
+        /// <param name="id">El <see cref="DatabaseId"/> del producto a obtener.</param>
+        /// <returns><see cref="SourcesModel"/></returns>
         public static SourcesModel CreateSourcesModel(DatabaseId id)
         {
             try
@@ -111,10 +105,10 @@ namespace KCI_Library.DataAccess
 
                     Uri onlineSetupUri = new Uri(p.Get<string>("OnlineSetupUrl"));
                     Uri offlineSetupUri = new Uri(p.Get<string>("OfflineSetupUrl"));
-                    // Separa la cadena de caracteres omitiendo la hora.
+                    // Divide la cadena omitiendo la hora.
                     string lastUpdated = Encoding.Default.GetString(p.Get<byte[]>("LastUpdated")).Split(' ').First();
 
-                    // Separa la cadena de caracteres obteniendo un array de licencias, omitiendo la información adicional no deseada.
+                    // Divide la cadena obteniendo un array de licencias, omitiendo la información adicional no deseada.
                     string getLicenses = p.Get<string>("Licenses");
                     string[] licenses = getLicenses is null ? Array.Empty<string>() : getLicenses.Split(',');
                     for (int i = 0; i < licenses.Length; i++)

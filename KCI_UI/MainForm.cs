@@ -12,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// TODO - (!!!) Revisar la coherencia de los nombres en todas las clases, objetos y textos.
+// TODO - (!!!) Comentar todo el código creado.
+
 namespace KCI_UI
 {
     public partial class MainForm : Form
@@ -91,8 +94,8 @@ namespace KCI_UI
         // Comprueba si la base de datos es accesible.
         private void CheckDatabaseAccesible()
         {
-            if (AutoInstallRequirements.DatabaseAccesible)
-                databaseNotAccesibleLabel.Visible = false;
+            if (!AutoInstallRequirements.DatabaseAccesible)
+                databaseNotAccesibleLabel.Visible = true;
         }
 
         // Mostrar el botón de activación de la licencia en el producto instalado, y

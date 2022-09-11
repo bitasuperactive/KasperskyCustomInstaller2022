@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KCI_Library
+﻿namespace KCI_Library
 {
     /// <summary>
     /// Enumerador de los ids disponibles en la base de datos.

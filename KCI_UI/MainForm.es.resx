@@ -138,7 +138,7 @@
     <value>ImageBeforeText</value>
   </data>
   <data name="kavRadioButton.ToolTip" xml:space="preserve">
-    <value>Selecciona la edición deseada a instalar</value>
+    <value>Selecciona el producto deseado a instalar</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="kavAvailableLicensesLabel.AutoSize" type="System.Boolean, mscorlib">
@@ -148,7 +148,7 @@
     <value>NoControl</value>
   </data>
   <data name="kavAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>137, 75</value>
+    <value>136, 75</value>
   </data>
   <data name="kavAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -236,7 +236,7 @@
     <value>ImageBeforeText</value>
   </data>
   <data name="kisRadioButton.ToolTip" xml:space="preserve">
-    <value>Selecciona la edición deseada a instalar</value>
+    <value>Selecciona el producto deseado a instalar</value>
   </data>
   <data name="kisAvailableLicensesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -245,7 +245,7 @@
     <value>NoControl</value>
   </data>
   <data name="kisAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 183</value>
+    <value>137, 183</value>
   </data>
   <data name="kisAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -329,6 +329,9 @@
   <data name="ktsRadioButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
+  <data name="ktsRadioButton.ToolTip" xml:space="preserve">
+    <value>Selecciona el producto deseado a instalar</value>
+  </data>
   <data name="ktsAvailableLicensesLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -336,7 +339,7 @@
     <value>NoControl</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 295</value>
+    <value>138, 295</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -398,6 +401,9 @@
   <data name="defaultInstallButton.Text" xml:space="preserve">
     <value>👍 Instalación habitual</value>
   </data>
+  <data name="defaultInstallButton.ToolTip" xml:space="preserve">
+    <value>Instala el producto seleccionado con interfaz gráfica</value>
+  </data>
   <data name="autoInstallButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -427,6 +433,9 @@
   </data>
   <data name="autoInstallButton.Text" xml:space="preserve">
     <value>🦝 Instalación automática</value>
+  </data>
+  <data name="autoInstallButton.ToolTip" xml:space="preserve">
+    <value>Instala el producto seleccionado sin interfaz gráfica</value>
   </data>
   <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -516,10 +525,13 @@
     <value>True</value>
   </data>
   <data name="databaseNotAccesibleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 22</value>
+    <value>243, 22</value>
   </data>
   <data name="databaseNotAccesibleLabel.Text" xml:space="preserve">
-    <value>La base de datos está inoperativa</value>
+    <value>No disponible en este momento</value>
+  </data>
+  <data name="databaseNotAccesibleLabel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="buttonsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>

@@ -30,23 +30,28 @@ namespace KCI_UI
             ConfigurationModel configuration = Parent.Configuration;
             bool databaseAccesible = Parent.AutoInstallRequirements.DatabaseAccesible;
 
-            // Bloquea aquellas configuracinoes dependientes de la base de datos.
+            // Muestra el nombre completo del producto instalado en las configuraciones que lo utilicen.
+            if (Parent.Kaspersky.Installed)
+                keepKasConfigCheckBox.Text = $"Mantener configuración de {Parent.Kaspersky.FullName}";
+
+            // Bloquea aquellas configuracinoes dependientes del producto instalado y la base de datos.
+            keepKasConfigCheckBox.Enabled = Parent.Kaspersky.Installed;
             offlineSetupCheckBox.Enabled = databaseAccesible;
             justUseDefaultLicenseCheckBox.Enabled = databaseAccesible;
 
             if (configuration.CompareTo(new ConfigurationModel()) == 1)
             {
-                keepKasConfigCheckBox.Checked = true;
+                keepKasConfigCheckBox.Checked = Parent.Kaspersky.Installed;
                 offlineSetupCheckBox.Checked = false;
                 justUseDefaultLicenseCheckBox.Checked = !databaseAccesible;
                 installKscCheckBox.Checked = false;
             }
             else
             {
-                keepKasConfigCheckBox.Checked = configuration.KeepKasConfig;
+                keepKasConfigCheckBox.Checked = configuration.KeepKasperskyConfig;
                 offlineSetupCheckBox.Checked = configuration.UseOfflineSetup;
                 justUseDefaultLicenseCheckBox.Checked = configuration.DoNotUseDatabaseLicenses;
-                installKscCheckBox.Checked = configuration.InstallKasSecureConnection;
+                installKscCheckBox.Checked = configuration.KasperskySecureConnection;
             }
         }
 
