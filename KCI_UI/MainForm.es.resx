@@ -62,7 +62,7 @@
     <value>Zoom</value>
   </data>
   <data name="githubButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
+    <value>Left</value>
   </data>
   <data name="githubButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -74,7 +74,7 @@
   <data name="githubButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
-        cwAAEnMBjCK5BwAAAiBJREFUSEul1surjVEYx/HlMpHCQBEKEwNFEWGADGRiQCmZKP4BUzKgCCmXMDHB
+        cQAAEnEB89x6jgAAAiBJREFUSEul1surjVEYx/HlMpHCQBEKEwNFEWGADGRiQCmZKP4BUzKgCCmXMDHB
         gH9AMaDTSZkqA5cyEhORZICS8P3u3nV69jrr3bf3V5/OPs+71vPs69o7jZh52I4TuIH7DW9b85prOmcF
         LuMT/g3hGte6Z+zMx2n8QK35IO5xrz1GyjI8R63ZOOxhr4FZiXeoNZiEvexZzUK8RG1jF/a096zcRlx4
         BRtwDl+a2iCfcQbrcb2pZfbuyw78RVy0FzmLcBJHsBmrG9625rXFyNmH2MvezpjJU8QF8rM1aWxe9nuC
@@ -86,20 +86,14 @@
         cfypcRN7ev/VsxuuGfKzJKX/lolPN6mlxBgAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="githubButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
   <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>621, 10</value>
+    <value>10, 10</value>
   </data>
   <data name="githubButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>131, 34</value>
   </data>
   <data name="githubButton.Text" xml:space="preserve">
     <value>Repositorio</value>
-  </data>
-  <data name="githubButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="githubButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -160,9 +154,6 @@
   </data>
   <data name="kavRadioButton.Text" xml:space="preserve">
     <value>    Kaspersky Antivirus</value>
-  </data>
-  <data name="kavRadioButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
   </data>
   <data name="kavRadioButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
@@ -259,9 +250,6 @@
   <data name="kisRadioButton.Text" xml:space="preserve">
     <value>    Kaspersky Internet Security</value>
   </data>
-  <data name="kisRadioButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
   <data name="kisRadioButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
@@ -353,9 +341,6 @@
   <data name="ktsRadioButton.Text" xml:space="preserve">
     <value>    Kaspersky Total Security</value>
   </data>
-  <data name="ktsRadioButton.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
   <data name="ktsRadioButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageBeforeText</value>
   </data>
@@ -369,7 +354,7 @@
     <value>NoControl</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 295</value>
+    <value>137, 295</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 22</value>
@@ -387,22 +372,25 @@
     <value>Se activará la licencia de prueba por defecto (30 días)</value>
   </data>
   <data name="configButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+    <value>Right</value>
+  </data>
+  <data name="configButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
   </data>
   <data name="configButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="configButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
+    <value>602, 10</value>
   </data>
   <data name="configButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="configButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 34</value>
+    <value>150, 34</value>
   </data>
   <data name="configButton.Text" xml:space="preserve">
-    <value>Configuración</value>
+    <value>🛠️ Configuración</value>
   </data>
   <data name="configButton.ToolTip" xml:space="preserve">
     <value>Configuración de la instalación</value>
@@ -429,7 +417,7 @@
     <value>322, 65</value>
   </data>
   <data name="defaultInstallButton.Text" xml:space="preserve">
-    <value>👍 Instalación habitual</value>
+    <value>🤓 Instalación habitual</value>
   </data>
   <data name="defaultInstallButton.ToolTip" xml:space="preserve">
     <value>Instala el producto seleccionado con interfaz gráfica</value>
@@ -462,10 +450,25 @@
     <value>16</value>
   </data>
   <data name="autoInstallButton.Text" xml:space="preserve">
-    <value>🦝 Instalación automática</value>
+    <value>👻 Instalación automática</value>
   </data>
   <data name="autoInstallButton.ToolTip" xml:space="preserve">
     <value>Instala el producto seleccionado sin interfaz gráfica</value>
+  </data>
+  <data name="separator1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="separator1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt</value>
+  </data>
+  <data name="separator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 24</value>
+  </data>
+  <data name="separator1.Text" xml:space="preserve">
+    <value>|</value>
+  </data>
+  <data name="comparisionButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="comparisionButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -473,8 +476,11 @@
   <data name="comparisionButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10.8pt, style=Underline</value>
   </data>
+  <data name="comparisionButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>141, 10</value>
+  </data>
   <data name="comparisionButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 29</value>
+    <value>225, 34</value>
   </data>
   <data name="comparisionButton.Text" xml:space="preserve">
     <value>Comparativa de productos</value>
@@ -498,13 +504,13 @@
     <value>False</value>
   </data>
   <data name="kavActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 45</value>
+    <value>545, 45</value>
   </data>
   <data name="kavActivationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 36</value>
+    <value>166, 36</value>
   </data>
   <data name="kavActivationButton.Text" xml:space="preserve">
-    <value>Activar producto</value>
+    <value>🗝️ Activar producto</value>
   </data>
   <data name="kavActivationButton.ToolTip" xml:space="preserve">
     <value>Intentar activar el producto con las licencias disponibles</value>
@@ -519,13 +525,13 @@
     <value>NoControl</value>
   </data>
   <data name="kisActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 153</value>
+    <value>545, 153</value>
   </data>
   <data name="kisActivationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 36</value>
+    <value>166, 36</value>
   </data>
   <data name="kisActivationButton.Text" xml:space="preserve">
-    <value>Activar producto</value>
+    <value>🗝️ Activar producto</value>
   </data>
   <data name="kisActivationButton.ToolTip" xml:space="preserve">
     <value>Intentar activar el producto con las licencias disponibles</value>
@@ -540,13 +546,13 @@
     <value>NoControl</value>
   </data>
   <data name="ktsActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 265</value>
+    <value>545, 265</value>
   </data>
   <data name="ktsActivationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 36</value>
+    <value>166, 36</value>
   </data>
   <data name="ktsActivationButton.Text" xml:space="preserve">
-    <value>Activar producto</value>
+    <value>🗝️ Activar producto</value>
   </data>
   <data name="ktsActivationButton.ToolTip" xml:space="preserve">
     <value>Intentar activar el producto con las licencias disponibles</value>

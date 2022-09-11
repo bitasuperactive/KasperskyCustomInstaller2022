@@ -41,9 +41,10 @@ namespace KCI_UI
                 return;
             }
 
-            adminPanel.Visible = !requirements.Admin;
-            passwordProtectionRequirementPanel.Visible = !requirements.PasswordProtectionDisabled;
+            // Orden inverso para preservar el orden en la interfaz.
             kasClosedRequirementPanel.Visible = !requirements.KasClosed;
+            passwordProtectionRequirementPanel.Visible = !requirements.PasswordProtectionDisabled;
+            adminPanel.Visible = !requirements.Admin;
         }
 
         // Actualiza los requisitos incumplidos.

@@ -22,11 +22,10 @@ namespace KCI_Library.DataAccess
         {
             try
             {
-                using (MySqlConnection connection = new(ConnectionString))
-                {
-                    connection.Open();
-                    return true;
-                }
+                using MySqlConnection connection = new(ConnectionString);
+
+                connection.Open();
+                return true;
             }
             catch (MySqlException)
             {
@@ -46,36 +45,35 @@ namespace KCI_Library.DataAccess
         {
             try
             {
-                using (MySqlConnection connection = new(ConnectionString))
-                {
-                    DynamicParameters p = new();
-                    p.Add("id", dbType: DbType.String, direction: ParameterDirection.Output);
-                    p.Add("LastUpdated", dbType: DbType.String, direction: ParameterDirection.Output);
+                using MySqlConnection connection = new(ConnectionString);
 
-                    connection.Execute("kci.sources_availableLicenses", p, commandType: CommandType.StoredProcedure);
+                DynamicParameters p = new();
+                p.Add("id", dbType: DbType.String, direction: ParameterDirection.Output);
+                p.Add("LastUpdated", dbType: DbType.String, direction: ParameterDirection.Output);
 
-                    // Se deben separar los valores de la Query porque puede devolver varias filas agrupadas.
-                    string[] ids = p.Get<string>("id").Split(',');
-                    string[] timeStamps = p.Get<string>("LastUpdated").Split(',');
+                connection.Execute("kci.sources_availableLicenses", p, commandType: CommandType.StoredProcedure);
 
-                    Dictionary<DatabaseId, string> keyValuePairs = new Dictionary<DatabaseId, string>();
+                // Se deben separar los valores de la Query porque puede devolver varias filas agrupadas.
+                string[] ids = p.Get<string>("id").Split(',');
+                string[] timeStamps = p.Get<string>("LastUpdated").Split(',');
 
-                    for (int i = 0; i < ids.Length; i++)
-                        switch (ids[i])
-                        {
-                            case "kav":
-                                keyValuePairs.Add(DatabaseId.kav, timeStamps[i]);
-                                break;
-                            case "kis":
-                                keyValuePairs.Add(DatabaseId.kis, timeStamps[i]);
-                                break;
-                            case "kts":
-                                keyValuePairs.Add(DatabaseId.kts, timeStamps[i]);
-                                break;
-                        }
+                Dictionary<DatabaseId, string> keyValuePairs = new();
 
-                    return keyValuePairs;
-                }
+                for (int i = 0; i < ids.Length; i++)
+                    switch (ids[i])
+                    {
+                        case "kav":
+                            keyValuePairs.Add(DatabaseId.kav, timeStamps[i]);
+                            break;
+                        case "kis":
+                            keyValuePairs.Add(DatabaseId.kis, timeStamps[i]);
+                            break;
+                        case "kts":
+                            keyValuePairs.Add(DatabaseId.kts, timeStamps[i]);
+                            break;
+                    }
+
+                return keyValuePairs;
             }
             catch (MySqlException)
             {
@@ -92,39 +90,38 @@ namespace KCI_Library.DataAccess
         {
             try
             {
-                using (MySqlConnection connection = new(ConnectionString))
+                using MySqlConnection connection = new(ConnectionString);
+
+                DynamicParameters p = new();
+                p.Add("id", id.ToString());
+                p.Add("OnlineSetupUrl", dbType: DbType.String, direction: ParameterDirection.Output);
+                p.Add("OfflineSetupUrl", dbType: DbType.String, direction: ParameterDirection.Output);
+                p.Add("LastUpdated", dbType: DbType.DateTime2, direction: ParameterDirection.Output);
+                p.Add("Licenses", dbType: DbType.String, direction: ParameterDirection.Output);
+
+                connection.Execute("kci.sources_select", p, commandType: CommandType.StoredProcedure);
+
+                Uri onlineSetupUri = new(p.Get<string>("OnlineSetupUrl"));
+                Uri offlineSetupUri = new(p.Get<string>("OfflineSetupUrl"));
+                // Divide la cadena omitiendo la hora.
+                string lastUpdated = Encoding.Default.GetString(p.Get<byte[]>("LastUpdated")).Split(' ').First();
+
+                // Divide la cadena obteniendo un array de licencias, omitiendo la información adicional no deseada.
+                string getLicenses = p.Get<string>("Licenses");
+                string[] licenses = getLicenses is null ? Array.Empty<string>() : getLicenses.Split(',');
+                for (int i = 0; i < licenses.Length; i++)
                 {
-                    DynamicParameters p = new();
-                    p.Add("id", id.ToString());
-                    p.Add("OnlineSetupUrl", dbType: DbType.String, direction: ParameterDirection.Output);
-                    p.Add("OfflineSetupUrl", dbType: DbType.String, direction: ParameterDirection.Output);
-                    p.Add("LastUpdated", dbType: DbType.DateTime2, direction: ParameterDirection.Output);
-                    p.Add("Licenses", dbType: DbType.String, direction: ParameterDirection.Output);
+                    int pFrom = licenses[i].IndexOf("\":\"") + "\":\"".Length;
+                    int pTo = licenses[i].LastIndexOf('"');
 
-                    connection.Execute("kci.sources_select", p, commandType: CommandType.StoredProcedure);
-
-                    Uri onlineSetupUri = new Uri(p.Get<string>("OnlineSetupUrl"));
-                    Uri offlineSetupUri = new Uri(p.Get<string>("OfflineSetupUrl"));
-                    // Divide la cadena omitiendo la hora.
-                    string lastUpdated = Encoding.Default.GetString(p.Get<byte[]>("LastUpdated")).Split(' ').First();
-
-                    // Divide la cadena obteniendo un array de licencias, omitiendo la información adicional no deseada.
-                    string getLicenses = p.Get<string>("Licenses");
-                    string[] licenses = getLicenses is null ? Array.Empty<string>() : getLicenses.Split(',');
-                    for (int i = 0; i < licenses.Length; i++)
-                    {
-                        int pFrom = licenses[i].IndexOf("\":\"") + "\":\"".Length;
-                        int pTo = licenses[i].LastIndexOf('"');
-
-                        licenses[i] = licenses[i].Substring(pFrom, pTo - pFrom);
-                    }
-
-                    return new SourcesModel(
-                        onlineSetupUri,
-                        offlineSetupUri,
-                        lastUpdated,
-                        licenses);
+                    licenses[i] = licenses[i][pFrom..pTo];
                 }
+
+                return new SourcesModel(
+                    onlineSetupUri,
+                    offlineSetupUri,
+                    lastUpdated,
+                    licenses);
             }
             catch (MySqlException)
             {

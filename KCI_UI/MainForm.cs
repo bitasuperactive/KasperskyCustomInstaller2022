@@ -2,9 +2,6 @@
 using KCI_Library.DataAccess;
 using KCI_Library.Models;
 
-// TODO - (!!!) Revisar la coherencia de los nombres en todas las clases, objetos y textos.
-// TODO - (!!!) Comentar todo el código creado.
-
 namespace KCI_UI
 {
     public partial class MainForm : Form

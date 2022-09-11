@@ -74,7 +74,7 @@ namespace KCI_Library
                 UseShellExecute = true
             };
 
-            return Process.Start(info) is null ? false : true;
+            return Process.Start(info) is not null;
         }
     }
 }

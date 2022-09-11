@@ -42,6 +42,7 @@
             this.defaultInstallButton = new System.Windows.Forms.Button();
             this.autoInstallButton = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.separator1 = new System.Windows.Forms.Label();
             this.comparisionButton = new System.Windows.Forms.Button();
             this.kavActivationButton = new System.Windows.Forms.Button();
             this.kisActivationButton = new System.Windows.Forms.Button();
@@ -59,6 +60,8 @@
             resources.ApplyResources(this.githubButton, "githubButton");
             this.githubButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.githubButton.FlatAppearance.BorderSize = 0;
+            this.githubButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+            this.githubButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.githubButton.ForeColor = System.Drawing.Color.Blue;
             this.githubButton.Name = "githubButton";
             this.toolTip.SetToolTip(this.githubButton, resources.GetString("githubButton.ToolTip"));
@@ -125,10 +128,12 @@
             // configButton
             // 
             resources.ApplyResources(this.configButton, "configButton");
+            this.configButton.BackColor = System.Drawing.SystemColors.Control;
             this.configButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.configButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlText;
             this.configButton.Name = "configButton";
             this.toolTip.SetToolTip(this.configButton, resources.GetString("configButton.ToolTip"));
-            this.configButton.UseVisualStyleBackColor = true;
+            this.configButton.UseVisualStyleBackColor = false;
             this.configButton.Click += new System.EventHandler(this.configButton_Click);
             // 
             // defaultInstallButton
@@ -154,18 +159,27 @@
             // topPanel
             // 
             resources.ApplyResources(this.topPanel, "topPanel");
-            this.topPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.topPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.topPanel.Controls.Add(this.separator1);
             this.topPanel.Controls.Add(this.comparisionButton);
             this.topPanel.Controls.Add(this.githubButton);
             this.topPanel.Controls.Add(this.configButton);
             this.topPanel.Name = "topPanel";
             this.toolTip.SetToolTip(this.topPanel, resources.GetString("topPanel.ToolTip"));
             // 
+            // separator1
+            // 
+            resources.ApplyResources(this.separator1, "separator1");
+            this.separator1.Name = "separator1";
+            this.toolTip.SetToolTip(this.separator1, resources.GetString("separator1.ToolTip"));
+            // 
             // comparisionButton
             // 
             resources.ApplyResources(this.comparisionButton, "comparisionButton");
             this.comparisionButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comparisionButton.FlatAppearance.BorderSize = 0;
+            this.comparisionButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlLight;
+            this.comparisionButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.comparisionButton.ForeColor = System.Drawing.Color.Blue;
             this.comparisionButton.Name = "comparisionButton";
             this.toolTip.SetToolTip(this.comparisionButton, resources.GetString("comparisionButton.ToolTip"));
@@ -243,6 +257,7 @@
             this.toolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.topPanel.ResumeLayout(false);
+            this.topPanel.PerformLayout();
             this.radioPanel.ResumeLayout(false);
             this.radioPanel.PerformLayout();
             this.buttonsPanel.ResumeLayout(false);
@@ -272,5 +287,6 @@
         private Panel buttonsPanel;
         private Label databaseNotAccesibleLabel;
         private Button comparisionButton;
+        private Label separator1;
     }
 }
