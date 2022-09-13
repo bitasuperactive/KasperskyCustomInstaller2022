@@ -81,7 +81,7 @@
   <data name="githubButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAUlJREFUOE+N1L8rRXEYx/FvMliUhCKL1YiUnbCYzXbyB1hYJSWUv4CNxT/AZmVQ
+        wQAADsEBuJFr7QAAAUlJREFUOE+N1L8rRXEYx/FvMliUhCKL1YiUnbCYzXbyB1hYJSWUv4CNxT/AZmVQ
         UgwoP7KglF/v9+l89b2nc+85n3p1733O53mWe7uhSfqxiH2c5HzvzGeV6cQWPvHbhM/s2C3NEC5RtlzG
         rjsN6cE1LLznr6285a/uuPufA8TSAMZwhGPs5nzvbASDiH13s4ziBw6/0Y6q2Ik7vnoj7OQDvaALVbFj
         N+5tI1wkgxUHNWM37nkjfCSDaQc1YzfueSN8JYM5BzVjN+55Izwkg1UHNWM37nkj+1rj4B7dqIqdO8Q9
@@ -552,7 +552,7 @@
     <value>🗝️ Activar producto</value>
   </data>
   <data name="kavActivationButton.ToolTip" xml:space="preserve">
-    <value>Intentar activar el producto con las licencias disponibles</value>
+    <value>Intentar activar el producto actual con las licencias disponibles</value>
   </data>
   <data name="kavActivationButton.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -576,7 +576,7 @@
     <value>🗝️ Activar producto</value>
   </data>
   <data name="kisActivationButton.ToolTip" xml:space="preserve">
-    <value>Intentar activar el producto con las licencias disponibles</value>
+    <value>Intentar activar el producto actual con las licencias disponibles</value>
   </data>
   <data name="kisActivationButton.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -600,7 +600,7 @@
     <value>🗝️ Activar producto</value>
   </data>
   <data name="ktsActivationButton.ToolTip" xml:space="preserve">
-    <value>Intentar activar el producto con las licencias disponibles</value>
+    <value>Intentar activar el producto actual con las licencias disponibles</value>
   </data>
   <data name="ktsActivationButton.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
