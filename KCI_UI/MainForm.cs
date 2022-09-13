@@ -4,6 +4,7 @@ using KCI_Library.Models;
 
 namespace KCI_UI
 {
+#pragma warning disable IDE1006 // Estilos de nombres
     public partial class MainForm : Form
     {
         public KasperskyModel Kaspersky { get; private set; }
@@ -110,25 +111,19 @@ namespace KCI_UI
         #endregion
 
         #region Eventos
-#pragma warning disable IDE1006 // Estilos de nombres
         private void configButton_Click(object sender, EventArgs e) =>
             new ConfigurationForm(this).ShowDialog(this);
-#pragma warning restore IDE1006 // Estilos de nombres
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void githubButton_Click(object sender, EventArgs e) => 
             ProcessExecutor.BrowseToUrl("https://github.com/bitasuperactive/KasperskyCustomInstaller2022");
-#pragma warning restore IDE1006 // Estilos de nombres
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void comparisionButton_Click(object sender, EventArgs e) => 
             ProcessExecutor.BrowseToUrl("https://www.kaspersky.es/home-security");
-#pragma warning restore IDE1006 // Estilos de nombres
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void kavRadioButton_CheckedChanged(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
+            Configuration.ProductToInstall = DatabaseId.kav;
+
             if (!defaultInstallButton.Enabled)
                 defaultInstallButton.Enabled = true;
 
@@ -139,10 +134,10 @@ namespace KCI_UI
             }
         }
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void kisRadioButton_CheckedChanged(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
+            Configuration.ProductToInstall = DatabaseId.kis;
+
             if (!defaultInstallButton.Enabled)
                 defaultInstallButton.Enabled = true;
 
@@ -153,10 +148,10 @@ namespace KCI_UI
             }
         }
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void ktsRadioButton_CheckedChanged(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
+            Configuration.ProductToInstall = DatabaseId.kts;
+
             if (!defaultInstallButton.Enabled)
                 defaultInstallButton.Enabled = true;
 
@@ -167,16 +162,12 @@ namespace KCI_UI
             }
         }
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void defaultInstallButton_Click(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
             // TODO - Realizar instalación habitual.
         }
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void autoInstallButton_Click(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
             if (AutoInstallRequirements.AllMet)
             {

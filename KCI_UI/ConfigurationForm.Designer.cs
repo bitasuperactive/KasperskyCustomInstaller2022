@@ -50,7 +50,7 @@
             this.keepKasperskyConfigCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.keepKasperskyConfigCheckBox.Location = new System.Drawing.Point(10, 10);
             this.keepKasperskyConfigCheckBox.Name = "keepKasperskyConfigCheckBox";
-            this.keepKasperskyConfigCheckBox.Size = new System.Drawing.Size(506, 26);
+            this.keepKasperskyConfigCheckBox.Size = new System.Drawing.Size(350, 26);
             this.keepKasperskyConfigCheckBox.TabIndex = 1;
             this.keepKasperskyConfigCheckBox.Text = "Mantener configuración de Kaspersky";
             this.keepKasperskyConfigCheckBox.UseVisualStyleBackColor = true;
@@ -61,7 +61,7 @@
             this.offlineSetupCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.offlineSetupCheckBox.Location = new System.Drawing.Point(10, 36);
             this.offlineSetupCheckBox.Name = "offlineSetupCheckBox";
-            this.offlineSetupCheckBox.Size = new System.Drawing.Size(506, 26);
+            this.offlineSetupCheckBox.Size = new System.Drawing.Size(350, 26);
             this.offlineSetupCheckBox.TabIndex = 2;
             this.offlineSetupCheckBox.Text = "Asistente de instalación completo (offline)";
             this.offlineSetupCheckBox.UseVisualStyleBackColor = false;
@@ -73,7 +73,7 @@
             this.doNotUseDatabaseLicensesCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.doNotUseDatabaseLicensesCheckBox.Location = new System.Drawing.Point(10, 62);
             this.doNotUseDatabaseLicensesCheckBox.Name = "doNotUseDatabaseLicensesCheckBox";
-            this.doNotUseDatabaseLicensesCheckBox.Size = new System.Drawing.Size(506, 26);
+            this.doNotUseDatabaseLicensesCheckBox.Size = new System.Drawing.Size(350, 26);
             this.doNotUseDatabaseLicensesCheckBox.TabIndex = 3;
             this.doNotUseDatabaseLicensesCheckBox.Text = "Solo renovar una menusalidad";
             this.doNotUseDatabaseLicensesCheckBox.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             this.kasperskySecureConnectionCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.kasperskySecureConnectionCheckBox.Location = new System.Drawing.Point(10, 88);
             this.kasperskySecureConnectionCheckBox.Name = "kasperskySecureConnectionCheckBox";
-            this.kasperskySecureConnectionCheckBox.Size = new System.Drawing.Size(506, 26);
+            this.kasperskySecureConnectionCheckBox.Size = new System.Drawing.Size(350, 26);
             this.kasperskySecureConnectionCheckBox.TabIndex = 4;
             this.kasperskySecureConnectionCheckBox.Text = "Instalar Kaspersky Secure Connection";
             this.kasperskySecureConnectionCheckBox.UseVisualStyleBackColor = false;
@@ -93,7 +93,7 @@
             // 
             this.cancelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cancelButton.Location = new System.Drawing.Point(384, 10);
+            this.cancelButton.Location = new System.Drawing.Point(228, 10);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(132, 35);
             this.cancelButton.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             this.applyButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.applyButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.applyButton.Location = new System.Drawing.Point(252, 10);
+            this.applyButton.Location = new System.Drawing.Point(96, 10);
             this.applyButton.Name = "applyButton";
             this.applyButton.Size = new System.Drawing.Size(132, 35);
             this.applyButton.TabIndex = 6;
@@ -122,7 +122,7 @@
             this.buttonsPanel.Location = new System.Drawing.Point(0, 207);
             this.buttonsPanel.Name = "buttonsPanel";
             this.buttonsPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonsPanel.Size = new System.Drawing.Size(526, 55);
+            this.buttonsPanel.Size = new System.Drawing.Size(370, 55);
             this.buttonsPanel.TabIndex = 7;
             // 
             // checkBoxesPanel
@@ -135,7 +135,7 @@
             this.checkBoxesPanel.Location = new System.Drawing.Point(0, 68);
             this.checkBoxesPanel.Name = "checkBoxesPanel";
             this.checkBoxesPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.checkBoxesPanel.Size = new System.Drawing.Size(526, 139);
+            this.checkBoxesPanel.Size = new System.Drawing.Size(370, 139);
             this.checkBoxesPanel.TabIndex = 8;
             // 
             // titleLabel
@@ -144,7 +144,7 @@
             this.titleLabel.Font = new System.Drawing.Font("Calibri", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.titleLabel.Location = new System.Drawing.Point(10, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(506, 48);
+            this.titleLabel.Size = new System.Drawing.Size(350, 48);
             this.titleLabel.TabIndex = 9;
             this.titleLabel.Text = "Configuración de la instalación";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -156,16 +156,16 @@
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Padding = new System.Windows.Forms.Padding(10);
-            this.titlePanel.Size = new System.Drawing.Size(526, 68);
+            this.titlePanel.Size = new System.Drawing.Size(370, 68);
             this.titlePanel.TabIndex = 10;
             // 
             // ConfigurationForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(526, 262);
+            this.ClientSize = new System.Drawing.Size(370, 262);
             this.Controls.Add(this.checkBoxesPanel);
             this.Controls.Add(this.buttonsPanel);
             this.Controls.Add(this.titlePanel);

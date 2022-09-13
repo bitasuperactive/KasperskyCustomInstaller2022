@@ -3,6 +3,10 @@
     public class ConfigurationModel : IComparable<ConfigurationModel>
     {
         /// <summary>
+        /// Id del producto elegido a instalar.
+        /// </summary>
+        public DatabaseId ProductToInstall { get; set; }
+        /// <summary>
         /// Mantener la configuración de la aplicación del producto instalado.
         /// </summary>
         public bool KeepKasperskyConfig { get; private set; } = true;

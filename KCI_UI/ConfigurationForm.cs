@@ -2,6 +2,7 @@
 
 namespace KCI_UI
 {
+#pragma warning disable IDE1006 // Estilos de nombres
     public partial class ConfigurationForm : Form
     {
         private new MainForm Parent { get; set; }

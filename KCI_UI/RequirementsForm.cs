@@ -4,6 +4,7 @@ using KCI_Library.DataAccess;
 
 namespace KCI_UI
 {
+#pragma warning disable IDE1006 // Estilos de nombres
     public partial class RequirementsForm : Form
     {
         private new MainForm Parent { get; set; }
@@ -19,9 +20,7 @@ namespace KCI_UI
             ShowMissingRequirements();
         }
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void refreshButton_Click(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
             UpdateMissingRequirements();
             ShowMissingRequirements();
@@ -56,9 +55,7 @@ namespace KCI_UI
 
         #region Eventos
         // Reinicia la aplicación como administrador.
-#pragma warning disable IDE1006 // Estilos de nombres
         private void restartAsAdminButton_Click(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
             // Obtiene la ruta completa del ensamblado en ejecución, omitiéndo la extensión ".dll" 
             // para obtener el ejecutable de la aplicación.
@@ -77,9 +74,7 @@ namespace KCI_UI
         }
 
         // Abre el enlace de ayuda para deshabilitar Kaspersky Password Protection.
-#pragma warning disable IDE1006 // Estilos de nombres
         private void pwdProtectionMoreInfoButton_Click(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
             switch (Parent.Kaspersky.Id)
             {
@@ -96,16 +91,12 @@ namespace KCI_UI
         }
 
         // Abre el enlace de ayuda para cerrar la aplicación del producto.
-#pragma warning disable IDE1006 // Estilos de nombres
         private void kasClosedMoreInfoButton_Click(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
             ProcessExecutor.BrowseToUrl("https://imgur.com/a/dsxJbjY");
         }
 
-#pragma warning disable IDE1006 // Estilos de nombres
         private void closeButton_Click(object sender, EventArgs e)
-#pragma warning restore IDE1006 // Estilos de nombres
         {
             this.Close();
         }
