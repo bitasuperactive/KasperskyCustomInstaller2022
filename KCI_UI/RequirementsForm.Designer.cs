@@ -55,10 +55,10 @@
             this.adminPanel.Controls.Add(this.restartAsAdminButton);
             this.adminPanel.Controls.Add(this.adminLabel);
             this.adminPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.adminPanel.Location = new System.Drawing.Point(0, 99);
+            this.adminPanel.Location = new System.Drawing.Point(0, 76);
             this.adminPanel.Name = "adminPanel";
             this.adminPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.adminPanel.Size = new System.Drawing.Size(359, 79);
+            this.adminPanel.Size = new System.Drawing.Size(336, 79);
             this.adminPanel.TabIndex = 20;
             this.adminPanel.Visible = false;
             // 
@@ -75,9 +75,9 @@
             this.restartAsAdminButton.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.restartAsAdminButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.restartAsAdminButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.restartAsAdminButton.Location = new System.Drawing.Point(10, 35);
+            this.restartAsAdminButton.Location = new System.Drawing.Point(10, 29);
             this.restartAsAdminButton.Name = "restartAsAdminButton";
-            this.restartAsAdminButton.Size = new System.Drawing.Size(339, 27);
+            this.restartAsAdminButton.Size = new System.Drawing.Size(316, 27);
             this.restartAsAdminButton.TabIndex = 3;
             this.restartAsAdminButton.Text = "Solicitar";
             this.restartAsAdminButton.UseVisualStyleBackColor = false;
@@ -91,7 +91,7 @@
             this.adminLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.adminLabel.Location = new System.Drawing.Point(10, 10);
             this.adminLabel.Name = "adminLabel";
-            this.adminLabel.Size = new System.Drawing.Size(339, 25);
+            this.adminLabel.Size = new System.Drawing.Size(316, 19);
             this.adminLabel.TabIndex = 0;
             this.adminLabel.Text = "Permisos de administrador.";
             // 
@@ -101,10 +101,10 @@
             this.passwordProtectionRequirementPanel.Controls.Add(this.passwordProtectionMoreInfoButton);
             this.passwordProtectionRequirementPanel.Controls.Add(this.passwordProtectionDisabledLabel);
             this.passwordProtectionRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.passwordProtectionRequirementPanel.Location = new System.Drawing.Point(0, 178);
+            this.passwordProtectionRequirementPanel.Location = new System.Drawing.Point(0, 155);
             this.passwordProtectionRequirementPanel.Name = "passwordProtectionRequirementPanel";
             this.passwordProtectionRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.passwordProtectionRequirementPanel.Size = new System.Drawing.Size(359, 79);
+            this.passwordProtectionRequirementPanel.Size = new System.Drawing.Size(336, 79);
             this.passwordProtectionRequirementPanel.TabIndex = 21;
             this.passwordProtectionRequirementPanel.Visible = false;
             // 
@@ -121,9 +121,9 @@
             this.passwordProtectionMoreInfoButton.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.passwordProtectionMoreInfoButton.ForeColor = System.Drawing.Color.Blue;
             this.passwordProtectionMoreInfoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.passwordProtectionMoreInfoButton.Location = new System.Drawing.Point(10, 35);
+            this.passwordProtectionMoreInfoButton.Location = new System.Drawing.Point(10, 29);
             this.passwordProtectionMoreInfoButton.Name = "passwordProtectionMoreInfoButton";
-            this.passwordProtectionMoreInfoButton.Size = new System.Drawing.Size(339, 27);
+            this.passwordProtectionMoreInfoButton.Size = new System.Drawing.Size(316, 27);
             this.passwordProtectionMoreInfoButton.TabIndex = 2;
             this.passwordProtectionMoreInfoButton.Text = "Más información";
             this.passwordProtectionMoreInfoButton.UseVisualStyleBackColor = false;
@@ -137,7 +137,7 @@
             this.passwordProtectionDisabledLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.passwordProtectionDisabledLabel.Location = new System.Drawing.Point(10, 10);
             this.passwordProtectionDisabledLabel.Name = "passwordProtectionDisabledLabel";
-            this.passwordProtectionDisabledLabel.Size = new System.Drawing.Size(339, 25);
+            this.passwordProtectionDisabledLabel.Size = new System.Drawing.Size(316, 19);
             this.passwordProtectionDisabledLabel.TabIndex = 0;
             this.passwordProtectionDisabledLabel.Text = "Deshabilitar Kaspersky Password Protection.";
             // 
@@ -147,10 +147,10 @@
             this.kasClosedRequirementPanel.Controls.Add(this.kasClosedMoreInfoButton);
             this.kasClosedRequirementPanel.Controls.Add(this.kasClosedLabel);
             this.kasClosedRequirementPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.kasClosedRequirementPanel.Location = new System.Drawing.Point(0, 257);
+            this.kasClosedRequirementPanel.Location = new System.Drawing.Point(0, 234);
             this.kasClosedRequirementPanel.Name = "kasClosedRequirementPanel";
             this.kasClosedRequirementPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.kasClosedRequirementPanel.Size = new System.Drawing.Size(359, 79);
+            this.kasClosedRequirementPanel.Size = new System.Drawing.Size(336, 79);
             this.kasClosedRequirementPanel.TabIndex = 22;
             this.kasClosedRequirementPanel.Visible = false;
             // 
@@ -167,9 +167,9 @@
             this.kasClosedMoreInfoButton.Font = new System.Drawing.Font("Calibri", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
             this.kasClosedMoreInfoButton.ForeColor = System.Drawing.Color.Blue;
             this.kasClosedMoreInfoButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.kasClosedMoreInfoButton.Location = new System.Drawing.Point(10, 35);
+            this.kasClosedMoreInfoButton.Location = new System.Drawing.Point(10, 29);
             this.kasClosedMoreInfoButton.Name = "kasClosedMoreInfoButton";
-            this.kasClosedMoreInfoButton.Size = new System.Drawing.Size(339, 27);
+            this.kasClosedMoreInfoButton.Size = new System.Drawing.Size(316, 27);
             this.kasClosedMoreInfoButton.TabIndex = 2;
             this.kasClosedMoreInfoButton.Text = "Más información";
             this.kasClosedMoreInfoButton.UseVisualStyleBackColor = false;
@@ -183,7 +183,7 @@
             this.kasClosedLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.kasClosedLabel.Location = new System.Drawing.Point(10, 10);
             this.kasClosedLabel.Name = "kasClosedLabel";
-            this.kasClosedLabel.Size = new System.Drawing.Size(339, 25);
+            this.kasClosedLabel.Size = new System.Drawing.Size(316, 19);
             this.kasClosedLabel.TabIndex = 0;
             this.kasClosedLabel.Text = "Cerrar las aplicaciones de Kaspersky.";
             // 
@@ -191,7 +191,7 @@
             // 
             this.refreshButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.refreshButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.refreshButton.Location = new System.Drawing.Point(85, 10);
+            this.refreshButton.Location = new System.Drawing.Point(62, 10);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(132, 35);
             this.refreshButton.TabIndex = 3;
@@ -205,17 +205,17 @@
             this.buttonsPanel.Controls.Add(this.refreshButton);
             this.buttonsPanel.Controls.Add(this.closeButton);
             this.buttonsPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonsPanel.Location = new System.Drawing.Point(0, 381);
+            this.buttonsPanel.Location = new System.Drawing.Point(0, 319);
             this.buttonsPanel.Name = "buttonsPanel";
             this.buttonsPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.buttonsPanel.Size = new System.Drawing.Size(359, 55);
+            this.buttonsPanel.Size = new System.Drawing.Size(336, 55);
             this.buttonsPanel.TabIndex = 23;
             // 
             // closeButton
             // 
             this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.closeButton.Location = new System.Drawing.Point(217, 10);
+            this.closeButton.Location = new System.Drawing.Point(194, 10);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(132, 35);
             this.closeButton.TabIndex = 4;
@@ -229,7 +229,7 @@
             this.titleLabel.Font = new System.Drawing.Font("Calibri", 12.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.titleLabel.Location = new System.Drawing.Point(10, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(339, 79);
+            this.titleLabel.Size = new System.Drawing.Size(316, 56);
             this.titleLabel.TabIndex = 24;
             this.titleLabel.Text = "Faltan los siguientes requisitos para poder realizar una instalación automática:";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -241,7 +241,7 @@
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Padding = new System.Windows.Forms.Padding(10);
-            this.titlePanel.Size = new System.Drawing.Size(359, 99);
+            this.titlePanel.Size = new System.Drawing.Size(336, 76);
             this.titlePanel.TabIndex = 25;
             // 
             // RequirementsForm
@@ -250,7 +250,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(359, 436);
+            this.ClientSize = new System.Drawing.Size(336, 374);
             this.Controls.Add(this.buttonsPanel);
             this.Controls.Add(this.kasClosedRequirementPanel);
             this.Controls.Add(this.passwordProtectionRequirementPanel);
