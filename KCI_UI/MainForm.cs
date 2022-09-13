@@ -8,17 +8,23 @@ namespace KCI_UI
     public partial class MainForm : Form
     {
         public KasperskyModel Kaspersky { get; private set; }
-        public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
         public AutoInstallRequirementsModel AutoInstallRequirements { get; set; }
+        public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
         public ConfigurationModel Configuration { get; set; }
 
         public MainForm()
         {
             InitializeComponent();
+
+            using LoadingForm loadingForm = new(this);
+            loadingForm.Show();
+
             Kaspersky = Dependencies.CreateKasperskyModel();
-            AvailableLicenses = SqlConnector.GetAvailableLicenses();
             AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
+            AvailableLicenses = SqlConnector.GetAvailableLicenses();
             Configuration = new ConfigurationModel();
+
+            loadingForm.Close();
         }
 
         private void MainForm_Load(object sender, EventArgs e)

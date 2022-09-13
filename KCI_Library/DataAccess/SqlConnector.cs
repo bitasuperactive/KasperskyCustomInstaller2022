@@ -7,6 +7,7 @@ using System.Text;
 namespace KCI_Library.DataAccess
 {
     // TODO - Manejar adecuadamente la autenticación hacia al servidor en App.config.
+    // TODO - Convertir los métodos en asincrónicos.
     public static class SqlConnector
     {
         /// <summary>

@@ -80,14 +80,14 @@
   </data>
   <data name="githubButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFJSURBVDhPjdS/K0VxGMfxbzJYlIQii9WIlJ2wmM128gdY
-        WCUllL+AjcU/wGZlUFIMKD+yoJRf7/fpfPW9p3PvOZ96de99zud5lnu7oUn6sYh9nOR878xnlenEFj7x
-        24TP7NgtzRAuUbZcxq47DenBNSy856+tvOWv7rj7nwPE0gDGcIRj7OZ872wEg4h9d7OM4gcOv9GOqtiJ
-        O756I+zkA72gC1WxYzfubSNcJIMVBzVjN+55I3wkg2kHNWM37nkjfCWDOQc1YzfueSM8JINVBzVjN+55
-        I/ta4+Ae3aiKnTvEPW+EhfyDv9RnnGMSbSjG2RTSL0jeCB24xRXGcQMfPqIPMb5/QnpA7nojywz8MR5i
-        GHtYQjFnSI+4425DluGvdBOzmEAx/p3EI3bdKc08XmHx1EEh8ZAduy3TizVsZJ8asw6f2UkSwh+gHIqB
-        kirRAAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAUlJREFUOE+N1L8rRXEYx/FvMliUhCKL1YiUnbCYzXbyB1hYJSWUv4CNxT/AZmVQ
+        UgwoP7KglF/v9+l89b2nc+85n3p1733O53mWe7uhSfqxiH2c5HzvzGeV6cQWPvHbhM/s2C3NEC5RtlzG
+        rjsN6cE1LLznr6285a/uuPufA8TSAMZwhGPs5nzvbASDiH13s4ziBw6/0Y6q2Ik7vnoj7OQDvaALVbFj
+        N+5tI1wkgxUHNWM37nkjfCSDaQc1YzfueSN8JYM5BzVjN+55Izwkg1UHNWM37nkj+1rj4B7dqIqdO8Q9
+        b4SF/IO/1GecYxJtKMbZFNIvSN4IHbjFFcZxAx8+og8xvn9CekDueiPLDPwxHmIYe1hCMWdIj7jjbkOW
+        4a90E7OYQDH+ncQjdt0pzTxeYfHUQSHxkB27LdOLNWxknxqzDp/ZSRLCH6AcioGSKtEAAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="githubButton.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -834,5 +834,8 @@
         Af//8AD//4AAf/+AAD//gAAf/4AAD/+AAAP5gAAB8IAAAOAAAADAAAAAgAAAAAAAAAAAAAAAAAAAAAAA
         AACAAAAAwAAAAOAAAADwAAAA+AAAAPwAAAD+AAAA/wAAAP+QAAD/8AAA//gAAf/8AAP//wAP
 </value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
 </root>
