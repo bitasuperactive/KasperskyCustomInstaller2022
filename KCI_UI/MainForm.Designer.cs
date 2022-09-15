@@ -255,6 +255,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.toolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
@@ -277,7 +278,6 @@
         private Label ktsAvailableLicensesLabel;
         private RadioButton ktsRadioButton;
         private Button configButton;
-        private Button defaultInstallButton;
         private Button autoInstallButton;
         private Panel topPanel;
         private Button kavActivationButton;
@@ -288,5 +288,6 @@
         private Label databaseNotAccesibleLabel;
         private Button comparisionButton;
         private Label separator1;
+        internal Button defaultInstallButton;
     }
 }

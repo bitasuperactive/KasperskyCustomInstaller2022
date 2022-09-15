@@ -12,19 +12,13 @@ namespace KCI_UI
         public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
         public ConfigurationModel Configuration { get; set; }
 
-        public MainForm()
+        public MainForm(KasperskyModel kaspersky, AutoInstallRequirementsModel autoInstallRequirements, Dictionary<DatabaseId, string> availableLicenses, ConfigurationModel configuration)
         {
             InitializeComponent();
-
-            using LoadingForm loadingForm = new(this);
-            loadingForm.Show();
-
-            Kaspersky = Dependencies.CreateKasperskyModel();
-            AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
-            AvailableLicenses = SqlConnector.GetAvailableLicenses();
-            Configuration = new ConfigurationModel();
-
-            loadingForm.Close();
+            Kaspersky = kaspersky;
+            AutoInstallRequirements = autoInstallRequirements;
+            AvailableLicenses = availableLicenses;
+            Configuration = configuration;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -183,6 +177,11 @@ namespace KCI_UI
             {
                 new RequirementsForm(this).ShowDialog(this);
             }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
         #endregion
     }

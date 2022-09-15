@@ -38,7 +38,7 @@
             this.loadingLabel.Name = "loadingLabel";
             this.loadingLabel.Size = new System.Drawing.Size(417, 137);
             this.loadingLabel.TabIndex = 0;
-            this.loadingLabel.Text = "[loadingLabel]";
+            this.loadingLabel.Text = "Iniciando Kaspersky Custom Installer ...";
             this.loadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LoadingForm
@@ -50,13 +50,12 @@
             this.Controls.Add(this.loadingLabel);
             this.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LoadingForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "[LoadingFormText]";
+            this.Text = "Kaspersky Custom Installer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoadingForm_FormClosing);
             this.Load += new System.EventHandler(this.LoadingForm_Load);
             this.ResumeLayout(false);

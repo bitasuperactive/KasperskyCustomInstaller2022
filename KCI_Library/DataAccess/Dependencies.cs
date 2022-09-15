@@ -59,9 +59,9 @@ namespace KCI_Library.DataAccess
         /// Crea un modelo <c>AutoInstallRequirementsModel</c>.
         /// </summary>
         /// <returns><see cref="AutoInstallRequirementsModel"/></returns>
-        public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel()
+        public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel() // TODO - Void o Async task?
         {
-            bool databaseAccesible = SqlConnector.DatabaseAccesible();
+            bool databaseAccesible = SqlConnector.DatabaseAccesible().Result;
 
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 

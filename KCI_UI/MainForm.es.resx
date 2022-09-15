@@ -81,7 +81,7 @@
   <data name="githubButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAUlJREFUOE+N1L8rRXEYx/FvMliUhCKL1YiUnbCYzXbyB1hYJSWUv4CNxT/AZmVQ
+        vgAADr4B6kKxwAAAAUlJREFUOE+N1L8rRXEYx/FvMliUhCKL1YiUnbCYzXbyB1hYJSWUv4CNxT/AZmVQ
         UgwoP7KglF/v9+l89b2nc+85n3p1733O53mWe7uhSfqxiH2c5HzvzGeV6cQWPvHbhM/s2C3NEC5RtlzG
         rjsN6cE1LLznr6285a/uuPufA8TSAMZwhGPs5nzvbASDiH13s4ziBw6/0Y6q2Ik7vnoj7OQDvaALVbFj
         N+5tI1wkgxUHNWM37nkjfCSDaQc1YzfueSN8JYM5BzVjN+55Izwkg1UHNWM37nkj+1rj4B7dqIqdO8Q9
@@ -479,6 +479,18 @@
   <data name="autoInstallButton.ToolTip" xml:space="preserve">
     <value>Instala el producto seleccionado sin interfaz gráfica</value>
   </data>
+  <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="topPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="topPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>593, 42</value>
+  </data>
+  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
   <data name="separator1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -523,18 +535,6 @@
   </data>
   <data name="comparisionButton.Text" xml:space="preserve">
     <value>Comparativa de productos</value>
-  </data>
-  <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="topPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 8, 8, 8</value>
-  </data>
-  <data name="topPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 42</value>
-  </data>
-  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
   </data>
   <data name="kavActivationButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>

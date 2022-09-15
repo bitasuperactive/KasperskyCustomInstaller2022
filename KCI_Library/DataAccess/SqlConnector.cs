@@ -19,13 +19,14 @@ namespace KCI_Library.DataAccess
         /// Comprueba si la base de datos es accesible.
         /// </summary>
         /// <returns><c>Verdadero</c> si es accesible, <c>Falso</c> en su defecto.</returns>
-        public static bool DatabaseAccesible()
+        public static async Task<bool> DatabaseAccesible()
         {
             try
             {
                 using MySqlConnection connection = new(ConnectionString);
 
-                connection.Open();
+                await connection.OpenAsync();
+                
                 return true;
             }
             catch (MySqlException)
@@ -42,7 +43,7 @@ namespace KCI_Library.DataAccess
         /// <see cref="Dictionary{TKey, TValue}"/> donde <c>TKey</c> es el <see cref="DatabaseId"/> del producto 
         /// y <c>TValue</c> es la fecha de la última actualización.
         /// </returns>
-        public static Dictionary<DatabaseId, string> GetAvailableLicenses()
+        public static async Task<Dictionary<DatabaseId, string>> GetAvailableLicenses()
         {
             try
             {
@@ -52,7 +53,7 @@ namespace KCI_Library.DataAccess
                 p.Add("id", dbType: DbType.String, direction: ParameterDirection.Output);
                 p.Add("LastUpdated", dbType: DbType.String, direction: ParameterDirection.Output);
 
-                connection.Execute("kci.sources_availableLicenses", p, commandType: CommandType.StoredProcedure);
+                await connection.ExecuteAsync("kci.sources_availableLicenses", p, commandType: CommandType.StoredProcedure);
 
                 // Se deben separar los valores de la Query porque puede devolver varias filas agrupadas.
                 string[] ids = p.Get<string>("id").Split(',');
@@ -87,7 +88,7 @@ namespace KCI_Library.DataAccess
         /// </summary>
         /// <param name="id">El <see cref="DatabaseId"/> del producto a obtener.</param>
         /// <returns><see cref="SourcesModel"/></returns>
-        public static SourcesModel CreateSourcesModel(DatabaseId id)
+        public static async Task<SourcesModel> CreateSourcesModel(DatabaseId id)
         {
             try
             {
@@ -100,7 +101,7 @@ namespace KCI_Library.DataAccess
                 p.Add("LastUpdated", dbType: DbType.DateTime2, direction: ParameterDirection.Output);
                 p.Add("Licenses", dbType: DbType.String, direction: ParameterDirection.Output);
 
-                connection.Execute("kci.sources_select", p, commandType: CommandType.StoredProcedure);
+                await connection.ExecuteAsync("kci.sources_select", p, commandType: CommandType.StoredProcedure);
 
                 Uri onlineSetupUri = new(p.Get<string>("OnlineSetupUrl"));
                 Uri offlineSetupUri = new(p.Get<string>("OfflineSetupUrl"));

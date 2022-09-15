@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using KCI_Library.DataAccess;
+using KCI_Library.Models;
 
 namespace KCI_UI
 {
     public partial class LoadingForm : Form
     {
-        private new MainForm Parent;
-
-        public LoadingForm(MainForm parent)
+        public LoadingForm()
         {
             InitializeComponent();
-            Parent = parent;
         }
 
-        private void LoadingForm_Load(object sender, EventArgs e)
+        // TODO - Evitar utilizar este formulario como el principal de la aplicación.
+        // TODO - ¿Por qué es necesario utilizar <Task.Run> cuando el método ya es una tarea asincrónica?
+        private async void LoadingForm_Load(object sender, EventArgs e)
         {
-            this.Text = Parent.Text;
-            this.loadingLabel.Text = $"Iniciando {Parent.Text}...";
+            new MainForm(Dependencies.CreateKasperskyModel(),
+                await Task.Run(() => Dependencies.CreateAutoInstallRequirementsModel()),
+                await Task.Run(() => SqlConnector.GetAvailableLicenses()),
+                new ConfigurationModel()).Show();
+
+            this.Hide();
         }
 
         private void LoadingForm_FormClosing(object sender, FormClosingEventArgs e)
