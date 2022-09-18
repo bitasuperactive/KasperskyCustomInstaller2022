@@ -1,4 +1,5 @@
 ﻿using KCI_Library.DataAccess;
+using KCI_Library.Extensions;
 using KCI_Library.Models;
 using System;
 using System.Collections.Generic;
@@ -13,32 +14,52 @@ namespace KCI_Library
     {
         private KasperskyModel Kaspersky { get; set; }
         private ConfigurationModel Configuration { get; set; }
+        private Progress<float> GenericProgress { get; set; }
 
-        public DefaultInstallation(KasperskyModel kaspersky, ConfigurationModel configuration)
+        public DefaultInstallation(KasperskyModel kaspersky, ConfigurationModel configuration, Progress<float> genericProgress)
         {
             Kaspersky = kaspersky;
             Configuration = configuration;
+            GenericProgress = genericProgress;
         }
 
-        // TODO - Todos los requisitos han de haberse cumplido previamente para la instalación automática.
-        public static void RunInstallation()
+        public void RunInstallation()
         {
             throw new NotImplementedException();
         }
 
-        // TODO - Offline setup obligatorio para la instalación automática.
-        protected void DownloadSources()
+
+
+
+        public async Task DownloadSources()
         {
-            // Crear SourcesModel de forma asincrónica
+            SourcesModel sources = await SqlConnector.CreateSourcesModel(Configuration.ProductToInstall);
+            Uri setupUrl = Configuration.OfflineSetup ? sources.OfflineSetupUri : sources.OnlineSetupUri;
+            string path = Path.Combine(Path.GetTempPath(), "kas_installer.exe");
 
-            // Descargar instalador del cliente al directorio temporal
-            // Utilizar HttpClient
-            // Pasar evento del progreso de la descarga a la UI
+            try
+            {
+                using HttpClient client = new();
 
-            // Almacenar array de licencias con persistencia tras el reinicio
+                // Create a file stream to store the downloaded data.
+                // This really can be any type of writeable stream.
+                using FileStream file = new(path, FileMode.Create, FileAccess.Write);
 
-            throw new NotImplementedException();
+                // Use the custom extension method below to download the data.
+                // The passed progress-instance will receive the download status updates.
+                await client.DownloadAsync(setupUrl.OriginalString, file, GenericProgress);
+            }
+            catch (HttpRequestException)
+            {
+                // TODO - Implementar control de excepción: Sin conexión a internet.
+                throw new NotImplementedException();
+            }
+
+            // TODO - Almacenar array de licencias en las configuración de la aplicación.
         }
+
+
+
 
         protected void ExportClientConfiguration()
         {
@@ -55,7 +76,6 @@ namespace KCI_Library
             throw new NotImplementedException();
         }
 
-        // TODO - Avisar de reinicio automática en la instalación automática.
         protected virtual void Restart()
         {
             throw new NotImplementedException();

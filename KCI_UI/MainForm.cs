@@ -11,6 +11,7 @@ namespace KCI_UI
         public AutoInstallRequirementsModel AutoInstallRequirements { get; set; }
         public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
         public ConfigurationModel Configuration { get; set; }
+        private Progress<float> GenericProgress { get; set; } = new();
 
         public MainForm(KasperskyModel kaspersky, AutoInstallRequirementsModel autoInstallRequirements, Dictionary<DatabaseId, string> availableLicenses, ConfigurationModel configuration)
         {
@@ -19,6 +20,7 @@ namespace KCI_UI
             AutoInstallRequirements = autoInstallRequirements;
             AvailableLicenses = availableLicenses;
             Configuration = configuration;
+            GenericProgress.ProgressChanged += GenericProgressChangedEventHandler;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -162,9 +164,19 @@ namespace KCI_UI
             }
         }
 
-        private void defaultInstallButton_Click(object sender, EventArgs e)
+        private async void defaultInstallButton_Click(object sender, EventArgs e)
         {
             // TODO - Realizar instalación habitual.
+
+            DefaultInstallation installation = new(Kaspersky, Configuration, GenericProgress);
+
+            await Task.Run(() => installation.DownloadSources());
+        }
+
+        private void GenericProgressChangedEventHandler(object? sender, float e)
+        {
+            // TODO - Manejar adecuadamente el progreso de los procesos de la instalación.
+            defaultInstallButton.Text = e.ToString();
         }
 
         private void autoInstallButton_Click(object sender, EventArgs e)

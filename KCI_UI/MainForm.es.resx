@@ -81,7 +81,7 @@
   <data name="githubButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAUlJREFUOE+N1L8rRXEYx/FvMliUhCKL1YiUnbCYzXbyB1hYJSWUv4CNxT/AZmVQ
+        vAAADrwBlbxySQAAAUlJREFUOE+N1L8rRXEYx/FvMliUhCKL1YiUnbCYzXbyB1hYJSWUv4CNxT/AZmVQ
         UgwoP7KglF/v9+l89b2nc+85n3p1733O53mWe7uhSfqxiH2c5HzvzGeV6cQWPvHbhM/s2C3NEC5RtlzG
         rjsN6cE1LLznr6285a/uuPufA8TSAMZwhGPs5nzvbASDiH13s4ziBw6/0Y6q2Ik7vnoj7OQDvaALVbFj
         N+5tI1wkgxUHNWM37nkjfCSDaQc1YzfueSN8JYM5BzVjN+55Izwkg1UHNWM37nkj+1rj4B7dqIqdO8Q9
@@ -94,14 +94,10 @@
     <value>MiddleLeft</value>
   </data>
   <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 8</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="githubButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>10, 10</value>
   </data>
   <data name="githubButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 26</value>
+    <value>123, 34</value>
   </data>
   <data name="githubButton.Text" xml:space="preserve">
     <value>Repositorio</value>
@@ -154,16 +150,14 @@
     <value>NoControl</value>
   </data>
   <data name="kavRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 8</value>
+    <value>0, 10</value>
   </data>
-  <data name="kavRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="kavRadioButton.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>39, 0, 0, 0</value>
+    <value>50, 0, 0, 0</value>
   </data>
   <data name="kavRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 80</value>
+    <value>762, 104</value>
   </data>
   <data name="kavRadioButton.Text" xml:space="preserve">
     <value>    Kaspersky Antivirus</value>
@@ -181,13 +175,10 @@
     <value>NoControl</value>
   </data>
   <data name="kavAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 58</value>
-  </data>
-  <data name="kavAvailableLicensesLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>157, 75</value>
   </data>
   <data name="kavAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 18</value>
+    <value>184, 22</value>
   </data>
   <data name="kavAvailableLicensesLabel.Text" xml:space="preserve">
     <value>Licencias no disponibles</value>
@@ -251,16 +242,13 @@
     <value>NoControl</value>
   </data>
   <data name="kisRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 88</value>
-  </data>
-  <data name="kisRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>0, 114</value>
   </data>
   <data name="kisRadioButton.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>39, 0, 0, 0</value>
+    <value>50, 0, 0, 0</value>
   </data>
   <data name="kisRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 87</value>
+    <value>762, 113</value>
   </data>
   <data name="kisRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -281,13 +269,10 @@
     <value>NoControl</value>
   </data>
   <data name="kisAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 141</value>
-  </data>
-  <data name="kisAvailableLicensesLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>157, 182</value>
   </data>
   <data name="kisAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 18</value>
+    <value>184, 22</value>
   </data>
   <data name="kisAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -348,16 +333,13 @@
     <value>NoControl</value>
   </data>
   <data name="ktsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 175</value>
-  </data>
-  <data name="ktsRadioButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>0, 227</value>
   </data>
   <data name="ktsRadioButton.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>39, 0, 0, 0</value>
+    <value>50, 0, 0, 0</value>
   </data>
   <data name="ktsRadioButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 87</value>
+    <value>762, 113</value>
   </data>
   <data name="ktsRadioButton.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -378,13 +360,10 @@
     <value>NoControl</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 228</value>
-  </data>
-  <data name="ktsAvailableLicensesLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>157, 295</value>
   </data>
   <data name="ktsAvailableLicensesLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 18</value>
+    <value>184, 22</value>
   </data>
   <data name="ktsAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -414,10 +393,13 @@
     <value>NoControl</value>
   </data>
   <data name="configButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>464, 8</value>
+    <value>607, 10</value>
+  </data>
+  <data name="configButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="configButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 26</value>
+    <value>145, 34</value>
   </data>
   <data name="configButton.Text" xml:space="preserve">
     <value>🛠️ Configuración</value>
@@ -438,10 +420,13 @@
     <value>Calibri, 12.8pt</value>
   </data>
   <data name="defaultInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 8</value>
+    <value>21, 10</value>
+  </data>
+  <data name="defaultInstallButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="defaultInstallButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+    <value>321, 65</value>
   </data>
   <data name="defaultInstallButton.Text" xml:space="preserve">
     <value>🤓 Instalación habitual</value>
@@ -465,10 +450,13 @@
     <value>NoControl</value>
   </data>
   <data name="autoInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 8</value>
+    <value>408, 10</value>
+  </data>
+  <data name="autoInstallButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="autoInstallButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
+    <value>333, 65</value>
   </data>
   <data name="autoInstallButton.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -479,18 +467,6 @@
   <data name="autoInstallButton.ToolTip" xml:space="preserve">
     <value>Instala el producto seleccionado sin interfaz gráfica</value>
   </data>
-  <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="topPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 8, 8, 8</value>
-  </data>
-  <data name="topPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 42</value>
-  </data>
-  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
   <data name="separator1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -498,13 +474,10 @@
     <value>Calibri, 12pt</value>
   </data>
   <data name="separator1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 11</value>
-  </data>
-  <data name="separator1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>122, 14</value>
   </data>
   <data name="separator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 19</value>
+    <value>19, 24</value>
   </data>
   <data name="separator1.Text" xml:space="preserve">
     <value>|</value>
@@ -525,28 +498,37 @@
     <value>Calibri, 10.8pt, style=Underline</value>
   </data>
   <data name="comparisionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 8</value>
-  </data>
-  <data name="comparisionButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>133, 10</value>
   </data>
   <data name="comparisionButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 26</value>
+    <value>214, 34</value>
   </data>
   <data name="comparisionButton.Text" xml:space="preserve">
     <value>Comparativa de productos</value>
+  </data>
+  <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="topPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="topPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="topPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>762, 54</value>
+  </data>
+  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="kavActivationButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="kavActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 35</value>
-  </data>
-  <data name="kavActivationButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>545, 45</value>
   </data>
   <data name="kavActivationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 28</value>
+    <value>166, 36</value>
   </data>
   <data name="kavActivationButton.Text" xml:space="preserve">
     <value>🗝️ Activar producto</value>
@@ -564,13 +546,10 @@
     <value>NoControl</value>
   </data>
   <data name="kisActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 118</value>
-  </data>
-  <data name="kisActivationButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>545, 153</value>
   </data>
   <data name="kisActivationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 28</value>
+    <value>166, 36</value>
   </data>
   <data name="kisActivationButton.Text" xml:space="preserve">
     <value>🗝️ Activar producto</value>
@@ -588,13 +567,10 @@
     <value>NoControl</value>
   </data>
   <data name="ktsActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 205</value>
-  </data>
-  <data name="ktsActivationButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>545, 265</value>
   </data>
   <data name="ktsActivationButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 28</value>
+    <value>166, 36</value>
   </data>
   <data name="ktsActivationButton.Text" xml:space="preserve">
     <value>🗝️ Activar producto</value>
@@ -608,29 +584,17 @@
   <data name="radioPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="radioPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 42</value>
-  </data>
-  <data name="radioPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
   <data name="radioPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 8, 0, 0</value>
+    <value>0, 10, 0, 0</value>
   </data>
   <data name="radioPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 273</value>
+    <value>762, 353</value>
   </data>
   <data name="databaseNotAccesibleLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="databaseNotAccesibleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 61</value>
-  </data>
-  <data name="databaseNotAccesibleLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="databaseNotAccesibleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 18</value>
+    <value>243, 22</value>
   </data>
   <data name="databaseNotAccesibleLabel.Text" xml:space="preserve">
     <value>No disponible en este momento</value>
@@ -642,25 +606,19 @@
     <value>Bottom</value>
   </data>
   <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 319</value>
-  </data>
-  <data name="buttonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>0, 413</value>
   </data>
   <data name="buttonsPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>16, 8, 16, 31</value>
+    <value>21, 10, 21, 40</value>
   </data>
   <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 89</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 17</value>
+    <value>762, 115</value>
   </data>
   <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowOnly</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>593, 408</value>
+    <value>762, 528</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

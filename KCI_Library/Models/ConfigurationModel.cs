@@ -13,7 +13,6 @@
         /// <summary>
         /// Utilizar el instalador completo (offline) del producto seleccionado a instalar.
         /// </summary>
-        // TODO - Obligatorio si la instalación es automática.
         public bool OfflineSetup { get; set; }
         /// <summary>
         /// No utilizar las licencias disponibles en la base de datos.

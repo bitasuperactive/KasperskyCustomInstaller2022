@@ -288,6 +288,6 @@
         private Label databaseNotAccesibleLabel;
         private Button comparisionButton;
         private Label separator1;
-        internal Button defaultInstallButton;
+        private Button defaultInstallButton;
     }
 }

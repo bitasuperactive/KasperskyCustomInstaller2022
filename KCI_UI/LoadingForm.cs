@@ -10,11 +10,10 @@ namespace KCI_UI
             InitializeComponent();
         }
 
-        // TODO - Evitar utilizar este formulario como el principal de la aplicación.
         // TODO - ¿Por qué es necesario utilizar <Task.Run> cuando el método ya es una tarea asincrónica?
         private async void LoadingForm_Load(object sender, EventArgs e)
         {
-            new MainForm(Dependencies.CreateKasperskyModel(),
+            new MainForm(await Task.Run(() => Dependencies.CreateKasperskyModel()),
                 await Task.Run(() => Dependencies.CreateAutoInstallRequirementsModel()),
                 await Task.Run(() => SqlConnector.GetAvailableLicenses()),
                 new ConfigurationModel()).Show();

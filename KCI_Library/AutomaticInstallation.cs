@@ -9,7 +9,8 @@ namespace KCI_Library
 {
     public class AutomaticInstallation : DefaultInstallation
     {
-        public AutomaticInstallation(KasperskyModel kaspersky, ConfigurationModel configuration) : base(kaspersky, configuration)
+        // TODO - Todos los requisitos han de haberse cumplido previamente.
+        public AutomaticInstallation(KasperskyModel kaspersky, ConfigurationModel configuration, Progress<float> progress) : base(kaspersky, configuration, progress)
         {
 
         }
@@ -19,6 +20,7 @@ namespace KCI_Library
             throw new NotImplementedException();
         }
 
+        // TODO - Avisar de reinicio automático.
         protected override void Restart()
         {
             throw new NotImplementedException();

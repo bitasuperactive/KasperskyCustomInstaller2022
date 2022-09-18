@@ -2,7 +2,10 @@ using KCI_Library;
 
 namespace KCI_UI
 {
-    // TODO - Requerir conexión a internet para ejecutar la aplicación.
+    // TODO - (*) General
+    // Evitar utilizar loadingForm como el formulario principal de la aplicación.
+    // Revisar funcionamiento asincrónico.
+    // Manejar adecuadamente la autenticación hacia al servidor en App.config.
     internal static class Program
     {
         /// <summary>

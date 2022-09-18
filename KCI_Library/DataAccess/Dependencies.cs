@@ -59,7 +59,7 @@ namespace KCI_Library.DataAccess
         /// Crea un modelo <c>AutoInstallRequirementsModel</c>.
         /// </summary>
         /// <returns><see cref="AutoInstallRequirementsModel"/></returns>
-        public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel() // TODO - Void o Async task?
+        public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel()
         {
             bool databaseAccesible = SqlConnector.DatabaseAccesible().Result;
 
