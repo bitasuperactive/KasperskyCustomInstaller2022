@@ -7,12 +7,12 @@ namespace KCI_UI
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class RequirementsForm : Form
     {
-        private new MainForm Parent { get; set; }
+        private MainForm owner { get; set; }
 
-        public RequirementsForm(MainForm parent)
+        public RequirementsForm()
         {
             InitializeComponent();
-            Parent = parent;
+            owner = (MainForm)this.Owner;
         }
 
         private void RequirementsForm_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace KCI_UI
         // Muestra los requisitos incumplidos.
         private void ShowMissingRequirements()
         {
-            AutoInstallRequirementsModel requirements = Parent.AutoInstallRequirements;
+            AutoInstallRequirementsModel requirements = owner.AutoInstallRequirements;
 
             if (requirements.AllMet)
             {
@@ -49,7 +49,7 @@ namespace KCI_UI
         // Actualiza los requisitos incumplidos.
         private void UpdateMissingRequirements()
         {
-            Parent.AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
+            owner.AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
         }
         #endregion
 
@@ -62,7 +62,7 @@ namespace KCI_UI
             string thisAssemblyLocation = new(System.Reflection.Assembly.GetExecutingAssembly().Location.SkipLast(4).ToArray());
 
             // Si se ha modificado la configuración, avisar al usuario de su reseteo.
-            if (Parent.Configuration.CompareTo(new ConfigurationModel()) == 0)
+            if (owner.Configuration.CompareTo(new ConfigurationModel()) == 0)
                 MessageBox.Show(this, "La configuración de la instalación se restablecerá a sus valores por defecto.", 
                     this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
@@ -76,7 +76,7 @@ namespace KCI_UI
         // Abre el enlace de ayuda para deshabilitar Kaspersky Password Protection.
         private void pwdProtectionMoreInfoButton_Click(object sender, EventArgs e)
         {
-            switch (Parent.Kaspersky.Id)
+            switch (owner.Kaspersky.Id)
             {
                 case DatabaseId.kav:
                     ProcessExecutor.BrowseToUrl("https://support.kaspersky.com/KAV/2021/en-US/70756.htm");

@@ -10,12 +10,11 @@ namespace KCI_UI
             InitializeComponent();
         }
 
-        // TODO - ¿Por qué es necesario utilizar <Task.Run> cuando el método ya es una tarea asincrónica?
-        private async void LoadingForm_Load(object sender, EventArgs e)
+        private async void LoadingForm_Shown(object sender, EventArgs e)
         {
             new MainForm(await Task.Run(() => Dependencies.CreateKasperskyModel()),
                 await Task.Run(() => Dependencies.CreateAutoInstallRequirementsModel()),
-                await Task.Run(() => SqlConnector.GetAvailableLicenses()),
+                await SqlConnector.GetAvailableLicenses(),
                 new ConfigurationModel()).Show();
 
             this.Hide();

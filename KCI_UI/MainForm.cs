@@ -114,7 +114,7 @@ namespace KCI_UI
 
         #region Eventos
         private void configButton_Click(object sender, EventArgs e) =>
-            new ConfigurationForm(this).ShowDialog(this);
+            new ConfigurationForm().ShowDialog(this);
 
         private void githubButton_Click(object sender, EventArgs e) => 
             ProcessExecutor.BrowseToUrl("https://github.com/bitasuperactive/KasperskyCustomInstaller2022");
@@ -187,7 +187,7 @@ namespace KCI_UI
             }
             else
             {
-                new RequirementsForm(this).ShowDialog(this);
+                new RequirementsForm().ShowDialog(this);
             }
         }
 

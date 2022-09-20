@@ -57,7 +57,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kaspersky Custom Installer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoadingForm_FormClosing);
-            this.Load += new System.EventHandler(this.LoadingForm_Load);
+            this.Shown += new System.EventHandler(this.LoadingForm_Shown);
             this.ResumeLayout(false);
 
         }

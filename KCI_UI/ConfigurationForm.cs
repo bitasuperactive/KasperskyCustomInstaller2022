@@ -5,12 +5,12 @@ namespace KCI_UI
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class ConfigurationForm : Form
     {
-        private new MainForm Parent { get; set; }
+        private MainForm owner { get; set; }
 
-        public ConfigurationForm(MainForm parent)
+        public ConfigurationForm()
         {
             InitializeComponent();
-            Parent = parent;
+            owner = (MainForm)this.Owner;
         }
 
         private void ConfigurationForm_Load(object sender, EventArgs e)
@@ -22,21 +22,21 @@ namespace KCI_UI
         // Establece la configuración por defecto o, la recupera.
         private void SetDefaultConfig()
         {
-            ConfigurationModel configuration = Parent.Configuration;
-            bool databaseAccesible = Parent.AutoInstallRequirements.DatabaseAccesible;
+            ConfigurationModel configuration = owner.Configuration;
+            bool databaseAccesible = owner.AutoInstallRequirements.DatabaseAccesible;
 
             // Muestra el nombre completo del producto instalado en las configuraciones que lo utilicen.
-            if (Parent.Kaspersky.Installed)
-                keepKasperskyConfigCheckBox.Text = $"Mantener configuración de {Parent.Kaspersky.FullName}";
+            if (owner.Kaspersky.Installed)
+                keepKasperskyConfigCheckBox.Text = $"Mantener configuración de {owner.Kaspersky.FullName}";
 
             // Bloquea aquellas configuracinoes dependientes del producto instalado y la base de datos.
-            keepKasperskyConfigCheckBox.Enabled = Parent.Kaspersky.Installed;
+            keepKasperskyConfigCheckBox.Enabled = owner.Kaspersky.Installed;
             offlineSetupCheckBox.Enabled = databaseAccesible;
             doNotUseDatabaseLicensesCheckBox.Enabled = databaseAccesible;
 
             if (configuration.CompareTo(new ConfigurationModel()) == 1)
             {
-                keepKasperskyConfigCheckBox.Checked = Parent.Kaspersky.Installed;
+                keepKasperskyConfigCheckBox.Checked = owner.Kaspersky.Installed;
                 offlineSetupCheckBox.Checked = false;
                 doNotUseDatabaseLicensesCheckBox.Checked = !databaseAccesible;
                 kasperskySecureConnectionCheckBox.Checked = false;
@@ -65,7 +65,7 @@ namespace KCI_UI
         // Actualiza la configuración.
         private void applyButton_Click(object sender, EventArgs e)
         {
-            Parent.Configuration = CreateConfigModel();
+            owner.Configuration = CreateConfigModel();
             this.Close();
         }
 

@@ -125,18 +125,17 @@ namespace KCI_Library.DataAccess
             catch (MySqlException)
             {
                 // Establece el enlace predeterminado para la descarga del instalador del producto elegido.
-                // TODO - (!!) Encontrar enlaces permanentes.
                 switch (id)
                 {
                     case DatabaseId.kav:
                         return new SourcesModel(
-                            new Uri("https://pdc2.fra5.pdc.kaspersky.com/DownloadManagers/a6/c9/a6c95eaf-96c1-4c0f-b40b-2e502a369ec9/kav21.3.10.391abes_25639.exe"));
+                            new Uri("https://products.s.kaspersky-labs.com/spanish/homeuser/kav2018/for_reg_es/startup.exe"));
                     case DatabaseId.kis:
                         return new SourcesModel(
-                            new Uri("https://pdc5.pa2.pdc.kaspersky.com/DownloadManagers/d7/b3/d7b36992-6015-4c46-bc86-48356085af73/kis21.3.10.391abes_25641.exe"));
+                            new Uri("https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe"));
                     case DatabaseId.kts:
                         return new SourcesModel(
-                            new Uri("https://download1512.mediafire.com/ke1ywe3kl5rg/u6h6uwgha5wpxwl/kts21.3.10.391abes_25644.exe"));
+                            new Uri("https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe"));
                 }
 
                 throw;
