@@ -10,7 +10,7 @@ namespace KCI_Library
     public class AutomaticInstallation : DefaultInstallation
     {
         // TODO - Todos los requisitos han de haberse cumplido previamente.
-        public AutomaticInstallation(KasperskyModel kaspersky, ConfigurationModel configuration, Progress<float> progress) : base(kaspersky, configuration, progress)
+        public AutomaticInstallation(KasperskyModel kaspersky, ConfigurationModel configuration) : base(kaspersky, configuration)
         {
 
         }

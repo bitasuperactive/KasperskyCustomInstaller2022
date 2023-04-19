@@ -57,340 +57,792 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;kavActivationButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="closeKasMoreInfoButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 26</value>
+  </data>
+  <data name="configurationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>464, 8</value>
+  </data>
+  <data name="&gt;&gt;reconnectButton.Name" xml:space="preserve">
+    <value>reconnectButton</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
-  <data name="kisPanel.ToolTip" xml:space="preserve">
+  <data name="optionalFeaturesListBox.ToolTip" xml:space="preserve">
     <value />
+  </data>
+  <data name="&gt;&gt;leftPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="productComparisionButton.ToolTip" xml:space="preserve">
+    <value>Abrir tabla comparativa de los productos disponibles</value>
+  </data>
+  <data name="&gt;&gt;closeKasRequirementPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ktsPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;kavAvailableLicensesLabel.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="kisRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="asAdminButton.ToolTip" xml:space="preserve">
+    <value>Re-ejecutar como administrador</value>
   </data>
   <data name="&gt;&gt;adminRequirementPanel.Name" xml:space="preserve">
     <value>adminRequirementPanel</value>
   </data>
-  <data name="&gt;&gt;ktsRadioButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="closeKasRequirementLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="pwdProtectionMoreInfoButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 162</value>
-  </data>
-  <data name="tryToActivateProductButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;ktsActivationButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tryToActivateProductButton.Name" xml:space="preserve">
-    <value>tryToActivateProductButton</value>
-  </data>
-  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;comparisionButton.Parent" xml:space="preserve">
-    <value>topPanel</value>
-  </data>
-  <data name="optionalFeaturesListBox.Items2" xml:space="preserve">
-    <value>Solo renovar la licencia de prueba (30 días)</value>
-  </data>
-  <data name="requirementsLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>856, 12</value>
-  </data>
-  <data name="&gt;&gt;githubButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="defaultInstallButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;separator1.Parent" xml:space="preserve">
-    <value>topPanel</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="buttonsPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="button2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;databaseRequirementPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="topPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;autoInstallRequirementsTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;configButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;closeKasMoreInfoButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ktsActivationButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="&gt;&gt;databaseRequirementPanel.Parent" xml:space="preserve">
-    <value>requirementsPanel</value>
-  </data>
-  <data name="&gt;&gt;leftPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="pwdProtectionRequirementLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;leftFlowLayoutPanel.Name" xml:space="preserve">
-    <value>leftFlowLayoutPanel</value>
-  </data>
-  <data name="autoInstallRequirementsTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;licenseLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="leftPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;closeKasRequirementLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="kisPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="closeKasRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 208</value>
-  </data>
-  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
-    <value>radioButton1</value>
-  </data>
-  <data name="kavPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;buttonsPanel.Name" xml:space="preserve">
-    <value>buttonsPanel</value>
-  </data>
-  <data name="&gt;&gt;closeKasMoreInfoButton.Parent" xml:space="preserve">
-    <value>closeKasRequirementPanel</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;adminRequirementPanel.Parent" xml:space="preserve">
-    <value>requirementsPanel</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
-    <value>toolTip1</value>
-  </data>
-  <data name="configButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>475, 4</value>
-  </data>
-  <data name="leftPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 56</value>
-  </data>
-  <data name="&gt;&gt;toolTip.Name" xml:space="preserve">
-    <value>toolTip</value>
-  </data>
-  <data name="fillFlowLayoutPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;databaseRequirementLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;fillFlowLayoutPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ktsRadioButton.Name" xml:space="preserve">
-    <value>ktsRadioButton</value>
-  </data>
-  <data name="&gt;&gt;ktsAvailableLicensesLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="requirementsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>417, 485</value>
-  </data>
-  <data name="restartAsAdminButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 12</value>
-  </data>
-  <data name="requirementsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>379, 476</value>
-  </data>
-  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
-    <value>listBox1</value>
-  </data>
-  <data name="&gt;&gt;databaseStateLabel.Name" xml:space="preserve">
-    <value>databaseStateLabel</value>
-  </data>
-  <data name="flowLayoutPanel1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;kisAvailableLicensesLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="&gt;&gt;asAdminButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;topPanel.Name" xml:space="preserve">
-    <value>topPanel</value>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 214</value>
+  <data name="&gt;&gt;installationConfigListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;kavRadioButton.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;leftFlowLayout.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="closeKasRequirementLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;kavActivationButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;topFlowLayout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;kisActivationButton.Name" xml:space="preserve">
-    <value>kisActivationButton</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
   <data name="kavRadioButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>48, 12</value>
   </data>
-  <data name="reconnectButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>380, 5</value>
+  <data name="topFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;ktsPanel.Name" xml:space="preserve">
-    <value>ktsPanel</value>
+  <data name="tryToActivateProductButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 12</value>
   </data>
-  <data name="&gt;&gt;radioPanel.Name" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="radioButton1.ToolTip" xml:space="preserve">
+  <data name="autoInstallButton.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="databaseRequirementLabel.ToolTip" xml:space="preserve">
+  <data name="&gt;&gt;adminRequirementPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;configurationButton.Name" xml:space="preserve">
+    <value>configurationButton</value>
+  </data>
+  <data name="closeKasRequirementLabel.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10.8pt</value>
-  </data>
-  <data name="kisActivationButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="kavRadioButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;autoInstallRequirementsTextBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;leftPanel.Name" xml:space="preserve">
-    <value>leftPanel</value>
+  <data name="&gt;&gt;reconnectButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;databaseStateLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ktsActivationButton.Parent" xml:space="preserve">
+    <value>radioPanel</value>
   </data>
-  <data name="&gt;&gt;kisRadioButton.Name" xml:space="preserve">
-    <value>kisRadioButton</value>
+  <data name="&gt;&gt;databaseStateLabel.Name" xml:space="preserve">
+    <value>databaseStateLabel</value>
   </data>
-  <data name="usualInstallButton.ToolTip" xml:space="preserve">
+  <data name="installationConfigListBox.Items1" xml:space="preserve">
+    <value>Asistente de instalación completo (offline)</value>
+  </data>
+  <data name="kavPanel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;requirementsPanel.Name" xml:space="preserve">
-    <value>requirementsPanel</value>
+  <data name="closeKasRequirementPanel.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="databaseNotAccesibleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 79</value>
+  <data name="&gt;&gt;productComparisionButton.Parent" xml:space="preserve">
+    <value>topPanel</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="radioButton1.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;leftFlowLayoutPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="kisActivationButton.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;autoInstallButton.Parent" xml:space="preserve">
-    <value>buttonsPanel</value>
+  <data name="&gt;&gt;kisAvailableLicensesLabel.Name" xml:space="preserve">
+    <value>kisAvailableLicensesLabel</value>
+  </data>
+  <data name="loadingLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="ktsPanel.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="&gt;&gt;kavActivationButton.Type" xml:space="preserve">
+  <data name="githubButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>856, 12</value>
+  </data>
+  <data name="&gt;&gt;separator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="productComparisionButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;installationConfigListBox.Name" xml:space="preserve">
+    <value>installationConfigListBox</value>
+  </data>
+  <data name="topFlowLayout.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="kisAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="reconnectButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>380, 5</value>
+  </data>
+  <data name="&gt;&gt;comparisionButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;reconnectButton.Parent" xml:space="preserve">
+    <value>databaseRequirementPanel</value>
   </data>
   <data name="leftFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 61</value>
   </data>
+  <data name="&gt;&gt;loadingLabel.Parent" xml:space="preserve">
+    <value>loadingPanel</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="loadingLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ktsActivationButton.Name" xml:space="preserve">
+    <value>ktsActivationButton</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="autoInstallationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="configButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kisActivationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 191</value>
+  </data>
+  <data name="&gt;&gt;comparisionButton.Parent" xml:space="preserve">
+    <value>topPanel</value>
+  </data>
+  <data name="&gt;&gt;autoInstallationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;configButton.Name" xml:space="preserve">
+    <value>configButton</value>
+  </data>
+  <data name="databaseStateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 9</value>
+  </data>
+  <data name="&gt;&gt;kisRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;databaseNotAccesibleLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;databaseRequirementLabel.Parent" xml:space="preserve">
+    <value>databaseRequirementPanel</value>
+  </data>
+  <data name="autoInstallRequirementsTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 231</value>
+  </data>
+  <data name="&gt;&gt;buttonsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="topPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="closeKasRequirementLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;adminRequirementPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;kavAvailableLicensesLabel.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;kisPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;kisPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="fillFlowLayoutPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;closeKasMoreInfoButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;topPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;licenseStateLabel.Parent" xml:space="preserve">
+    <value>topPanel</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;asAdminButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;githubButton.Name" xml:space="preserve">
+    <value>githubButton</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.Name" xml:space="preserve">
+    <value>fillFlowLayoutPanel</value>
+  </data>
+  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;licenseLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="licenseStateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>255, 381</value>
+  </data>
+  <data name="ktsActivationButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="loadingPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="kavRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="&gt;&gt;kavActivationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pwdProtectionRequirementLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="leftFlowLayoutPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ktsRadioButton.ToolTip" xml:space="preserve">
+    <value>Selecciona la edición deseada a instalar</value>
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optionalFeaturesListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.Name" xml:space="preserve">
+    <value>kavRadioButton</value>
+  </data>
+  <data name="&gt;&gt;buttonsPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 22</value>
+  </data>
+  <data name="&gt;&gt;databaseNotAccesibleLabel.Name" xml:space="preserve">
+    <value>databaseNotAccesibleLabel</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="kavActivationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;databaseStateLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;optionalFeaturesListBox.Name" xml:space="preserve">
+    <value>optionalFeaturesListBox</value>
+  </data>
+  <data name="comparisionButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;ktsPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="fillFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 179</value>
+  </data>
+  <data name="&gt;&gt;autoInstallButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;installationConfigListBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;databaseRequirementPanel.Parent" xml:space="preserve">
+    <value>requirementsPanel</value>
+  </data>
+  <data name="&gt;&gt;requirementsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="adminRequirementPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="topPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.Parent" xml:space="preserve">
+    <value>adminRequirementPanel</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="leftPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 56</value>
+  </data>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="databaseRequirementLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;adminRequirementPanel.Parent" xml:space="preserve">
+    <value>requirementsPanel</value>
+  </data>
+  <data name="leftPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;loadingPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;kisActivationButton.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;autoInstallRequirementsTextBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;comparisionButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="requirementsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="restartAsAdminButton.ToolTip" xml:space="preserve">
+    <value>Reiniciar como administrador</value>
+  </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
+  <data name="&gt;&gt;licenseLabel.Name" xml:space="preserve">
+    <value>licenseLabel</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 38</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;adminRequirementLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="licenseLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;topFlowLayout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;kavActivationButton.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="radioButton2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;requirementsLabel.Name" xml:space="preserve">
+    <value>requirementsLabel</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="configurationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="loadingPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="closeKasMoreInfoButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 214</value>
+  </data>
+  <data name="reconnectButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pwdProtectionMoreInfoButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;requirementsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeKasMoreInfoButton.Parent" xml:space="preserve">
+    <value>closeKasRequirementPanel</value>
+  </data>
+  <data name="&gt;&gt;kisAvailableLicensesLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="installationConfigListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;autoInstallRequirementsTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usualInstallButton.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.Name" xml:space="preserve">
+    <value>restartAsAdminButton</value>
+  </data>
+  <data name="&gt;&gt;closeKasMoreInfoButton.Name" xml:space="preserve">
+    <value>closeKasMoreInfoButton</value>
+  </data>
+  <data name="productComparisionButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 8</value>
+  </data>
+  <data name="&gt;&gt;databaseRequirementPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10.8pt</value>
+  </data>
+  <data name="&gt;&gt;optionalFeaturesListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;ktsActivationButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="databaseNotAccesibleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 79</value>
+  </data>
+  <data name="&gt;&gt;installationConfigListBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;productComparisionButton.Name" xml:space="preserve">
+    <value>productComparisionButton</value>
+  </data>
+  <data name="autoInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 128</value>
+  </data>
+  <data name="&gt;&gt;closeKasRequirementPanel.Parent" xml:space="preserve">
+    <value>requirementsPanel</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ktsActivationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="defaultInstallationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;ktsAvailableLicensesLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 119</value>
+  </data>
+  <data name="licenseStateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="installationConfigListBox.Items2" xml:space="preserve">
+    <value>Solo renovar la licencia de prueba (30 días)</value>
+  </data>
+  <data name="&gt;&gt;buttonsPanel.Name" xml:space="preserve">
+    <value>buttonsPanel</value>
+  </data>
+  <data name="databaseRequirementPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="databaseRequirementLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radioPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionMoreInfoButton.Parent" xml:space="preserve">
+    <value>pwdProtectionRequirementPanel</value>
+  </data>
+  <data name="&gt;&gt;requirementsLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="panel1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;tryToActivateProductButton.Parent" xml:space="preserve">
+    <value>topPanel</value>
+  </data>
+  <data name="adminRequirementLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="closeKasMoreInfoButton.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="kisPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="topFlowLayoutPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="leftFlowLayout.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>143, 79</value>
+  </data>
+  <data name="requirementsPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;reconnectButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="closeKasRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 208</value>
+  </data>
+  <data name="topFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;ktsActivationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;requirementsPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="databaseRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;requirementsPanel.Name" xml:space="preserve">
+    <value>requirementsPanel</value>
+  </data>
+  <data name="kavActivationButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;licenseStateLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value>Se activará la licencia de prueba por defecto (30 días)</value>
+  </data>
+  <data name="leftFlowLayout.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="kisRadioButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 143</value>
+  </data>
+  <data name="githubButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="defaultInstallationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 19</value>
+  </data>
   <data name="&gt;&gt;asAdminButton.Name" xml:space="preserve">
     <value>asAdminButton</value>
   </data>
-  <data name="&gt;&gt;kisRadioButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
+  <data name="&gt;&gt;usualInstallButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="kisPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 166</value>
+  <data name="&gt;&gt;kisRadioButton.Name" xml:space="preserve">
+    <value>kisRadioButton</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;listBox1.Name" xml:space="preserve">
+    <value>listBox1</value>
   </data>
-  <data name="&gt;&gt;autoInstallButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;databaseRequirementLabel.Name" xml:space="preserve">
-    <value>databaseRequirementLabel</value>
-  </data>
-  <data name="kavAvailableLicensesLabel.ToolTip" xml:space="preserve">
+  <data name="defaultInstallButton.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="optionalFeaturesListBox.Items" xml:space="preserve">
-    <value>Mantener configuración de Kaspersky</value>
+  <data name="&gt;&gt;configurationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="closeKasRequirementPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
+  <data name="autoInstallButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="closeKasRequirementLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radioPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ktsPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="flowLayoutPanel1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="listBox1.Items2" xml:space="preserve">
+    <value>Kaspersky 3</value>
+  </data>
+  <data name="optionalFeaturesListBox.Items1" xml:space="preserve">
+    <value>Asistente de instalación completo (offline)</value>
+  </data>
+  <data name="&gt;&gt;usualInstallButton.Name" xml:space="preserve">
+    <value>usualInstallButton</value>
+  </data>
+  <data name="pwdProtectionRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 105</value>
+  </data>
+  <data name="&gt;&gt;databaseRequirementLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;kisRadioButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="requirementsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 476</value>
   </data>
   <data name="kavAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
+  </data>
+  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;githubButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pwdProtectionRequirementLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.Name" xml:space="preserve">
+    <value>leftFlowLayout</value>
+  </data>
+  <data name="usualInstallButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="button2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;configurationButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;kavAvailableLicensesLabel.Name" xml:space="preserve">
+    <value>kavAvailableLicensesLabel</value>
+  </data>
+  <data name="kavRadioButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="kisPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="topFlowLayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;toolTip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="listBox1.Items" xml:space="preserve">
+    <value>Kaspersky 1</value>
+  </data>
+  <data name="&gt;&gt;ktsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeKasRequirementLabel.Name" xml:space="preserve">
+    <value>closeKasRequirementLabel</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="radioButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="$this.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallationButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;configButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;kisPanel.Name" xml:space="preserve">
+    <value>kisPanel</value>
+  </data>
+  <data name="separator1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pwdProtectionMoreInfoButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;autoInstallRequirementsTextBox.Name" xml:space="preserve">
+    <value>autoInstallRequirementsTextBox</value>
+  </data>
+  <data name="&gt;&gt;restartAsAdminButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="radioPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;databaseRequirementLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;licenseLabel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="separator1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 15</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -565,1029 +1017,703 @@
         AACAAAAAwAAAAOAAAADwAAAA+AAAAPwAAAD+AAAA/wAAAP+QAAD/8AAA//gAAf/8AAP//wAP
 </value>
   </data>
-  <data name="listBox1.Items1" xml:space="preserve">
-    <value>Kaspersky 2</value>
-  </data>
-  <data name="listBox1.Items2" xml:space="preserve">
-    <value>Kaspersky 3</value>
-  </data>
-  <data name="&gt;&gt;autoInstallButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>900, 495</value>
-  </data>
-  <data name="&gt;&gt;kavAvailableLicensesLabel.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="fillFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>584, 61</value>
-  </data>
-  <data name="databaseStateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 9</value>
-  </data>
-  <data name="&gt;&gt;listBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="radioPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;kavRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="licenseLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;requirementsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value>Se activará la licencia de prueba por defecto (30 días)</value>
-  </data>
-  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 129</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tryToActivateProductButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;kavPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;databaseStateLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;reconnectButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;databaseRequirementPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;closeKasMoreInfoButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ktsActivationButton.Name" xml:space="preserve">
-    <value>ktsActivationButton</value>
-  </data>
-  <data name="&gt;&gt;ktsRadioButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="ktsRadioButton.ToolTip" xml:space="preserve">
-    <value>Selecciona la edición deseada a instalar</value>
-  </data>
-  <data name="&gt;&gt;closeKasRequirementPanel.Name" xml:space="preserve">
-    <value>closeKasRequirementPanel</value>
-  </data>
-  <data name="autoInstallRequirementsTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 231</value>
-  </data>
-  <data name="&gt;&gt;installationConfigListBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tryToActivateProductButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;kavAvailableLicensesLabel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>487, 137</value>
-  </data>
-  <data name="closeKasRequirementLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;fillFlowLayoutPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;topPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;databaseNotAccesibleLabel.Name" xml:space="preserve">
-    <value>databaseNotAccesibleLabel</value>
-  </data>
-  <data name="&gt;&gt;topFlowLayoutPanel.Name" xml:space="preserve">
-    <value>topFlowLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;buttonsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="kisRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="ktsAvailableLicensesLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;listBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="optionalFeaturesListBox.Items1" xml:space="preserve">
-    <value>Asistente de instalación completo (offline)</value>
-  </data>
-  <data name="&gt;&gt;kavPanel.Name" xml:space="preserve">
-    <value>kavPanel</value>
-  </data>
-  <data name="&gt;&gt;adminRequirementPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;kavAvailableLicensesLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;separator1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adminRequirementLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;kavAvailableLicensesLabel.Name" xml:space="preserve">
-    <value>kavAvailableLicensesLabel</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionRequirementPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="comparisionButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="installationConfigListBox.Items2" xml:space="preserve">
-    <value>Solo renovar la licencia de prueba (30 días)</value>
-  </data>
   <data name="&gt;&gt;topFlowLayoutPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;radioPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="usualInstallButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="pwdProtectionRequirementLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 38</value>
-  </data>
-  <data name="radioPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 54</value>
-  </data>
-  <data name="&gt;&gt;configButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="pwdProtectionRequirementPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="restartAsAdminButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="licenseStateLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;buttonsPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;closeKasMoreInfoButton.Name" xml:space="preserve">
-    <value>closeKasMoreInfoButton</value>
-  </data>
-  <data name="ktsAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="autoInstallRequirementsTextBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="installationConfigListBox.Items" xml:space="preserve">
-    <value>Mantener configuración de Kaspersky</value>
-  </data>
-  <data name="&gt;&gt;kisRadioButton.ZOrder" xml:space="preserve">
+  <data name="autoInstallRequirementsTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;kavPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;databaseStateLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;separator1.Name" xml:space="preserve">
-    <value>separator1</value>
-  </data>
-  <data name="comparisionButton.ToolTip" xml:space="preserve">
-    <value>Abrir tabla comparativa de los productos disponibles</value>
-  </data>
-  <data name="asAdminButton.ToolTip" xml:space="preserve">
-    <value>Re-ejecutar como administrador</value>
-  </data>
-  <data name="button1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="licenseStateLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;kisPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="adminRequirementPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="kisAvailableLicensesLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;asAdminButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;configButton.Parent" xml:space="preserve">
-    <value>topPanel</value>
-  </data>
-  <data name="ktsActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>591, 290</value>
-  </data>
-  <data name="&gt;&gt;usualInstallButton.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;closeKasRequirementLabel.Parent" xml:space="preserve">
-    <value>closeKasRequirementPanel</value>
-  </data>
-  <data name="githubButton.ToolTip" xml:space="preserve">
-    <value>Abrir repositorio en GitHub</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionMoreInfoButton.Name" xml:space="preserve">
-    <value>pwdProtectionMoreInfoButton</value>
-  </data>
-  <data name="&gt;&gt;defaultInstallButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="usualInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="&gt;&gt;kisActivationButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 79</value>
-  </data>
-  <data name="&gt;&gt;licenseStateLabel.Parent" xml:space="preserve">
-    <value>topPanel</value>
-  </data>
-  <data name="leftPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 319</value>
-  </data>
-  <data name="&gt;&gt;topFlowLayoutPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Kaspersky Custom Installer</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionRequirementLabel.Parent" xml:space="preserve">
-    <value>pwdProtectionRequirementPanel</value>
-  </data>
-  <data name="&gt;&gt;restartAsAdminButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;kisPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;kisActivationButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionMoreInfoButton.Parent" xml:space="preserve">
-    <value>pwdProtectionRequirementPanel</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="&gt;&gt;radioButton2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="adminRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 54</value>
-  </data>
-  <data name="&gt;&gt;reconnectButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ktsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ktsPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;optionalFeaturesListBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ktsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 278</value>
-  </data>
-  <data name="installationConfigListBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionRequirementPanel.Name" xml:space="preserve">
-    <value>pwdProtectionRequirementPanel</value>
-  </data>
-  <data name="kavActivationButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;pwdProtectionMoreInfoButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;githubButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="autoInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 128</value>
-  </data>
-  <data name="&gt;&gt;adminRequirementPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pwdProtectionRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 105</value>
-  </data>
-  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="autoInstallButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="pwdProtectionMoreInfoButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;optionalFeaturesListBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tryToActivateProductButton.ToolTip" xml:space="preserve">
-    <value>Intentar activar el producto actual</value>
-  </data>
-  <data name="kavRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="topFlowLayout.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;ktsActivationButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ktsRadioButton.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="githubButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;databaseRequirementPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;adminRequirementLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="installationConfigListBox.Items3" xml:space="preserve">
+    <value>Instalar Kaspersky Secure Connection</value>
+  </data>
+  <data name="kavAvailableLicensesLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="githubButton.ToolTip" xml:space="preserve">
+    <value>Abrir repositorio en GitHub</value>
+  </data>
+  <data name="usualInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="kisActivationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="configButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>475, 4</value>
+  </data>
+  <data name="&gt;&gt;kisRadioButton.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="tryToActivateProductButton.ToolTip" xml:space="preserve">
+    <value>Intentar activar el producto actual</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeKasRequirementPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;kavPanel.Name" xml:space="preserve">
+    <value>kavPanel</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallButton.Parent" xml:space="preserve">
+    <value>buttonsPanel</value>
+  </data>
+  <data name="&gt;&gt;autoInstallationButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;toolTip1.Name" xml:space="preserve">
+    <value>toolTip1</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;licenseStateLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeKasRequirementPanel.Name" xml:space="preserve">
+    <value>closeKasRequirementPanel</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
+    <value>radioButton1</value>
+  </data>
+  <data name="&gt;&gt;ktsRadioButton.Name" xml:space="preserve">
+    <value>ktsRadioButton</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallButton.Name" xml:space="preserve">
+    <value>defaultInstallButton</value>
+  </data>
+  <data name="&gt;&gt;kavActivationButton.Name" xml:space="preserve">
+    <value>kavActivationButton</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayoutPanel.Name" xml:space="preserve">
+    <value>leftFlowLayoutPanel</value>
+  </data>
+  <data name="button1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;topFlowLayout.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
   <data name="configButton.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;toolTip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;kisRadioButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="kavPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="kavActivationButton.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;comparisionButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="closeKasRequirementPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;installationConfigListBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="listBox1.Items" xml:space="preserve">
-    <value>Kaspersky 1</value>
-  </data>
-  <data name="kavPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 54</value>
-  </data>
-  <data name="&gt;&gt;closeKasRequirementPanel.Parent" xml:space="preserve">
-    <value>requirementsPanel</value>
-  </data>
-  <data name="reconnectButton.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;autoInstallRequirementsTextBox.Name" xml:space="preserve">
-    <value>autoInstallRequirementsTextBox</value>
-  </data>
-  <data name="&gt;&gt;databaseNotAccesibleLabel.Parent" xml:space="preserve">
-    <value>buttonsPanel</value>
-  </data>
-  <data name="adminRequirementLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;optionalFeaturesListBox.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;topFlowLayout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="databaseStateLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;topFlowLayoutPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="topFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="comparisionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>390, 13</value>
-  </data>
-  <data name="&gt;&gt;tryToActivateProductButton.Parent" xml:space="preserve">
-    <value>topPanel</value>
-  </data>
-  <data name="topFlowLayout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;leftFlowLayout.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;databaseStateLabel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;leftPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="leftFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="defaultInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 309</value>
+  <data name="&gt;&gt;productComparisionButton.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;adminRequirementLabel.Name" xml:space="preserve">
-    <value>adminRequirementLabel</value>
+  <data name="kisAvailableLicensesLabel.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;optionalFeaturesListBox.Name" xml:space="preserve">
-    <value>optionalFeaturesListBox</value>
+  <data name="kisAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 238</value>
   </data>
-  <data name="&gt;&gt;reconnectButton.Name" xml:space="preserve">
-    <value>reconnectButton</value>
+  <data name="&gt;&gt;leftFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="kavAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 119</value>
+  <data name="topFlowLayout.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="&gt;&gt;ktsAvailableLicensesLabel.Name" xml:space="preserve">
-    <value>ktsAvailableLicensesLabel</value>
+  <data name="kavActivationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 93</value>
+  </data>
+  <data name="kavPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="leftPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="buttonsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;ktsPanel.Name" xml:space="preserve">
+    <value>ktsPanel</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionMoreInfoButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="autoInstallRequirementsTextBox.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="asAdminButton.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;licenseLabel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;kisPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="licenseLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="kisRadioButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 143</value>
-  </data>
-  <data name="&gt;&gt;usualInstallButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;kisAvailableLicensesLabel.Name" xml:space="preserve">
-    <value>kisAvailableLicensesLabel</value>
-  </data>
-  <data name="&gt;&gt;licenseStateLabel.Name" xml:space="preserve">
-    <value>licenseStateLabel</value>
-  </data>
-  <data name="databaseRequirementLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 179</value>
-  </data>
-  <data name="panel1.ToolTip" xml:space="preserve">
+  <data name="licenseStateLabel.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="&gt;&gt;optionalFeaturesListBox.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="databaseNotAccesibleLabel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;databaseRequirementLabel.Parent" xml:space="preserve">
-    <value>databaseRequirementPanel</value>
+  <data name="defaultInstallationButton.ToolTip" xml:space="preserve">
+    <value>Instala el producto seleccionado con interfaz gráfica</value>
   </data>
-  <data name="&gt;&gt;licenseStateLabel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;kavActivationButton.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
-  <data name="leftFlowLayoutPanel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="leftFlowLayout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 67</value>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="separator1.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;kisPanel.Name" xml:space="preserve">
-    <value>kisPanel</value>
-  </data>
-  <data name="&gt;&gt;topPanel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonsPanel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;leftFlowLayoutPanel.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="separator1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 15</value>
+  <data name="&gt;&gt;loadingLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pwdProtectionRequirementPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;kisAvailableLicensesLabel.Parent" xml:space="preserve">
+    <value>radioPanel</value>
   </data>
-  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="defaultInstallButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 309</value>
   </data>
-  <data name="&gt;&gt;githubButton.Name" xml:space="preserve">
-    <value>githubButton</value>
+  <data name="&gt;&gt;kavPanel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;githubButton.Parent" xml:space="preserve">
-    <value>topPanel</value>
-  </data>
-  <data name="&gt;&gt;comparisionButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;autoInstallButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;closeKasRequirementLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="optionalFeaturesListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;separator1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;closeKasRequirementLabel.Name" xml:space="preserve">
-    <value>closeKasRequirementLabel</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionRequirementPanel.Parent" xml:space="preserve">
-    <value>requirementsPanel</value>
-  </data>
-  <data name="kavActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>591, 93</value>
+  <data name="&gt;&gt;githubButton.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="ktsRadioButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>48, 274</value>
   </data>
+  <data name="adminRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 54</value>
+  </data>
+  <data name="optionalFeaturesListBox.Items3" xml:space="preserve">
+    <value>Instalar Kaspersky Secure Connection</value>
+  </data>
+  <data name="&gt;&gt;requirementsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;usualInstallButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ktsRadioButton.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;ktsRadioButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;loadingLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="requirementsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>417, 485</value>
+  </data>
+  <data name="loadingPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pwdProtectionRequirementLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementLabel.Parent" xml:space="preserve">
+    <value>pwdProtectionRequirementPanel</value>
+  </data>
+  <data name="&gt;&gt;githubButton.Parent" xml:space="preserve">
+    <value>topPanel</value>
+  </data>
+  <data name="radioPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="&gt;&gt;leftPanel.Name" xml:space="preserve">
+    <value>leftPanel</value>
+  </data>
+  <data name="autoInstallationButton.ToolTip" xml:space="preserve">
+    <value>Instala el producto seleccionado sin interfaz gráfica</value>
+  </data>
+  <data name="&gt;&gt;autoInstallRequirementsTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;databaseNotAccesibleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comparisionButton.Name" xml:space="preserve">
+    <value>comparisionButton</value>
+  </data>
+  <data name="restartAsAdminButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="comparisionButton.ToolTip" xml:space="preserve">
+    <value>Abrir tabla comparativa de los productos disponibles</value>
+  </data>
+  <data name="&gt;&gt;autoInstallationButton.Parent" xml:space="preserve">
+    <value>buttonsPanel</value>
+  </data>
+  <data name="&gt;&gt;ktsAvailableLicensesLabel.Name" xml:space="preserve">
+    <value>ktsAvailableLicensesLabel</value>
+  </data>
+  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="installationConfigListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 259</value>
+  </data>
+  <data name="&gt;&gt;kisActivationButton.Name" xml:space="preserve">
+    <value>kisActivationButton</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pwdProtectionRequirementPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;loadingLabel.Name" xml:space="preserve">
+    <value>loadingLabel</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="separator1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
   <data name="databaseNotAccesibleLabel.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;radioButton2.Name" xml:space="preserve">
-    <value>radioButton2</value>
+  <data name="&gt;&gt;autoInstallationButton.Name" xml:space="preserve">
+    <value>autoInstallationButton</value>
   </data>
-  <data name="topFlowLayoutPanel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;topFlowLayoutPanel.Name" xml:space="preserve">
+    <value>topFlowLayoutPanel</value>
   </data>
-  <data name="closeKasMoreInfoButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 26</value>
-  </data>
-  <data name="&gt;&gt;licenseStateLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;closeKasRequirementLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="licenseStateLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>255, 381</value>
+  <data name="databaseStateLabel.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="restartAsAdminButton.ToolTip" xml:space="preserve">
-    <value>Reiniciar como administrador</value>
-  </data>
-  <data name="&gt;&gt;kavRadioButton.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="closeKasMoreInfoButton.ToolTip" xml:space="preserve">
+  <data name="listBox1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="databaseStateLabel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="optionalFeaturesListBox.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;kisActivationButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="ktsActivationButton.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionMoreInfoButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pwdProtectionMoreInfoButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;usualInstallButton.Name" xml:space="preserve">
-    <value>usualInstallButton</value>
-  </data>
-  <data name="&gt;&gt;leftFlowLayoutPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;separator1.Type" xml:space="preserve">
+  <data name="&gt;&gt;licenseLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ktsPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;separator1.Parent" xml:space="preserve">
+    <value>topPanel</value>
   </data>
-  <data name="radioButton2.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;pwdProtectionMoreInfoButton.Name" xml:space="preserve">
+    <value>pwdProtectionMoreInfoButton</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
-  <data name="separator1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="installationConfigListBox.Items1" xml:space="preserve">
-    <value>Asistente de instalación completo (offline)</value>
-  </data>
-  <data name="&gt;&gt;kisAvailableLicensesLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ktsAvailableLicensesLabel.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="fillFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;installationConfigListBox.Name" xml:space="preserve">
-    <value>installationConfigListBox</value>
-  </data>
-  <data name="topFlowLayout.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;buttonsPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;leftFlowLayout.Name" xml:space="preserve">
-    <value>leftFlowLayout</value>
-  </data>
-  <data name="configButton.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="adminRequirementPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="optionalFeaturesListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 259</value>
-  </data>
-  <data name="installationConfigListBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;closeKasRequirementPanel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;adminRequirementLabel.Parent" xml:space="preserve">
-    <value>adminRequirementPanel</value>
-  </data>
-  <data name="&gt;&gt;radioPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="tryToActivateProductButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
   <data name="databaseRequirementLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
   </data>
-  <data name="&gt;&gt;comparisionButton.Name" xml:space="preserve">
-    <value>comparisionButton</value>
+  <data name="&gt;&gt;topPanel.Name" xml:space="preserve">
+    <value>topPanel</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;restartAsAdminButton.Parent" xml:space="preserve">
-    <value>adminRequirementPanel</value>
-  </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
-  </data>
-  <data name="&gt;&gt;leftFlowLayout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value>Se activará la licencia de prueba por defecto (30 días)</value>
-  </data>
-  <data name="requirementsPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;defaultInstallButton.Name" xml:space="preserve">
-    <value>defaultInstallButton</value>
-  </data>
-  <data name="asAdminButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>818, 12</value>
+  <data name="&gt;&gt;licenseStateLabel.Name" xml:space="preserve">
+    <value>licenseStateLabel</value>
   </data>
   <data name="radioButton1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;closeKasRequirementPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="listBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;pwdProtectionRequirementLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 416</value>
-  </data>
-  <data name="defaultInstallButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;kavRadioButton.Name" xml:space="preserve">
-    <value>kavRadioButton</value>
-  </data>
-  <data name="&gt;&gt;autoInstallButton.Name" xml:space="preserve">
-    <value>autoInstallButton</value>
-  </data>
-  <data name="radioPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;topPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="kisRadioButton.ToolTip" xml:space="preserve">
-    <value>Kaspersky Internet Security</value>
-  </data>
-  <data name="&gt;&gt;kavPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;autoInstallRequirementsTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;databaseNotAccesibleLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ktsActivationButton.ToolTip" xml:space="preserve">
-    <value />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>900, 495</value>
   </data>
   <data name="licenseLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>559, 406</value>
   </data>
-  <data name="ktsAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 357</value>
-  </data>
-  <data name="requirementsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;leftPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;kisAvailableLicensesLabel.Parent" xml:space="preserve">
-    <value>radioPanel</value>
-  </data>
-  <data name="&gt;&gt;topFlowLayout.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;fillFlowLayoutPanel.Name" xml:space="preserve">
-    <value>fillFlowLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;ktsRadioButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ktsAvailableLicensesLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;kisActivationButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;kisPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="kisActivationButton.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;tryToActivateProductButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="installationConfigListBox.Items" xml:space="preserve">
+    <value>Mantener configuración de Kaspersky</value>
+  </data>
+  <data name="reconnectButton.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;configButton.Parent" xml:space="preserve">
+    <value>topPanel</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value>Se activará la licencia de prueba por defecto (30 días)</value>
+  </data>
+  <data name="closeKasRequirementPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
   <data name="&gt;&gt;requirementsLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="kisAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 238</value>
+  <data name="&gt;&gt;topFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;kisActivationButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayout.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;requirementsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;separator1.Name" xml:space="preserve">
+    <value>separator1</value>
   </data>
-  <data name="&gt;&gt;databaseNotAccesibleLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="pwdProtectionRequirementPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
-  <data name="databaseRequirementPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;pwdProtectionRequirementLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;restartAsAdminButton.Name" xml:space="preserve">
-    <value>restartAsAdminButton</value>
-  </data>
-  <data name="&gt;&gt;kavActivationButton.Name" xml:space="preserve">
-    <value>kavActivationButton</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 8</value>
-  </data>
-  <data name="&gt;&gt;requirementsLabel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;optionalFeaturesListBox.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;requirementsLabel.Name" xml:space="preserve">
-    <value>requirementsLabel</value>
-  </data>
-  <data name="&gt;&gt;radioPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="closeKasMoreInfoButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;adminRequirementLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;ktsAvailableLicensesLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;requirementsPanel.Parent" xml:space="preserve">
+  <data name="autoInstallationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 19</value>
+  </data>
+  <data name="&gt;&gt;asAdminButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;defaultInstallButton.Parent" xml:space="preserve">
-    <value>buttonsPanel</value>
+  <data name="&gt;&gt;adminRequirementLabel.Parent" xml:space="preserve">
+    <value>adminRequirementPanel</value>
   </data>
-  <data name="&gt;&gt;asAdminButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="requirementsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
-  <data name="&gt;&gt;usualInstallButton.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="requirementsLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;licenseLabel.Name" xml:space="preserve">
-    <value>licenseLabel</value>
-  </data>
-  <data name="&gt;&gt;licenseLabel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;topFlowLayout.Name" xml:space="preserve">
-    <value>topFlowLayout</value>
-  </data>
-  <data name="&gt;&gt;restartAsAdminButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;installationConfigListBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="topPanel.ToolTip" xml:space="preserve">
+  <data name="usualInstallButton.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="kisActivationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>591, 191</value>
+  <data name="&gt;&gt;configurationButton.Parent" xml:space="preserve">
+    <value>topPanel</value>
   </data>
-  <data name="&gt;&gt;databaseStateLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;leftPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="optionalFeaturesListBox.Items3" xml:space="preserve">
-    <value>Instalar Kaspersky Secure Connection</value>
+  <data name="configurationButton.ToolTip" xml:space="preserve">
+    <value>Configuración de la instalación</value>
   </data>
-  <data name="tryToActivateProductButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 12</value>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ktsPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;kavPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="listBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;topPanel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="pwdProtectionRequirementLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="leftFlowLayout.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="radioButton2.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="adminRequirementLabel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="databaseRequirementPanel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;requirementsPanel.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pwdProtectionRequirementLabel.Name" xml:space="preserve">
-    <value>pwdProtectionRequirementLabel</value>
+  <data name="&gt;&gt;loadingPanel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="$this.ToolTip" xml:space="preserve">
+  <data name="installationConfigListBox.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;reconnectButton.Parent" xml:space="preserve">
-    <value>databaseRequirementPanel</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>82, 319</value>
   </data>
-  <data name="pwdProtectionRequirementPanel.ToolTip" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;toolTip.Name" xml:space="preserve">
+    <value>toolTip</value>
   </data>
-  <data name="&gt;&gt;defaultInstallButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
+    <value>button2</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="adminRequirementPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
-  <data name="topFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="&gt;&gt;fillFlowLayoutPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="optionalFeaturesListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 259</value>
   </data>
-  <data name="reconnectButton.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="&gt;&gt;databaseRequirementLabel.Name" xml:space="preserve">
+    <value>databaseRequirementLabel</value>
+  </data>
+  <data name="&gt;&gt;autoInstallButton.Name" xml:space="preserve">
+    <value>autoInstallButton</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;databaseRequirementPanel.Name" xml:space="preserve">
     <value>databaseRequirementPanel</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainForm</value>
+  <data name="listBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 129</value>
   </data>
-  <data name="installationConfigListBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 259</value>
+  <data name="databaseRequirementPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+  <data name="ktsRadioButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="listBox1.Items1" xml:space="preserve">
+    <value>Kaspersky 2</value>
+  </data>
+  <data name="requirementsLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 416</value>
+  </data>
+  <data name="kavPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="&gt;&gt;radioPanel.Name" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeKasRequirementLabel.Parent" xml:space="preserve">
+    <value>closeKasRequirementPanel</value>
+  </data>
+  <data name="loadingLabel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ktsActivationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>591, 290</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;topPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="asAdminButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>818, 12</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementLabel.Name" xml:space="preserve">
+    <value>pwdProtectionRequirementLabel</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementPanel.Name" xml:space="preserve">
+    <value>pwdProtectionRequirementPanel</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementPanel.Parent" xml:space="preserve">
+    <value>requirementsPanel</value>
+  </data>
+  <data name="&gt;&gt;databaseNotAccesibleLabel.Parent" xml:space="preserve">
+    <value>buttonsPanel</value>
+  </data>
+  <data name="&gt;&gt;kavPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionMoreInfoButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="databaseRequirementPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;autoInstallButton.Parent" xml:space="preserve">
+    <value>buttonsPanel</value>
   </data>
-  <data name="installationConfigListBox.Items3" xml:space="preserve">
-    <value>Instalar Kaspersky Secure Connection</value>
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="autoInstallButton.ToolTip" xml:space="preserve">
+  <data name="&gt;&gt;topFlowLayout.Name" xml:space="preserve">
+    <value>topFlowLayout</value>
+  </data>
+  <data name="&gt;&gt;productComparisionButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optionalFeaturesListBox.Items2" xml:space="preserve">
+    <value>Solo renovar la licencia de prueba (30 días)</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallationButton.Parent" xml:space="preserve">
+    <value>buttonsPanel</value>
+  </data>
+  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>487, 137</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;radioButton2.Name" xml:space="preserve">
+    <value>radioButton2</value>
+  </data>
+  <data name="buttonsPanel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 22</value>
+  <data name="defaultInstallButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
   </data>
-  <data name="&gt;&gt;databaseRequirementLabel.Type" xml:space="preserve">
+  <data name="&gt;&gt;ktsRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="restartAsAdminButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 12</value>
+  </data>
+  <data name="&gt;&gt;loadingPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;fillFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;kavAvailableLicensesLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+  <data name="&gt;&gt;kisAvailableLicensesLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;configButton.Name" xml:space="preserve">
-    <value>configButton</value>
+  <data name="&gt;&gt;adminRequirementLabel.Name" xml:space="preserve">
+    <value>adminRequirementLabel</value>
   </data>
-  <data name="kisAvailableLicensesLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="fillFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>584, 61</value>
   </data>
-  <data name="leftFlowLayout.ToolTip" xml:space="preserve">
+  <data name="&gt;&gt;leftPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="comparisionButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>390, 13</value>
+  </data>
+  <data name="&gt;&gt;tryToActivateProductButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallationButton.Name" xml:space="preserve">
+    <value>defaultInstallationButton</value>
+  </data>
+  <data name="&gt;&gt;pwdProtectionRequirementPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="leftFlowLayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 67</value>
+  </data>
+  <data name="pwdProtectionMoreInfoButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 162</value>
+  </data>
+  <data name="adminRequirementLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Kaspersky Custom Installer</value>
+  </data>
+  <data name="&gt;&gt;configButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="optionalFeaturesListBox.Items" xml:space="preserve">
+    <value>Mantener configuración de Kaspersky</value>
+  </data>
+  <data name="kisPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 166</value>
+  </data>
+  <data name="ktsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 278</value>
+  </data>
+  <data name="&gt;&gt;ktsAvailableLicensesLabel.Parent" xml:space="preserve">
+    <value>radioPanel</value>
+  </data>
+  <data name="&gt;&gt;kavRadioButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="licenseLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="adminRequirementLabel.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
-    <value>es</value>
-  </metadata>
-  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="kisRadioButton.ToolTip" xml:space="preserve">
+    <value>Kaspersky Internet Security</value>
+  </data>
+  <data name="&gt;&gt;defaultInstallButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ktsAvailableLicensesLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 357</value>
+  </data>
+  <data name="&gt;&gt;closeKasMoreInfoButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tryToActivateProductButton.Name" xml:space="preserve">
+    <value>tryToActivateProductButton</value>
+  </data>
+  <data name="&gt;&gt;leftFlowLayout.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;loadingPanel.Name" xml:space="preserve">
+    <value>loadingPanel</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>49</value>
   </metadata>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+    <value>es</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
 </root>

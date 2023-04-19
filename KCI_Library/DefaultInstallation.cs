@@ -14,13 +14,11 @@ namespace KCI_Library
     {
         private KasperskyModel Kaspersky { get; set; }
         private ConfigurationModel Configuration { get; set; }
-        private Progress<float> GenericProgress { get; set; }
 
-        public DefaultInstallation(KasperskyModel kaspersky, ConfigurationModel configuration, Progress<float> genericProgress)
+        public DefaultInstallation(KasperskyModel kaspersky, ConfigurationModel configuration)
         {
             Kaspersky = kaspersky;
             Configuration = configuration;
-            GenericProgress = genericProgress;
         }
 
         public void RunInstallation()
@@ -47,7 +45,7 @@ namespace KCI_Library
 
                 // Use the custom extension method below to download the data.
                 // The passed progress-instance will receive the download status updates.
-                await client.DownloadAsync(setupUrl.OriginalString, file, GenericProgress);
+                await client.DownloadAsync(setupUrl.OriginalString, file);
             }
             catch (HttpRequestException)
             {

@@ -1,7 +1,12 @@
 ﻿using KCI_Library;
 using KCI_Library.DataAccess;
 using KCI_Library.Models;
+using System.ComponentModel;
+using System.Configuration;
+using System.Diagnostics.PerformanceData;
+using System.Drawing;
 
+// TODO - (!) Error handling.
 namespace KCI_UI
 {
 #pragma warning disable IDE1006 // Estilos de nombres
@@ -9,31 +14,76 @@ namespace KCI_UI
     {
         public KasperskyModel Kaspersky { get; private set; }
         public AutoInstallRequirementsModel AutoInstallRequirements { get; set; }
+        /// <summary>
+        /// Par clave-valor.
+        /// <para>
+        /// Clave: Id del producto con licencias disponibles. <br/>
+        /// Valor: Última fecha de actualización de las licencias.
+        /// </para>
+        /// </summary>
         public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
-        public ConfigurationModel Configuration { get; set; }
-        private Progress<float> GenericProgress { get; set; } = new();
+        public ConfigurationModel Configuration { get; private set; }
 
-        public MainForm(KasperskyModel kaspersky, AutoInstallRequirementsModel autoInstallRequirements, Dictionary<DatabaseId, string> availableLicenses, ConfigurationModel configuration)
+        private BackgroundWorker backgroundWorker;
+        private TaskCompletionSource<bool> taskCompletionSource;
+
+        public MainForm()
         {
             InitializeComponent();
-            Kaspersky = kaspersky;
-            AutoInstallRequirements = autoInstallRequirements;
-            AvailableLicenses = availableLicenses;
-            Configuration = configuration;
-            GenericProgress.ProgressChanged += GenericProgressChangedEventHandler;
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
-            HighlightKasperskyProduct();
-            EnableActivationButton();
-            CheckDatabaseAccesible();
+            backgroundWorker = new();
+            backgroundWorker.DoWork += DoBackgroundWork;
+            backgroundWorker.WorkerReportsProgress = true;
+            backgroundWorker.ProgressChanged += UpdateProgress;
+            taskCompletionSource = new();
+            backgroundWorker.RunWorkerCompleted += WorkerCompleted;
+
+            loadingPanel.BringToFront();
+            backgroundWorker.RunWorkerAsync();
+            await taskCompletionSource.Task;
+            ShowActivationButton();
             ShowAvailableLicenses();
+            loadingPanel.SendToBack();
         }
 
         #region Métodos
-        // Resaltar el producto instalado.
-        private void HighlightKasperskyProduct()
+        private async void DoBackgroundWork(object sender, DoWorkEventArgs e) //object sender, DoWorkEventArgs e
+        {
+            backgroundWorker.ReportProgress(0);
+            Kaspersky = Dependencies.CreateKasperskyModel();
+
+            backgroundWorker.ReportProgress(25);
+            AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
+
+            backgroundWorker.ReportProgress(50);
+            AvailableLicenses = await SqlConnector.GetAvailableLicenses();
+
+            backgroundWorker.ReportProgress(99);
+            ConfigurationModel previousConfiguration = new(Properties.Settings.Default.KeepKasperskyConfig,
+                Properties.Settings.Default.OfflineSetup,
+                Properties.Settings.Default.DoNotUseDatabaseLicenses,
+                Properties.Settings.Default.KasperskySecureConnection);
+            Configuration = previousConfiguration.ValidateConfiguration(Kaspersky.Installed, AutoInstallRequirements.DatabaseAccesible);
+
+            backgroundWorker.ReportProgress(100);
+        }
+        private void UpdateProgress(object sender, ProgressChangedEventArgs e)
+        {
+            loadingLabel.Text = "Iniciando..." + e.ProgressPercentage + "%";
+        }
+
+        private void WorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            taskCompletionSource.SetResult(true);
+        }
+
+        /// <summary>
+        /// Resaltar el producto instalado y mostrar su botón de activación.
+        /// </summary>
+        private void ShowActivationButton()
         {
             Color color = Color.LightGoldenrodYellow;
 
@@ -41,149 +91,109 @@ namespace KCI_UI
             {
                 case DatabaseId.kav:
                     kavRadioButton.BackColor = color;
+                    kavActivationButton.Visible = true;
                     break;
                 case DatabaseId.kis:
                     kisRadioButton.BackColor = color;
+                    kisActivationButton.Visible = true;
                     break;
                 case DatabaseId.kts:
                     ktsRadioButton.BackColor = color;
+                    ktsActivationButton.Visible = true;
                     break;
             }
         }
 
-        // Mostrar si hay licencias disponibles para cada versión de Kaspersky y, 
-        // la fecha de la última actualización de las mismas.
+        /// <summary>
+        /// Mostrar si hay licencias disponibles para cada versión de Kaspersky y 
+        /// la fecha de la última actualización de las mismas.
+        /// </summary>
         private void ShowAvailableLicenses()
         {
             foreach (DatabaseId id in AvailableLicenses.Keys)
             {
-                string lastUpdated = AvailableLicenses[id];
-
                 switch (id)
                 {
                     case DatabaseId.kav:
-                        kavAvailableLicensesLabel.Text = "Licencias disponibles";
-                        kavAvailableLicensesLabel.ForeColor = Color.Green;
-                        toolTip.SetToolTip(kavAvailableLicensesLabel, "Actualizadas el " + lastUpdated);
+                        Show(kavAvailableLicensesLabel);
+                        kavActivationButton.Enabled = true;
                         break;
                     case DatabaseId.kis:
-                        kisAvailableLicensesLabel.Text = "Licencias disponibles";
-                        kisAvailableLicensesLabel.ForeColor = Color.Green;
-                        toolTip.SetToolTip(kisAvailableLicensesLabel, "Actualizadas el " + lastUpdated);
+                        Show(kisAvailableLicensesLabel);
+                        kisActivationButton.Enabled = true;
                         break;
                     case DatabaseId.kts:
-                        ktsAvailableLicensesLabel.Text = "Licencias disponibles";
-                        ktsAvailableLicensesLabel.ForeColor = Color.Green;
-                        toolTip.SetToolTip(ktsAvailableLicensesLabel, "Actualizadas el " + lastUpdated);
+                        Show(ktsAvailableLicensesLabel);
+                        ktsActivationButton.Enabled = true;
                         break;
+                }
+
+                void Show(Label label)
+                {
+                    label.Text = "Licencias disponibles";
+                    label.ForeColor = Color.Green;
+                    toolTip.SetToolTip(label, "Actualizadas el " + AvailableLicenses[id]);
                 }
             }
         }
 
-        // Comprueba si la base de datos es accesible.
-        private void CheckDatabaseAccesible()
+        private void EnableInstallationButtons()
         {
-            if (!AutoInstallRequirements.DatabaseAccesible)
-                databaseNotAccesibleLabel.Visible = true;
-        }
+            if (!defaultInstallationButton.Enabled)
+                defaultInstallationButton.Enabled = true;
 
-        // Mostrar el botón de activación de la licencia en el producto instalado, y
-        // habilitarlo si hubieran licencias disponibles.
-        private void EnableActivationButton()
-        {
-            switch (Kaspersky.Id)
-            {
-                case DatabaseId.kav:
-                    kavActivationButton.Visible = true;
-                    if (AvailableLicenses.ContainsKey(DatabaseId.kav))
-                        kavActivationButton.Enabled = true;
-                    break;
-                case DatabaseId.kis:
-                    kisActivationButton.Visible = true;
-                    if (AvailableLicenses.ContainsKey(DatabaseId.kis))
-                        kisActivationButton.Enabled = true;
-                    break;
-                case DatabaseId.kts:
-                    ktsActivationButton.Visible = true;
-                    if (AvailableLicenses.ContainsKey(DatabaseId.kts))
-                        ktsActivationButton.Enabled = true;
-                    break;
-            }
+            if (!autoInstallationButton.Enabled && AutoInstallRequirements.AllMet)
+                autoInstallationButton.Enabled = true;
         }
         #endregion
 
         #region Eventos
-        private void configButton_Click(object sender, EventArgs e) =>
-            new ConfigurationForm().ShowDialog(this);
+        private void configurationButton_Click(object sender, EventArgs e)
+        {
+            ConfigurationForm form = new(Configuration, Kaspersky.Installed, AutoInstallRequirements.DatabaseAccesible);
+            DialogResult = form.ShowDialog(this);
 
-        private void githubButton_Click(object sender, EventArgs e) => 
+            if (DialogResult == DialogResult.OK)
+                Configuration = form.Configuration;
+        }
+
+        private void githubButton_Click(object sender, EventArgs e) =>
             ProcessExecutor.BrowseToUrl("https://github.com/bitasuperactive/KasperskyCustomInstaller2022");
 
-        private void comparisionButton_Click(object sender, EventArgs e) => 
+        private void productComparisionButton_Click(object sender, EventArgs e) =>
             ProcessExecutor.BrowseToUrl("https://www.kaspersky.es/home-security");
 
         private void kavRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             Configuration.ProductToInstall = DatabaseId.kav;
-
-            if (!defaultInstallButton.Enabled)
-                defaultInstallButton.Enabled = true;
-
-            if (!autoInstallButton.Enabled && AutoInstallRequirements.DatabaseAccesible)
-            {
-                autoInstallButton.Enabled = true;
-                databaseNotAccesibleLabel.Visible = false;
-            }
+            EnableInstallationButtons();
         }
 
         private void kisRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             Configuration.ProductToInstall = DatabaseId.kis;
-
-            if (!defaultInstallButton.Enabled)
-                defaultInstallButton.Enabled = true;
-
-            if (!autoInstallButton.Enabled && AutoInstallRequirements.DatabaseAccesible)
-            {
-                autoInstallButton.Enabled = true;
-                databaseNotAccesibleLabel.Visible = false;
-            }
+            EnableInstallationButtons();
         }
 
         private void ktsRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             Configuration.ProductToInstall = DatabaseId.kts;
-
-            if (!defaultInstallButton.Enabled)
-                defaultInstallButton.Enabled = true;
-
-            if (!autoInstallButton.Enabled && AutoInstallRequirements.DatabaseAccesible)
-            {
-                autoInstallButton.Enabled = true;
-                databaseNotAccesibleLabel.Visible = false;
-            }
+            EnableInstallationButtons();
         }
 
-        private async void defaultInstallButton_Click(object sender, EventArgs e)
+        // TODO - Manejar adecuadamente el progreso de los procesos de la instalación.
+        private void defaultInstallationButton_Click(object sender, EventArgs e)
         {
             // TODO - Realizar instalación habitual.
-
-            DefaultInstallation installation = new(Kaspersky, Configuration, GenericProgress);
-
-            await Task.Run(() => installation.DownloadSources());
+            throw new NotImplementedException();
         }
 
-        private void GenericProgressChangedEventHandler(object? sender, float e)
-        {
-            // TODO - Manejar adecuadamente el progreso de los procesos de la instalación.
-            defaultInstallButton.Text = e.ToString();
-        }
-
-        private void autoInstallButton_Click(object sender, EventArgs e)
+        private void autoInstallationButton_Click(object sender, EventArgs e)
         {
             if (AutoInstallRequirements.AllMet)
             {
                 // TODO - Realizar instalación automática.
+                throw new NotImplementedException();
             }
             else
             {

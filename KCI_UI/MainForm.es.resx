@@ -398,131 +398,83 @@
   <data name="ktsAvailableLicensesLabel.ToolTip" xml:space="preserve">
     <value>Se activará la licencia de prueba por defecto (30 días)</value>
   </data>
-  <data name="configButton.AutoSize" type="System.Boolean, mscorlib">
+  <data name="configurationButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="configButton.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+  <data name="configurationButton.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="configButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="configurationButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="configButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="configurationButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
-  <data name="configButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="configurationButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="configButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>464, 8</value>
-  </data>
-  <data name="configButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="configurationButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 26</value>
   </data>
-  <data name="configButton.Text" xml:space="preserve">
+  <data name="configurationButton.Text" xml:space="preserve">
     <value>🛠️ Configuración</value>
   </data>
-  <data name="configButton.ToolTip" xml:space="preserve">
-    <value>Configuración de la instalación</value>
-  </data>
-  <data name="defaultInstallButton.AutoSize" type="System.Boolean, mscorlib">
+  <data name="defaultInstallationButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="defaultInstallButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="defaultInstallationButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="defaultInstallButton.Enabled" type="System.Boolean, mscorlib">
+  <data name="defaultInstallationButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="defaultInstallButton.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="defaultInstallationButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12.8pt</value>
   </data>
-  <data name="defaultInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 8</value>
-  </data>
-  <data name="defaultInstallButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 50</value>
-  </data>
-  <data name="defaultInstallButton.Text" xml:space="preserve">
-    <value>🤓 Instalación habitual</value>
-  </data>
-  <data name="defaultInstallButton.ToolTip" xml:space="preserve">
-    <value>Instala el producto seleccionado con interfaz gráfica</value>
-  </data>
-  <data name="autoInstallButton.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="autoInstallButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="autoInstallButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="autoInstallButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12.8pt</value>
-  </data>
-  <data name="autoInstallButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="autoInstallButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 8</value>
-  </data>
-  <data name="autoInstallButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 50</value>
-  </data>
-  <data name="autoInstallButton.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="autoInstallButton.Text" xml:space="preserve">
-    <value>👻 Instalación automática</value>
-  </data>
-  <data name="autoInstallButton.ToolTip" xml:space="preserve">
-    <value>Instala el producto seleccionado sin interfaz gráfica</value>
-  </data>
-  <data name="separator1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="separator1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
-  </data>
-  <data name="separator1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 11</value>
-  </data>
-  <data name="separator1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="separator1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="defaultInstallationButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 19</value>
   </data>
-  <data name="separator1.Text" xml:space="preserve">
-    <value>|</value>
+  <data name="defaultInstallationButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 51</value>
   </data>
-  <data name="comparisionButton.AutoSize" type="System.Boolean, mscorlib">
+  <data name="defaultInstallationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="defaultInstallationButton.Text" xml:space="preserve">
+    <value>Instalación habitual</value>
+  </data>
+  <data name="defaultInstallationButton.ToolTip" xml:space="preserve">
+    <value>Instala el producto seleccionado con interfaz gráfica</value>
+  </data>
+  <data name="autoInstallationButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="comparisionButton.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
+  <data name="autoInstallationButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <data name="comparisionButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="autoInstallationButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="comparisionButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="autoInstallationButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12.8pt</value>
   </data>
-  <data name="comparisionButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 10.8pt, style=Underline</value>
+  <data name="autoInstallationButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="comparisionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 8</value>
+  <data name="autoInstallationButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>318, 19</value>
   </data>
-  <data name="comparisionButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="autoInstallationButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>259, 51</value>
   </data>
-  <data name="comparisionButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 26</value>
+  <data name="autoInstallationButton.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="comparisionButton.Text" xml:space="preserve">
-    <value>Comparativa de productos</value>
+  <data name="autoInstallationButton.Text" xml:space="preserve">
+    <value>Instalación automática</value>
+  </data>
+  <data name="autoInstallationButton.ToolTip" xml:space="preserve">
+    <value>Instala el producto seleccionado sin interfaz gráfica</value>
   </data>
   <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -535,6 +487,57 @@
   </data>
   <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
+  </data>
+  <data name="separator1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="separator1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Agency FB, 20.25pt</value>
+  </data>
+  <data name="separator1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 3</value>
+  </data>
+  <data name="separator1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="separator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 32</value>
+  </data>
+  <data name="separator1.Text" xml:space="preserve">
+    <value>|</value>
+  </data>
+  <data name="productComparisionButton.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="productComparisionButton.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="productComparisionButton.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="productComparisionButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="productComparisionButton.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 10.8pt, style=Underline</value>
+  </data>
+  <data name="productComparisionButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 8</value>
+  </data>
+  <data name="productComparisionButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="productComparisionButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 26</value>
+  </data>
+  <data name="productComparisionButton.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="productComparisionButton.Text" xml:space="preserve">
+    <value>¿Cuál debería elegir?</value>
+  </data>
+  <data name="productComparisionButton.ToolTip" xml:space="preserve">
+    <value>Abrir tabla comparativa de los productos disponibles</value>
   </data>
   <data name="kavActivationButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -620,38 +623,44 @@
   <data name="radioPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>593, 273</value>
   </data>
-  <data name="databaseNotAccesibleLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="databaseNotAccesibleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 61</value>
-  </data>
-  <data name="databaseNotAccesibleLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="databaseNotAccesibleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 18</value>
-  </data>
-  <data name="databaseNotAccesibleLabel.Text" xml:space="preserve">
-    <value>No disponible en este momento</value>
-  </data>
-  <data name="databaseNotAccesibleLabel.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="buttonsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="buttonsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 319</value>
+    <value>0, 314</value>
   </data>
   <data name="buttonsPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="buttonsPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>16, 8, 16, 31</value>
+    <value>16, 19, 16, 19</value>
   </data>
   <data name="buttonsPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>593, 89</value>
+  </data>
+  <data name="loadingPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="loadingPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="loadingPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>593, 403</value>
+  </data>
+  <data name="loadingLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="loadingLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Ravie, 26.25pt</value>
+  </data>
+  <data name="loadingLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>593, 403</value>
+  </data>
+  <data name="loadingLabel.Text" xml:space="preserve">
+    <value>Iniciando...</value>
+  </data>
+  <data name="loadingLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 17</value>
@@ -660,7 +669,7 @@
     <value>GrowOnly</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>593, 408</value>
+    <value>593, 403</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -1,63 +1,62 @@
-﻿using KCI_Library.Models;
+﻿using KCI_Library.DataAccess;
+using KCI_Library.Models;
+using System.Configuration;
 
 namespace KCI_UI
 {
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class ConfigurationForm : Form
     {
-        private MainForm owner { get; set; }
+        public ConfigurationModel Configuration { get; private set; }
+        private bool KavInstalled { get; set; }
+        private bool DbAccesible { get; set; }
 
-        public ConfigurationForm()
+        public ConfigurationForm(ConfigurationModel configuration, bool kavInstalled, bool dbAccesible)
         {
+            this.Configuration = configuration;
+            this.KavInstalled = kavInstalled;
+            this.DbAccesible = dbAccesible;
             InitializeComponent();
-            owner = (MainForm)this.Owner;
         }
 
         private void ConfigurationForm_Load(object sender, EventArgs e)
         {
-            SetDefaultConfig();
+            ShowConfiguration();
         }
 
         #region Métodos
-        // Establece la configuración por defecto o, la recupera.
-        private void SetDefaultConfig()
+        // Muestra los valores del modelo de configuración.
+        private void ShowConfiguration()
         {
-            ConfigurationModel configuration = owner.Configuration;
-            bool databaseAccesible = owner.AutoInstallRequirements.DatabaseAccesible;
+            keepKasperskyConfigCheckBox.Enabled = KavInstalled;
+            offlineSetupCheckBox.Enabled = DbAccesible;
+            doNotUseDatabaseLicensesCheckBox.Enabled = DbAccesible;
 
-            // Muestra el nombre completo del producto instalado en las configuraciones que lo utilicen.
-            if (owner.Kaspersky.Installed)
-                keepKasperskyConfigCheckBox.Text = $"Mantener configuración de {owner.Kaspersky.FullName}";
-
-            // Bloquea aquellas configuracinoes dependientes del producto instalado y la base de datos.
-            keepKasperskyConfigCheckBox.Enabled = owner.Kaspersky.Installed;
-            offlineSetupCheckBox.Enabled = databaseAccesible;
-            doNotUseDatabaseLicensesCheckBox.Enabled = databaseAccesible;
-
-            if (configuration.CompareTo(new ConfigurationModel()) == 1)
-            {
-                keepKasperskyConfigCheckBox.Checked = owner.Kaspersky.Installed;
-                offlineSetupCheckBox.Checked = false;
-                doNotUseDatabaseLicensesCheckBox.Checked = !databaseAccesible;
-                kasperskySecureConnectionCheckBox.Checked = false;
-            }
-            else
-            {
-                keepKasperskyConfigCheckBox.Checked = configuration.KeepKasperskyConfig;
-                offlineSetupCheckBox.Checked = configuration.OfflineSetup;
-                doNotUseDatabaseLicensesCheckBox.Checked = configuration.DoNotUseDatabaseLicenses;
-                kasperskySecureConnectionCheckBox.Checked = configuration.KasperskySecureConnection;
-            }
+            keepKasperskyConfigCheckBox.Checked = Configuration.KeepKasperskyConfig;
+            offlineSetupCheckBox.Checked = Configuration.OfflineSetup;
+            doNotUseDatabaseLicensesCheckBox.Checked = Configuration.OfflineSetup;
+            kasperskySecureConnectionCheckBox.Checked = Configuration.KasperskySecureConnection;
         }
 
-        // Crea un modelo de configuración en base de los checkboxes ticados.
-        private ConfigurationModel CreateConfigModel()
+        // Guarda el modelo de configuración en los ajustes de la aplicación.
+        private void SaveConfiguration()
         {
-            return new ConfigurationModel(
-                keepKasperskyConfigCheckBox.Checked,
+            ConfigurationModel newConfiguration = new (keepKasperskyConfigCheckBox.Checked,
                 offlineSetupCheckBox.Checked,
                 doNotUseDatabaseLicensesCheckBox.Checked,
                 kasperskySecureConnectionCheckBox.Checked);
+           newConfiguration = newConfiguration.ValidateConfiguration(KavInstalled, DbAccesible); // TODO - ¿Innecesario?
+
+            if (newConfiguration.CompareTo(Configuration) == 1)
+                return;
+
+            Configuration = newConfiguration;
+
+            Properties.Settings.Default.KeepKasperskyConfig = newConfiguration.KeepKasperskyConfig;
+            Properties.Settings.Default.OfflineSetup = newConfiguration.OfflineSetup;
+            Properties.Settings.Default.DoNotUseDatabaseLicenses = newConfiguration.DoNotUseDatabaseLicenses;
+            Properties.Settings.Default.KasperskySecureConnection = newConfiguration.KasperskySecureConnection;
+            Properties.Settings.Default.Save();
         }
         #endregion
 
@@ -65,12 +64,14 @@ namespace KCI_UI
         // Actualiza la configuración.
         private void applyButton_Click(object sender, EventArgs e)
         {
-            owner.Configuration = CreateConfigModel();
+            SaveConfiguration();
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
+        // Cierra el formulario.
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
         #endregion
