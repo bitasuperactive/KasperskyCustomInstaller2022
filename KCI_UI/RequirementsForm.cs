@@ -1,18 +1,25 @@
 ﻿using KCI_Library;
 using KCI_Library.Models;
 using KCI_Library.DataAccess;
+using System.ComponentModel;
+using System.Timers;
+using System.Diagnostics;
 
+// TODO - (!) Implementar cancelación de la actualización de requisitos.
 namespace KCI_UI
 {
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class RequirementsForm : Form
     {
-        private MainForm owner { get; set; }
+        private AutoInstallRequirementsModel autoInstallRequirements;
+        private DatabaseId kasperskyId;
+        private TaskHandler updateMissingRequirementsTaskHandler;
 
-        public RequirementsForm()
+        public RequirementsForm(AutoInstallRequirementsModel autoInstallRequirements, DatabaseId kasperskyId)
         {
+            this.autoInstallRequirements = autoInstallRequirements;
+            this.kasperskyId = kasperskyId;
             InitializeComponent();
-            owner = (MainForm)this.Owner;
         }
 
         private void RequirementsForm_Load(object sender, EventArgs e)
@@ -20,19 +27,11 @@ namespace KCI_UI
             ShowMissingRequirements();
         }
 
-        private void refreshButton_Click(object sender, EventArgs e)
-        {
-            UpdateMissingRequirements();
-            ShowMissingRequirements();
-        }
-
         #region Métodos
         // Muestra los requisitos incumplidos.
         private void ShowMissingRequirements()
         {
-            AutoInstallRequirementsModel requirements = owner.AutoInstallRequirements;
-
-            if (requirements.AllMet)
+            if (autoInstallRequirements.AllMet)
             {
                 MessageBox.Show(this, "Todos los requisitos han sido satisfechos, ahora puedes realizar una instalación automática.",
                     this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -41,30 +40,56 @@ namespace KCI_UI
             }
 
             // Orden inverso para preservar el orden en la interfaz.
-            kasClosedRequirementPanel.Visible = !requirements.KasClosed;
-            passwordProtectionRequirementPanel.Visible = !requirements.PasswordProtectionDisabled;
-            adminPanel.Visible = !requirements.Admin;
+            kasClosedRequirementPanel.Visible = !autoInstallRequirements.KasClosed;
+            passwordProtectionRequirementPanel.Visible = !autoInstallRequirements.PasswordProtectionDisabled;
+            adminPanel.Visible = !autoInstallRequirements.Admin;
         }
 
         // Actualiza los requisitos incumplidos.
-        private void UpdateMissingRequirements()
+        private async void UpdateMissingRequirements()
         {
-            owner.AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
+            updateMissingRequirementsTaskHandler = new(Dependencies.CreateAutoInstallRequirementsModel);
+            updateMissingRequirementsTaskHandler.TaskStarted += CreateAutoInstallRequirementsModel_Started;
+            updateMissingRequirementsTaskHandler.ProgressChanged += CreateAutoInstallRequirementsModel_ProgressChanged;
+            updateMissingRequirementsTaskHandler.TaskCompleted += CreateAutoInstallRequirementsModel_Completed;
+            updateMissingRequirementsTaskHandler.TaskCancelled += CreateAutoInstallRequirementsModel_Completed;
+
+            AutoInstallRequirementsModel updatedAutoInstallRequirements = await Task.Run(() => (AutoInstallRequirementsModel)updateMissingRequirementsTaskHandler.Run().Result);
+            if (updatedAutoInstallRequirements != null)
+                autoInstallRequirements = updatedAutoInstallRequirements;
+        }
+
+        private void CreateAutoInstallRequirementsModel_Started(object sender, EventArgs e)
+        {
+            refreshButton.Invoke(new Action(() => refreshButton.Enabled = false));
+            closeButton.Invoke(new Action(() => closeButton.Text = "Cancelar"));
+        }
+        private void CreateAutoInstallRequirementsModel_ProgressChanged(object sender, double e)
+        {
+            refreshButton.Invoke(new Action(() => refreshButton.Text = e + "%"));
+        }
+        private void CreateAutoInstallRequirementsModel_Completed(object sender, EventArgs e)
+        {
+            refreshButton.Invoke(new Action(() => { 
+                refreshButton.Text = "Actualizar";
+                refreshButton.Enabled = true; }));
+            closeButton.Invoke(new Action(() => closeButton.Text = "Cerrar"));
         }
         #endregion
 
         #region Eventos
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            UpdateMissingRequirements();
+            ShowMissingRequirements();
+        }
+
         // Reinicia la aplicación como administrador.
         private void restartAsAdminButton_Click(object sender, EventArgs e)
         {
             // Obtiene la ruta completa del ensamblado en ejecución, omitiéndo la extensión ".dll" 
             // para obtener el ejecutable de la aplicación.
             string thisAssemblyLocation = new(System.Reflection.Assembly.GetExecutingAssembly().Location.SkipLast(4).ToArray());
-
-            // Si se ha modificado la configuración, avisar al usuario de su reseteo.
-            if (owner.Configuration.CompareTo(new ConfigurationModel()) == 0)
-                MessageBox.Show(this, "La configuración de la instalación se restablecerá a sus valores por defecto.", 
-                    this.Text, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (ProcessExecutor.AsAdmin(thisAssemblyLocation))
                 Application.Exit();
@@ -76,7 +101,7 @@ namespace KCI_UI
         // Abre el enlace de ayuda para deshabilitar Kaspersky Password Protection.
         private void pwdProtectionMoreInfoButton_Click(object sender, EventArgs e)
         {
-            switch (owner.Kaspersky.Id)
+            switch (kasperskyId)
             {
                 case DatabaseId.kav:
                     ProcessExecutor.BrowseToUrl("https://support.kaspersky.com/KAV/2021/en-US/70756.htm");
@@ -98,6 +123,11 @@ namespace KCI_UI
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            if (updateMissingRequirementsTaskHandler != null && updateMissingRequirementsTaskHandler.IsRunning)
+            {
+                updateMissingRequirementsTaskHandler.Cancel();
+                return;
+            }
             this.Close();
         }
         #endregion

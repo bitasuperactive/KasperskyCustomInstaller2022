@@ -2,9 +2,8 @@
 using KCI_Library.DataAccess;
 using KCI_Library.Models;
 using System.ComponentModel;
-using System.Configuration;
-using System.Diagnostics.PerformanceData;
-using System.Drawing;
+using System.Diagnostics;
+using System.Threading;
 
 // TODO - (!) Error handling.
 namespace KCI_UI
@@ -15,7 +14,7 @@ namespace KCI_UI
         public KasperskyModel Kaspersky { get; private set; }
         public AutoInstallRequirementsModel AutoInstallRequirements { get; set; }
         /// <summary>
-        /// Par clave-valor.
+        /// Pares clave-valor.
         /// <para>
         /// Clave: Id del producto con licencias disponibles. <br/>
         /// Valor: Última fecha de actualización de las licencias.
@@ -24,8 +23,7 @@ namespace KCI_UI
         public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
         public ConfigurationModel Configuration { get; private set; }
 
-        private BackgroundWorker backgroundWorker;
-        private TaskCompletionSource<bool> taskCompletionSource;
+        private TaskHandler obtainDependenciesTaskHandler;
 
         public MainForm()
         {
@@ -34,50 +32,46 @@ namespace KCI_UI
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            backgroundWorker = new();
-            backgroundWorker.DoWork += DoBackgroundWork;
-            backgroundWorker.WorkerReportsProgress = true;
-            backgroundWorker.ProgressChanged += UpdateProgress;
-            taskCompletionSource = new();
-            backgroundWorker.RunWorkerCompleted += WorkerCompleted;
+            obtainDependenciesTaskHandler = new(ObtainDependecies);
+            obtainDependenciesTaskHandler.TaskStarted += ObtainDependecies_Started;
+            obtainDependenciesTaskHandler.ProgressChanged += ObtainDependecies_UpdateProgress;
+            obtainDependenciesTaskHandler.TaskCompleted += ObtainDependecies_Completed;
 
-            loadingPanel.BringToFront();
-            backgroundWorker.RunWorkerAsync();
-            await taskCompletionSource.Task;
+            await Task.Run(() => { obtainDependenciesTaskHandler.Run(); });
             ShowActivationButton();
             ShowAvailableLicenses();
-            loadingPanel.SendToBack();
+
+            new RequirementsForm(AutoInstallRequirements, Kaspersky.Id).ShowDialog(this);
         }
 
+
         #region Métodos
-        private async void DoBackgroundWork(object sender, DoWorkEventArgs e) //object sender, DoWorkEventArgs e
+        private void ObtainDependecies(IProgress<double> progress, CancellationToken cancellation)
         {
-            backgroundWorker.ReportProgress(0);
+            progress.Report(0);
+
             Kaspersky = Dependencies.CreateKasperskyModel();
+            progress.Report(10);
 
-            backgroundWorker.ReportProgress(25);
-            AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel();
+            Progress<double> createAutoInstallRequirementsModel_progress = new Progress<double>();
+            createAutoInstallRequirementsModel_progress.ProgressChanged += (sender, value) =>
+            {
+                progress.Report(Math.Floor(10 + value * 0.4));
+            };
 
-            backgroundWorker.ReportProgress(50);
-            AvailableLicenses = await SqlConnector.GetAvailableLicenses();
+            //AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel(createAutoInstallRequirementsModel_progress, cancellation);  // TODO - Se desecha el progreso de la tarea.
+            AutoInstallRequirements = new AutoInstallRequirementsModel();
+            progress.Report(50);
 
-            backgroundWorker.ReportProgress(99);
+            AvailableLicenses = SqlConnector.GetAvailableLicenses().Result;
+            progress.Report(99);
+
             ConfigurationModel previousConfiguration = new(Properties.Settings.Default.KeepKasperskyConfig,
                 Properties.Settings.Default.OfflineSetup,
                 Properties.Settings.Default.DoNotUseDatabaseLicenses,
                 Properties.Settings.Default.KasperskySecureConnection);
             Configuration = previousConfiguration.ValidateConfiguration(Kaspersky.Installed, AutoInstallRequirements.DatabaseAccesible);
-
-            backgroundWorker.ReportProgress(100);
-        }
-        private void UpdateProgress(object sender, ProgressChangedEventArgs e)
-        {
-            loadingLabel.Text = "Iniciando..." + e.ProgressPercentage + "%";
-        }
-
-        private void WorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            taskCompletionSource.SetResult(true);
+            progress.Report(100);
         }
 
         /// <summary>
@@ -148,6 +142,21 @@ namespace KCI_UI
         #endregion
 
         #region Eventos
+        private void ObtainDependecies_Started(object sender, EventArgs e)
+        {
+            loadingPanel.Invoke(new Action(() => loadingPanel.BringToFront()));
+        }
+
+        private void ObtainDependecies_UpdateProgress(object sender, double e)
+        {
+            loadingLabel.Invoke(new Action(() => loadingLabel.Text = "Iniciando..." + e + "%"));
+        }
+
+        private void ObtainDependecies_Completed(object sender, EventArgs e)
+        {
+            loadingPanel.Invoke(new Action(() => loadingPanel.SendToBack()));
+        }
+
         private void configurationButton_Click(object sender, EventArgs e)
         {
             ConfigurationForm form = new(Configuration, Kaspersky.Installed, AutoInstallRequirements.DatabaseAccesible);
@@ -197,7 +206,7 @@ namespace KCI_UI
             }
             else
             {
-                new RequirementsForm().ShowDialog(this);
+                new RequirementsForm(AutoInstallRequirements, Kaspersky.Id).ShowDialog(this);
             }
         }
 

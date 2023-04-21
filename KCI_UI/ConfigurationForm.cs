@@ -1,6 +1,4 @@
-﻿using KCI_Library.DataAccess;
-using KCI_Library.Models;
-using System.Configuration;
+﻿using KCI_Library.Models;
 
 namespace KCI_UI
 {
@@ -41,11 +39,11 @@ namespace KCI_UI
         // Guarda el modelo de configuración en los ajustes de la aplicación.
         private void SaveConfiguration()
         {
-            ConfigurationModel newConfiguration = new (keepKasperskyConfigCheckBox.Checked,
+            ConfigurationModel newConfiguration = new(keepKasperskyConfigCheckBox.Checked,
                 offlineSetupCheckBox.Checked,
                 doNotUseDatabaseLicensesCheckBox.Checked,
                 kasperskySecureConnectionCheckBox.Checked);
-           newConfiguration = newConfiguration.ValidateConfiguration(KavInstalled, DbAccesible); // TODO - ¿Innecesario?
+            newConfiguration = newConfiguration.ValidateConfiguration(KavInstalled, DbAccesible); // TODO - ¿Innecesario?
 
             if (newConfiguration.CompareTo(Configuration) == 1)
                 return;

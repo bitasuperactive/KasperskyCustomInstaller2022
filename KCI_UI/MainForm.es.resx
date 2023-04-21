@@ -431,20 +431,11 @@
   <data name="defaultInstallationButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12.8pt</value>
   </data>
-  <data name="defaultInstallationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 19</value>
-  </data>
   <data name="defaultInstallationButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>250, 51</value>
   </data>
-  <data name="defaultInstallationButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
   <data name="defaultInstallationButton.Text" xml:space="preserve">
     <value>Instalación habitual</value>
-  </data>
-  <data name="defaultInstallationButton.ToolTip" xml:space="preserve">
-    <value>Instala el producto seleccionado con interfaz gráfica</value>
   </data>
   <data name="autoInstallationButton.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -461,32 +452,11 @@
   <data name="autoInstallationButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="autoInstallationButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 19</value>
-  </data>
   <data name="autoInstallationButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>259, 51</value>
   </data>
-  <data name="autoInstallationButton.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
   <data name="autoInstallationButton.Text" xml:space="preserve">
     <value>Instalación automática</value>
-  </data>
-  <data name="autoInstallationButton.ToolTip" xml:space="preserve">
-    <value>Instala el producto seleccionado sin interfaz gráfica</value>
-  </data>
-  <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="topPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 8, 8, 8</value>
-  </data>
-  <data name="topPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 42</value>
-  </data>
-  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
   </data>
   <data name="separator1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -521,23 +491,26 @@
   <data name="productComparisionButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 10.8pt, style=Underline</value>
   </data>
-  <data name="productComparisionButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 8</value>
-  </data>
   <data name="productComparisionButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="productComparisionButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>148, 26</value>
   </data>
-  <data name="productComparisionButton.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
   <data name="productComparisionButton.Text" xml:space="preserve">
     <value>¿Cuál debería elegir?</value>
   </data>
-  <data name="productComparisionButton.ToolTip" xml:space="preserve">
-    <value>Abrir tabla comparativa de los productos disponibles</value>
+  <data name="topPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="topPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 8, 8, 8</value>
+  </data>
+  <data name="topPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>593, 42</value>
+  </data>
+  <data name="topPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="kavActivationButton.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -641,12 +614,6 @@
   <data name="loadingPanel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="loadingPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="loadingPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>593, 403</value>
-  </data>
   <data name="loadingLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -661,6 +628,12 @@
   </data>
   <data name="loadingLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
+  </data>
+  <data name="loadingPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="loadingPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>593, 403</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 17</value>

@@ -17,12 +17,12 @@ namespace KCI_Library.DataAccess
         /// Comprueba si la base de datos es accesible.
         /// </summary>
         /// <returns><c>Verdadero</c> si es accesible, <c>Falso</c> en su defecto.</returns>
-        public static async Task<bool> DatabaseAccesible()
+        public static bool DatabaseAccesible()
         {
             try
             {
                 using MySqlConnection connection = new(ConnectionString);
-                await connection.OpenAsync();
+                connection.Open();
                 
                 return true;
             }

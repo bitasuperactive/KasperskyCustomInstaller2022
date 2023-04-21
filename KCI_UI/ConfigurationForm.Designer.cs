@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             keepKasperskyConfigCheckBox = new CheckBox();
             offlineSetupCheckBox = new CheckBox();
             doNotUseDatabaseLicensesCheckBox = new CheckBox();
@@ -38,6 +39,7 @@
             checkBoxesPanel = new Panel();
             titleLabel = new Label();
             titlePanel = new Panel();
+            toolTip1 = new ToolTip(components);
             buttonsPanel.SuspendLayout();
             checkBoxesPanel.SuspendLayout();
             titlePanel.SuspendLayout();
@@ -62,6 +64,7 @@
             offlineSetupCheckBox.Size = new Size(350, 26);
             offlineSetupCheckBox.TabIndex = 2;
             offlineSetupCheckBox.Text = "Asistente de instalación completo (offline)";
+            toolTip1.SetToolTip(offlineSetupCheckBox, "Recomendado si el instalador habitual da problemas.");
             offlineSetupCheckBox.UseVisualStyleBackColor = false;
             // 
             // doNotUseDatabaseLicensesCheckBox
@@ -84,7 +87,7 @@
             kasperskySecureConnectionCheckBox.Name = "kasperskySecureConnectionCheckBox";
             kasperskySecureConnectionCheckBox.Size = new Size(350, 26);
             kasperskySecureConnectionCheckBox.TabIndex = 4;
-            kasperskySecureConnectionCheckBox.Text = "Instalar Kaspersky Secure Connection";
+            kasperskySecureConnectionCheckBox.Text = "Instalar Kaspersky Secure Connection (VPN)";
             kasperskySecureConnectionCheckBox.UseVisualStyleBackColor = false;
             // 
             // cancelButton
@@ -197,5 +200,6 @@
         private Panel checkBoxesPanel;
         private Label titleLabel;
         private Panel titlePanel;
+        private ToolTip toolTip1;
     }
 }
