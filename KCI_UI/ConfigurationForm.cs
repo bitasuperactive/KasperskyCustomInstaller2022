@@ -1,20 +1,54 @@
-﻿using KCI_Library.Models;
+﻿using KCI_Library;
+using KCI_Library.Models;
 
 namespace KCI_UI
 {
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class ConfigurationForm : Form
     {
-        public ConfigurationModel Configuration { get; private set; }
-        private bool KavInstalled { get; set; }
-        private bool DbAccesible { get; set; }
+        private bool kavInstalled;
+        private bool dbAccesible;
 
-        public ConfigurationForm(ConfigurationModel configuration, bool kavInstalled, bool dbAccesible)
+        public ConfigurationForm(bool kavInstalled, bool dbAccesible)
         {
-            this.Configuration = configuration;
-            this.KavInstalled = kavInstalled;
-            this.DbAccesible = dbAccesible;
+            this.kavInstalled = kavInstalled;
+            this.dbAccesible = dbAccesible;
             InitializeComponent();
+        }
+
+        public ConfigurationModel Configuration
+        {
+            get
+            {
+                ConfigurationModel configuration = new(Properties.Settings.Default.KeepKasperskyConfig,
+                    Properties.Settings.Default.OfflineSetup,
+                    Properties.Settings.Default.DoNotUseDatabaseLicenses,
+                    Properties.Settings.Default.KasperskySecureConnection);
+
+                return configuration.ValidateConfiguration(kavInstalled, dbAccesible);
+            }
+            private set
+            {
+                value = value.ValidateConfiguration(kavInstalled, dbAccesible);
+
+                Properties.Settings.Default.KeepKasperskyConfig = value.KeepKasperskyConfig;
+                Properties.Settings.Default.OfflineSetup = value.OfflineSetup;
+                Properties.Settings.Default.DoNotUseDatabaseLicenses = value.DoNotUseDatabaseLicenses;
+                Properties.Settings.Default.KasperskySecureConnection = value.KasperskySecureConnection;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        public DatabaseId ProductToInstall
+        {
+            get
+            {
+                return (DatabaseId)Enum.Parse(typeof(DatabaseId), Properties.Settings.Default.ProductToInstall);
+            }
+            set
+            {
+                Properties.Settings.Default.ProductToInstall = value.ToString();
+            }
         }
 
         private void ConfigurationForm_Load(object sender, EventArgs e)
@@ -26,14 +60,15 @@ namespace KCI_UI
         // Muestra los valores del modelo de configuración.
         private void ShowConfiguration()
         {
-            keepKasperskyConfigCheckBox.Enabled = KavInstalled;
-            offlineSetupCheckBox.Enabled = DbAccesible;
-            doNotUseDatabaseLicensesCheckBox.Enabled = DbAccesible;
+            keepKasperskyConfigCheckBox.Enabled = kavInstalled;
+            offlineSetupCheckBox.Enabled = dbAccesible;
+            doNotUseDatabaseLicensesCheckBox.Enabled = dbAccesible;
 
-            keepKasperskyConfigCheckBox.Checked = Configuration.KeepKasperskyConfig;
-            offlineSetupCheckBox.Checked = Configuration.OfflineSetup;
-            doNotUseDatabaseLicensesCheckBox.Checked = Configuration.OfflineSetup;
-            kasperskySecureConnectionCheckBox.Checked = Configuration.KasperskySecureConnection;
+            ConfigurationModel configuration = Configuration;
+            keepKasperskyConfigCheckBox.Checked = configuration.KeepKasperskyConfig;
+            offlineSetupCheckBox.Checked = configuration.OfflineSetup;
+            doNotUseDatabaseLicensesCheckBox.Checked = configuration.OfflineSetup;
+            kasperskySecureConnectionCheckBox.Checked = configuration.KasperskySecureConnection;
         }
 
         // Guarda el modelo de configuración en los ajustes de la aplicación.
@@ -43,18 +78,9 @@ namespace KCI_UI
                 offlineSetupCheckBox.Checked,
                 doNotUseDatabaseLicensesCheckBox.Checked,
                 kasperskySecureConnectionCheckBox.Checked);
-            newConfiguration = newConfiguration.ValidateConfiguration(KavInstalled, DbAccesible); // TODO - ¿Innecesario?
 
-            if (newConfiguration.CompareTo(Configuration) == 1)
-                return;
-
-            Configuration = newConfiguration;
-
-            Properties.Settings.Default.KeepKasperskyConfig = newConfiguration.KeepKasperskyConfig;
-            Properties.Settings.Default.OfflineSetup = newConfiguration.OfflineSetup;
-            Properties.Settings.Default.DoNotUseDatabaseLicenses = newConfiguration.DoNotUseDatabaseLicenses;
-            Properties.Settings.Default.KasperskySecureConnection = newConfiguration.KasperskySecureConnection;
-            Properties.Settings.Default.Save();
+            if (newConfiguration.CompareTo(Configuration) == 0)
+                Configuration = newConfiguration;
         }
         #endregion
 

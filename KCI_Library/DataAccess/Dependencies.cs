@@ -1,5 +1,6 @@
 ﻿using KCI_Library.Models;
 using Microsoft.Win32;
+using System.Configuration;
 using System.Diagnostics;
 using System.Security.Principal;
 
@@ -59,7 +60,7 @@ namespace KCI_Library.DataAccess
         /// Crea un modelo <c>AutoInstallRequirementsModel</c>.
         /// </summary>
         /// <returns><see cref="AutoInstallRequirementsModel"/></returns>
-        public static AutoInstallRequirementsModel CreateAutoInstallRequirementsModel(IProgress<double> progress, CancellationToken cancellation)
+        public static async Task<AutoInstallRequirementsModel> CreateAutoInstallRequirementsModel(IProgress<double> progress, CancellationToken cancellation)
         {
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
             progress.Report(1);
@@ -69,37 +70,45 @@ namespace KCI_Library.DataAccess
             {
                 // Ni <kasLabKey>, ni ninguna de sus subclaves serán nulas aquí si existe algún producto instalado.
                 string avpKeyName = kasLabKey.GetSubKeyNames().First(subkey => subkey.Contains("AVP"));
-                RegistryKey? passwordProtectionSettingsKey =
+                RegistryKey passwordProtectionSettingsKey =
                     kasLabKey.OpenSubKey($@"{avpKeyName}\Settings\PasswordProtectionSettings");
 
-                // TODO - (!) La detección de PasswordProtect tarda hasta 30s en actualizar.
-                int time = 1;
-                do
-                {
-                    Thread.Sleep(1000);
-                    cancellation.ThrowIfCancellationRequested();
-                    passwordProtectionDisabled = string.IsNullOrEmpty(passwordProtectionSettingsKey.GetValue("OPEP").ToString());
-                    progress.Report(++time * 3);
-                }
-                while (time <= 30 && passwordProtectionDisabled == string.IsNullOrEmpty(passwordProtectionSettingsKey.GetValue("OPEP").ToString()));
+                passwordProtectionDisabled = await PasswordProtectionDisabled();
 
                 kasLabKey.Close();
                 passwordProtectionSettingsKey.Close();
+
+
+                // TODO - (!) La detección de PasswordProtect tarda hasta 30s en actualizar.
+                async Task<bool> PasswordProtectionDisabled()
+                {
+                    for (int i = 1; i <= 5; i++)
+                    {
+                        if (string.IsNullOrEmpty(passwordProtectionSettingsKey.GetValue("OPEP").ToString()))
+                            return true;
+
+                        progress.Report(i * 3);
+                        await Task.Delay(1000);
+                        cancellation.ThrowIfCancellationRequested();
+                    }
+
+                    return false;
+                }
             }
 
             bool kasClosed = Process.GetProcessesByName("avp").Length == 0;
             progress.Report(91);
 
             cancellation.ThrowIfCancellationRequested();
-            bool databaseAccesible = SqlConnector.DatabaseAccesible();
+            bool databaseAccesible = await SqlConnector.DatabaseAccesible();
             cancellation.ThrowIfCancellationRequested();
             progress.Report(100);
 
-            return new AutoInstallRequirementsModel(
-                admin,
-                passwordProtectionDisabled,
-                kasClosed,
-                databaseAccesible);
+             return new AutoInstallRequirementsModel(
+                 admin, 
+                 passwordProtectionDisabled, 
+                 kasClosed, 
+                 databaseAccesible);
         }
 
         /// <summary>

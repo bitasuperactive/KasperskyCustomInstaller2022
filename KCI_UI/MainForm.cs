@@ -11,8 +11,8 @@ namespace KCI_UI
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class MainForm : Form
     {
-        public KasperskyModel Kaspersky { get; private set; }
-        public AutoInstallRequirementsModel AutoInstallRequirements { get; set; }
+        private KasperskyModel kaspersky;
+        private RequirementsForm requirementsForm;
         /// <summary>
         /// Pares clave-valor.
         /// <para>
@@ -20,9 +20,8 @@ namespace KCI_UI
         /// Valor: Última fecha de actualización de las licencias.
         /// </para>
         /// </summary>
-        public Dictionary<DatabaseId, string> AvailableLicenses { get; private set; }
-        public ConfigurationModel Configuration { get; private set; }
-
+        private Dictionary<DatabaseId, string> availableLicenses;
+        private ConfigurationForm configurationForm;
         private TaskHandler obtainDependenciesTaskHandler;
 
         public MainForm()
@@ -33,15 +32,16 @@ namespace KCI_UI
         private async void MainForm_Load(object sender, EventArgs e)
         {
             obtainDependenciesTaskHandler = new(ObtainDependecies);
-            obtainDependenciesTaskHandler.TaskStarted += ObtainDependecies_Started;
-            obtainDependenciesTaskHandler.ProgressChanged += ObtainDependecies_UpdateProgress;
-            obtainDependenciesTaskHandler.TaskCompleted += ObtainDependecies_Completed;
+            obtainDependenciesTaskHandler.TaskStarted += obtainDependecies_Started;
+            obtainDependenciesTaskHandler.ProgressChanged += obtainDependecies_UpdateProgress;
+            obtainDependenciesTaskHandler.TaskCompleted += obtainDependecies_Completed;
 
-            await Task.Run(() => { obtainDependenciesTaskHandler.Run(); });
+            await obtainDependenciesTaskHandler.RunAsync();
+            MessageBox.Show(configurationForm.ProductToInstall.ToString());
             ShowActivationButton();
             ShowAvailableLicenses();
 
-            new RequirementsForm(AutoInstallRequirements, Kaspersky.Id).ShowDialog(this);
+            requirementsForm.ShowDialog(this);
         }
 
 
@@ -50,27 +50,16 @@ namespace KCI_UI
         {
             progress.Report(0);
 
-            Kaspersky = Dependencies.CreateKasperskyModel();
+            kaspersky = Dependencies.CreateKasperskyModel();
             progress.Report(10);
 
-            Progress<double> createAutoInstallRequirementsModel_progress = new Progress<double>();
-            createAutoInstallRequirementsModel_progress.ProgressChanged += (sender, value) =>
-            {
-                progress.Report(Math.Floor(10 + value * 0.4));
-            };
-
-            //AutoInstallRequirements = Dependencies.CreateAutoInstallRequirementsModel(createAutoInstallRequirementsModel_progress, cancellation);  // TODO - Se desecha el progreso de la tarea.
-            AutoInstallRequirements = new AutoInstallRequirementsModel();
+            requirementsForm = new RequirementsForm(kaspersky.Id);
             progress.Report(50);
 
-            AvailableLicenses = SqlConnector.GetAvailableLicenses().Result;
+            availableLicenses = SqlConnector.GetAvailableLicenses().Result;
             progress.Report(99);
 
-            ConfigurationModel previousConfiguration = new(Properties.Settings.Default.KeepKasperskyConfig,
-                Properties.Settings.Default.OfflineSetup,
-                Properties.Settings.Default.DoNotUseDatabaseLicenses,
-                Properties.Settings.Default.KasperskySecureConnection);
-            Configuration = previousConfiguration.ValidateConfiguration(Kaspersky.Installed, AutoInstallRequirements.DatabaseAccesible);
+            configurationForm = new(kaspersky.Installed, requirementsForm.Requirements.DatabaseAccesible);
             progress.Report(100);
         }
 
@@ -81,7 +70,7 @@ namespace KCI_UI
         {
             Color color = Color.LightGoldenrodYellow;
 
-            switch (Kaspersky.Id)
+            switch (kaspersky.Id)
             {
                 case DatabaseId.kav:
                     kavRadioButton.BackColor = color;
@@ -104,7 +93,7 @@ namespace KCI_UI
         /// </summary>
         private void ShowAvailableLicenses()
         {
-            foreach (DatabaseId id in AvailableLicenses.Keys)
+            foreach (DatabaseId id in availableLicenses.Keys)
             {
                 switch (id)
                 {
@@ -126,7 +115,7 @@ namespace KCI_UI
                 {
                     label.Text = "Licencias disponibles";
                     label.ForeColor = Color.Green;
-                    toolTip.SetToolTip(label, "Actualizadas el " + AvailableLicenses[id]);
+                    toolTip.SetToolTip(label, "Actualizadas el " + availableLicenses[id]);
                 }
             }
         }
@@ -136,34 +125,30 @@ namespace KCI_UI
             if (!defaultInstallationButton.Enabled)
                 defaultInstallationButton.Enabled = true;
 
-            if (!autoInstallationButton.Enabled && AutoInstallRequirements.AllMet)
+            if (!autoInstallationButton.Enabled && requirementsForm.Requirements.AllMet)
                 autoInstallationButton.Enabled = true;
         }
         #endregion
 
         #region Eventos
-        private void ObtainDependecies_Started(object sender, EventArgs e)
+        private void obtainDependecies_Started(object sender, EventArgs e)
         {
             loadingPanel.Invoke(new Action(() => loadingPanel.BringToFront()));
         }
 
-        private void ObtainDependecies_UpdateProgress(object sender, double e)
+        private void obtainDependecies_UpdateProgress(object sender, double e)
         {
             loadingLabel.Invoke(new Action(() => loadingLabel.Text = "Iniciando..." + e + "%"));
         }
 
-        private void ObtainDependecies_Completed(object sender, EventArgs e)
+        private void obtainDependecies_Completed(object sender, EventArgs e)
         {
             loadingPanel.Invoke(new Action(() => loadingPanel.SendToBack()));
         }
 
         private void configurationButton_Click(object sender, EventArgs e)
         {
-            ConfigurationForm form = new(Configuration, Kaspersky.Installed, AutoInstallRequirements.DatabaseAccesible);
-            DialogResult = form.ShowDialog(this);
-
-            if (DialogResult == DialogResult.OK)
-                Configuration = form.Configuration;
+            configurationForm.ShowDialog(this);
         }
 
         private void githubButton_Click(object sender, EventArgs e) =>
@@ -174,19 +159,19 @@ namespace KCI_UI
 
         private void kavRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            Configuration.ProductToInstall = DatabaseId.kav;
+            configurationForm.ProductToInstall = DatabaseId.kav;
             EnableInstallationButtons();
         }
 
         private void kisRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            Configuration.ProductToInstall = DatabaseId.kis;
+            configurationForm.ProductToInstall = DatabaseId.kis;
             EnableInstallationButtons();
         }
 
         private void ktsRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            Configuration.ProductToInstall = DatabaseId.kts;
+            configurationForm.ProductToInstall = DatabaseId.kts;
             EnableInstallationButtons();
         }
 
@@ -199,14 +184,14 @@ namespace KCI_UI
 
         private void autoInstallationButton_Click(object sender, EventArgs e)
         {
-            if (AutoInstallRequirements.AllMet)
+            if (requirementsForm.Requirements.AllMet)
             {
                 // TODO - Realizar instalación automática.
                 throw new NotImplementedException();
             }
             else
             {
-                new RequirementsForm(AutoInstallRequirements, Kaspersky.Id).ShowDialog(this);
+                requirementsForm.ShowDialog(this);
             }
         }
 

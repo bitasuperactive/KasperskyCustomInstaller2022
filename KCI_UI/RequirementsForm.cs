@@ -11,13 +11,13 @@ namespace KCI_UI
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class RequirementsForm : Form
     {
-        private AutoInstallRequirementsModel autoInstallRequirements;
+        public AutoInstallRequirementsModel Requirements { get; private set; }
         private DatabaseId kasperskyId;
-        private TaskHandler updateMissingRequirementsTaskHandler;
+        private TaskHandler getAutoInstallRequirementsTaskHandler;
 
-        public RequirementsForm(AutoInstallRequirementsModel autoInstallRequirements, DatabaseId kasperskyId)
+        public RequirementsForm(DatabaseId kasperskyId)
         {
-            this.autoInstallRequirements = autoInstallRequirements;
+            GetAutoInstallRequirements();
             this.kasperskyId = kasperskyId;
             InitializeComponent();
         }
@@ -25,13 +25,26 @@ namespace KCI_UI
         private void RequirementsForm_Load(object sender, EventArgs e)
         {
             ShowMissingRequirements();
+
+            getAutoInstallRequirementsTaskHandler.TaskStarted += getAutoInstallRequirements_Started;
+            getAutoInstallRequirementsTaskHandler.ProgressChanged += getAutoInstallRequirements_ProgressChanged;
+            getAutoInstallRequirementsTaskHandler.TaskCompleted += getAutoInstallRequirements_Completed;
+            getAutoInstallRequirementsTaskHandler.TaskCancelled += getAutoInstallRequirementsTaskHandler.TaskCompleted;
         }
 
         #region Métodos
+        // Actualiza los requisitos incumplidos.
+        private void GetAutoInstallRequirements()
+        {
+            getAutoInstallRequirementsTaskHandler = new((p, t) => Requirements = Dependencies.CreateAutoInstallRequirementsModel(p, t).Result);
+
+            getAutoInstallRequirementsTaskHandler.RunAsync().Wait();
+        }
+
         // Muestra los requisitos incumplidos.
         private void ShowMissingRequirements()
         {
-            if (autoInstallRequirements.AllMet)
+            if (Requirements.AllMet)
             {
                 MessageBox.Show(this, "Todos los requisitos han sido satisfechos, ahora puedes realizar una instalación automática.",
                     this.Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -40,48 +53,35 @@ namespace KCI_UI
             }
 
             // Orden inverso para preservar el orden en la interfaz.
-            kasClosedRequirementPanel.Visible = !autoInstallRequirements.KasClosed;
-            passwordProtectionRequirementPanel.Visible = !autoInstallRequirements.PasswordProtectionDisabled;
-            adminPanel.Visible = !autoInstallRequirements.Admin;
-        }
-
-        // Actualiza los requisitos incumplidos.
-        private async void UpdateMissingRequirements()
-        {
-            updateMissingRequirementsTaskHandler = new(Dependencies.CreateAutoInstallRequirementsModel);
-            updateMissingRequirementsTaskHandler.TaskStarted += CreateAutoInstallRequirementsModel_Started;
-            updateMissingRequirementsTaskHandler.ProgressChanged += CreateAutoInstallRequirementsModel_ProgressChanged;
-            updateMissingRequirementsTaskHandler.TaskCompleted += CreateAutoInstallRequirementsModel_Completed;
-            updateMissingRequirementsTaskHandler.TaskCancelled += CreateAutoInstallRequirementsModel_Completed;
-
-            AutoInstallRequirementsModel updatedAutoInstallRequirements = await Task.Run(() => (AutoInstallRequirementsModel)updateMissingRequirementsTaskHandler.Run().Result);
-            if (updatedAutoInstallRequirements != null)
-                autoInstallRequirements = updatedAutoInstallRequirements;
-        }
-
-        private void CreateAutoInstallRequirementsModel_Started(object sender, EventArgs e)
-        {
-            refreshButton.Invoke(new Action(() => refreshButton.Enabled = false));
-            closeButton.Invoke(new Action(() => closeButton.Text = "Cancelar"));
-        }
-        private void CreateAutoInstallRequirementsModel_ProgressChanged(object sender, double e)
-        {
-            refreshButton.Invoke(new Action(() => refreshButton.Text = e + "%"));
-        }
-        private void CreateAutoInstallRequirementsModel_Completed(object sender, EventArgs e)
-        {
-            refreshButton.Invoke(new Action(() => { 
-                refreshButton.Text = "Actualizar";
-                refreshButton.Enabled = true; }));
-            closeButton.Invoke(new Action(() => closeButton.Text = "Cerrar"));
+            kasClosedRequirementPanel.Visible = !Requirements.KasClosed;
+            passwordProtectionRequirementPanel.Visible = !Requirements.PasswordProtectionDisabled;
+            adminPanel.Visible = !Requirements.Admin;
         }
         #endregion
 
         #region Eventos
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            UpdateMissingRequirements();
+            GetAutoInstallRequirements();
             ShowMissingRequirements();
+        }
+
+        private void getAutoInstallRequirements_Started(object sender, EventArgs e)
+        {
+            refreshButton.Invoke(new Action(() => refreshButton.Enabled = false));
+            closeButton.Invoke(new Action(() => closeButton.Text = "Cancelar"));
+        }
+        private void getAutoInstallRequirements_ProgressChanged(object sender, double e)
+        {
+            refreshButton.Invoke(new Action(() => refreshButton.Text = e + "%"));
+        }
+        private void getAutoInstallRequirements_Completed(object sender, EventArgs e)
+        {
+            refreshButton.Invoke(new Action(() => {
+                refreshButton.Text = "Actualizar";
+                refreshButton.Enabled = true;
+            }));
+            closeButton.Invoke(new Action(() => closeButton.Text = "Cerrar"));
         }
 
         // Reinicia la aplicación como administrador.
@@ -123,9 +123,9 @@ namespace KCI_UI
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            if (updateMissingRequirementsTaskHandler != null && updateMissingRequirementsTaskHandler.IsRunning)
+            if (getAutoInstallRequirementsTaskHandler != null && getAutoInstallRequirementsTaskHandler.IsRunning)
             {
-                updateMissingRequirementsTaskHandler.Cancel();
+                getAutoInstallRequirementsTaskHandler.Cancel();
                 return;
             }
             this.Close();
