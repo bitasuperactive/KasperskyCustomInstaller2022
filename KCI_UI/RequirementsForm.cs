@@ -14,31 +14,50 @@ namespace KCI_UI
     {
         public AutoInstallRequirementsModel Requirements { get; private set; }
         private DatabaseId kasperskyId;
-        private TaskHandler<ProgressReportModel> getAutoInstallRequirementsTaskHandler;
+        private BackgroundWorker worker;
 
         public RequirementsForm(DatabaseId kasperskyId)
         {
-            getAutoInstallRequirementsTaskHandler = new();
-            this.kasperskyId = kasperskyId;
-            GetRequirements(false);
             InitializeComponent();
+            this.kasperskyId = kasperskyId;
+
+            worker = new();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += worker_DoWork;
+            worker.RunWorkerAsync();
+            while (worker.IsBusy)
+                Thread.Sleep(100);
         }
 
         private void RequirementsForm_Load(object sender, EventArgs e)
         {
             ShowMissingRequirements();
 
-            getAutoInstallRequirementsTaskHandler.TaskStarted += getAutoInstallRequirements_Started;
-            getAutoInstallRequirementsTaskHandler.ProgressChanged += getAutoInstallRequirements_ProgressChanged;
-            getAutoInstallRequirementsTaskHandler.TaskCompleted +=  getAutoInstallRequirements_Completed;
-            getAutoInstallRequirementsTaskHandler.TaskCancelled += getAutoInstallRequirements_Completed;
+            worker.WorkerSupportsCancellation = true;
+            worker.ProgressChanged += worker_ProgressChanged;
+            worker.RunWorkerCompleted +=  worker_RunWorkerCompleted;
         }
 
         #region Métodos
-        // Actualiza los requisitos incumplidos.
-        private void GetRequirements(bool waitForPwrdProtection)
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            Requirements = getAutoInstallRequirementsTaskHandler.Run(Dependencies.CreateAutoInstallRequirementsModel, waitForPwrdProtection).Result;
+            var worker = sender as BackgroundWorker;
+            bool waitForPwrdProtection = e.Argument == null ? false : (bool)e.Argument;
+
+            Requirements = Dependencies.CreateAutoInstallRequirementsModel(worker, waitForPwrdProtection).Result;
+
+            e.Result = Requirements;
+        }
+
+        private void worker_ProgressChanged(object sender, EventArgs e)
+        {
+            refreshButton.Text = e + "%";
+        }
+        private void worker_RunWorkerCompleted(object sender, EventArgs e)
+        {
+            refreshButton.Text = "Actualizar";
+            refreshButton.Enabled = true;
+            closeButton.Text = "Cerrar";
         }
 
         // Muestra los requisitos incumplidos.
@@ -62,26 +81,10 @@ namespace KCI_UI
         #region Eventos
         private async void refreshButton_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => GetRequirements(true));
+            worker.RunWorkerAsync(true);
+            while (worker.IsBusy)
+                await Task.Delay(100);
             ShowMissingRequirements();
-        }
-
-        private void getAutoInstallRequirements_Started(object sender, EventArgs e)
-        {
-            refreshButton.Invoke(new Action(() => refreshButton.Enabled = false));
-            closeButton.Invoke(new Action(() => closeButton.Text = "Cancelar"));
-        }
-        private void getAutoInstallRequirements_ProgressChanged(object sender, ProgressReportModel e)
-        {
-            refreshButton.Invoke(new Action(() => refreshButton.Text = e.ProgressValue + "%"));
-        }
-        private void getAutoInstallRequirements_Completed(object sender, EventArgs e)
-        {
-            refreshButton.Invoke(new Action(() => {
-                refreshButton.Text = "Actualizar";
-                refreshButton.Enabled = true;
-            }));
-            closeButton.Invoke(new Action(() => closeButton.Text = "Cerrar"));
         }
 
         // Reinicia la aplicación como administrador.
@@ -123,9 +126,9 @@ namespace KCI_UI
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            if (getAutoInstallRequirementsTaskHandler != null && getAutoInstallRequirementsTaskHandler.IsRunning)
+            if (worker != null && worker.IsBusy)
             {
-                getAutoInstallRequirementsTaskHandler.Cancel();
+                worker.CancelAsync();
                 return;
             }
             this.Close();

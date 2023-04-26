@@ -1,5 +1,7 @@
 ﻿using KCI_Library.Models;
 using Microsoft.Win32;
+using System;
+using System.ComponentModel;
 using System.Configuration;
 using System.Diagnostics;
 using System.Security.Principal;
@@ -60,12 +62,12 @@ namespace KCI_Library.DataAccess
         /// Crea un modelo <c>AutoInstallRequirementsModel</c>.
         /// </summary>
         /// <returns><see cref="AutoInstallRequirementsModel"/></returns>
-        public static async Task<AutoInstallRequirementsModel> CreateAutoInstallRequirementsModel(IProgress<ProgressReportModel> progress, CancellationToken cancellation, bool waitForPwrdProtection)
+        public static async Task<AutoInstallRequirementsModel> CreateAutoInstallRequirementsModel(BackgroundWorker worker, bool waitForPwrdProtection = false)
         {
             ProgressReportModel progressReport = new();
 
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
-            progress.Report(progressReport.Set("Privilegios del usuario obtenidos", 1));
+            worker.ReportProgress(1, progressReport.Set("Privilegios del usuario obtenidos", 1));
 
             bool passwordProtectionDisabled = false;
             if (AnyProductInstalled(out RegistryKey? kasLabKey))
@@ -92,9 +94,10 @@ namespace KCI_Library.DataAccess
                         if (string.IsNullOrEmpty(passwordProtectionSettingsKey.GetValue("OPEP").ToString()))
                             return true;
 
-                        progress.Report(progressReport.Set("Esperando por PasswordProtectionEnabled", progressReport.LastProgressValue + i * 4));
+                        int progress = (int)Math.Floor(progressReport.LastProgressValue + i * .4);
+                        worker.ReportProgress(progress, progressReport.Set("Esperando por PasswordProtectionEnabled", progress));
                         await Task.Delay(1000);
-                        cancellation.ThrowIfCancellationRequested();
+                        ThrowIfCancellationRequested();
                     }
 
                     return false;
@@ -102,18 +105,24 @@ namespace KCI_Library.DataAccess
             }
 
             bool kasClosed = Process.GetProcessesByName("avp").Length == 0;
-            progress.Report(progressReport.Set("Instancias abiertas de AVP contadas", 91));
+            worker.ReportProgress(91, progressReport.Set("Instancias abiertas de AVP contadas", 91));
 
-            cancellation.ThrowIfCancellationRequested();
+            ThrowIfCancellationRequested();
             bool databaseAccesible = await SqlConnector.DatabaseAccesible();
-            cancellation.ThrowIfCancellationRequested();
-            progress.Report(progressReport.Set("Base de datos accedida", 100));
+            ThrowIfCancellationRequested();
+            worker.ReportProgress(100, progressReport.Set("Base de datos accedida", 100));
 
              return new AutoInstallRequirementsModel(
                  admin, 
                  passwordProtectionDisabled, 
                  kasClosed, 
                  databaseAccesible);
+
+            void ThrowIfCancellationRequested()
+            {
+                if (worker.CancellationPending)
+                    throw new OperationCanceledException();
+            }
         }
 
         /// <summary>

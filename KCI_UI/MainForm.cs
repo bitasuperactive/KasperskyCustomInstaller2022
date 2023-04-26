@@ -4,6 +4,7 @@ using KCI_Library.Models;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 
 // TODO - (!) Error handling.
 namespace KCI_UI
@@ -22,46 +23,61 @@ namespace KCI_UI
         /// </summary>
         private Dictionary<DatabaseId, string> availableLicenses;
         private ConfigurationForm configurationForm;
-        private TaskHandler<ProgressReportModel> obtainDependenciesTaskHandler;
+        private BackgroundWorker worker;
 
         public MainForm()
         {
             InitializeComponent();
 
-            obtainDependenciesTaskHandler = new();
-            obtainDependenciesTaskHandler.TaskStarted += obtainDependecies_Started;
-            obtainDependenciesTaskHandler.ProgressChanged += obtainDependecies_UpdateProgress;
-            obtainDependenciesTaskHandler.TaskCompleted += obtainDependecies_Completed;
+            worker = new BackgroundWorker();
+            worker.WorkerReportsProgress = true;
+            worker.DoWork += worker_DoWork;
+            worker.ProgressChanged += worker_ProgressChanged;
+            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            await Task.Run(() => obtainDependenciesTaskHandler.Run(ObtainDependecies));
+
+            loadingPanel.BringToFront();
+            worker.RunWorkerAsync();
+            while (worker.IsBusy)
+                await Task.Delay(100);
             ShowActivationButton();
             ShowAvailableLicenses();
-
-            requirementsForm.ShowDialog(this);
         }
 
 
         #region Métodos
-        private void ObtainDependecies(IProgress<ProgressReportModel> progress, CancellationToken cancellation)
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            BackgroundWorker worker = sender as BackgroundWorker;
             ProgressReportModel progressReport = new();
 
-            progress.Report(progressReport.Set("Creando modelo del producto instalado", 0));
+            worker.ReportProgress(0, progressReport.Set("Creando modelo del producto instalado", 0));
             kaspersky = Dependencies.CreateKasperskyModel();
 
-            progress.Report(progressReport.Set("Evaluando requisitos de las funciones adicionales", 10));
+            worker.ReportProgress(10, progressReport.Set("Evaluando requisitos de las funciones adicionales", 10));
             requirementsForm = new RequirementsForm(kaspersky.Id);
 
-            progress.Report(progressReport.Set("Obteniendo licencias de activación", 50));
+            worker.ReportProgress(50, progressReport.Set("Obteniendo licencias de activación", 50));
             availableLicenses = SqlConnector.GetAvailableLicenses().Result;
 
-            progress.Report(progressReport.Set("Recuperando configuración", 99));
+            worker.ReportProgress(99, progressReport.Set("Recuperando configuración", 99));
             configurationForm = new(kaspersky.Installed, requirementsForm.Requirements.DatabaseAccesible);
 
-            progress.Report(progressReport.Set("Dependencias generadas con éxito", 100));
+            worker.ReportProgress(100, progressReport.Set("Dependencias generadas con éxito", 100));
+            e.Result = "Dependencias generadas con éxito";
+        }
+
+        private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            Debug.Print(e.ProgressPercentage + "%");
+        }
+
+        private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            loadingPanel.SendToBack();
         }
 
         /// <summary>
@@ -132,21 +148,6 @@ namespace KCI_UI
         #endregion
 
         #region Eventos
-        private void obtainDependecies_Started(object sender, EventArgs e)
-        {
-            loadingPanel.Invoke(new Action(() => loadingPanel.BringToFront()));
-        }
-
-        private void obtainDependecies_UpdateProgress(object sender, ProgressReportModel e)
-        {
-            Debug.Print(e.ProgressMessage + "..." + e.ProgressValue + "%");
-        }
-
-        private void obtainDependecies_Completed(object sender, EventArgs e)
-        {
-            loadingPanel.Invoke(new Action(() => loadingPanel.SendToBack()));
-        }
-
         private void configurationButton_Click(object sender, EventArgs e)
         {
             configurationForm.ShowDialog(this);
