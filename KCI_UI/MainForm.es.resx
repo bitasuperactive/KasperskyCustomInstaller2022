@@ -624,7 +624,7 @@
     <value>593, 403</value>
   </data>
   <data name="loadingLabel.Text" xml:space="preserve">
-    <value>Iniciando...</value>
+    <value>Texto de carga</value>
   </data>
   <data name="loadingLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>

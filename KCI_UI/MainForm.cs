@@ -22,22 +22,21 @@ namespace KCI_UI
         /// </summary>
         private Dictionary<DatabaseId, string> availableLicenses;
         private ConfigurationForm configurationForm;
-        private TaskHandler obtainDependenciesTaskHandler;
+        private TaskHandler<ProgressReportModel> obtainDependenciesTaskHandler;
 
         public MainForm()
         {
             InitializeComponent();
+
+            obtainDependenciesTaskHandler = new();
+            obtainDependenciesTaskHandler.TaskStarted += obtainDependecies_Started;
+            obtainDependenciesTaskHandler.ProgressChanged += obtainDependecies_UpdateProgress;
+            obtainDependenciesTaskHandler.TaskCompleted += obtainDependecies_Completed;
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            obtainDependenciesTaskHandler = new(ObtainDependecies);
-            obtainDependenciesTaskHandler.TaskStarted += obtainDependecies_Started;
-            obtainDependenciesTaskHandler.ProgressChanged += obtainDependecies_UpdateProgress;
-            obtainDependenciesTaskHandler.TaskCompleted += obtainDependecies_Completed;
-
-            await obtainDependenciesTaskHandler.RunAsync();
-            MessageBox.Show(configurationForm.ProductToInstall.ToString());
+            await Task.Run(() => obtainDependenciesTaskHandler.Run(ObtainDependecies));
             ShowActivationButton();
             ShowAvailableLicenses();
 
@@ -46,21 +45,23 @@ namespace KCI_UI
 
 
         #region Métodos
-        private void ObtainDependecies(IProgress<double> progress, CancellationToken cancellation)
+        private void ObtainDependecies(IProgress<ProgressReportModel> progress, CancellationToken cancellation)
         {
-            progress.Report(0);
+            ProgressReportModel progressReport = new();
 
+            progress.Report(progressReport.Set("Creando modelo del producto instalado", 0));
             kaspersky = Dependencies.CreateKasperskyModel();
-            progress.Report(10);
 
+            progress.Report(progressReport.Set("Evaluando requisitos de las funciones adicionales", 10));
             requirementsForm = new RequirementsForm(kaspersky.Id);
-            progress.Report(50);
 
+            progress.Report(progressReport.Set("Obteniendo licencias de activación", 50));
             availableLicenses = SqlConnector.GetAvailableLicenses().Result;
-            progress.Report(99);
 
+            progress.Report(progressReport.Set("Recuperando configuración", 99));
             configurationForm = new(kaspersky.Installed, requirementsForm.Requirements.DatabaseAccesible);
-            progress.Report(100);
+
+            progress.Report(progressReport.Set("Dependencias generadas con éxito", 100));
         }
 
         /// <summary>
@@ -136,9 +137,9 @@ namespace KCI_UI
             loadingPanel.Invoke(new Action(() => loadingPanel.BringToFront()));
         }
 
-        private void obtainDependecies_UpdateProgress(object sender, double e)
+        private void obtainDependecies_UpdateProgress(object sender, ProgressReportModel e)
         {
-            loadingLabel.Invoke(new Action(() => loadingLabel.Text = "Iniciando..." + e + "%"));
+            Debug.Print(e.ProgressMessage + "..." + e.ProgressValue + "%");
         }
 
         private void obtainDependecies_Completed(object sender, EventArgs e)

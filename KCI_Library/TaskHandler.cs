@@ -1,4 +1,6 @@
 ﻿using Google.Protobuf.WellKnownTypes;
+using KCI_Library.Models;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,55 +13,37 @@ using System.Threading.Tasks;
 
 namespace KCI_Library
 {
-    public class TaskHandler
+    public class TaskHandler<TProgress>
     {
-        public EventHandler<double> ProgressChanged;
-        public EventHandler TaskStarted;
-        public EventHandler TaskCancelled;
-        public EventHandler TaskCompleted;
+        public event EventHandler<TProgress> ProgressChanged;
+        public event EventHandler TaskStarted;
+        public event EventHandler TaskCancelled;
+        public event EventHandler TaskCompleted;
         public bool IsRunning { get; private set; }
-
-        private readonly Action<IProgress<double>, CancellationToken> _taskAction;
-        private readonly Func<IProgress<double>, CancellationToken, Task<object>> _taskFunction;
         private CancellationTokenSource _cancellationTokenSource;
 
-        // Constructor que permite especificar el método que se ejecutará en la tarea.
-        public TaskHandler(Action<IProgress<double>, CancellationToken> taskAction)
+        public TaskHandler()
         {
-            _taskAction = taskAction;
+
         }
 
-        public TaskHandler(Func<IProgress<double>, CancellationToken, Task<object>> taskFunction)
+        // Action.
+        public void Run(Action<IProgress<TProgress>, CancellationToken> method)
         {
-            _taskFunction = taskFunction;
-        }
+            _cancellationTokenSource = new();
+            Progress<TProgress> progress = new(progressValue => ProgressChanged?.Invoke(this, progressValue));
 
-        // Función para iniciar la tarea.
-        public async Task RunAsync()
-        {
-            // Indicar que la tarea se ha iniciado.
+            // Tarea iniciada.
             IsRunning = true;
             TaskStarted?.Invoke(this, EventArgs.Empty);
 
-            // Crear el token de cancelación.
-            _cancellationTokenSource = new();
-
-            // Crear el objeto que informará sobre el progreso de la tarea.
-            Progress<double> progress = new(progressValue => ProgressChanged?.Invoke(this, progressValue));
-
-            object tResult = null;
-
-            // Ejecutar la tarea.
             try
             {
-                if (_taskAction != null)
-                    await Task.Run(() => _taskAction.Invoke(progress, _cancellationTokenSource.Token));
-                else
-                    tResult = await _taskFunction.Invoke(progress, _cancellationTokenSource.Token);
+                method.Invoke(progress, _cancellationTokenSource.Token);
             }
             catch (OperationCanceledException)
             {
-                IsRunning = false;
+                // Tarea cancelada.
                 TaskCancelled?.Invoke(this, EventArgs.Empty);
                 return;
             }
@@ -69,14 +53,44 @@ namespace KCI_Library
                 _cancellationTokenSource.Dispose();
             }
 
-            // Indicar que la tarea se ha completado con éxito.
+            // Tarea completada con éxito.
             TaskCompleted?.Invoke(this, EventArgs.Empty);
-            Debug.WriteLine("COMPLETED");
-
-            await Task.FromResult(tResult);
         }
 
-        // Función para cancelar la tarea.
+        // Function.
+        public TResult? Run<T1, TResult>(Func<IProgress<TProgress>, CancellationToken, T1, TResult> method, T1 property)
+        {
+            _cancellationTokenSource = new();
+            Progress<TProgress> progress = new(progressValue => ProgressChanged?.Invoke(this, progressValue));
+            TResult? result = default;
+
+            // Tarea iniciada.
+            IsRunning = true;
+            TaskStarted?.Invoke(this, EventArgs.Empty);
+
+            try
+            {
+                result = method.Invoke(progress, _cancellationTokenSource.Token, property);
+            }
+            catch (OperationCanceledException)
+            {
+                // Tarea cancelada.
+                TaskCancelled?.Invoke(this, EventArgs.Empty);
+                return default;
+            }
+            finally
+            {
+                IsRunning = false;
+                _cancellationTokenSource.Dispose();
+            }
+
+            // Tarea completada con éxito.
+            TaskCompleted?.Invoke(this, EventArgs.Empty);
+
+            return result;
+        }
+
+        // Cancelar la tarea.
         public void Cancel()
         {
             if (this.IsRunning && !this._cancellationTokenSource.Token.IsCancellationRequested)

@@ -1,5 +1,6 @@
 ﻿using KCI_Library;
 using KCI_Library.Models;
+using System.Diagnostics;
 
 namespace KCI_UI
 {
@@ -53,6 +54,8 @@ namespace KCI_UI
 
         private void ConfigurationForm_Load(object sender, EventArgs e)
         {
+            Debug.WriteLine("Producto a instalar: " + ProductToInstall.ToString());
+
             ShowConfiguration();
         }
 

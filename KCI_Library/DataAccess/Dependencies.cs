@@ -60,10 +60,12 @@ namespace KCI_Library.DataAccess
         /// Crea un modelo <c>AutoInstallRequirementsModel</c>.
         /// </summary>
         /// <returns><see cref="AutoInstallRequirementsModel"/></returns>
-        public static async Task<AutoInstallRequirementsModel> CreateAutoInstallRequirementsModel(IProgress<double> progress, CancellationToken cancellation)
+        public static async Task<AutoInstallRequirementsModel> CreateAutoInstallRequirementsModel(IProgress<ProgressReportModel> progress, CancellationToken cancellation, bool waitForPwrdProtection)
         {
+            ProgressReportModel progressReport = new();
+
             bool admin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
-            progress.Report(1);
+            progress.Report(progressReport.Set("Privilegios del usuario obtenidos", 1));
 
             bool passwordProtectionDisabled = false;
             if (AnyProductInstalled(out RegistryKey? kasLabKey))
@@ -82,12 +84,15 @@ namespace KCI_Library.DataAccess
                 // TODO - (!) La detección de PasswordProtect tarda hasta 30s en actualizar.
                 async Task<bool> PasswordProtectionDisabled()
                 {
-                    for (int i = 1; i <= 5; i++)
+                    if (!waitForPwrdProtection)
+                        return string.IsNullOrEmpty(passwordProtectionSettingsKey.GetValue("OPEP").ToString());
+
+                    for (int i = 1; i <= 30; i++)
                     {
                         if (string.IsNullOrEmpty(passwordProtectionSettingsKey.GetValue("OPEP").ToString()))
                             return true;
 
-                        progress.Report(i * 3);
+                        progress.Report(progressReport.Set("Esperando por PasswordProtectionEnabled", progressReport.LastProgressValue + i * 4));
                         await Task.Delay(1000);
                         cancellation.ThrowIfCancellationRequested();
                     }
@@ -97,12 +102,12 @@ namespace KCI_Library.DataAccess
             }
 
             bool kasClosed = Process.GetProcessesByName("avp").Length == 0;
-            progress.Report(91);
+            progress.Report(progressReport.Set("Instancias abiertas de AVP contadas", 91));
 
             cancellation.ThrowIfCancellationRequested();
             bool databaseAccesible = await SqlConnector.DatabaseAccesible();
             cancellation.ThrowIfCancellationRequested();
-            progress.Report(100);
+            progress.Report(progressReport.Set("Base de datos accedida", 100));
 
              return new AutoInstallRequirementsModel(
                  admin, 

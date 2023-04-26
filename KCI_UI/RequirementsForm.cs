@@ -4,6 +4,7 @@ using KCI_Library.DataAccess;
 using System.ComponentModel;
 using System.Timers;
 using System.Diagnostics;
+using System.Threading;
 
 // TODO - (!) Implementar cancelación de la actualización de requisitos.
 namespace KCI_UI
@@ -13,12 +14,13 @@ namespace KCI_UI
     {
         public AutoInstallRequirementsModel Requirements { get; private set; }
         private DatabaseId kasperskyId;
-        private TaskHandler getAutoInstallRequirementsTaskHandler;
+        private TaskHandler<ProgressReportModel> getAutoInstallRequirementsTaskHandler;
 
         public RequirementsForm(DatabaseId kasperskyId)
         {
-            GetAutoInstallRequirements();
+            getAutoInstallRequirementsTaskHandler = new();
             this.kasperskyId = kasperskyId;
+            GetRequirements(false);
             InitializeComponent();
         }
 
@@ -28,17 +30,15 @@ namespace KCI_UI
 
             getAutoInstallRequirementsTaskHandler.TaskStarted += getAutoInstallRequirements_Started;
             getAutoInstallRequirementsTaskHandler.ProgressChanged += getAutoInstallRequirements_ProgressChanged;
-            getAutoInstallRequirementsTaskHandler.TaskCompleted += getAutoInstallRequirements_Completed;
-            getAutoInstallRequirementsTaskHandler.TaskCancelled += getAutoInstallRequirementsTaskHandler.TaskCompleted;
+            getAutoInstallRequirementsTaskHandler.TaskCompleted +=  getAutoInstallRequirements_Completed;
+            getAutoInstallRequirementsTaskHandler.TaskCancelled += getAutoInstallRequirements_Completed;
         }
 
         #region Métodos
         // Actualiza los requisitos incumplidos.
-        private void GetAutoInstallRequirements()
+        private void GetRequirements(bool waitForPwrdProtection)
         {
-            getAutoInstallRequirementsTaskHandler = new((p, t) => Requirements = Dependencies.CreateAutoInstallRequirementsModel(p, t).Result);
-
-            getAutoInstallRequirementsTaskHandler.RunAsync().Wait();
+            Requirements = getAutoInstallRequirementsTaskHandler.Run(Dependencies.CreateAutoInstallRequirementsModel, waitForPwrdProtection).Result;
         }
 
         // Muestra los requisitos incumplidos.
@@ -60,9 +60,9 @@ namespace KCI_UI
         #endregion
 
         #region Eventos
-        private void refreshButton_Click(object sender, EventArgs e)
+        private async void refreshButton_Click(object sender, EventArgs e)
         {
-            GetAutoInstallRequirements();
+            await Task.Run(() => GetRequirements(true));
             ShowMissingRequirements();
         }
 
@@ -71,9 +71,9 @@ namespace KCI_UI
             refreshButton.Invoke(new Action(() => refreshButton.Enabled = false));
             closeButton.Invoke(new Action(() => closeButton.Text = "Cancelar"));
         }
-        private void getAutoInstallRequirements_ProgressChanged(object sender, double e)
+        private void getAutoInstallRequirements_ProgressChanged(object sender, ProgressReportModel e)
         {
-            refreshButton.Invoke(new Action(() => refreshButton.Text = e + "%"));
+            refreshButton.Invoke(new Action(() => refreshButton.Text = e.ProgressValue + "%"));
         }
         private void getAutoInstallRequirements_Completed(object sender, EventArgs e)
         {
