@@ -19,6 +19,11 @@ namespace KCI_Library.DataAccess
             return kasLabKey is null ? false : kasLabKey.GetSubKeyNames().Any(subkey => subkey.Contains("AVP"));
         }
 
+        public static bool KsdeInstalled(RegistryKey kaslabKey)
+        {
+            return kaslabKey.GetSubKeyNames().Any(subkey => subkey.Contains("KSDE"));
+        }
+
         /// <summary>
         /// Crea un modelo <c>KasperskyModel</c>.
         /// </summary>
@@ -38,10 +43,13 @@ namespace KCI_Library.DataAccess
             bool isReportedExpired = wmiHlpKey.GetValueNames().Any(value => value.Equals("IsReportedExpired"));
 
             // Excepto las claves de KSDE que es un producto opcinal.
-            string ksdeKeyName = kasLabKey!.GetSubKeyNames().First(subkey => subkey.Contains("KSDE"));
-            using RegistryKey? ksdeKey = kasLabKey!.OpenSubKey($@"{ksdeKeyName}\environment");
-            bool ksdeInstalled = ksdeKey is not null;
-            KsdeModel ksdeModel = (ksdeInstalled) ? new(ksdeKey!.GetValue("ProductCode")!.ToString()!) : new();
+            KsdeModel ksdeModel = new();
+            if (KsdeInstalled(kasLabKey))
+            {
+                string ksdeKeyName = kasLabKey!.GetSubKeyNames().First(subkey => subkey.Contains("KSDE"));
+                using RegistryKey ksdeKey = kasLabKey!.OpenSubKey($@"{ksdeKeyName}\environment")!;
+                ksdeModel = new(ksdeKey!.GetValue("ProductCode")!.ToString()!);
+            }
 
             kasLabKey.Close();
 

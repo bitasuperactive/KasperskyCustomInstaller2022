@@ -26,7 +26,7 @@ namespace KCI_Library
             throw new NotImplementedException();
         }
 
-        protected override void InstallClient()
+        protected override async Task InstallClient(string filePath)
         {
             throw new NotImplementedException();
         }
