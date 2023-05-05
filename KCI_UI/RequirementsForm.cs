@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Timers;
 using System.Diagnostics;
 using System.Threading;
+using System;
 
 // TODO - (!) Implementar cancelación de la actualización de requisitos.
 namespace KCI_UI
@@ -13,34 +14,23 @@ namespace KCI_UI
     public partial class RequirementsForm : Form
     {
         public AutoInstallRequirementsModel Requirements { get; private set; }
-        private DatabaseId kasperskyId;
-        private TaskHandler<ProgressReportModel> getAutoInstallRequirementsTaskHandler;
+        private ProductId kasperskyId;
+        private CancellationTokenSource cancellationTokenSource;
 
-        public RequirementsForm(DatabaseId kasperskyId)
+        public RequirementsForm(ProductId kasperskyId, Progress<ProgressReportModel> progress)
         {
-            getAutoInstallRequirementsTaskHandler = new();
             this.kasperskyId = kasperskyId;
-            GetRequirements(false);
+            Requirements = Dependencies.CreateAutoInstallRequirementsModel(progress, new CancellationToken()).Result;
+
             InitializeComponent();
         }
 
         private void RequirementsForm_Load(object sender, EventArgs e)
         {
             ShowMissingRequirements();
-
-            getAutoInstallRequirementsTaskHandler.TaskStarted += getAutoInstallRequirements_Started;
-            getAutoInstallRequirementsTaskHandler.ProgressChanged += getAutoInstallRequirements_ProgressChanged;
-            getAutoInstallRequirementsTaskHandler.TaskCompleted +=  getAutoInstallRequirements_Completed;
-            getAutoInstallRequirementsTaskHandler.TaskCancelled += getAutoInstallRequirements_Completed;
         }
 
         #region Métodos
-        // Actualiza los requisitos incumplidos.
-        private void GetRequirements(bool waitForPwrdProtection)
-        {
-            Requirements = getAutoInstallRequirementsTaskHandler.Run(Dependencies.CreateAutoInstallRequirementsModel, waitForPwrdProtection).Result;
-        }
-
         // Muestra los requisitos incumplidos.
         private void ShowMissingRequirements()
         {
@@ -57,32 +47,43 @@ namespace KCI_UI
             passwordProtectionRequirementPanel.Visible = !Requirements.PasswordProtectionDisabled;
             adminPanel.Visible = !Requirements.Admin;
         }
-        #endregion
-
-        #region Eventos
         private async void refreshButton_Click(object sender, EventArgs e)
         {
-            await Task.Run(() => GetRequirements(true));
+            Progress<ProgressReportModel> progress = new();
+            progress.ProgressChanged += UpdateRequirements_ProgressChanged;
+            cancellationTokenSource = new CancellationTokenSource();
+
+            refreshButton.Enabled = false;
+            closeButton.Text = "Cancelar";
+
+            try
+            {
+                Requirements = await Dependencies.CreateAutoInstallRequirementsModel(progress, cancellationTokenSource.Token, true);
+            }
+            catch (OperationCanceledException)
+            {
+                MessageBox.Show("TAREA CANCELADA");
+                return;
+            }
+            finally
+            {
+                cancellationTokenSource.Dispose();
+                cancellationTokenSource = null;
+                refreshButton.Text = "Actualizar";
+                refreshButton.Enabled = true;
+                closeButton.Text = "Cerrar";
+            }
+
             ShowMissingRequirements();
         }
 
-        private void getAutoInstallRequirements_Started(object sender, EventArgs e)
+        private void UpdateRequirements_ProgressChanged(object? sender, ProgressReportModel e)
         {
-            refreshButton.Invoke(new Action(() => refreshButton.Enabled = false));
-            closeButton.Invoke(new Action(() => closeButton.Text = "Cancelar"));
+            refreshButton.Text = e.Percentage + "%";
         }
-        private void getAutoInstallRequirements_ProgressChanged(object sender, ProgressReportModel e)
-        {
-            refreshButton.Invoke(new Action(() => refreshButton.Text = e.ProgressValue + "%"));
-        }
-        private void getAutoInstallRequirements_Completed(object sender, EventArgs e)
-        {
-            refreshButton.Invoke(new Action(() => {
-                refreshButton.Text = "Actualizar";
-                refreshButton.Enabled = true;
-            }));
-            closeButton.Invoke(new Action(() => closeButton.Text = "Cerrar"));
-        }
+        #endregion
+
+        #region Eventos
 
         // Reinicia la aplicación como administrador.
         private void restartAsAdminButton_Click(object sender, EventArgs e)
@@ -92,10 +93,14 @@ namespace KCI_UI
             string thisAssemblyLocation = new(System.Reflection.Assembly.GetExecutingAssembly().Location.SkipLast(4).ToArray());
 
             if (ProcessExecutor.AsAdmin(thisAssemblyLocation))
+            {
                 Application.Exit();
+            }
             else
-                MessageBox.Show(this, "Permisos de administrador denegados.", 
+            {
+                MessageBox.Show(this, "Permisos de administrador denegados.",
                     "Instalación automática", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Abre el enlace de ayuda para deshabilitar Kaspersky Password Protection.
@@ -103,13 +108,13 @@ namespace KCI_UI
         {
             switch (kasperskyId)
             {
-                case DatabaseId.kav:
+                case ProductId.KAV:
                     ProcessExecutor.BrowseToUrl("https://support.kaspersky.com/KAV/2021/en-US/70756.htm");
                     break;
-                case DatabaseId.kis:
+                case ProductId.KIS:
                     ProcessExecutor.BrowseToUrl("https://support.kaspersky.com/KIS/2019/es-ES/70756.htm");
                     break;
-                case DatabaseId.kts:
+                case ProductId.KTS:
                     ProcessExecutor.BrowseToUrl("https://support.kaspersky.com/KTS/21.2/es-ES/70756.htm");
                     break;
             }
@@ -123,9 +128,9 @@ namespace KCI_UI
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            if (getAutoInstallRequirementsTaskHandler != null && getAutoInstallRequirementsTaskHandler.IsRunning)
+            if (cancellationTokenSource is not null)
             {
-                getAutoInstallRequirementsTaskHandler.Cancel();
+                cancellationTokenSource.Cancel();
                 return;
             }
             this.Close();

@@ -5,7 +5,7 @@
         /// <summary>
         /// Id del producto elegido a instalar.
         /// </summary>
-        public DatabaseId ProductToInstall { get; set; } = DatabaseId.none;
+        public ProductId ProductToInstall { get; set; } = ProductId.none;
         /// <summary>
         /// Mantener la configuración de la aplicación del producto instalado.
         /// </summary>

@@ -246,7 +246,7 @@
             // loadingLabel
             // 
             resources.ApplyResources(loadingLabel, "loadingLabel");
-            loadingLabel.ForeColor = Color.IndianRed;
+            loadingLabel.ForeColor = Color.Black;
             loadingLabel.Name = "loadingLabel";
             toolTip.SetToolTip(loadingLabel, resources.GetString("loadingLabel.ToolTip"));
             // 

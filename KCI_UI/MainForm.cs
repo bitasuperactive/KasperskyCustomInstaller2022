@@ -20,48 +20,57 @@ namespace KCI_UI
         /// Valor: Última fecha de actualización de las licencias.
         /// </para>
         /// </summary>
-        private Dictionary<DatabaseId, string> availableLicenses;
+        private Dictionary<ProductId, string> availableLicenses;
         private ConfigurationForm configurationForm;
-        private TaskHandler<ProgressReportModel> obtainDependenciesTaskHandler;
 
         public MainForm()
         {
             InitializeComponent();
-
-            obtainDependenciesTaskHandler = new();
-            obtainDependenciesTaskHandler.TaskStarted += obtainDependecies_Started;
-            obtainDependenciesTaskHandler.ProgressChanged += obtainDependecies_UpdateProgress;
-            obtainDependenciesTaskHandler.TaskCompleted += obtainDependecies_Completed;
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            await Task.Run(() => obtainDependenciesTaskHandler.Run(ObtainDependecies));
+            loadingPanel.BringToFront();
+            Progress<ProgressReportModel> progress = new();
+            progress.ProgressChanged += obtainDependecies_UpdateProgress;
+            await Task.Run(() => ObtainDependecies(progress));
+            loadingPanel.SendToBack();
             ShowActivationButton();
             ShowAvailableLicenses();
-
-            requirementsForm.ShowDialog(this);
         }
 
 
         #region Métodos
-        private void ObtainDependecies(IProgress<ProgressReportModel> progress, CancellationToken cancellation)
+        private Task ObtainDependecies(IProgress<ProgressReportModel> progress)
         {
-            ProgressReportModel progressReport = new();
+            // TODO - (!!!) Mantener dependencias tras el reinicio como administrador.
 
-            progress.Report(progressReport.Set("Creando modelo del producto instalado", 0));
+            progress.Report(new(0, "Creando modelo del producto instalado"));
             kaspersky = Dependencies.CreateKasperskyModel();
 
-            progress.Report(progressReport.Set("Evaluando requisitos de las funciones adicionales", 10));
-            requirementsForm = new RequirementsForm(kaspersky.Id);
+            ProgressReportModel progressReport = new(15, "Evaluando requisitos de las funciones adicionales");
 
-            progress.Report(progressReport.Set("Obteniendo licencias de activación", 50));
+            Progress<ProgressReportModel> requirementsProgress = new((report) =>
+            {
+                progress.Report(new(progressReport.Percentage + (int)(report.Percentage * .62), progressReport.Description + ":\n" + report.Description));
+            });
+
+            progress.Report(progressReport);
+            requirementsForm = new RequirementsForm(kaspersky.Id, requirementsProgress);
+
+            progress.Report(new(77, "Obteniendo licencias de activación"));
             availableLicenses = SqlConnector.GetAvailableLicenses().Result;
 
-            progress.Report(progressReport.Set("Recuperando configuración", 99));
-            configurationForm = new(kaspersky.Installed, requirementsForm.Requirements.DatabaseAccesible);
+            progress.Report(new(99, "Recuperando configuración"));
+            configurationForm = new ConfigurationForm(kaspersky.Installed, requirementsForm.Requirements.DatabaseAccesible);
 
-            progress.Report(progressReport.Set("Dependencias generadas con éxito", 100));
+            progress.Report(new(100, "Dependencias generadas con éxito"));
+            return Task.FromResult(true);
+        }
+
+        private void obtainDependecies_UpdateProgress(object sender, ProgressReportModel e)
+        {
+            loadingLabel.Text = e.Description + "..." + e.Percentage + "%";
         }
 
         /// <summary>
@@ -73,15 +82,15 @@ namespace KCI_UI
 
             switch (kaspersky.Id)
             {
-                case DatabaseId.kav:
+                case ProductId.KAV:
                     kavRadioButton.BackColor = color;
                     kavActivationButton.Visible = true;
                     break;
-                case DatabaseId.kis:
+                case ProductId.KIS:
                     kisRadioButton.BackColor = color;
                     kisActivationButton.Visible = true;
                     break;
-                case DatabaseId.kts:
+                case ProductId.KTS:
                     ktsRadioButton.BackColor = color;
                     ktsActivationButton.Visible = true;
                     break;
@@ -94,19 +103,19 @@ namespace KCI_UI
         /// </summary>
         private void ShowAvailableLicenses()
         {
-            foreach (DatabaseId id in availableLicenses.Keys)
+            foreach (ProductId id in availableLicenses.Keys)
             {
                 switch (id)
                 {
-                    case DatabaseId.kav:
+                    case ProductId.KAV:
                         Show(kavAvailableLicensesLabel);
                         kavActivationButton.Enabled = true;
                         break;
-                    case DatabaseId.kis:
+                    case ProductId.KIS:
                         Show(kisAvailableLicensesLabel);
                         kisActivationButton.Enabled = true;
                         break;
-                    case DatabaseId.kts:
+                    case ProductId.KTS:
                         Show(ktsAvailableLicensesLabel);
                         ktsActivationButton.Enabled = true;
                         break;
@@ -132,55 +141,48 @@ namespace KCI_UI
         #endregion
 
         #region Eventos
-        private void obtainDependecies_Started(object sender, EventArgs e)
-        {
-            loadingPanel.Invoke(new Action(() => loadingPanel.BringToFront()));
-        }
-
-        private void obtainDependecies_UpdateProgress(object sender, ProgressReportModel e)
-        {
-            Debug.Print(e.ProgressMessage + "..." + e.ProgressValue + "%");
-        }
-
-        private void obtainDependecies_Completed(object sender, EventArgs e)
-        {
-            loadingPanel.Invoke(new Action(() => loadingPanel.SendToBack()));
-        }
-
-        private void configurationButton_Click(object sender, EventArgs e)
-        {
-            configurationForm.ShowDialog(this);
-        }
-
         private void githubButton_Click(object sender, EventArgs e) =>
             ProcessExecutor.BrowseToUrl("https://github.com/bitasuperactive/KasperskyCustomInstaller2022");
 
         private void productComparisionButton_Click(object sender, EventArgs e) =>
             ProcessExecutor.BrowseToUrl("https://www.kaspersky.es/home-security");
 
+        private void configurationButton_Click(object sender, EventArgs e)
+        {
+            configurationForm.ShowDialog(this);
+        }
+
         private void kavRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            configurationForm.ProductToInstall = DatabaseId.kav;
+            configurationForm.ProductToInstall = ProductId.KAV;
             EnableInstallationButtons();
         }
 
         private void kisRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            configurationForm.ProductToInstall = DatabaseId.kis;
+            configurationForm.ProductToInstall = ProductId.KIS;
             EnableInstallationButtons();
         }
 
         private void ktsRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            configurationForm.ProductToInstall = DatabaseId.kts;
+            configurationForm.ProductToInstall = ProductId.KTS;
             EnableInstallationButtons();
         }
 
         // TODO - Manejar adecuadamente el progreso de los procesos de la instalación.
         private void defaultInstallationButton_Click(object sender, EventArgs e)
         {
-            // TODO - Realizar instalación habitual.
-            throw new NotImplementedException();
+            // TODO - Guardar config = defaultInstall.
+            Progress<ProgressReportModel> progress = new Progress<ProgressReportModel>();
+            progress.ProgressChanged += Installation_ProgressChanged;
+            DefaultInstallation installation = new(kaspersky, configurationForm.Configuration, progress, new CancellationToken());
+            installation.RunInstallation();
+        }
+
+        private void Installation_ProgressChanged(object? sender, ProgressReportModel e)
+        {
+            Debug.WriteLine(e.Description + ": " + e.Percentage + "%");
         }
 
         private void autoInstallationButton_Click(object sender, EventArgs e)

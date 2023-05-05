@@ -25,6 +25,7 @@ namespace KCI_UI
                     Properties.Settings.Default.OfflineSetup,
                     Properties.Settings.Default.DoNotUseDatabaseLicenses,
                     Properties.Settings.Default.KasperskySecureConnection);
+                configuration.ProductToInstall = (ProductId)Enum.Parse(typeof(ProductId), Properties.Settings.Default.ProductToInstall);
 
                 return configuration.ValidateConfiguration(kavInstalled, dbAccesible);
             }
@@ -40,12 +41,8 @@ namespace KCI_UI
             }
         }
 
-        public DatabaseId ProductToInstall
+        public ProductId ProductToInstall
         {
-            get
-            {
-                return (DatabaseId)Enum.Parse(typeof(DatabaseId), Properties.Settings.Default.ProductToInstall);
-            }
             set
             {
                 Properties.Settings.Default.ProductToInstall = value.ToString();
@@ -54,8 +51,6 @@ namespace KCI_UI
 
         private void ConfigurationForm_Load(object sender, EventArgs e)
         {
-            Debug.WriteLine("Producto a instalar: " + ProductToInstall.ToString());
-
             ShowConfiguration();
         }
 

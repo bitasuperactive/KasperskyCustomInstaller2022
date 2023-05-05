@@ -1,19 +1,22 @@
-﻿namespace KCI_Library
+﻿using static System.Net.WebRequestMethods;
+
+namespace KCI_Library
 {
     /// <summary>
-    /// Enumerador de los ids disponibles en la base de datos.
+    /// Productos reconocidos por la aplicación.
     /// <br/>
-    /// <c>kav</c> : Kaspersky Antivirus
+    /// <c>KAV</c> : Kaspersky Antivirus
     /// <br/>
-    /// <c>kis</c> : Kaspersky Internet Security
+    /// <c>KIS</c> : Kaspersky Internet Security
     /// <br/>
-    /// <c>kts</c> : Kaspersky Total Security
+    /// <c>KTS</c> : Kaspersky Total Security
     /// </summary>
-    public enum DatabaseId
+    // TODO - ¿Añadir valor "no identificado"?
+    public enum ProductId
     {
         none,
-        kav,
-        kis,
-        kts
+        KAV,
+        KIS,
+        KTS
     }
 }

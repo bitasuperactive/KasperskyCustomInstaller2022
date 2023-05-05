@@ -8,31 +8,13 @@ namespace KCI_Library.Models
 {
     public class ProgressReportModel
     {
-        public string ProgressMessage { get; set; }
-        public int ProgressValue
-        {
-            get { return _progressValue; }
-            set
-            {
-                LastProgressValue = _progressValue;
-                _progressValue = value;
-            }
-        }
-        public int LastProgressValue { get; private set; }
-        private int _progressValue = 0;
+        public int Percentage { get; set; }
+        public string Description { get; set; }
 
-        public ProgressReportModel(string progressMessage = "", int progressValue = 0, int lastProgressValue = 0)
+        public ProgressReportModel(int percentage, string description)
         {
-            ProgressMessage = progressMessage;
-            ProgressValue = progressValue;
-            LastProgressValue = lastProgressValue;
-        }
-
-        public ProgressReportModel Set(string progressMessage, int progressValue)
-        {
-            ProgressMessage = progressMessage;
-            ProgressValue = progressValue;
-            return this;
+            Percentage = percentage;
+            Description = description;
         }
     }
 }

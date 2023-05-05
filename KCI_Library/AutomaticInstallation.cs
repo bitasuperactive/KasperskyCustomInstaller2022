@@ -10,12 +10,12 @@ namespace KCI_Library
     public class AutomaticInstallation : DefaultInstallation
     {
         // TODO - Todos los requisitos han de haberse cumplido previamente.
-        public AutomaticInstallation(KasperskyModel kaspersky, ConfigurationModel configuration) : base(kaspersky, configuration)
+        public AutomaticInstallation(KasperskyModel kaspersky, ConfigurationModel configuration, IProgress<ProgressReportModel> progress, CancellationToken cancellation) : base(kaspersky, configuration, progress, cancellation)
         {
 
         }
 
-        protected override void UninstallClient()
+        protected override async Task UninstallClient()
         {
             throw new NotImplementedException();
         }

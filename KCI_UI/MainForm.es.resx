@@ -618,7 +618,7 @@
     <value>Fill</value>
   </data>
   <data name="loadingLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Ravie, 26.25pt</value>
+    <value>SimSun, 18pt</value>
   </data>
   <data name="loadingLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>593, 403</value>

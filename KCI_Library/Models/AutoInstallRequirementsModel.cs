@@ -6,6 +6,10 @@
     public class AutoInstallRequirementsModel
     {
         /// <summary>
+        /// La base de datos es accesible.
+        /// </summary>
+        public bool DatabaseAccesible { get; private set; }
+        /// <summary>
         /// El usuario actual posee privilegios de administrador.
         /// </summary>
         public bool Admin { get; private set; }
@@ -18,26 +22,30 @@
         /// </summary>
         public bool KasClosed { get; private set; }
         /// <summary>
-        /// La base de datos es accesible.
+        /// Todos los requisitos han sido cumplidos.
         /// </summary>
-        public bool DatabaseAccesible { get; private set; }
-        /// <summary>
-        /// Los requisitos anteriores han sido cumplidos.
-        /// </summary>
-        public bool AllMet { get; private set; }
+        public bool AllMet
+        {
+            get
+            {
+                return DatabaseAccesible && Admin && PasswordProtectionDisabled && KasClosed;
+            }
+        }
 
         public AutoInstallRequirementsModel()
         {
-
+            DatabaseAccesible = false;
+            Admin = false;
+            PasswordProtectionDisabled = false;
+            KasClosed = false;
         }
 
-        public AutoInstallRequirementsModel(bool admin, bool passwordProtectionDisabled, bool kasClosed, bool databaseAccesible)
+        public AutoInstallRequirementsModel(bool databaseAccesible, bool admin, bool passwordProtectionDisabled, bool kasClosed)
         {
+            DatabaseAccesible = databaseAccesible;
             Admin = admin;
             PasswordProtectionDisabled = passwordProtectionDisabled;
             KasClosed = kasClosed;
-            DatabaseAccesible = databaseAccesible;
-            AllMet = admin && passwordProtectionDisabled && kasClosed && databaseAccesible;
         }
     }
 }

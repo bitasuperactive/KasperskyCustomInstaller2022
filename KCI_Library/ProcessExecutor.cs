@@ -39,27 +39,25 @@ namespace KCI_Library
         /// <param name="args">Argumentos de ejecución.</param>
         /// <param name="waitForExit">Esperar a la salida de la aplicación.</param>
         /// <returns><c>Verdadero</c> si la ejecución ha sido exitosa, <c>Falso</c> en su defecto.</returns>
-        public static bool WindowHidden(string filePath, string args = "", bool waitForExit = false)
+        public static async Task<string> WindowHidden(string filePath, string args, CancellationToken cancellation)
         {
             ProcessStartInfo psi = new()
             {
                 FileName = filePath,
                 Arguments = args,
-                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                //WindowStyle = ProcessWindowStyle.Hidden,
                 CreateNoWindow = true,
-                //UseShellExecute = true,
-            };
-            Process process = new()
-            {
-                StartInfo = psi
             };
 
+            Process process = new();
+            process.StartInfo = psi;
             process.Start();
 
-            if (waitForExit)
-                process.WaitForExit();
+            await process.WaitForExitAsync(cancellation);
 
-            return process is not null;
+            return process.StandardOutput.ReadToEnd();
         }
 
         /// <summary>
