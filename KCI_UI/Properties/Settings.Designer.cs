@@ -82,5 +82,40 @@ namespace KCI_UI.Properties {
                 this["KasperskySecureConnection"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("def")]
+        public string InstallationType {
+            get {
+                return ((string)(this["InstallationType"]));
+            }
+            set {
+                this["InstallationType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RebootRequired {
+            get {
+                return ((bool)(this["RebootRequired"]));
+            }
+            set {
+                this["RebootRequired"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime ExitTime {
+            get {
+                return ((global::System.DateTime)(this["ExitTime"]));
+            }
+            set {
+                this["ExitTime"] = value;
+            }
+        }
     }
 }

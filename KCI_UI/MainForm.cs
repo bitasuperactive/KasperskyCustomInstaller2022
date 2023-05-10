@@ -1,8 +1,10 @@
 ﻿using KCI_Library;
 using KCI_Library.DataAccess;
 using KCI_Library.Models;
+using Microsoft.VisualBasic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Threading;
 
 // TODO - (!) Error handling.
@@ -11,6 +13,9 @@ namespace KCI_UI
 #pragma warning disable IDE1006 // Estilos de nombres
     public partial class MainForm : Form
     {
+        private static readonly string _guid = "{8C644F28-42D7-4ECA-8C7B-10368F1C7B92}";
+        private static Mutex mutex = new Mutex(true, _guid);
+
         private KasperskyModel kaspersky;
         private RequirementsForm requirementsForm;
         /// <summary>
@@ -25,18 +30,62 @@ namespace KCI_UI
 
         public MainForm()
         {
+            if (!mutex.WaitOne(TimeSpan.Zero, true))
+                throw new ApplicationException("Aplicación en ejecución.");
+
             InitializeComponent();
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            loadingPanel.BringToFront();
             Progress<ProgressReportModel> progress = new();
+            loadingPanel.BringToFront();
+
+            Properties.Settings.Default.RebootRequired = true;
+
+            if (Properties.Settings.Default.RebootRequired)
+            {
+                InstallationType installation = (InstallationType)Enum.Parse(typeof(InstallationType), Properties.Settings.Default.InstallationType);
+                if (true || RebootDone())
+                {
+                    Properties.Settings.Default.RebootRequired = false;
+                    Properties.Settings.Default.Save();
+                    // *** Finish installation.
+                    progress.ProgressChanged += Installation_ProgressChanged;
+
+                    configurationForm = new ConfigurationForm(false, false);
+
+                    InstallationModel installationModel = new(configurationForm.Configuration, progress, new CancellationToken());
+                    DefaultInstallation2 installation2 = new(installationModel);
+                    await installation2.RunInstallation();
+                }
+                else
+                {
+                    Installation_RebootRequired(null, EventArgs.Empty);
+                }
+                Application.Exit();
+            }
+
             progress.ProgressChanged += obtainDependecies_UpdateProgress;
             await Task.Run(() => ObtainDependecies(progress));
             loadingPanel.SendToBack();
             ShowActivationButton();
             ShowAvailableLicenses();
+        }
+
+        private bool RebootDone()
+        {
+            EventLogQuery query = new EventLogQuery("System", PathType.LogName, "*[System[(EventID=6005)]]");
+            query.ReverseDirection = true;
+            query.TolerateQueryErrors = true;
+
+            using EventLogReader reader = new EventLogReader(query);
+
+            EventRecord eventInstance = reader.ReadEvent();
+
+            DateTime? lastBootTime = eventInstance.TimeCreated;
+
+            return lastBootTime > Properties.Settings.Default.ExitTime;
         }
 
 
@@ -171,18 +220,35 @@ namespace KCI_UI
         }
 
         // TODO - Manejar adecuadamente el progreso de los procesos de la instalación.
-        private void defaultInstallationButton_Click(object sender, EventArgs e)
+        private async void defaultInstallationButton_Click(object sender, EventArgs e)
         {
-            // TODO - Guardar config = defaultInstall.
+            loadingPanel.BringToFront();
+
+            Properties.Settings.Default.InstallationType = InstallationType.def.ToString();
             Progress<ProgressReportModel> progress = new Progress<ProgressReportModel>();
             progress.ProgressChanged += Installation_ProgressChanged;
-            DefaultInstallation installation = new(kaspersky, configurationForm.Configuration, progress, new CancellationToken());
-            installation.RunInstallation();
+            EventHandler rebootEvent = Installation_RebootRequired;
+            InstallationModel installationModel = new(configurationForm.Configuration, progress, new CancellationToken());
+            DefaultInstallation installation = new(installationModel, Application.ExecutablePath, kaspersky, rebootEvent);
+            await installation.RunInstallation();
+        }
+
+        private void Installation_RebootRequired(object? sender, EventArgs e)
+        {
+            Properties.Settings.Default.RebootRequired = true;
+            Properties.Settings.Default.Save();
+
+            DialogResult = MessageBox.Show("Se requiere reiniciar el equipo para continuar.", this.Name, MessageBoxButtons.OKCancel);
+            if (DialogResult == DialogResult.Cancel)
+                throw new Exception("Se ha impedido el reinicio del equipo.");
+
+            Process.Start("shutdown.exe", "/r /t 0"); // ¿Le da tiempo a ejecutar la función de cierre?
+            Application.Exit();
         }
 
         private void Installation_ProgressChanged(object? sender, ProgressReportModel e)
         {
-            Debug.WriteLine(e.Description + ": " + e.Percentage + "%");
+            loadingLabel.Text = e.Description + ": " + e.Percentage + "%";
         }
 
         private void autoInstallationButton_Click(object sender, EventArgs e)
@@ -190,6 +256,7 @@ namespace KCI_UI
             if (requirementsForm.Requirements.AllMet)
             {
                 // TODO - Realizar instalación automática.
+                Properties.Settings.Default.InstallationType = InstallationType.silent.ToString();
                 throw new NotImplementedException();
             }
             else
@@ -200,6 +267,8 @@ namespace KCI_UI
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            mutex.ReleaseMutex();
+            Properties.Settings.Default.ExitTime = DateTime.Now;
             Application.Exit();
         }
         #endregion

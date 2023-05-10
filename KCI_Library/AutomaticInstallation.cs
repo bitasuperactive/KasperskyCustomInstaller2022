@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace KCI_Library
 {
-    public class AutomaticInstallation : DefaultInstallation
+    public class AutomaticInstallation //: DefaultInstallation
     {
+        /*
         // TODO - Todos los requisitos han de haberse cumplido previamente.
         public AutomaticInstallation(KasperskyModel kaspersky, ConfigurationModel configuration, IProgress<ProgressReportModel> progress, CancellationToken cancellation) : base(kaspersky, configuration, progress, cancellation)
         {
@@ -21,7 +22,7 @@ namespace KCI_Library
         }
 
         // TODO - Avisar de reinicio automático.
-        protected override void Restart()
+        protected override void ResetInvoke()
         {
             throw new NotImplementedException();
         }
@@ -30,5 +31,6 @@ namespace KCI_Library
         {
             throw new NotImplementedException();
         }
+        */
     }
 }

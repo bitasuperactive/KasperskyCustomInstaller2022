@@ -8,38 +8,40 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Ubiety.Dns.Core;
 
 namespace KCI_Library
 {
     public class DefaultInstallation
     {
+        private InstallationModel installation;
+        private string applicationPath;  // System.Reflection.Assembly.GetEntryAssembly().Location;
         private KasperskyModel kaspersky;
-        private ConfigurationModel configuration;
-        private IProgress<ProgressReportModel> progress;
-        private CancellationToken cancellation;
         private SourcesModel sources;
-        private string dataPath = Path.Combine(Path.GetTempPath(), "kci_data.txt");
+        private event EventHandler rebootEvent;
 
-        public DefaultInstallation(KasperskyModel kaspersky, ConfigurationModel configuration, IProgress<ProgressReportModel> progress, CancellationToken cancellation)
+        public DefaultInstallation(InstallationModel installation, string applicationPath, KasperskyModel kaspersky, EventHandler rebootEvent)
         {
+            this.installation = installation;
+            this.applicationPath = applicationPath;
             this.kaspersky = kaspersky;
-            this.configuration = configuration;
-            this.progress = progress;
-            this.cancellation = cancellation;
+            this.rebootEvent = rebootEvent;
         }
 
         public async Task RunInstallation()
         {
-            await ExportClientConfiguration();
-            await UninstallClient();
-        }
+            await DownloadSources();
 
-        public async Task FinishInstallation()
-        {
-            GetDataFromFile(out string filePath, out string[]? licenses);
+            if (installation.Configuration.KeepKasperskyConfig)
+                await ExportClientConfiguration();
+            if (kaspersky.Installed)
+                await UninstallClient();
+            RegistryCleanUp();
+            RebootInvoke();
         }
 
         /// <summary>
@@ -50,18 +52,20 @@ namespace KCI_Library
         /// <returns></returns>
         public async Task DownloadSources()
         {
-            sources = await SqlConnector.CreateSourcesModel(configuration.ProductToInstall);
-            Uri setupUri = configuration.OfflineSetup ? sources.OfflineSetupUri : sources.OnlineSetupUri;
-            string filePath = Path.Combine(Path.GetTempPath(), "kas_installer.exe");
+            installation.Progress.Report(new(0, "Descargando recursos"));
+
+            sources = await SqlConnector.CreateSourcesModel(installation.Configuration.ProductToInstall, installation.Configuration.DoNotUseDatabaseLicenses);
+            Uri setupUri = installation.Configuration.OfflineSetup ? sources.OfflineSetupUri! : sources.OnlineSetupUri;
+            string filePath = Path.Combine(Path.GetTempPath(), InstallationModel.InstallerFileName);
 
             using HttpClient client = new();
-            using HttpResponseMessage response = await client.GetAsync(setupUri, HttpCompletionOption.ResponseHeadersRead, cancellation);
+            using HttpResponseMessage response = await client.GetAsync(setupUri, HttpCompletionOption.ResponseHeadersRead, installation.Cancellation);
 
             response.EnsureSuccessStatusCode();
 
             long? totalBytes = response.Content.Headers.ContentLength;
 
-            using Stream stream = await response.Content.ReadAsStreamAsync(cancellation);
+            using Stream stream = await response.Content.ReadAsStreamAsync(installation.Cancellation);
             using Stream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write, FileShare.None);
 
             byte[] buffer = new byte[8192];
@@ -70,42 +74,49 @@ namespace KCI_Library
 
             while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
             {
-                cancellation.ThrowIfCancellationRequested();
+                installation.Cancellation.ThrowIfCancellationRequested();
 
                 await fileStream.WriteAsync(buffer, 0, bytesRead);
 
                 totalBytesRead += bytesRead;
 
                 int percentage = (int)(100 * (double)totalBytesRead / totalBytes.GetValueOrDefault());
-                progress.Report(new(percentage, "Descargando instalador"));
+                installation.Progress.Report(new(percentage, "Descargando instalador"));
             }
 
-            SaveDataToFile(filePath, sources.Licenses);
+            //if (!installation.Configuration.DoNotUseDatabaseLicenses)
+                StoreLicenses(sources.Licenses);
         }
 
-        protected async Task ExportClientConfiguration()  // *** Guardar configPath
+        protected async Task ExportClientConfiguration()
         {
-            string configPath = Path.Combine(Path.GetTempPath(), "kas_config.cfg");
-            string log = await ProcessExecutor.WindowHidden($@"{kaspersky.Root}\avp.com", $"export {configPath}", cancellation);
-            File.WriteAllText(Path.Combine(Path.GetTempPath(), "kas_config_export_log.txt"), log);
+            installation.Progress.Report(new(0, "Exportando configuración"));
+
+            string configPath = Path.Combine(Path.GetTempPath(), InstallationModel.ConfigFileName);
+            string log = await ProcessExecutor.WindowHidden($@"{kaspersky.Root}\avp.com", $"export {configPath}", installation.Cancellation);
+
+            if (string.IsNullOrEmpty(log) || !File.Exists(configPath))
+                throw new Exception("No ha sido posible exportar la configuración.");
         }
 
         protected virtual async Task UninstallClient()
         {
-            string log = await ProcessExecutor.WindowHidden("msiexec.exe", $"/i {kaspersky.Guid}", cancellation);  //  /norestart
-            File.WriteAllText(Path.Combine(Path.GetTempPath(), "kas_uninstall_log.txt"), log);
+            installation.Progress.Report(new(0, "Desintalando antivirus"));
+
+            string log = await ProcessExecutor.WindowHidden("msiexec.exe", $"/i {kaspersky.Guid} /norestart REMOVE=ALL", installation.Cancellation);  //  /norestart
+            File.WriteAllText(Path.Combine(Path.GetTempPath(), "kas_uninstall_log.txt"), log); // null
 
             if (Dependencies.AnyProductInstalled(out RegistryKey? kaslabKey))
             {
                 kaslabKey!.Close();
                 throw new InvalidOperationException($"La desinstalación de {kaspersky.FullName} ha sido interrumpida.");
             }
-
-            // *** restartRequired = true
         }
 
-        protected void RegistryCleanUp()
+        protected void RegistryCleanUp() // **********************************************************************
         {
+            installation.Progress.Report(new(0, "Limpiando registro"));
+
             using RegistryKey LocalMachine32View = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
             using RegistryKey LocalMachine64View = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64);
 
@@ -119,90 +130,42 @@ namespace KCI_Library
             {
                 throw;
             }
+            catch (SecurityException)
+            {
+                //throw;
+            }
 
             void DeleteSubKeyTree(string name)
             {
-                using RegistryKey? key32 = LocalMachine32View.OpenSubKey(name);
-                using RegistryKey? key64 = LocalMachine32View.OpenSubKey(name);
+                using RegistryKey? key32 = LocalMachine32View.OpenSubKey(name, true);
+                using RegistryKey? key64 = LocalMachine64View.OpenSubKey(name, true);
 
                 if (key32 != null)
-                    LocalMachine32View.DeleteSubKeyTree(name);
+                {
+                    key32!.DeleteSubKeyTree("");
+                }
                 if (key64 != null)
-                    LocalMachine64View.DeleteSubKeyTree(name);
+                {
+                    key64!.DeleteSubKeyTree("");
+                }
             }
         }
 
-        protected virtual void Restart()
+        protected virtual void RebootInvoke()
         {
-            throw new NotImplementedException();
-        }
+            installation.Progress.Report(new(0, "Reiniciando"));
 
-        protected virtual async Task InstallClient(string filePath)
-        {
-            await Process.Start(filePath).WaitForExitAsync(cancellation);
-
-            kaspersky = Dependencies.CreateKasperskyModel();
-
-            if (!kaspersky.Installed)
+            using (RegistryKey runOnceKey = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\RunOnce", true)!)
             {
-                throw new InvalidOperationException($"La instalación de Kaspersky ha sido interrumpida.");  // TODO - Mantener el objeto configuration.
-            }
-        }
-
-        protected async Task UpdateClientDatabase()
-        {
-            string log = await ProcessExecutor.WindowHidden($@"{kaspersky.Root}\avp.com", "Update", cancellation);
-            File.WriteAllText(Path.Combine(Path.GetTempPath(), "kas_update_log.txt"), log);
-        }
-
-        protected async Task ActivateClient(string[] licenses)
-        {
-            foreach (string license in licenses)
-            {
-                string log = await ProcessExecutor.WindowHidden($@"{kaspersky.Root}\avp.com", $"License /add {license}", cancellation);
-
-                if (ActivationSuccess(log))
-                    return;
+                runOnceKey.SetValue("KasperskyCustomInstaller", applicationPath, RegistryValueKind.String);
             }
 
-            throw new ArgumentException("No ha sido posible activar la aplicación.");
-
-            bool ActivationSuccess(string log)
-            {
-                return !log.Contains("failed"); // AddKeyOrActivationCode failed, result = 0x80010102
-
-                // using RegistryKey LocalMachine32View = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
-                // using RegistryKey wmiHlpSubKey = LocalMachine32View.OpenSubKey(@"SOFTWARE\KasperskyLab\WmiHlp");
-                // return !wmiHlpSubKey.GetValueNames().Contains("IsReportedExpired");
-            }
+            rebootEvent.Invoke(this, EventArgs.Empty);
         }
 
-        protected async Task ImportClientConfiguration(string configPath)
+        protected void StoreLicenses(string[]? licenses)
         {
-            string log = await ProcessExecutor.WindowHidden($@"{kaspersky.Root}\avp.com", $"import {configPath}", cancellation);
-            File.WriteAllText(Path.Combine(Path.GetTempPath(), "kas_config_import_log.txt"), log);
-        }
-
-        protected async Task UninstallKsde()
-        {
-            if (!kaspersky.Ksde.Installed)
-                return;
-
-            Process[] processes = Process.GetProcessesByName("ksde").Concat(Process.GetProcessesByName("ksdeui")).ToArray();
-            foreach (Process p in processes)
-            {
-                p.Kill();
-            }
-
-            string log = await ProcessExecutor.WindowHidden("msiexec.exe", $"/x {kaspersky.Ksde.Guid} /quiet", cancellation);
-            File.WriteAllText(Path.Combine(Path.GetTempPath(), "ksde_uninstall_log.txt"), log);
-        }
-
-        protected void SaveDataToFile(string filePath, string[]? licenses)
-        {
-            using StreamWriter writer = new(dataPath, true);
-
-            writer.WriteLine(filePath);
+            using StreamWriter writer = new(Path.Combine(Path.GetTempPath(), InstallationModel.LicensesFileName));
 
             if (licenses is null)
             {
@@ -215,27 +178,6 @@ namespace KCI_Library
             {
                 writer.WriteLine(str);
             }
-        }
-
-        protected void GetDataFromFile(out string filePath, out string[] licenses)
-        {
-            if (!File.Exists(dataPath))
-                throw new FileNotFoundException($"El archivo {dataPath} no existe.");
-
-            using StreamReader reader = new(dataPath);
-
-            filePath = reader.ReadLine()!;
-
-            int licenses_length = int.Parse(reader.ReadLine()!);
-            if (licenses_length == 0)
-            {
-                licenses = Array.Empty<string>();
-                return;
-            }
-
-            licenses = new string[licenses_length];
-            for (int i = 0; i < licenses_length; i++)
-                licenses[i] = reader.ReadLine()!;
         }
     }
 }

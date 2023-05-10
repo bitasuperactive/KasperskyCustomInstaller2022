@@ -19,4 +19,17 @@ namespace KCI_Library
         KIS,
         KTS
     }
+
+    /// <summary>
+    /// Tipos de instalación disponibles.
+    /// <br/>
+    /// <c>def</c> : Con interfaz de usuario.
+    /// <br/>
+    /// <c>silent</c> : Sin interfaz de usuario.
+    /// </summary>
+    public enum InstallationType
+    {
+        def,
+        silent
+    }
 }

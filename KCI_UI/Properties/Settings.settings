@@ -17,5 +17,14 @@
     <Setting Name="KasperskySecureConnection" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="InstallationType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">def</Value>
+    </Setting>
+    <Setting Name="RebootRequired" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExitTime" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

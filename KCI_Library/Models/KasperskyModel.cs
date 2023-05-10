@@ -13,7 +13,7 @@
         /// Almacena el id correspondiente en la base de datos al nombre
         /// del producto.
         /// </summary>
-        public ProductId Id { get => GetValueOrThrow(_id); private set => _id = value; }
+        public ProductId Id { get; private set; }
         /// <summary>
         /// Nombre completo del producto.
         /// </summary>
@@ -39,7 +39,6 @@
         /// </summary>
         public KsdeModel Ksde { get; private set; }
 
-        private ProductId _id;
         private string? _fullName;
         private string? _guid;
         private DirectoryInfo? _root;

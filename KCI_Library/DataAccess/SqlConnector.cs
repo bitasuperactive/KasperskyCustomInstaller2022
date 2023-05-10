@@ -77,7 +77,7 @@ namespace KCI_Library.DataAccess
         /// </summary>
         /// <param name="id">El <see cref="ProductId"/> del producto a obtener.</param>
         /// <returns><see cref="SourcesModel"/></returns>
-        public static async Task<SourcesModel> CreateSourcesModel(ProductId id)
+        public static async Task<SourcesModel> CreateSourcesModel(ProductId id, bool doNotUseDataBaseLicenses)
         {
             using MySqlConnection connection = new(ConnectionString);
 
@@ -86,7 +86,8 @@ namespace KCI_Library.DataAccess
             p.Add("OnlineSetupUrl", dbType: DbType.String, direction: ParameterDirection.Output);
             p.Add("OfflineSetupUrl", dbType: DbType.String, direction: ParameterDirection.Output);
             p.Add("LastUpdated", dbType: DbType.DateTime2, direction: ParameterDirection.Output);
-            p.Add("Licenses", dbType: DbType.String, direction: ParameterDirection.Output);
+            if (!doNotUseDataBaseLicenses)
+                p.Add("Licenses", dbType: DbType.String, direction: ParameterDirection.Output);
 
             try
             {
@@ -105,7 +106,7 @@ namespace KCI_Library.DataAccess
                             new Uri("https://products.s.kaspersky-labs.com/spanish/homeuser/kis2018/for_reg_es/startup.exe"));
                     case ProductId.KTS:
                         return new SourcesModel(
-                            new Uri("https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe"));
+                            new Uri("https://pdc5.pa2.pdc.kaspersky.com/DownloadManagers/2a/26/2a26001a-dac7-4096-8f99-275c4d5abab5/kts21.3.10.391abes_25655.exe")); // https://products.s.kaspersky-labs.com/spanish/homeuser/kts2018/for_reg_es/startup.exe
                 }
 
                 throw;
